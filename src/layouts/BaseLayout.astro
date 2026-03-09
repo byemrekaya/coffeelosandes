@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Coffee Los Andes – Venezuelan Origin, B2B Coffee Craft',
+  description = 'A premium, cinematic brand experience for wholesale buyers, cafés, and corporate partners, tracing coffee from Venezuelan plantations to refined roasted coffee.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Coffee Los Andes" />
+    <meta name="theme-color" content="#050506" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="page-shell relative overflow-x-hidden">
+    <div class="pointer-events-none fixed inset-0 -z-20 bg-gradient-to-b from-black via-espresso/80 to-charcoal"></div>
+    <div class="pointer-events-none fixed inset-0 -z-10 texture-overlay opacity-70"></div>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      function initScrollReveal() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const els = document.querySelectorAll('[data-reveal]');
+        const obs = new IntersectionObserver(
+          (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('revealed')),
+          { rootMargin: '0px 0px -60px 0px', threshold: 0.08 }
+        );
+        els.forEach((el) => obs.observe(el));
+      }
+      document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initScrollReveal) : initScrollReveal();
+    </script>
+  </body>
+</html>
+

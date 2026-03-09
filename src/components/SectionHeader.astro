@@ -1,0 +1,22 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  align?: 'left' | 'center';
+}
+
+const { eyebrow, title, description, align = 'left' } = Astro.props;
+---
+
+<header
+  class:list={[
+    'space-y-3',
+    align === 'center' ? 'text-center mx-auto max-w-3xl' : 'text-left',
+  ]}
+>
+  {eyebrow && <p class="stage-eyebrow">{eyebrow}</p>}
+  <h2 class="stage-heading">{title}</h2>
+  {description && <p class="stage-subtitle">{description}</p>}
+</header>
+

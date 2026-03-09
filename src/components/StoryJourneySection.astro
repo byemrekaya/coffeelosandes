@@ -1,0 +1,29 @@
+---
+import { storyStages } from '../data/storyStages';
+import ProcessStageSection from './ProcessStageSection.astro';
+import SectionHeader from './SectionHeader.astro';
+import StoryTransitionBlock from './StoryTransitionBlock.astro';
+---
+
+<section id="journey" class="mt-32" data-reveal>
+  <div class="section-shell">
+    <SectionHeader
+      eyebrow="Venezüella'dan fincana"
+      title="Kahvenin B2B için yeniden kurgulanmış yolculuğu."
+      description="Coffee Los Andes, menşe hikâyesini yalnızca anlatmaz; operasyonlarınız için ölçülebilir, planlanabilir bir tedarik mimarisine dönüştürür."
+    />
+  </div>
+
+  <div class="mt-10">
+    {storyStages
+      .sort((a, b) => a.order - b.order)
+      .map((stage, index) => (
+        <>
+          {index === 3 && <StoryTransitionBlock label="Kalite Kontrolü → İşleme" />}
+          {index === 6 && <StoryTransitionBlock label="Lojistik → Kavurma" />}
+          <ProcessStageSection stage={stage} index={index} />
+        </>
+      ))}
+  </div>
+</section>
+

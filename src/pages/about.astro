@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHeader from '../components/SectionHeader.astro';
+import CTASection from '../components/CTASection.astro';
+import { brandValues } from '../data/brand';
+---
+
+<BaseLayout
+  title="About – Coffee Los Andes"
+  description="Coffee Los Andes: Venezuelan sourcing roots, expertise from plantation to packaged coffee, roasting philosophy, and commitment to B2B quality and consistency."
+>
+  <section class="pt-32 pb-20">
+    <div class="section-shell">
+      <SectionHeader
+        eyebrow="Marka Hikâyesi"
+        title="Venezüella menşeinden, B2B sahnesine."
+        description="Coffee Los Andes, kahveyi yalnızca tedarik etmez; operasyonlarınız için ölçülebilir, izlenebilir ve sürdürülebilir bir tedarik mimarisi kurar."
+        align="center"
+      />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section-shell grid gap-16 md:grid-cols-2 md:items-center">
+      <div class="space-y-6">
+        <h2 class="stage-heading text-2xl md:text-3xl">Kimiz?</h2>
+        <div class="stage-copy space-y-4">
+          <p>
+            Coffee Los Andes, Venezüella’nın And eteklerindeki plantasyonlardan başlayan bir kahve yolculuğudur. Bu yolculuk;
+            hasat, işleme, kurutma, lojistik, kavurma ve paketlemeyi tek bir B2B değer zinciri olarak kurgular.
+          </p>
+          <p>
+            Amacımız, kafeler, restoranlar, oteller ve kurumsal ofisler için tutarlı, izlenebilir ve premium standartlarda
+            kahve sunmaktır. Menşei şeffaflığı, lot bazlı kalite kontrolü ve uzun vadeli ortaklık anlayışı temel
+            taahhütlerimizdir.
+          </p>
+        </div>
+      </div>
+      <div class="glass-panel texture-overlay relative overflow-hidden px-8 py-12">
+        <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-terracotta/30 via-transparent to-transparent blur-3xl" />
+        <div class="relative space-y-4">
+          <p class="stage-eyebrow">Venezüella · And Etekleri</p>
+          <p class="text-sm text-cream/80">
+            Okyanus rüzgârı ile dağ serinliğinin buluştuğu mikro iklimler. Gölgeli plantasyon sıraları, kontrollü hasat
+            protokolleri ve lot bazlı işleme. Kahvenin karakteri burada şekillenir.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section-shell">
+      <SectionHeader
+        eyebrow="Değerlerimiz"
+        title="Neden bize güvenmelisiniz?"
+        description="Coffee Los Andes, B2B ortakları için şeffaflık, tutarlılık ve uzun vadeli iş birliği taahhüt eder."
+      />
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {brandValues.map((value) => (
+          <article class="glass-panel border border-cream/5 px-6 py-8">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-cream/80">{value.title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-cream/70">{value.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section-shell">
+      <div class="glass-panel texture-overlay relative overflow-hidden px-8 py-12 md:px-12 md:py-16">
+        <div class="absolute inset-0 bg-gradient-to-br from-olive/20 via-transparent to-bronze/10" />
+        <div class="relative max-w-2xl space-y-6">
+          <h2 class="stage-heading text-2xl md:text-3xl">Kavurma Felsefesi</h2>
+          <p class="stage-copy">
+            Her menşe ve hedef kullanım için ayrı kavurma profilleri geliştiririz. Espresso barlar, filtre odaklı
+            kafeler, ofis makineleri ve kapsül projeleri için farklı ısıl eğriler, gelişim süreleri ve yükseklik
+            ayarları kullanılır. Her batch; renk, yoğunluk ve cupping notlarıyla kayıt altına alınır. Tekrar siparişlerde
+            aynı imza karakteri korunur.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow="İş Birliği"
+    title="B2B ortaklığı için hazır mısınız?"
+    body="Coffee Los Andes ekibi, hacim ihtiyaçlarınızı, menü hedeflerinizi ve operasyonel gerçekliklerinizi dinlemek için hazır."
+    primaryLabel="İletişime Geçin"
+    primaryHref="/contact"
+    secondaryLabel="Kahve Portföyü"
+    secondaryHref="/products"
+  />
+</BaseLayout>

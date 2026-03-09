@@ -1,0 +1,18 @@
+---
+interface Props {
+  label?: string;
+  variant?: 'line' | 'map' | 'texture';
+}
+
+const { label = 'Venezüella → Fincan', variant = 'line' } = Astro.props;
+---
+
+<section class="py-12" aria-hidden="true">
+  <div class="section-shell">
+    <div class="flex flex-col items-center gap-6">
+      <div class="h-px w-24 bg-gradient-to-r from-transparent via-bronze/40 to-transparent" />
+      <p class="text-[10px] uppercase tracking-[0.3em] text-cream/40">{label}</p>
+      <div class="h-px w-24 bg-gradient-to-r from-transparent via-bronze/40 to-transparent" />
+    </div>
+  </div>
+</section>

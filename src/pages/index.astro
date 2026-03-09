@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import StoryJourneySection from '../components/StoryJourneySection.astro';
+import B2BValueSection from '../components/B2BValueSection.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Coffee Los Andes – Venezuelan Origin, Premium B2B Coffee"
+  description="From Venezuelan plantations through harvesting, processing, drying, roasting, and packaging—a complete premium coffee journey for wholesale buyers, cafés, and corporate partners."
+>
+  <HeroSection />
+  <StoryJourneySection />
+  <B2BValueSection />
+  <ProductGrid
+    featuredOnly={true}
+    eyebrow="Seçili Portföy"
+    title="B2B için tasarlanmış kahve profilleri"
+    description="Her profil, kafe, restoran, ofis veya kapsül operasyonları için özel olarak kavrulmuş ve paketlenmiştir."
+  />
+  <CTASection
+    eyebrow="Toptan İş Birliği"
+    title="Kahve yolculuğunuzu birlikte kurgulayalım."
+    body="Coffee Los Andes, hacim, tutarlılık ve menşe şeffaflığı konusunda ciddi B2B ortakları arıyor. Talebinizi iletin; ekibimiz en kısa sürede sizinle iletişime geçecektir."
+    primaryLabel="B2B İletişim Formu"
+    primaryHref="/contact"
+    secondaryLabel="Kahve Portföyü"
+    secondaryHref="/products"
+  />
+</BaseLayout>

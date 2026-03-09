@@ -1,0 +1,77 @@
+---
+import type { StoryStage } from '../data/storyStages';
+
+interface Props {
+  stage: StoryStage;
+  index: number;
+}
+
+const { stage, index } = Astro.props;
+
+const accentClass =
+  stage.accent === 'terracotta'
+    ? 'from-terracotta/40'
+    : stage.accent === 'olive'
+    ? 'from-olive/40'
+    : stage.accent === 'gold'
+    ? 'from-gold/25'
+    : 'from-bronze/35';
+
+const isRoasting = stage.id === 'roasting';
+---
+
+<section
+  id={stage.id}
+  class="relative mt-20 scroll-mt-32"
+  aria-label={stage.title}
+  data-reveal
+>
+  <div class="section-shell grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-center">
+    <div class="relative order-2 md:order-1">
+      <div class={`glass-panel relative overflow-hidden ${isRoasting ? 'roasting-glow' : ''}`}>
+        {isRoasting && (
+          <div
+            class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(192,138,77,0.25),transparent_70%)] opacity-80"
+            aria-hidden="true"
+          />
+        )}
+        <div
+          class:list={[
+            'absolute inset-0 bg-gradient-to-br to-black/80',
+            accentClass,
+          ]}
+          aria-hidden="true"
+        />
+        <div class="relative aspect-[4/3] w-full overflow-hidden">
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_10%_0,rgba(245,233,216,0.18),transparent_55%),radial-gradient(circle_at_90%_100%,rgba(160,87,61,0.4),transparent_60%)] opacity-70"
+          />
+          <div class="absolute inset-0 grain-overlay" />
+          <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div class="absolute inset-6 flex items-end justify-between">
+            <div>
+              <p class="stage-eyebrow">{stage.label}</p>
+              <h3 class="font-display text-lg md:text-2xl text-cream">
+                {stage.title}
+              </h3>
+            </div>
+            <span class="text-xs font-mono text-cream/60">
+              {String(index + 1).padStart(2, '0')} / 10
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 space-y-4 md:order-2">
+      <p class="stage-eyebrow">Süreç Aşaması</p>
+      <h3 class="stage-heading text-2xl md:text-3xl">{stage.subtitle}</h3>
+      <div class="stage-copy">
+        {stage.copy.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+

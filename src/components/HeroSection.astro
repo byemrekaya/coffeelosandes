@@ -1,0 +1,76 @@
+---
+import HeroMotionIsland from './HeroMotionIsland.astro';
+---
+
+<HeroMotionIsland>
+  <section class="relative min-h-[90vh] overflow-hidden pt-28">
+    <div class="section-shell relative flex flex-col gap-16 md:flex-row md:items-center">
+      <div class="relative z-10 max-w-xl space-y-6">
+        <p class="stage-eyebrow">Venezüella · B2B Kahve</p>
+        <h1 data-hero-headline class="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-cream">
+        And Dağlarından
+        <span class="block text-terracotta">kurumsal kahve sahnenize.</span>
+      </h1>
+      <p data-hero-subtitle class="stage-subtitle max-w-lg">
+        Coffee Los Andes, Venezüella menşeini; plantasyondan kavurma mimarisine, lojistikten paketlemeye kadar uçtan uca
+        kurgulanmış bir B2B kahve yolculuğuna dönüştürür.
+      </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#journey" class="btn-primary" data-hero-cta>
+          Yolculuğu Keşfet
+        </a>
+        <a href="/products" class="btn-secondary" data-hero-cta>
+          Kahve Portföyü
+        </a>
+        <a href="/contact" class="btn-secondary" data-hero-cta>
+          Ortağınız Olun
+        </a>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-6 text-[11px] text-cream/60">
+        <div>
+          <span class="block font-semibold text-cream/80">Plantasyondan fincana</span>
+          <span>İzlenebilir tedarik zinciri</span>
+        </div>
+        <div>
+          <span class="block font-semibold text-cream/80">B2B odaklı kavurma</span>
+          <span>Hacim için tasarlanmış profiller</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="relative z-0 mt-10 w-full md:mt-0 md:max-w-md" data-hero-visual>
+      <div class="glass-panel texture-overlay relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-olive/40 via-transparent to-black/80" aria-hidden="true" />
+        <div class="relative aspect-[4/5] w-full overflow-hidden">
+          <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,233,216,0.2),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(192,138,77,0.55),transparent_65%)]"
+          />
+          <div class="absolute inset-0 grain-overlay" />
+          <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent" />
+
+          <div class="absolute inset-6 flex flex-col justify-between">
+            <div class="space-y-2">
+              <p class="stage-eyebrow">Venezüella · Plantasyonlar</p>
+              <p class="text-xs text-cream/70">
+                Sisli dağ sırtları, gölgeli plantasyon sıraları ve sabah ışığında parlayan kahve kirazları. Henüz fincana
+                dönüşmemiş, ama hikâyesi yazılmış kahve.
+              </p>
+            </div>
+
+            <div class="flex items-end justify-between text-[11px] text-cream/60">
+              <div>
+                <p class="uppercase tracking-[0.22em]">Coffee Los Andes</p>
+                <p>Origin · Processing · Roasting · Packaging</p>
+              </div>
+              <p class="font-mono">01 · 10</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</HeroMotionIsland>
+
