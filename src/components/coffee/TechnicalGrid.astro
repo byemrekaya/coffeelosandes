@@ -1,0 +1,43 @@
+---
+import type { CoffeeLot } from '../../data/coffeeLots';
+
+interface Props {
+  lot: CoffeeLot;
+}
+
+const { lot } = Astro.props;
+
+const rows: { label: string; value: string }[] = [
+  { label: 'Producer', value: lot.producer },
+  { label: 'Farm / Hacienda', value: lot.farm },
+  { label: 'Variety', value: lot.variety },
+  { label: 'Process', value: lot.process },
+  { label: 'Region / State', value: lot.region },
+  { label: 'Country', value: lot.country },
+  { label: 'Cup score', value: lot.score.toFixed(2) },
+  { label: 'Rank', value: `#${lot.rank}` },
+];
+---
+
+<section id="lot-details" class="border-y border-cream/[0.06] bg-espresso/25 py-20 md:py-24" data-reveal>
+  <div class="section-shell">
+    <div class="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="stage-eyebrow mb-2">Technical details</p>
+        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">Origin & lot specification</h2>
+      </div>
+      <p class="max-w-md text-sm text-cream/55">
+        Verified lot parameters for purchasing, QC, and menu communication.
+      </p>
+    </div>
+
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {rows.map((row) => (
+        <div class="rounded-xl border border-cream/[0.08] bg-charcoal/40 px-5 py-5 transition-colors hover:border-cream/15">
+          <p class="text-[11px] font-medium uppercase tracking-[0.18em] text-cream/45">{row.label}</p>
+          <p class="mt-2 text-[15px] leading-snug text-cream/90">{row.value}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

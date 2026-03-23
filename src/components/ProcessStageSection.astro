@@ -22,12 +22,12 @@ const isRoasting = stage.id === 'roasting';
 
 <section
   id={stage.id}
-  class="relative mt-20 scroll-mt-32"
+  class="process-stage relative mt-20 scroll-mt-32"
   aria-label={stage.title}
   data-reveal
 >
-  <div class="section-shell grid gap-10 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] md:items-center">
-    <div class="relative order-2 md:order-1">
+  <div class="section-shell grid gap-12 lg:gap-16 xl:gap-20 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] md:items-center">
+    <div class="relative order-2 md:order-1" data-reveal-step="1">
       <div class={`glass-panel relative overflow-hidden ${isRoasting ? 'roasting-glow' : ''}`}>
         {isRoasting && (
           <div
@@ -64,9 +64,9 @@ const isRoasting = stage.id === 'roasting';
     </div>
 
     <div class="order-1 space-y-4 md:order-2">
-      <p class="stage-eyebrow">Süreç Aşaması</p>
-      <h3 class="stage-heading text-2xl md:text-3xl">{stage.subtitle}</h3>
-      <div class="stage-copy">
+      <p class="stage-eyebrow" data-reveal-step="2">Süreç Aşaması</p>
+      <h3 class="stage-heading text-2xl md:text-3xl" data-reveal-step="3">{stage.subtitle}</h3>
+      <div class="stage-copy" data-reveal-step="4">
         {stage.copy.map((paragraph) => (
           <p>{paragraph}</p>
         ))}
@@ -74,4 +74,3 @@ const isRoasting = stage.id === 'roasting';
     </div>
   </div>
 </section>
-

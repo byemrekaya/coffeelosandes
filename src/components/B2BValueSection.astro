@@ -3,7 +3,7 @@ import { b2bPoints } from '../data/brand';
 import SectionHeader from './SectionHeader.astro';
 ---
 
-<section class="mt-28" data-reveal>
+<section class="mt-20 md:mt-28" data-reveal>
   <div class="section-shell space-y-10">
     <SectionHeader
       eyebrow="B2B için tasarlandı"
@@ -12,9 +12,9 @@ import SectionHeader from './SectionHeader.astro';
       align="center"
     />
 
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-      {b2bPoints.map((point) => (
-        <article class="glass-panel relative flex h-full flex-col border border-cream/5 bg-espresso/40 px-5 py-6">
+    <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+      {b2bPoints.map((point, i) => (
+        <article class="glass-panel relative flex h-full flex-col border border-cream/5 bg-espresso/40 px-5 py-6" data-reveal-step={String(i + 1)}>
           <div
             class="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full bg-gradient-to-br from-bronze/25 via-transparent to-transparent blur-2xl"
             aria-hidden="true"

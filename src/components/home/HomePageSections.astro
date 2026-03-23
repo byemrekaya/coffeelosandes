@@ -1,0 +1,48 @@
+---
+import SectionHeader from '../SectionHeader.astro';
+import ContactForm from '../ContactForm.astro';
+import CTASection from '../CTASection.astro';
+import { brandValues } from '../../data/brand';
+---
+
+<section class="py-20 md:py-28" data-reveal>
+  <div class="section-shell">
+    <SectionHeader
+      eyebrow="Marka Hikâyesi"
+      title="Venezüella menşeinden, B2B sahnesine."
+      description="Coffee Los Andes, kahveyi yalnızca tedarik etmez; operasyonlarınız için ölçülebilir, izlenebilir ve sürdürülebilir bir tedarik mimarisi kurar."
+      align="center"
+    />
+    <div class="mt-16 grid gap-8 md:grid-cols-3">
+      {brandValues.map((value) => (
+        <article class="glass-panel px-6 py-8" data-reveal>
+          <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-cream/80">{value.title}</h3>
+          <p class="mt-4 text-sm leading-relaxed text-cream/70">{value.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<section class="py-20 md:py-28" data-reveal>
+  <div class="section-shell">
+    <SectionHeader
+      eyebrow="B2B İletişim"
+      title="Toptan iş birliği talebinizi iletin"
+      description="Coffee Los Andes ekibi, hacim ihtiyaçlarınızı ve operasyonel gerçekliklerinizi dinlemek için hazır."
+    />
+    <div class="mt-12 max-w-2xl">
+      <ContactForm />
+    </div>
+  </div>
+</section>
+
+<CTASection
+  eyebrow="İş Birliği"
+  title="B2B ortaklığı için hazır mısınız?"
+  body="Coffee Los Andes ekibi, hacim ihtiyaçlarınızı, menü hedeflerinizi ve operasyonel gerçekliklerinizi dinlemek için hazır."
+  primaryLabel="İletişime Geçin"
+  primaryHref="/contact"
+  secondaryLabel="Kahve Portföyü"
+  secondaryHref="/products"
+/>

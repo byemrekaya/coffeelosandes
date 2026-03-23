@@ -14,21 +14,52 @@
     const root = document.getElementById('hero-motion-root');
     if (!root) return;
 
+    const scene = root.querySelector('[data-hero-scene]');
+    const eyebrow = root.querySelector('[data-hero-eyebrow]');
     const headline = root.querySelector('[data-hero-headline]');
     const subtitle = root.querySelector('[data-hero-subtitle]');
     const ctas = root.querySelectorAll('[data-hero-cta]');
-    const visual = root.querySelector('[data-hero-visual]');
+    const scrollHint = root.querySelector('[data-hero-scroll-hint]');
 
-    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    // Ken Burns: hafif zoom + pan
+    gsap.set(scene, { scale: 1.08, transformOrigin: '50% 50%' });
+    gsap.to(scene, {
+      scale: 1,
+      duration: 4,
+      ease: 'power2.out',
+    });
+    gsap.set(scene, { x: 0, y: 0 });
+    gsap.to(scene, {
+      x: -20,
+      y: -15,
+      duration: 5,
+      ease: 'none',
+    });
 
-    tl.fromTo(
-      headline,
-      { opacity: 0, y: 24 },
-      { opacity: 1, y: 0, duration: 0.9 }
-    )
-      .fromTo(subtitle, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.5')
-      .fromTo(ctas, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.1 }, '-=0.3')
-      .fromTo(visual, { opacity: 0, scale: 1.02 }, { opacity: 1, scale: 1, duration: 1 }, '-=1.2');
+    // Metin girişi - belirgin sıralı animasyon
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.4 });
+
+    tl.fromTo(eyebrow, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 })
+      .fromTo(headline, { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1 }, '-=0.3')
+      .fromTo(subtitle, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.7 }, '-=0.6')
+      .fromTo(ctas, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, '-=0.4')
+      .fromTo(scrollHint, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.6 }, '-=0.2');
+
+    // Hasatçı silüetleri - hafif sallanma
+    const harvesters = root.querySelectorAll('.harvester-1, .harvester-2, .harvester-3');
+    harvesters.forEach((h, i) => {
+      gsap.fromTo(
+        h,
+        { x: 0 },
+        {
+          x: 4,
+          duration: 2.5 + i * 0.5,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        }
+      );
+    });
   }
 
   if (document.readyState === 'loading') {

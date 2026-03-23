@@ -1,55 +1,55 @@
 ---
+import { site, mailtoB2B } from '../config/site';
 ---
 
-<footer class="mt-24 border-t border-cream/5 bg-black/40 py-10 text-xs text-cream/60">
-  <div class="section-shell flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-    <div class="space-y-3">
+<footer class="mt-24 border-t border-cream/[0.06] bg-charcoal/50 py-16 text-sm">
+  <div class="section-shell flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
+    <div class="space-y-4 max-w-xs">
       <div class="flex items-center gap-3">
-        <div class="h-8 w-8 rounded-full bg-gradient-to-br from-espresso to-bronze shadow-soft-gold" aria-hidden="true" />
-        <div class="flex flex-col leading-tight">
-          <span class="font-display text-[10px] tracking-[0.3em] uppercase text-cream/50">Coffee</span>
-          <span class="font-display text-xs tracking-[0.2em] uppercase text-cream">Los Andes</span>
-        </div>
+        <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-bronze/80 to-espresso" aria-hidden="true" />
+        <span class="font-display text-lg font-semibold tracking-brand uppercase text-cream">{site.name}</span>
       </div>
-      <p class="max-w-sm text-[11px] text-cream/60">
+      <p class="text-[14px] leading-relaxed text-cream/60">
         Venezüella menşeli, uçtan uca kurgulanmış bir B2B kahve yolculuğu. Plantasyondan fincana kadar şeffaf, izlenebilir
         ve tutarlı.
       </p>
     </div>
 
-    <div class="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-12">
-      <div class="space-y-3">
-        <h3 class="text-[11px] font-semibold uppercase tracking-[0.25em] text-cream/70">Bağlantılar</h3>
-        <ul class="space-y-1.5">
-          <li><a href="/products" class="hover:text-cream">Kahve Portföyü</a></li>
-          <li><a href="/about" class="hover:text-cream">Marka Hikâyesi</a></li>
-          <li><a href="/contact" class="hover:text-cream">B2B İletişim</a></li>
+    <div class="grid grid-cols-2 gap-10 md:grid-cols-3 md:gap-16">
+      <div class="space-y-4">
+        <h3 class="stage-eyebrow text-cream/60">Bağlantılar</h3>
+        <ul class="space-y-2.5">
+          <li><a href="/products" class="text-cream/70 transition hover:text-cream">Kahve Portföyü</a></li>
+          <li><a href="/about" class="text-cream/70 transition hover:text-cream">Marka Hikâyesi</a></li>
+          <li><a href="/contact" class="text-cream/70 transition hover:text-cream">B2B İletişim</a></li>
         </ul>
       </div>
 
-      <div class="space-y-3">
-        <h3 class="text-[11px] font-semibold uppercase tracking-[0.25em] text-cream/70">İş Birlikleri</h3>
-        <ul class="space-y-1.5">
+      <div class="space-y-4">
+        <h3 class="stage-eyebrow text-cream/60">İş Birlikleri</h3>
+        <ul class="space-y-2.5 text-cream/70">
           <li>Kafeler &amp; restoranlar</li>
           <li>Otel &amp; hospitality</li>
           <li>Kurumsal ofis çözümleri</li>
         </ul>
       </div>
 
-      <div class="space-y-3">
-        <h3 class="text-[11px] font-semibold uppercase tracking-[0.25em] text-cream/70">İletişim</h3>
-        <ul class="space-y-1.5">
-          <li><a href="mailto:b2b@coffeelosandes.com" class="hover:text-cream">b2b@coffeelosandes.com</a></li>
-          <li><span>+58 · Bölgesel ofis ağı</span></li>
-          <li class="text-[10px] text-cream/50">Detaylı iletişim için B2B formunu kullanın.</li>
+      <div class="space-y-4">
+        <h3 class="stage-eyebrow text-cream/60">İletişim</h3>
+        <ul class="space-y-2.5 text-cream/70">
+          <li>
+            <a href={mailtoB2B} class="transition hover:text-cream">{site.contactEmail}</a>
+          </li>
+          <li>+58 · Bölgesel ofis ağı</li>
+          <li class="text-[12px] text-cream/50">Detaylı iletişim için B2B formunu kullanın.</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div class="mt-8 border-t border-cream/5 pt-4">
-    <div class="section-shell flex flex-col justify-between gap-3 text-[10px] text-cream/40 md:flex-row md:items-center">
-      <p>© {new Date().getFullYear()} Coffee Los Andes. Tüm hakları saklıdır.</p>
+  <div class="mt-12 border-t border-cream/[0.06] pt-6">
+    <div class="section-shell flex flex-col justify-between gap-3 text-[12px] text-cream/45 md:flex-row md:items-center">
+      <p>© {new Date().getFullYear()} {site.name}. Tüm hakları saklıdır.</p>
       <p>Venezüella menşeli kahve, küresel B2B ortaklıklar için tasarlandı.</p>
     </div>
   </div>

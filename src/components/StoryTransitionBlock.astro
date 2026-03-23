@@ -1,10 +1,11 @@
 ---
 interface Props {
   label?: string;
+  /** Gelecekte görsel varyantlar için ayrılmış */
   variant?: 'line' | 'map' | 'texture';
 }
 
-const { label = 'Venezüella → Fincan', variant = 'line' } = Astro.props;
+const { label = 'Venezüella → Fincan', variant: _variant = 'line' } = Astro.props;
 ---
 
 <section class="py-12" aria-hidden="true">

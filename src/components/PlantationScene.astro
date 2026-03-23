@@ -1,0 +1,118 @@
+---
+---
+<svg
+  class="plantation-scene absolute inset-0 h-full w-full object-cover"
+  viewBox="0 0 1200 800"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <!-- Dağlar arka plan -->
+  <path
+    d="M0 800 L0 450 Q200 350 400 420 L600 380 Q800 320 1000 400 L1200 350 L1200 800 Z"
+    fill="url(#mountains-dark)"
+    opacity="0.9"
+  />
+  <path
+    d="M0 800 L0 520 Q150 450 350 500 L550 460 Q750 420 950 480 L1200 440 L1200 800 Z"
+    fill="url(#mountains-mid)"
+    opacity="0.7"
+  />
+  <path
+    d="M0 800 L0 600 Q200 550 400 600 L600 560 Q800 520 1000 580 L1200 540 L1200 800 Z"
+    fill="url(#mountains-front)"
+    opacity="0.85"
+  />
+
+  <!-- Sis / atmosfer -->
+  <defs>
+    <linearGradient id="mountains-dark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1a120e" />
+      <stop offset="100%" stop-color="#0d0a08" />
+    </linearGradient>
+    <linearGradient id="mountains-mid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2d2218" />
+      <stop offset="100%" stop-color="#15100c" />
+    </linearGradient>
+    <linearGradient id="mountains-front" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3d3025" />
+      <stop offset="100%" stop-color="#1a1510" />
+    </linearGradient>
+    <linearGradient id="mist" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#050506" stop-opacity="0" />
+      <stop offset="50%" stop-color="#1d130f" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#1d130f" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="plant-green" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#2d3b28" />
+      <stop offset="100%" stop-color="#4c5a3f" />
+    </linearGradient>
+    <linearGradient id="cherry-red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#a4573d" />
+      <stop offset="100%" stop-color="#8b3d2e" />
+    </linearGradient>
+  </defs>
+
+  <!-- Kahve bitkileri - sıralar -->
+  <g class="coffee-plants" opacity="0.85">
+    <ellipse cx="150" cy="680" rx="45" ry="25" fill="url(#plant-green)" />
+    <ellipse cx="150" cy="665" rx="35" ry="18" fill="url(#plant-green)" opacity="0.9" />
+    <circle cx="145" cy="655" r="6" fill="url(#cherry-red)" />
+    <circle cx="155" cy="658" r="5" fill="url(#cherry-red)" />
+    <circle cx="150" cy="662" r="5" fill="url(#cherry-red)" />
+
+    <ellipse cx="320" cy="700" rx="50" ry="28" fill="url(#plant-green)" />
+    <ellipse cx="320" cy="682" rx="38" ry="20" fill="url(#plant-green)" opacity="0.9" />
+    <circle cx="315" cy="672" r="6" fill="url(#cherry-red)" />
+    <circle cx="328" cy="675" r="5" fill="url(#cherry-red)" />
+
+    <ellipse cx="500" cy="680" rx="48" ry="26" fill="url(#plant-green)" />
+    <ellipse cx="500" cy="662" rx="36" ry="19" fill="url(#plant-green)" opacity="0.9" />
+    <circle cx="495" cy="652" r="6" fill="url(#cherry-red)" />
+    <circle cx="505" cy="655" r="5" fill="url(#cherry-red)" />
+
+    <ellipse cx="680" cy="695" rx="52" ry="27" fill="url(#plant-green)" />
+    <ellipse cx="680" cy="675" rx="40" ry="21" fill="url(#plant-green)" opacity="0.9" />
+    <circle cx="675" cy="665" r="6" fill="url(#cherry-red)" />
+    <circle cx="688" cy="668" r="5" fill="url(#cherry-red)" />
+
+    <ellipse cx="860" cy="685" rx="46" ry="25" fill="url(#plant-green)" />
+    <ellipse cx="860" cy="668" rx="35" ry="18" fill="url(#plant-green)" opacity="0.9" />
+    <circle cx="855" cy="658" r="6" fill="url(#cherry-red)" />
+    <circle cx="868" cy="661" r="5" fill="url(#cherry-red)" />
+
+    <ellipse cx="1040" cy="690" rx="50" ry="27" fill="url(#plant-green)" />
+    <ellipse cx="1040" cy="670" rx="38" ry="20" fill="url(#plant-green)" opacity="0.9" />
+    <circle cx="1035" cy="660" r="6" fill="url(#cherry-red)" />
+    <circle cx="1048" cy="663" r="5" fill="url(#cherry-red)" />
+  </g>
+
+  <!-- İnsan silüetleri - kahve toplayan -->
+  <g class="harvesters">
+    <g class="harvester-1" transform="translate(280, 620)">
+      <ellipse cx="25" cy="95" rx="22" ry="12" fill="#1a1510" opacity="0.95" />
+      <path d="M25 50 L25 95" stroke="#2d2218" stroke-width="4" fill="none" />
+      <ellipse cx="25" cy="45" rx="18" ry="10" fill="#1a1510" opacity="0.95" />
+      <path d="M15 70 L35 70 L38 95 L12 95 Z" fill="#252018" opacity="0.9" />
+      <path d="M10 95 L15 75 L20 95" stroke="#2d2218" stroke-width="3" fill="none" stroke-linecap="round" />
+      <path d="M40 95 L35 75 L30 95" stroke="#2d2218" stroke-width="3" fill="none" stroke-linecap="round" />
+    </g>
+    <g class="harvester-2" transform="translate(520, 640)">
+      <ellipse cx="25" cy="95" rx="22" ry="12" fill="#1a1510" opacity="0.95" />
+      <path d="M25 50 L25 95" stroke="#2d2218" stroke-width="4" fill="none" />
+      <ellipse cx="25" cy="45" rx="18" ry="10" fill="#1a1510" opacity="0.95" />
+      <path d="M12 72 L38 72 L40 95 L10 95 Z" fill="#252018" opacity="0.9" />
+      <ellipse cx="25" cy="68" rx="8" ry="5" fill="#3d3025" opacity="0.8" />
+    </g>
+    <g class="harvester-3" transform="translate(780, 615)">
+      <ellipse cx="25" cy="95" rx="22" ry="12" fill="#1a1510" opacity="0.95" />
+      <path d="M25 48 L25 95" stroke="#2d2218" stroke-width="4" fill="none" />
+      <ellipse cx="25" cy="42" rx="18" ry="10" fill="#1a1510" opacity="0.95" />
+      <path d="M14 68 L36 68 L39 95 L11 95 Z" fill="#252018" opacity="0.9" />
+      <path d="M8 90 L18 72 L22 95" stroke="#2d2218" stroke-width="2.5" fill="none" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Alt sis katmanı -->
+  <rect width="1200" height="400" y="400" fill="url(#mist)" />
+</svg>

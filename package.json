@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "lint": "echo \"No linter configured\"",
+    "lint": "astro check",
     "check": "astro check"
   },
   "repository": {
@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/byemrekaya/coffeelosandes#readme",
   "devDependencies": {
+    "@astrojs/check": "^0.9.8",
     "@types/node": "^25.4.0",
     "astro": "^5.18.0",
     "autoprefixer": "^10.4.0",

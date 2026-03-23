@@ -2,13 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import { site, mailtoB2B } from '../config/site';
 ---
 
 <BaseLayout
   title="Contact – B2B Wholesale Inquiry | Coffee Los Andes"
   description="Get in touch with Coffee Los Andes for wholesale coffee partnerships, distribution inquiries, and B2B collaboration. Premium Venezuelan-origin coffee for cafés, restaurants, and corporate partners."
 >
-  <section class="pt-32 pb-16">
+  <section class="pt-36 pb-20">
     <div class="section-shell space-y-10">
       <SectionHeader
         eyebrow="B2B İletişim"
@@ -26,7 +27,7 @@ import SectionHeader from '../components/SectionHeader.astro';
           <ul class="space-y-3 text-sm text-cream/70">
             <li>
               <strong class="text-cream/90">E-posta:</strong>
-              <a href="mailto:b2b@coffeelosandes.com" class="ml-2 text-gold hover:text-cream transition">b2b@coffeelosandes.com</a>
+              <a href={mailtoB2B} class="ml-2 text-gold hover:text-cream transition">{site.contactEmail}</a>
             </li>
             <li>
               <strong class="text-cream/90">Bölge:</strong>
@@ -38,7 +39,7 @@ import SectionHeader from '../components/SectionHeader.astro';
           </ul>
         </div>
 
-        <div class="glass-panel border border-cream/5 px-6 py-8">
+        <div class="glass-panel px-6 py-8">
           <h3 class="stage-eyebrow mb-4">Kimler İletişime Geçmeli?</h3>
           <ul class="space-y-2 text-sm text-cream/70">
             <li>• Kafe ve restoran zincirleri</li>
@@ -49,7 +50,7 @@ import SectionHeader from '../components/SectionHeader.astro';
           </ul>
         </div>
 
-        <div class="rounded-2xl border border-cream/5 bg-espresso/30 p-6">
+        <div class="rounded-xl border border-cream/[0.08] bg-espresso/40 p-6">
           <h3 class="stage-eyebrow mb-3">Bölge Haritası</h3>
           <div class="aspect-[4/3] rounded-xl bg-charcoal/80 flex items-center justify-center border border-cream/5">
             <p class="text-xs text-cream/40 uppercase tracking-[0.2em]">

@@ -1,45 +1,40 @@
 ---
 const links: { href: string; label: string }[] = [
-  { href: '/#journey', label: 'Yolculuk' },
-  { href: '/products', label: 'Kahveler' },
+  { href: '/products', label: 'Kahve portföyü' },
   { href: '/about', label: 'Hakkımızda' },
   { href: '/contact', label: 'İletişim' },
 ];
 ---
 
-<header class="fixed inset-x-0 top-0 z-40 px-4">
+<header class="fixed inset-x-0 top-0 z-40 px-4 md:px-8" data-navbar>
   <nav
-    class="mx-auto mt-4 flex max-w-6xl items-center justify-between rounded-full border border-cream/5 bg-espresso/70 px-5 py-3 text-sm text-cream shadow-soft-gold/40 backdrop-blur-xl"
+    class="mx-auto mt-5 flex w-full max-w-[1280px] items-center justify-between rounded-xl border border-cream/[0.06] bg-charcoal/80 px-5 py-3.5 text-sm text-cream shadow-nav backdrop-blur-xl md:px-8"
     aria-label="Ana navigasyon"
   >
-    <a href="/" class="flex items-center gap-3">
-      <div class="h-8 w-8 rounded-full bg-gradient-to-br from-terracotta to-bronze shadow-soft-gold" aria-hidden="true" />
-      <div class="flex flex-col leading-tight">
-        <span class="font-display text-xs tracking-[0.3em] uppercase text-cream/60">Coffee</span>
-        <span class="font-display text-sm md:text-base tracking-[0.18em] uppercase text-cream">Los Andes</span>
-      </div>
+    <a href="/" class="flex items-center gap-3 transition-opacity hover:opacity-90">
+      <span class="font-display text-base md:text-lg font-semibold tracking-brand uppercase text-cream">Coffee Los Andes</span>
     </a>
 
-    <div class="hidden items-center gap-8 md:flex">
-      <ul class="flex items-center gap-6">
+    <div class="hidden items-center gap-10 md:flex">
+      <ul class="flex items-center gap-8">
         {links.map((item) => (
           <li>
             <a
               href={item.href}
-              class="text-xs uppercase tracking-[0.22em] text-cream/60 transition hover:text-cream"
+              class="text-[13px] font-medium tracking-wide text-cream/70 transition-colors hover:text-cream"
             >
               {item.label}
             </a>
           </li>
         ))}
       </ul>
-      <a href="/contact" class="btn-primary text-xs">
-        Toptan İş Birliği
+      <a href="/contact" class="btn-primary text-xs px-5 py-2.5">
+        B2B İletişim
       </a>
     </div>
 
-    <div class="flex items-center gap-3 md:hidden">
-      <a href="/contact" class="btn-primary text-[11px] px-4 py-2">
+    <div class="flex items-center md:hidden">
+      <a href="/contact" class="btn-primary text-xs px-4 py-2.5">
         B2B İletişim
       </a>
     </div>

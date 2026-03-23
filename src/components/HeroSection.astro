@@ -1,76 +1,61 @@
 ---
 import HeroMotionIsland from './HeroMotionIsland.astro';
+import PlantationScene from './PlantationScene.astro';
 ---
 
 <HeroMotionIsland>
-  <section class="relative min-h-[90vh] overflow-hidden pt-28">
-    <div class="section-shell relative flex flex-col gap-16 md:flex-row md:items-center">
-      <div class="relative z-10 max-w-xl space-y-6">
-        <p class="stage-eyebrow">Venezüella · B2B Kahve</p>
-        <h1 data-hero-headline class="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight text-cream">
-        And Dağlarından
-        <span class="block text-terracotta">kurumsal kahve sahnenize.</span>
-      </h1>
-      <p data-hero-subtitle class="stage-subtitle max-w-lg">
-        Coffee Los Andes, Venezüella menşeini; plantasyondan kavurma mimarisine, lojistikten paketlemeye kadar uçtan uca
-        kurgulanmış bir B2B kahve yolculuğuna dönüştürür.
-      </p>
-
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="#journey" class="btn-primary" data-hero-cta>
-          Yolculuğu Keşfet
-        </a>
-        <a href="/products" class="btn-secondary" data-hero-cta>
-          Kahve Portföyü
-        </a>
-        <a href="/contact" class="btn-secondary" data-hero-cta>
-          Ortağınız Olun
-        </a>
-      </div>
-
-      <div class="mt-6 flex flex-wrap gap-6 text-[11px] text-cream/60">
-        <div>
-          <span class="block font-semibold text-cream/80">Plantasyondan fincana</span>
-          <span>İzlenebilir tedarik zinciri</span>
-        </div>
-        <div>
-          <span class="block font-semibold text-cream/80">B2B odaklı kavurma</span>
-          <span>Hacim için tasarlanmış profiller</span>
-        </div>
-      </div>
+  <section class="hero-plantation relative min-h-screen overflow-hidden">
+    <!-- Fullscreen tarla sahnesi -->
+    <div class="plantation-bg absolute inset-0" data-hero-scene>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black" />
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/40" />
+      <PlantationScene />
     </div>
 
-    <div class="relative z-0 mt-10 w-full md:mt-0 md:max-w-md" data-hero-visual>
-      <div class="glass-panel texture-overlay relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-olive/40 via-transparent to-black/80" aria-hidden="true" />
-        <div class="relative aspect-[4/5] w-full overflow-hidden">
-          <div
-            class="absolute inset-0 bg-[radial-gradient(circle_at_20%_0,rgba(245,233,216,0.2),transparent_55%),radial-gradient(circle_at_80%_100%,rgba(192,138,77,0.55),transparent_65%)]"
-          />
-          <div class="absolute inset-0 grain-overlay" />
-          <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black via-black/40 to-transparent" />
+    <!-- İçerik overlay -->
+    <div class="section-shell relative z-10 flex min-h-screen flex-col justify-center pt-24 pb-16">
+      <div class="max-w-3xl xl:max-w-4xl">
+        <p class="stage-eyebrow" data-hero-eyebrow>Venezüella · B2B Kahve</p>
+        <h1 data-hero-headline class="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-cream">
+          And Dağlarından
+          <span class="block text-terracotta">kurumsal kahve sahnenize.</span>
+        </h1>
+        <p data-hero-subtitle class="mt-6 max-w-2xl text-base md:text-lg xl:text-xl text-cream/80 leading-relaxed">
+          Coffee Los Andes, Venezüella menşeini; plantasyondan kavurma mimarisine, lojistikten paketlemeye kadar uçtan uca
+          kurgulanmış bir B2B kahve yolculuğuna dönüştürür.
+        </p>
 
-          <div class="absolute inset-6 flex flex-col justify-between">
-            <div class="space-y-2">
-              <p class="stage-eyebrow">Venezüella · Plantasyonlar</p>
-              <p class="text-xs text-cream/70">
-                Sisli dağ sırtları, gölgeli plantasyon sıraları ve sabah ışığında parlayan kahve kirazları. Henüz fincana
-                dönüşmemiş, ama hikâyesi yazılmış kahve.
-              </p>
-            </div>
+        <div class="mt-8 flex flex-wrap gap-4" data-hero-ctas>
+          <a href="#journey" class="btn-primary" data-hero-cta>
+            Yolculuğu Keşfet
+          </a>
+          <a href="/products" class="btn-secondary" data-hero-cta>
+            Kahve Portföyü
+          </a>
+          <a href="/contact" class="btn-secondary" data-hero-cta>
+            Ortağınız Olun
+          </a>
+        </div>
 
-            <div class="flex items-end justify-between text-[11px] text-cream/60">
-              <div>
-                <p class="uppercase tracking-[0.22em]">Coffee Los Andes</p>
-                <p>Origin · Processing · Roasting · Packaging</p>
-              </div>
-              <p class="font-mono">01 · 10</p>
-            </div>
+        <div class="mt-10 flex flex-wrap gap-8 text-xs text-cream/60">
+          <div>
+            <span class="block font-semibold text-cream/80">Plantasyondan fincana</span>
+            <span>İzlenebilir tedarik zinciri</span>
+          </div>
+          <div>
+            <span class="block font-semibold text-cream/80">B2B odaklı kavurma</span>
+            <span>Hacim için tasarlanmış profiller</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-</HeroMotionIsland>
 
+    <!-- Scroll ipucu -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2" data-hero-scroll-hint>
+      <a href="#coffee-journey-animation" class="flex flex-col items-center gap-2 text-cream/50 transition hover:text-cream/80">
+        <span class="text-[10px] uppercase tracking-[0.3em]">Keşfet</span>
+        <span class="scroll-chevron block h-6 w-6 rounded-full border border-current" aria-hidden="true" />
+      </a>
+    </div>
+  </section>
+</HeroMotionIsland>

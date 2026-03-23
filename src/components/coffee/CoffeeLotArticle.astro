@@ -1,0 +1,27 @@
+---
+import CoffeeHero from './Hero.astro';
+import CoffeeOverview from './Overview.astro';
+import TechnicalGrid from './TechnicalGrid.astro';
+import CupProfile from './CupProfile.astro';
+import BuyerUseCases from './BuyerUseCases.astro';
+import CoffeeCTA from './CoffeeCTA.astro';
+import RelatedLots from './RelatedLots.astro';
+import type { CoffeeLot } from '../../data/coffeeLots';
+
+interface Props {
+  lot: CoffeeLot;
+  relatedLots: CoffeeLot[];
+}
+
+const { lot, relatedLots } = Astro.props;
+---
+
+<article class="coffee-lot-page">
+  <CoffeeHero lot={lot} />
+  <CoffeeOverview lot={lot} />
+  <TechnicalGrid lot={lot} />
+  <CupProfile lot={lot} />
+  <BuyerUseCases lot={lot} />
+  <CoffeeCTA lotName={lot.name} />
+  <RelatedLots relatedLots={relatedLots} />
+</article>
