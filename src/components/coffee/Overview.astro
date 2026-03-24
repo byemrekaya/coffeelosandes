@@ -1,19 +1,22 @@
 ---
 import type { CoffeeLot } from '../../data/coffeeLots';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
 
 interface Props {
   lot: CoffeeLot;
+  locale: Locale;
 }
 
-const { lot } = Astro.props;
+const { lot, locale } = Astro.props;
 ---
 
 <section class="py-20 md:py-28" data-reveal>
   <div class="section-shell">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="stage-eyebrow mb-4">Lot overview</p>
+      <p class="stage-eyebrow mb-4">{t(locale, 'coffee.overviewEyebrow')}</p>
       <h2 class="font-display text-display-md font-semibold tracking-tight-display text-cream">
-        Why this lot matters
+        {t(locale, 'coffee.overviewTitle')}
       </h2>
     </div>
 
@@ -23,8 +26,7 @@ const { lot } = Astro.props;
         {lot.commercialSummary}
       </p>
       <p>
-        For wholesale buyers, the value is straightforward: a clearly articulated sensory identity, traceable origin, and a cup that holds up
-        across roasting styles and service contexts — whether you are building a flagship release or strengthening a specialty line-up.
+        {t(locale, 'coffee.overviewFooter')}
       </p>
     </div>
   </div>

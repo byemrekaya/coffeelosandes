@@ -1,7 +1,3 @@
-/**
- * IntersectionObserver-based reveal for [data-reveal] elements.
- * Respects prefers-reduced-motion.
- */
 export function initScrollReveal(): void {
   if (typeof document === 'undefined') return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

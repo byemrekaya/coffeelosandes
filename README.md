@@ -7,17 +7,19 @@ Premium, cinematic, story-driven corporate website for **Coffee Los Andes**, a B
 - **Framework:** Astro + TypeScript + Tailwind CSS
 - **Motion:** GSAP (hero intro), IntersectionObserver (scroll reveals), CSS transitions
 - **Data:** Local typed modules in `src/data/` (storyStages, coffeeLots, brand)
+- **i18n:** Türkçe (`/tr/…`) ve Almanca (`/de/…`); metinler `src/i18n/dictionary.ts`, kahve lot metinleri `src/i18n/lotPatches.ts`
 - **Output:** Static HTML, minimal client-side JS
 
 ### Pages
 
 | Route | Description |
 |-------|-------------|
-| `/` | Homepage – fullpage hero + featured lot, B2B sections |
-| `/products` | Winning lots portfolio (8 specialty lots) |
-| `/coffees/[slug]` | Premium B2B lot detail (wholesale presentation) |
-| `/about` | Brand story, Venezuelan roots, roasting philosophy |
-| `/contact` | B2B wholesale inquiry form, company info |
+| `/` | Kök adres `/tr/` adresine yönlendirir |
+| `/tr/`, `/de/` | Ana sayfa – fullpage hero + öne çıkan lot, B2B bölümleri |
+| `/tr/products`, `/de/products` | Winning lots portföyü (8 specialty lot) |
+| `/tr/coffees/[slug]`, `/de/coffees/[slug]` | Lot detayı (B2B sunumu) |
+| `/tr/about`, `/de/about` | Marka hikâyesi |
+| `/tr/contact`, `/de/contact` | B2B formu, iletişim |
 
 ### Components
 

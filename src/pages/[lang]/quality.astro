@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangStaticPaths } from '../../i18n/staticPaths';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
+import CTASection from '../../components/CTASection.astro';
+import { withLang } from '../../i18n/paths';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const locale = lang as Locale;
+
+const blocks = [
+  { titleKey: 'qualityPage.sgsTitle', bodyKey: 'qualityPage.sgsBody' },
+  { titleKey: 'qualityPage.insaiTitle', bodyKey: 'qualityPage.insaiBody' },
+  { titleKey: 'qualityPage.qTitle', bodyKey: 'qualityPage.qBody' },
+  { titleKey: 'qualityPage.fourCTitle', bodyKey: 'qualityPage.fourCBody' },
+] as const;
+---
+
+<BaseLayout locale={locale} title={t(locale, 'qualityPage.title')} description={t(locale, 'qualityPage.description')}>
+  <section class="border-b border-line pb-16 pt-32 md:pb-20 md:pt-36">
+    <div class="section-shell max-w-3xl">
+      <p class="stage-eyebrow mb-3">{t(locale, 'qualityPage.heroEyebrow')}</p>
+      <h1 class="font-display text-display-md font-semibold tracking-tight-display text-cream">{t(locale, 'qualityPage.heroTitle')}</h1>
+      <p class="mt-6 text-base leading-relaxed text-cream/70">{t(locale, 'qualityPage.heroDesc')}</p>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24">
+    <div class="section-shell grid gap-8 md:grid-cols-2">
+      {blocks.map((b) => (
+        <article class="glass-panel px-8 py-10" data-reveal>
+          <h2 class="font-display text-lg font-semibold text-cream md:text-xl">{t(locale, b.titleKey)}</h2>
+          <p class="mt-4 text-sm leading-relaxed text-cream/65">{t(locale, b.bodyKey)}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow={t(locale, 'cta.eyebrow')}
+    title={t(locale, 'cta.title')}
+    body={t(locale, 'cta.body')}
+    primaryLabel={t(locale, 'cta.primary')}
+    primaryHref={withLang('/contact', locale)}
+    secondaryLabel={t(locale, 'cta.secondary')}
+    secondaryHref={withLang('/products', locale)}
+  />
+</BaseLayout>

@@ -1,262 +1,83 @@
 ---
-import { getFeaturedLotForHome } from '../data/coffeeLots';
+import type { Locale } from '../i18n/types';
+import { t } from '../i18n/t';
+import { withLang } from '../i18n/paths';
 
-const featuredLot = getFeaturedLotForHome();
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
 ---
 
-<div id="altura-fullpage" class="relative h-screen flex-shrink-0 overflow-hidden">
-  <div class="altura-track absolute inset-0" data-altura-track>
-    <!-- Slide 0: Hero -->
-    <section class="altura-slide relative flex min-h-screen flex-col overflow-hidden" data-slide="0">
-      <div
-        class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        data-hero-scene
-        style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920'); filter: saturate(1.2) contrast(1.05) brightness(1.02);"
-      >
-        <div class="absolute inset-0 bg-gradient-to-b from-amber-950/35 via-amber-900/10 to-espresso/80" />
-        <div class="absolute inset-0 bg-gradient-to-r from-amber-900/25 via-transparent to-amber-950/35" />
-        <div class="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-charcoal via-charcoal/70 to-transparent md:h-40" aria-hidden="true" />
-      </div>
-
-      <div class="section-shell relative z-10 flex min-h-screen flex-col justify-between pt-32 pb-12">
-        <div class="flex flex-1 flex-col justify-center items-center text-center">
-          <h1 data-hero-headline class="font-display text-display-xl font-semibold tracking-tight-display text-cream">
-            Coffee Born in the Mountains
-          </h1>
-        </div>
-
-        <div class="flex flex-col items-center gap-2 pt-6" data-hero-drag-hint>
-          <span class="text-[10px] font-medium uppercase tracking-[0.25em] text-cream/40">Sürükle</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Slide 1: Öne çıkan lot (Rank 1 / koleksiyon) — coffeeLots ile aynı ürünler -->
-    <section class="altura-slide relative flex min-h-screen flex-col bg-charcoal px-6" data-slide="1">
-      <div
-        class="pointer-events-none absolute inset-x-0 top-0 z-0 h-40 bg-gradient-to-b from-black/35 via-transparent to-transparent md:h-48"
-        aria-hidden="true"
-      />
-      <div class="section-shell relative z-10 flex w-full max-w-5xl flex-1 flex-col justify-center pb-20 pt-28 md:pb-24 md:pt-32">
-        <div class="product-box overflow-visible rounded-2xl border border-cream/[0.08] bg-espresso/60 shadow-card backdrop-blur-xl p-6 md:p-10" data-product-box>
-          <p class="mb-4 text-center text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45 lg:text-left">
-            #{featuredLot.rank} · {featuredLot.score.toFixed(2)} · {featuredLot.region}
-          </p>
-          <div class="grid items-center gap-8 lg:grid-cols-[1fr_auto_1.5fr] lg:gap-12">
-            <div class="relative flex min-h-[16rem] items-center justify-center overflow-visible md:min-h-[20rem]" data-product-package-slot>
-              <div class="relative h-72 w-48 flex-shrink-0 md:h-80 md:w-56" data-product-package>
-                <img src="/coffee-product.png" alt="" class="h-full w-full object-contain object-center" />
-              </div>
-            </div>
-            <div class="flex items-center justify-center" data-product-bean>
-              <div class="relative h-24 w-24">
-                <div class="absolute inset-0 rounded-full bg-gradient-to-br from-amber-900 to-amber-950" />
-              </div>
-            </div>
-            <div class="flex flex-col items-center justify-center lg:items-start" data-product-info>
-              <h2 class="font-display text-display-md font-semibold tracking-tight-display text-cream">{featuredLot.name}</h2>
-              <p class="mt-4 text-[15px] leading-relaxed text-cream/75">{featuredLot.commercialSummary}</p>
-              <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <a href="/contact" class="btn-primary inline-flex justify-center">
-                  <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                  B2B Contact
-                </a>
-                <a href={`/coffees/${featuredLot.slug}`} class="btn-secondary inline-flex justify-center text-center">
-                  Lot detayı
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Sürükleme tutamacı -->
-  <div class="fixed bottom-8 left-1/2 z-30 -translate-x-1/2" data-drag-indicator>
+<div class="relative min-h-screen flex-shrink-0 overflow-hidden">
+  <section id="hero" class="relative flex min-h-screen flex-col scroll-mt-0 lg:flex-row">
     <div
-      class="flex h-12 w-12 cursor-grab items-center justify-center rounded-full border border-cream/20 bg-charcoal/90 backdrop-blur-md transition hover:border-cream/40 active:cursor-grabbing"
-      data-drag-handle
-      role="button"
-      tabindex="0"
-      aria-label="Sürükle"
+      class="relative z-10 order-2 flex flex-1 flex-col justify-center bg-paper px-6 pb-20 pt-28 md:px-10 lg:order-1 lg:min-h-screen lg:max-w-[min(52%,36rem)] lg:flex-none lg:px-12 lg:pb-24 lg:pt-32 xl:px-16"
     >
-      <span class="text-sm font-medium text-cream/90" data-drag-index>0</span>
+      <p class="stage-eyebrow mb-5">{t(locale, 'home.badgeAltitude')}</p>
+      <h1
+        data-hero-headline
+        class="font-sans text-[clamp(1.75rem,4vw,2.75rem)] font-bold uppercase leading-[1.12] tracking-[0.06em] text-ink"
+      >
+        {t(locale, 'home.slogan')}
+      </h1>
+      <p class="mt-6 font-sans text-lg font-semibold text-ink md:text-xl">{t(locale, 'home.heroSubtitle')}</p>
+      <p class="mt-5 max-w-lg text-[15px] leading-relaxed text-ink-muted">{t(locale, 'home.heroLead')}</p>
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href={withLang('/products', locale)} class="btn-primary inline-flex w-fit">
+          {t(locale, 'home.coffeesCtaAll')}
+        </a>
+        <a href={withLang('/contact', locale)} class="btn-secondary inline-flex w-fit">
+          {t(locale, 'nav.cta')}
+        </a>
+      </div>
     </div>
-  </div>
 
-  <script>
-    import { gsap } from 'gsap';
-
-    function initAlturaFullPage() {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
-
-      const track = document.querySelector('[data-altura-track]');
-      const slides = document.querySelectorAll('.altura-slide');
-      const handle = document.querySelector('[data-drag-handle]');
-      const indexEl = document.querySelector('[data-drag-index]');
-      const navbar = document.querySelector('[data-navbar]');
-
-      if (!track || !slides.length || !handle) return;
-
-      const slideCount = slides.length;
-      let currentIndex = 0;
-      let isDragging = false;
-      let startY = 0;
-      let currentY = 0;
-      let scrollLockUntil = 0;
-      const SCROLL_COOLDOWN = 750;
-
-      function goToSlide(index: number) {
-        const next = Math.max(0, Math.min(index, slideCount - 1));
-        if (next === currentIndex) return;
-        currentIndex = next;
-        scrollLockUntil = Date.now() + SCROLL_COOLDOWN;
-        gsap.to(track, { y: -currentIndex * 100 + 'vh', duration: 0.7, ease: 'power3.inOut' });
-        if (indexEl) indexEl.textContent = String(currentIndex);
-      }
-
-      handle.addEventListener('mousedown', (e: Event) => {
-        const me = e as MouseEvent;
-        isDragging = true;
-        startY = me.clientY;
-        currentY = startY;
-      });
-      handle.addEventListener(
-        'touchstart',
-        (e: Event) => {
-          const te = e as TouchEvent;
-          isDragging = true;
-          startY = te.touches[0].clientY;
-          currentY = startY;
-        },
-        { passive: true }
-      );
-      document.addEventListener('mousemove', (e: Event) => {
-        if (isDragging) currentY = (e as MouseEvent).clientY;
-      });
-      document.addEventListener(
-        'touchmove',
-        (e: Event) => {
-          if (isDragging) currentY = (e as TouchEvent).touches[0].clientY;
-        },
-        { passive: true }
-      );
-      document.addEventListener('mouseup', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        const diff = startY - currentY;
-        if (diff > 50) goToSlide(currentIndex + 1);
-        else if (diff < -50) goToSlide(currentIndex - 1);
-      });
-      document.addEventListener('touchend', () => {
-        if (!isDragging) return;
-        isDragging = false;
-        const diff = startY - currentY;
-        if (diff > 50) goToSlide(currentIndex + 1);
-        else if (diff < -50) goToSlide(currentIndex - 1);
-      });
-
-      const container = document.getElementById('altura-fullpage');
-      function onWheel(e: WheelEvent) {
-        const atTop = window.scrollY < 30;
-        const onLastSlide = currentIndex === slideCount - 1;
-        const scrollingDown = e.deltaY > 0;
-        if (!atTop || (onLastSlide && scrollingDown)) {
-          return;
-        }
-        e.preventDefault();
-        e.stopPropagation();
-        if (Date.now() < scrollLockUntil) return;
-        if (scrollingDown) goToSlide(currentIndex + 1);
-        else goToSlide(currentIndex - 1);
-      }
-      (container || document.body).addEventListener('wheel', onWheel, { passive: false, capture: true });
-
-      // Hero giriş animasyonları
-      const scene = document.querySelector('[data-hero-scene]');
-      const headline = document.querySelector('[data-hero-headline]');
-      const dragHint = document.querySelector('[data-hero-drag-hint]');
-
-      if (navbar) gsap.set(navbar, { opacity: 0, y: -20 });
-      gsap.set([scene, headline, dragHint], { opacity: 0 });
-
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.fromTo(navbar, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.6 })
-        .fromTo(scene, { opacity: 0, scale: 1.05 }, { opacity: 1, scale: 1, duration: 1.2 }, '-=0.4')
-        .fromTo(headline, { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 1, ease: 'power3.out' }, '-=0.8')
-        .fromTo(dragHint, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.5 }, '-=0.3');
-
-      gsap.to(scene, { x: -15, y: -10, duration: 8, ease: 'none', force3D: true });
-
-      // Ürün animasyonu - slide girişte
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const slide = entry.target as HTMLElement;
-          const slideAttr = slide.getAttribute('data-slide');
-          const idx = slideAttr && !isNaN(Number(slideAttr)) ? Number(slideAttr) : 0;
-
-          if (!entry.isIntersecting) {
-            if (idx === 1) {
-              const box = slide.querySelector('[data-product-box]');
-              const pkg = slide.querySelector('[data-product-package]');
-              const bean = slide.querySelector('[data-product-bean]');
-              const info = slide.querySelector('[data-product-info]');
-              if (box && pkg && bean && info) {
-                gsap.killTweensOf([box, pkg, bean, info]);
-                gsap.set(box, { scale: 0.5 });
-                gsap.set(pkg, { y: '100%' });
-                gsap.set(bean, { opacity: 0, x: 40 });
-                gsap.set(info, { opacity: 0, x: 60 });
-              }
-            }
-            return;
-          }
-
-          if (idx === 1) {
-            const box = slide.querySelector('[data-product-box]');
-            const pkg = slide.querySelector('[data-product-package]');
-            const bean = slide.querySelector('[data-product-bean]');
-            const info = slide.querySelector('[data-product-info]');
-            if (!box || !pkg || !bean || !info) return;
-            gsap.killTweensOf([box, pkg, bean, info]);
-            gsap.set(box, { scale: 0.5, transformOrigin: 'center center' });
-            gsap.set(pkg, { y: '100%' });
-            gsap.set(bean, { opacity: 0, x: 40 });
-            gsap.set(info, { opacity: 0, x: 60 });
-            gsap.timeline()
-              .to(box, { scale: 1, duration: 1, ease: 'power3.out', force3D: true })
-              .to(pkg, { y: '-5%', duration: 1, ease: 'power3.out', force3D: true }, 0)
-              .to(bean, { opacity: 1, x: 0, duration: 0.5, ease: 'power3.out' }, 0.5)
-              .to(info, { opacity: 1, x: 0, duration: 0.6, ease: 'power3.out' }, 0.55);
-          }
-        });
-      }, { threshold: 0.2 });
-
-      slides.forEach((s) => observer.observe(s));
-    }
-
-    document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initAlturaFullPage) : initAlturaFullPage();
-  </script>
+    <div class="relative order-1 min-h-[40vh] w-full min-w-0 flex-1 overflow-hidden lg:order-2 lg:min-h-screen">
+      <div class="absolute inset-0 overflow-hidden" data-hero-scene>
+        <img
+          data-hero-photo
+          src="/banner.png"
+          alt="Coffee Los Andes banner"
+          width="1920"
+          height="1080"
+          class="h-full w-full object-cover object-center"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <div class="absolute inset-0 bg-gradient-to-br from-gold/16 via-transparent to-ink/35" aria-hidden="true"></div>
+        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-paper to-transparent lg:w-40" aria-hidden="true" />
+      </div>
+    </div>
+  </section>
 </div>
 
-<style>
-  .altura-track {
-    display: flex;
-    flex-direction: column;
-    will-change: transform;
+<script>
+  import { gsap } from 'gsap';
+
+  function initHomeHero() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const scene = document.querySelector('[data-hero-scene]');
+    const photo = document.querySelector('[data-hero-photo]');
+    const headline = document.querySelector('[data-hero-headline]');
+    const navbar = document.querySelector('[data-navbar]');
+
+    if (!scene || !headline) return;
+
+    if (navbar) gsap.set(navbar, { opacity: 0, y: -16 });
+    gsap.set(scene, { opacity: 0 });
+    if (photo) gsap.set(photo, { scale: 1.06 });
+
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    tl.fromTo(navbar, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.55 })
+      .fromTo(scene, { opacity: 0 }, { opacity: 1, duration: 1 }, '-=0.35');
+    if (photo) tl.to(photo, { scale: 1, duration: 1.25, ease: 'power3.out' }, '<0.05');
+    tl.fromTo(headline, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.85 }, '-=0.65');
   }
-  .altura-slide {
-    min-height: 100vh;
-    height: 100vh;
-    flex-shrink: 0;
-  }
-  [data-product-box] {
-    transform: scale(0.5);
-    transform-origin: center center;
-  }
-  [data-product-package] {
-    transform: translateY(100%);
-  }
-</style>
+
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', initHomeHero) : initHomeHero();
+</script>

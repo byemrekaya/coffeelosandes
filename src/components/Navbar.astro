@@ -1,43 +1,98 @@
 ---
-const links: { href: string; label: string }[] = [
-  { href: '/products', label: 'Kahve portföyü' },
-  { href: '/about', label: 'Hakkımızda' },
-  { href: '/contact', label: 'İletişim' },
+import type { Locale } from '../i18n/types';
+import { t } from '../i18n/t';
+import { homeSection } from '../i18n/paths';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+
+const navLinks: { hash: string; key: string }[] = [
+  { hash: 'hero', key: 'nav.home' },
+  { hash: 'hikayemiz', key: 'nav.story' },
+  { hash: 'kahvelerimiz', key: 'nav.coffees' },
+  { hash: 'kalite', key: 'nav.qualityDocs' },
+  { hash: 'toptan', key: 'nav.wholesale' },
 ];
+
+const navLeft = navLinks.slice(0, 3);
+const navRight = navLinks.slice(3);
+
+const linkClass =
+  'whitespace-nowrap text-[10px] font-semibold uppercase tracking-brand text-white/75 transition-colors hover:text-white xl:text-[11px]';
 ---
 
-<header class="fixed inset-x-0 top-0 z-40 px-4 md:px-8" data-navbar>
-  <nav
-    class="mx-auto mt-5 flex w-full max-w-[1280px] items-center justify-between rounded-xl border border-cream/[0.06] bg-charcoal/80 px-5 py-3.5 text-sm text-cream shadow-nav backdrop-blur-xl md:px-8"
-    aria-label="Ana navigasyon"
-  >
-    <a href="/" class="flex items-center gap-3 transition-opacity hover:opacity-90">
-      <span class="font-display text-base md:text-lg font-semibold tracking-brand uppercase text-cream">Coffee Los Andes</span>
-    </a>
+<header class="fixed inset-x-0 top-0 z-40" data-navbar>
+  <div class="bg-ink text-white shadow-nav">
+    <div class="section-shell relative">
+      <div class="flex items-center justify-between gap-3 py-3.5 lg:hidden">
+        <a
+          href={homeSection(locale, 'hero')}
+          class="min-w-0 truncate text-xs font-bold uppercase tracking-brand text-white"
+        >
+          Coffee Los Andes
+        </a>
+        <div class="flex shrink-0 items-center gap-2">
+          <LanguageSwitcher locale={locale} variant="dark" />
+        </div>
+      </div>
 
-    <div class="hidden items-center gap-10 md:flex">
-      <ul class="flex items-center gap-8">
-        {links.map((item) => (
-          <li>
+      <nav class="relative hidden h-[4.6rem] items-center lg:flex" aria-label={t(locale, 'nav.aria')}>
+        <ul class="flex h-full flex-1 items-center justify-end gap-x-6 pr-[min(8rem,12vw)] xl:gap-x-10">
+          {navLeft.map((item) => (
+            <li>
+              <a href={homeSection(locale, item.hash)} class={linkClass}>
+                {t(locale, item.key)}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        <a href={homeSection(locale, 'hero')} class="absolute left-1/2 top-[2px] -translate-x-1/2">
+          <span
+            class="flex h-[92px] w-[74px] items-center justify-center rounded-b-[18px] border-x border-b border-white/20 bg-ink px-2 pt-2 shadow-[0_10px_18px_rgba(0,0,0,0.28)]"
+            aria-hidden="true"
+          >
+            <img src="/logo.png" alt="" class="h-12 w-12 object-contain" loading="eager" decoding="async" />
+          </span>
+          <span class="sr-only">Coffee Los Andes</span>
+        </a>
+
+        <div class="flex h-full flex-1 items-center justify-start gap-x-4 pl-[min(8rem,12vw)] xl:gap-x-6">
+          <ul class="flex h-full items-center gap-x-6 xl:gap-x-10">
+            {navRight.map((item) => (
+              <li>
+                <a href={homeSection(locale, item.hash)} class={linkClass}>
+                  {t(locale, item.key)}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div class="ml-auto flex items-center gap-3 pl-2">
+            <LanguageSwitcher locale={locale} variant="dark" />
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10 bg-ink lg:hidden">
+    <div class="section-shell overflow-x-auto py-2">
+      <ul class="flex w-max min-w-full gap-2 pb-0.5">
+        {navLinks.map((item) => (
+          <li class="shrink-0">
             <a
-              href={item.href}
-              class="text-[13px] font-medium tracking-wide text-cream/70 transition-colors hover:text-cream"
+              href={homeSection(locale, item.hash)}
+              class="inline-block border border-white/20 bg-white/5 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-white/85"
             >
-              {item.label}
+              {t(locale, item.key)}
             </a>
           </li>
         ))}
       </ul>
-      <a href="/contact" class="btn-primary text-xs px-5 py-2.5">
-        B2B İletişim
-      </a>
     </div>
-
-    <div class="flex items-center md:hidden">
-      <a href="/contact" class="btn-primary text-xs px-4 py-2.5">
-        B2B İletişim
-      </a>
-    </div>
-  </nav>
+  </div>
 </header>
-

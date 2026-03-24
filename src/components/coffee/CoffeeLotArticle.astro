@@ -7,21 +7,23 @@ import BuyerUseCases from './BuyerUseCases.astro';
 import CoffeeCTA from './CoffeeCTA.astro';
 import RelatedLots from './RelatedLots.astro';
 import type { CoffeeLot } from '../../data/coffeeLots';
+import type { Locale } from '../../i18n/types';
 
 interface Props {
   lot: CoffeeLot;
   relatedLots: CoffeeLot[];
+  locale: Locale;
 }
 
-const { lot, relatedLots } = Astro.props;
+const { lot, relatedLots, locale } = Astro.props;
 ---
 
 <article class="coffee-lot-page">
-  <CoffeeHero lot={lot} />
-  <CoffeeOverview lot={lot} />
-  <TechnicalGrid lot={lot} />
-  <CupProfile lot={lot} />
-  <BuyerUseCases lot={lot} />
-  <CoffeeCTA lotName={lot.name} />
-  <RelatedLots relatedLots={relatedLots} />
+  <CoffeeHero lot={lot} locale={locale} />
+  <CoffeeOverview lot={lot} locale={locale} />
+  <TechnicalGrid lot={lot} locale={locale} />
+  <CupProfile lot={lot} locale={locale} />
+  <BuyerUseCases lot={lot} locale={locale} />
+  <CoffeeCTA lotName={lot.name} locale={locale} />
+  <RelatedLots relatedLots={relatedLots} locale={locale} />
 </article>

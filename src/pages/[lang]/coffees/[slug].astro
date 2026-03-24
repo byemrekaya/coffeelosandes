@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CoffeeLotArticle from '../../../components/coffee/CoffeeLotArticle.astro';
+import { coffeeLots, getRelatedLots } from '../../../data/coffeeLots';
+import { locales } from '../../../i18n/types';
+import type { Locale } from '../../../i18n/types';
+import { localizeCoffeeLot, localizeCoffeeLots } from '../../../i18n/localizeLot';
+import { t } from '../../../i18n/t';
+
+export function getStaticPaths() {
+  const paths: { params: { lang: string; slug: string }; props: { lot: (typeof coffeeLots)[number] } }[] = [];
+  for (const lang of locales) {
+    for (const lot of coffeeLots) {
+      paths.push({ params: { lang, slug: lot.slug }, props: { lot } });
+    }
+  }
+  return paths;
+}
+
+interface Props {
+  lot: (typeof coffeeLots)[number];
+}
+
+const { lot: baseLot } = Astro.props;
+const { lang } = Astro.params;
+const locale = lang as Locale;
+
+const lot = localizeCoffeeLot(baseLot, locale);
+const related = localizeCoffeeLots(getRelatedLots(lot.slug, 3), locale);
+
+const title = `${lot.name} · ${lot.score.toFixed(2)} · ${t(locale, 'meta.lotSuffix')}`;
+const description = `${lot.story.slice(0, 155)}…`;
+---
+
+<BaseLayout locale={locale} title={title} description={description}>
+  <CoffeeLotArticle lot={lot} relatedLots={related} locale={locale} />
+</BaseLayout>

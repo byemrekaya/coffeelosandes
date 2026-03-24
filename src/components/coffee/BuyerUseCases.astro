@@ -1,28 +1,31 @@
 ---
 import type { CoffeeLot } from '../../data/coffeeLots';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
 
 interface Props {
   lot: CoffeeLot;
+  locale: Locale;
 }
 
-const { lot } = Astro.props;
+const { lot, locale } = Astro.props;
 ---
 
-<section class="border-t border-cream/[0.06] py-20 md:py-28" data-reveal>
+<section class="border-t border-line py-20 md:py-28" data-reveal>
   <div class="section-shell">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="stage-eyebrow mb-4">Buyer positioning</p>
+      <p class="stage-eyebrow mb-4">{t(locale, 'coffee.buyerEyebrow')}</p>
       <h2 class="font-display text-display-md font-semibold tracking-tight-display text-cream">
-        Where this lot performs best
+        {t(locale, 'coffee.buyerTitle')}
       </h2>
       <p class="mt-4 text-[15px] text-cream/60">
-        Practical wholesale positioning — built for roasters, cafés, and distributors making purchasing decisions.
+        {t(locale, 'coffee.buyerSubtitle')}
       </p>
     </div>
 
     <ul class="mx-auto mt-14 max-w-2xl space-y-4">
       {lot.buyerUseCases.map((item) => (
-        <li class="flex gap-4 rounded-xl border border-cream/[0.06] bg-espresso/30 px-6 py-5 text-[15px] leading-relaxed text-cream/80">
+        <li class="flex gap-4 rounded-xl border border-line bg-surface-muted px-6 py-5 text-[15px] leading-relaxed text-ink/80">
           <span class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold/80" aria-hidden="true"></span>
           <span>{item}</span>
         </li>

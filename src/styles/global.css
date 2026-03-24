@@ -3,24 +3,41 @@
 @tailwind utilities;
 
 html {
-  @apply bg-charcoal text-cream scroll-smooth;
+  @apply scroll-smooth;
+  background-color: #eef5f3;
+  color: #0d2c3f;
+}
+
+.anchor-target {
+  scroll-margin-top: 8.5rem;
+}
+
+@media (min-width: 1024px) {
+  .anchor-target {
+    scroll-margin-top: 6rem;
+  }
 }
 
 body {
-  @apply min-h-screen bg-charcoal text-cream font-sans antialiased;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  @apply min-h-screen font-sans antialiased;
+  background-color: #eef5f3;
+  color: #0d2c3f;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
 .page-shell {
-  @apply bg-charcoal text-cream;
+  background-color: #eef5f3;
+  color: #0d2c3f;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-terracotta px-6 py-3.5 text-sm font-medium tracking-wide text-cream transition-all duration-200 hover:bg-terracotta/90 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal;
+  @apply inline-flex items-center justify-center gap-2 rounded-none bg-gold px-8 py-3.5 text-[11px] font-semibold uppercase tracking-brand text-ink transition-colors duration-200 hover:bg-[#e3bf68] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/55 focus-visible:ring-offset-2;
+  --tw-ring-offset-color: #eef5f3;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg border border-cream/20 bg-transparent px-6 py-3.5 text-sm font-medium tracking-wide text-cream/90 transition-all duration-200 hover:border-cream/40 hover:bg-cream/5 hover:text-cream focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal;
+  @apply inline-flex items-center justify-center gap-2 rounded-none border-2 border-ink bg-transparent px-8 py-3.5 text-[11px] font-semibold uppercase tracking-brand text-ink transition-colors duration-200 hover:bg-ink hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/45 focus-visible:ring-offset-2;
+  --tw-ring-offset-color: #eef5f3;
 }
 
 .section-shell {
@@ -28,42 +45,38 @@ body {
 }
 
 .stage-eyebrow {
-  @apply text-[11px] font-medium uppercase tracking-[0.25em] text-cream/50;
+  @apply text-[11px] font-semibold uppercase tracking-[0.22em] text-gold;
 }
 
 .stage-heading {
-  @apply font-display text-display-lg font-semibold tracking-tight-display text-cream;
+  @apply font-sans text-display-lg font-bold uppercase tracking-[0.08em] text-ink;
 }
 
 .stage-subtitle {
-  @apply mt-4 text-[15px] leading-relaxed text-cream/75;
+  @apply mt-4 text-[15px] leading-relaxed text-ink-muted;
 }
 
 .stage-copy {
-  @apply mt-6 space-y-4 text-[15px] leading-relaxed text-cream/70;
+  @apply mt-6 space-y-4 text-[15px] leading-relaxed;
+  color: rgb(207 207 207 / 0.86);
 }
 
 .glass-panel {
-  @apply rounded-2xl border border-cream/[0.08] bg-espresso/50 shadow-card backdrop-blur-xl;
+  @apply rounded-none border border-line bg-surface shadow-card;
 }
 
 .texture-overlay {
-  background-image: radial-gradient(circle at 0 0, rgba(255, 255, 255, 0.04) 0, transparent 60%), radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.03) 0, transparent 55%);
-}
-
-/* Subtle film grain overlay - CSS-only, no external assets */
-.roasting-glow {
-  box-shadow: 0 0 60px rgba(192, 138, 77, 0.15), inset 0 -20px 40px rgba(0, 0, 0, 0.4);
+  background-image: radial-gradient(circle at 0 0, rgba(200, 154, 60, 0.06) 0, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(13, 44, 63, 0.04) 0, transparent 55%);
 }
 
 .grain-overlay {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.04;
-  mix-blend-mode: soft-light;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
   pointer-events: none;
 }
 
-/* Scroll reveal - elements with data-reveal get .revealed when in viewport */
 [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
@@ -75,31 +88,36 @@ body {
   transform: translateY(0);
 }
 
-/* Kahve lot detay — global reveal’e göre biraz daha sıkı hareket */
 .coffee-lot-page [data-reveal] {
   transform: translateY(16px);
   transition: opacity 0.65s ease-out, transform 0.65s ease-out;
 }
 
-/* Adım adım reveal - parent revealed olduğunda çocuklar sırayla görünür */
 [data-reveal-step] {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-[data-reveal].revealed [data-reveal-step="1"] { opacity: 1; transform: translateY(0); transition-delay: 0ms; }
-[data-reveal].revealed [data-reveal-step="2"] { opacity: 1; transform: translateY(0); transition-delay: 120ms; }
-[data-reveal].revealed [data-reveal-step="3"] { opacity: 1; transform: translateY(0); transition-delay: 240ms; }
-[data-reveal].revealed [data-reveal-step="4"] { opacity: 1; transform: translateY(0); transition-delay: 360ms; }
-
-.scroll-chevron {
-  animation: bounce-subtle 2s ease-in-out infinite;
+[data-reveal].revealed [data-reveal-step='1'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0ms;
 }
-
-@keyframes bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+[data-reveal].revealed [data-reveal-step='2'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 120ms;
+}
+[data-reveal].revealed [data-reveal-step='3'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 240ms;
+}
+[data-reveal].revealed [data-reveal-step='4'] {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 360ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -117,4 +135,3 @@ body {
     transform: none;
   }
 }
-

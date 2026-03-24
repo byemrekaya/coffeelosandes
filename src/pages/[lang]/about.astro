@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangStaticPaths } from '../../i18n/staticPaths';
+import SectionHeader from '../../components/SectionHeader.astro';
+import CTASection from '../../components/CTASection.astro';
+import { dictionary } from '../../i18n/dictionary';
+import { resolveLocale } from '../../i18n/config';
+import { t } from '../../i18n/t';
+import { withLang } from '../../i18n/paths';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const locale = resolveLocale(lang);
+
+const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; body: string }[];
+---
+
+<BaseLayout locale={locale} title={t(locale, 'about.title')} description={t(locale, 'about.description')}>
+  <section class="pt-36 pb-24">
+    <div class="section-shell">
+      <SectionHeader
+        eyebrow={t(locale, 'about.heroEyebrow')}
+        title={t(locale, 'about.heroTitle')}
+        description={t(locale, 'about.heroDesc')}
+        align="center"
+      />
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section-shell grid gap-16 md:grid-cols-2 md:items-center">
+      <div class="space-y-6">
+        <h2 class="stage-heading text-2xl md:text-3xl">{t(locale, 'about.whoTitle')}</h2>
+        <div class="stage-copy space-y-4">
+          <p>{t(locale, 'about.whoP1')}</p>
+          <p>{t(locale, 'about.whoP2')}</p>
+        </div>
+      </div>
+      <div class="glass-panel texture-overlay relative overflow-hidden px-8 py-12">
+        <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-terracotta/30 via-transparent to-transparent blur-3xl" />
+        <div class="relative space-y-4">
+          <p class="stage-eyebrow">{t(locale, 'about.panelEyebrow')}</p>
+          <p class="text-sm text-cream/80">
+            {t(locale, 'about.panelText')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section-shell">
+      <SectionHeader
+        eyebrow={t(locale, 'about.valuesEyebrow')}
+        title={t(locale, 'about.valuesTitle')}
+        description={t(locale, 'about.valuesDesc')}
+      />
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {brandValues.map((value) => (
+          <article class="glass-panel px-6 py-8">
+            <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-cream/80">{value.title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-cream/70">{value.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="section-shell">
+      <div class="glass-panel relative overflow-hidden px-8 py-12 md:px-12 md:py-16">
+        <div class="absolute inset-0 bg-gradient-to-br from-olive/20 via-transparent to-bronze/10" />
+        <div class="relative max-w-2xl space-y-6">
+          <h2 class="stage-heading text-2xl md:text-3xl">{t(locale, 'about.roastTitle')}</h2>
+          <p class="stage-copy">{t(locale, 'about.roastBody')}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    eyebrow={t(locale, 'cta.eyebrow')}
+    title={t(locale, 'cta.title')}
+    body={t(locale, 'cta.body')}
+    primaryLabel={t(locale, 'cta.primary')}
+    primaryHref={withLang('/contact', locale)}
+    secondaryLabel={t(locale, 'cta.secondary')}
+    secondaryHref={withLang('/products', locale)}
+  />
+</BaseLayout>

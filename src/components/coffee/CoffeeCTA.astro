@@ -1,29 +1,33 @@
 ---
 import { site, mailtoB2B } from '../../config/site';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
+import { withLang } from '../../i18n/paths';
 
 interface Props {
   lotName: string;
+  locale: Locale;
 }
 
-const { lotName } = Astro.props;
+const { lotName, locale } = Astro.props;
+const title = t(locale, 'coffee.ctaTitle').replace('{name}', lotName);
 ---
 
 <section class="pb-24 pt-8 md:pb-32" data-reveal>
   <div class="section-shell">
-    <div class="relative overflow-hidden rounded-2xl border border-cream/[0.08] bg-espresso/50 px-8 py-12 md:px-14 md:py-16">
+    <div class="relative overflow-hidden rounded-2xl border border-line bg-surface px-8 py-12 md:px-14 md:py-16">
       <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-terracotta/15 blur-3xl" aria-hidden="true"></div>
       <div class="relative mx-auto max-w-2xl text-center">
-        <p class="stage-eyebrow mb-4">Wholesale</p>
+        <p class="stage-eyebrow mb-4">{t(locale, 'coffee.wholesale')}</p>
         <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">
-          Discuss volume, roasting targets, and logistics for <span class="text-cream/95">{lotName}</span>
+          {title}
         </h2>
         <p class="mt-5 text-[15px] leading-relaxed text-cream/70">
-          Our team works with qualified buyers on sample evaluation, contract structure, and consistent supply planning. Share your
-          operational context — we will respond with a professional, trade-appropriate next step.
+          {t(locale, 'coffee.ctaBody')}
         </p>
         <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href="/contact" class="btn-primary px-10">
-            Start a wholesale inquiry
+          <a href={withLang('/contact', locale)} class="btn-primary px-10">
+            {t(locale, 'coffee.ctaPrimary')}
           </a>
           <a href={mailtoB2B} class="btn-secondary px-10">
             {site.contactEmail}

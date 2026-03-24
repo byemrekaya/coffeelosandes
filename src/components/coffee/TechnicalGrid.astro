@@ -1,40 +1,51 @@
 ---
 import type { CoffeeLot } from '../../data/coffeeLots';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
 
 interface Props {
   lot: CoffeeLot;
+  locale: Locale;
 }
 
-const { lot } = Astro.props;
+const { lot, locale } = Astro.props;
 
-const rows: { label: string; value: string }[] = [
-  { label: 'Producer', value: lot.producer },
-  { label: 'Farm / Hacienda', value: lot.farm },
-  { label: 'Variety', value: lot.variety },
-  { label: 'Process', value: lot.process },
-  { label: 'Region / State', value: lot.region },
-  { label: 'Country', value: lot.country },
-  { label: 'Cup score', value: lot.score.toFixed(2) },
-  { label: 'Rank', value: `#${lot.rank}` },
+const baseRows: { labelKey: string; value: string }[] = [
+  { labelKey: 'coffee.techProducer', value: lot.producer },
+  { labelKey: 'coffee.techFarm', value: lot.farm },
+  { labelKey: 'coffee.techVariety', value: lot.variety },
+  { labelKey: 'coffee.techProcess', value: lot.process },
+  { labelKey: 'coffee.techRegion', value: lot.region },
+  { labelKey: 'coffee.techCountry', value: lot.country },
+  { labelKey: 'coffee.techScore', value: lot.score.toFixed(2) },
+  { labelKey: 'coffee.techRank', value: `#${lot.rank}` },
 ];
+
+const extraRows: { labelKey: string; value: string }[] = [];
+if (lot.altitudeMeters) extraRows.push({ labelKey: 'coffee.techAltitude', value: lot.altitudeMeters });
+if (lot.moisturePct) extraRows.push({ labelKey: 'coffee.techMoisture', value: lot.moisturePct });
+if (lot.screenSize) extraRows.push({ labelKey: 'coffee.techScreen', value: lot.screenSize });
+if (lot.bagSizeKg) extraRows.push({ labelKey: 'coffee.techBag', value: lot.bagSizeKg });
+
+const rows = [...baseRows, ...extraRows];
 ---
 
-<section id="lot-details" class="border-y border-cream/[0.06] bg-espresso/25 py-20 md:py-24" data-reveal>
+<section id="lot-details" class="border-y border-line bg-paper-deep/90 py-20 md:py-24" data-reveal>
   <div class="section-shell">
     <div class="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="stage-eyebrow mb-2">Technical details</p>
-        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">Origin & lot specification</h2>
+        <p class="stage-eyebrow mb-2">{t(locale, 'coffee.techEyebrow')}</p>
+        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">{t(locale, 'coffee.techTitle')}</h2>
       </div>
       <p class="max-w-md text-sm text-cream/55">
-        Verified lot parameters for purchasing, QC, and menu communication.
+        {t(locale, 'coffee.techDesc')}
       </p>
     </div>
 
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {rows.map((row) => (
-        <div class="rounded-xl border border-cream/[0.08] bg-charcoal/40 px-5 py-5 transition-colors hover:border-cream/15">
-          <p class="text-[11px] font-medium uppercase tracking-[0.18em] text-cream/45">{row.label}</p>
+        <div class="rounded-xl border border-line bg-surface-muted px-5 py-5 transition-colors hover:border-line">
+          <p class="text-[11px] font-medium uppercase tracking-[0.18em] text-cream/45">{t(locale, row.labelKey)}</p>
           <p class="mt-2 text-[15px] leading-snug text-cream/90">{row.value}</p>
         </div>
       ))}

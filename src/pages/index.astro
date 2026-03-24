@@ -1,15 +1,3 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import AlturaFullPage from '../components/AlturaFullPage.astro';
-import HomePageSections from '../components/home/HomePageSections.astro';
+return Astro.redirect('/tr/', 302);
 ---
-
-<BaseLayout
-  title="Los Andes – Dağlarda Doğan Kahve | B2B Coffee"
-  description="Venezüella And eteklerinde yetiştirilen organik kahve. B2B ortakları için premium kahve."
-  hideFooter={false}
-  fullpage={false}
->
-  <AlturaFullPage />
-  <HomePageSections />
-</BaseLayout>

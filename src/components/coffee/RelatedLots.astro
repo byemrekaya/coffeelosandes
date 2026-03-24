@@ -1,31 +1,35 @@
 ---
 import type { CoffeeLot } from '../../data/coffeeLots';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
+import { withLang } from '../../i18n/paths';
 
 interface Props {
   relatedLots: CoffeeLot[];
+  locale: Locale;
 }
 
-const { relatedLots } = Astro.props;
+const { relatedLots, locale } = Astro.props;
 ---
 
 {relatedLots.length > 0 && (
-  <section class="border-t border-cream/[0.06] pb-24 pt-20 md:pb-32 md:pt-24" data-reveal>
+  <section class="border-t border-line pb-24 pt-20 md:pb-32 md:pt-24" data-reveal>
     <div class="section-shell">
       <div class="mb-12 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
-          <p class="stage-eyebrow mb-2">Collection</p>
-          <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">Related lots</h2>
+          <p class="stage-eyebrow mb-2">{t(locale, 'coffee.relatedEyebrow')}</p>
+          <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">{t(locale, 'coffee.relatedTitle')}</h2>
         </div>
         <p class="max-w-md text-sm text-cream/55">
-          Explore additional scored lots from the same release — ideal for comparative cupping and programme planning.
+          {t(locale, 'coffee.relatedDesc')}
         </p>
       </div>
 
       <div class="grid gap-6 md:grid-cols-3">
         {relatedLots.map((lot) => (
           <a
-            href={`/coffees/${lot.slug}`}
-            class="group flex flex-col rounded-xl border border-cream/[0.08] bg-charcoal/40 p-6 transition-all hover:border-cream/15 hover:bg-espresso/40"
+            href={withLang(`/coffees/${lot.slug}`, locale)}
+            class="group flex flex-col rounded-xl border border-line bg-surface-muted p-6 transition-all hover:border-line hover:bg-surface/90"
           >
             <div class="flex items-start justify-between gap-3">
               <h3 class="font-display text-xl font-semibold text-cream group-hover:text-cream">{lot.name}</h3>
@@ -36,7 +40,7 @@ const { relatedLots } = Astro.props;
             </p>
             <p class="mt-4 line-clamp-3 flex-1 text-sm leading-relaxed text-cream/65">{lot.commercialSummary}</p>
             <span class="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-wider text-gold/90">
-              View lot
+              {t(locale, 'coffee.viewLot')}
               <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
             </span>
           </a>
