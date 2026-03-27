@@ -10,13 +10,17 @@ interface Props {
 
 const { locale } = Astro.props;
 
-const footerNav: { hash: string; key: string }[] = [
-  { hash: 'hero', key: 'nav.home' },
-  { hash: 'hikayemiz', key: 'nav.story' },
-  { hash: 'kahvelerimiz', key: 'nav.coffees' },
-  { hash: 'kalite', key: 'nav.qualityDocs' },
-  { hash: 'toptan', key: 'nav.wholesale' },
-  { hash: 'iletisim', key: 'nav.contact' },
+type FooterNavItem =
+  | { kind: 'section'; hash: string; key: string }
+  | { kind: 'page'; path: string; key: string };
+
+const footerNav: FooterNavItem[] = [
+  { kind: 'section', hash: 'hero', key: 'nav.home' },
+  { kind: 'page', path: '/about', key: 'nav.about' },
+  { kind: 'section', hash: 'kahvelerimiz', key: 'nav.coffees' },
+  { kind: 'section', hash: 'kalite', key: 'nav.qualityDocs' },
+  { kind: 'section', hash: 'toptan', key: 'nav.wholesale' },
+  { kind: 'section', hash: 'iletisim', key: 'nav.contact' },
 ];
 
 const linkClass = 'text-ink/75 transition hover:text-ink';
@@ -40,7 +44,10 @@ const linkClass = 'text-ink/75 transition hover:text-ink';
         <ul class="space-y-2.5">
           {footerNav.map((item) => (
             <li>
-              <a href={homeSection(locale, item.hash)} class={linkClass}>
+              <a
+                href={item.kind === 'section' ? homeSection(locale, item.hash) : withLang(item.path, locale)}
+                class={linkClass}
+              >
                 {t(locale, item.key)}
               </a>
             </li>
@@ -56,8 +63,8 @@ const linkClass = 'text-ink/75 transition hover:text-ink';
             </a>
           </li>
           <li>
-            <a href={withLang('/about', locale)} class={linkClass}>
-              {t(locale, 'footer.linkAbout')}
+            <a href={withLang('/privacy', locale)} class={linkClass}>
+              {t(locale, 'footer.linkPrivacy')}
             </a>
           </li>
         </ul>

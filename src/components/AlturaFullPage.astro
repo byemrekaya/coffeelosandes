@@ -2,6 +2,7 @@
 import type { Locale } from '../i18n/types';
 import { t } from '../i18n/t';
 import { withLang } from '../i18n/paths';
+import { site } from '../config/site';
 
 interface Props {
   locale: Locale;
@@ -11,34 +12,66 @@ const { locale } = Astro.props;
 ---
 
 <div class="relative min-h-screen flex-shrink-0 overflow-hidden">
-  <section id="hero" class="relative flex min-h-screen flex-col scroll-mt-0 lg:flex-row">
+  <section
+    id="hero"
+    class="relative flex min-h-screen flex-col scroll-mt-0 lg:flex lg:min-h-screen lg:flex-row"
+  >
     <div
-      class="relative z-10 order-2 flex flex-1 flex-col justify-center bg-paper px-6 pb-20 pt-28 md:px-10 lg:order-1 lg:min-h-screen lg:max-w-[min(52%,36rem)] lg:flex-none lg:px-12 lg:pb-24 lg:pt-32 xl:px-16"
+      class="relative z-10 order-2 flex w-full flex-1 flex-col justify-center bg-paper px-6 pb-20 pt-28 md:px-10 lg:order-1 lg:min-h-0 lg:min-h-screen lg:w-[45%] lg:max-w-none lg:flex-none lg:shrink-0 lg:px-10 lg:pb-24 lg:pt-32 xl:px-14"
     >
-      <p class="stage-eyebrow mb-5">{t(locale, 'home.badgeAltitude')}</p>
-      <h1
-        data-hero-headline
-        class="font-sans text-[clamp(1.75rem,4vw,2.75rem)] font-bold uppercase leading-[1.12] tracking-[0.06em] text-ink"
-      >
-        {t(locale, 'home.slogan')}
-      </h1>
-      <p class="mt-6 font-sans text-lg font-semibold text-ink md:text-xl">{t(locale, 'home.heroSubtitle')}</p>
-      <p class="mt-5 max-w-lg text-[15px] leading-relaxed text-ink-muted">{t(locale, 'home.heroLead')}</p>
-      <div class="mt-10 flex flex-wrap gap-3">
-        <a href={withLang('/products', locale)} class="btn-primary inline-flex w-fit">
-          {t(locale, 'home.coffeesCtaAll')}
-        </a>
-        <a href={withLang('/contact', locale)} class="btn-secondary inline-flex w-fit">
-          {t(locale, 'nav.cta')}
-        </a>
+      <div
+        class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_0%_20%,rgba(200,154,60,0.07),transparent_55%)] opacity-100"
+        aria-hidden="true"
+      />
+      <div class="relative flex gap-6 lg:gap-8">
+        <span
+          class="mt-1 hidden h-[min(12rem,22vh)] w-1 shrink-0 rounded-none bg-gold/90 lg:block"
+          aria-hidden="true"
+        />
+        <div class="min-w-0 flex-1">
+          <div class="mb-6">
+            <img
+              src="/logo.png"
+              alt=""
+              width="112"
+              height="112"
+              class="h-14 w-auto object-contain object-left opacity-95 md:h-16"
+              loading="eager"
+              decoding="async"
+            />
+            <p class="mt-3 max-w-sm text-[11px] font-semibold uppercase leading-snug tracking-[0.12em] text-ink/70 md:text-xs">
+              {site.legalEntityName}
+            </p>
+          </div>
+          <h1
+            data-hero-headline
+            class="font-sans text-[clamp(1.85rem,4.2vw,3rem)] font-bold uppercase leading-[1.1] tracking-[0.05em] text-ink"
+          >
+            {t(locale, 'home.slogan')}
+          </h1>
+          <p class="mt-5 font-sans text-base font-semibold tracking-wide text-ink/85 md:text-lg">
+            {t(locale, 'home.heroSubtitle')}
+          </p>
+          <p class="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-muted md:text-[16px]">{t(locale, 'home.heroLead')}</p>
+          <div class="mt-10 flex flex-wrap gap-3">
+            <a href={withLang('/products', locale)} class="btn-primary inline-flex w-fit">
+              {t(locale, 'home.coffeesCtaAll')}
+            </a>
+            <a href={withLang('/contact', locale)} class="btn-secondary inline-flex w-fit">
+              {t(locale, 'nav.cta')}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="relative order-1 min-h-[40vh] w-full min-w-0 flex-1 overflow-hidden lg:order-2 lg:min-h-screen">
+    <div
+      class="relative order-1 min-h-[40vh] w-full min-w-0 flex-1 overflow-hidden lg:order-2 lg:min-h-screen lg:w-[55%] lg:flex-none lg:shrink-0"
+    >
       <div class="absolute inset-0 overflow-hidden" data-hero-scene>
         <img
           data-hero-photo
-          src="/banner.png"
+          src={site.ogImage}
           alt="Coffee Los Andes banner"
           width="1920"
           height="1080"
@@ -47,8 +80,11 @@ const { locale } = Astro.props;
           fetchpriority="high"
           decoding="async"
         />
-        <div class="absolute inset-0 bg-gradient-to-br from-gold/16 via-transparent to-ink/35" aria-hidden="true"></div>
-        <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-paper to-transparent lg:w-40" aria-hidden="true" />
+        <div class="absolute inset-0 bg-gradient-to-br from-gold/12 via-transparent to-ink/28" aria-hidden="true"></div>
+        <div
+          class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-paper to-transparent lg:w-40"
+          aria-hidden="true"
+        />
       </div>
     </div>
   </section>

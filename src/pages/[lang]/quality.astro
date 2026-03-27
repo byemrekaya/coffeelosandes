@@ -25,8 +25,8 @@ const blocks = [
   <section class="border-b border-line pb-16 pt-32 md:pb-20 md:pt-36">
     <div class="section-shell max-w-3xl">
       <p class="stage-eyebrow mb-3">{t(locale, 'qualityPage.heroEyebrow')}</p>
-      <h1 class="font-display text-display-md font-semibold tracking-tight-display text-cream">{t(locale, 'qualityPage.heroTitle')}</h1>
-      <p class="mt-6 text-base leading-relaxed text-cream/70">{t(locale, 'qualityPage.heroDesc')}</p>
+      <h1 class="font-display text-display-md font-semibold tracking-tight-display text-ink">{t(locale, 'qualityPage.heroTitle')}</h1>
+      <p class="mt-6 text-base leading-relaxed text-ink-muted">{t(locale, 'qualityPage.heroDesc')}</p>
     </div>
   </section>
 
@@ -34,8 +34,8 @@ const blocks = [
     <div class="section-shell grid gap-8 md:grid-cols-2">
       {blocks.map((b) => (
         <article class="glass-panel px-8 py-10" data-reveal>
-          <h2 class="font-display text-lg font-semibold text-cream md:text-xl">{t(locale, b.titleKey)}</h2>
-          <p class="mt-4 text-sm leading-relaxed text-cream/65">{t(locale, b.bodyKey)}</p>
+          <h2 class="font-display text-lg font-semibold text-ink md:text-xl">{t(locale, b.titleKey)}</h2>
+          <p class="mt-4 text-sm leading-relaxed text-ink-muted">{t(locale, b.bodyKey)}</p>
         </article>
       ))}
     </div>

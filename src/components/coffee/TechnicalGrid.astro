@@ -1,5 +1,5 @@
 ---
-import type { CoffeeLot } from '../../data/coffeeLots';
+import { type CoffeeLot, lotScoreLine } from '../../data/coffeeLots';
 import type { Locale } from '../../i18n/types';
 import { t } from '../../i18n/t';
 
@@ -10,45 +10,56 @@ interface Props {
 
 const { lot, locale } = Astro.props;
 
-const baseRows: { labelKey: string; value: string }[] = [
-  { labelKey: 'coffee.techProducer', value: lot.producer },
-  { labelKey: 'coffee.techFarm', value: lot.farm },
+function resolveFermentationLabel(currentLot: CoffeeLot): string {
+  if (currentLot.fermentation?.trim()) return currentLot.fermentation;
+  const process = currentLot.process.toLowerCase();
+  if (process.includes('experimental') || process.includes('anaerobic')) {
+    return t(locale, 'coffee.techFermentationExperimental');
+  }
+  if (process.includes('natural') || process.includes('honey') || process.includes('washed')) {
+    return t(locale, 'coffee.techFermentationControlled');
+  }
+  return t(locale, 'coffee.techFermentationDefault');
+}
+
+const origin = lot.region ? `${lot.country} – ${lot.region}` : lot.country;
+const farmProducer =
+  lot.farm.trim().toLowerCase() === lot.producer.trim().toLowerCase() ? lot.farm : `${lot.farm} / ${lot.producer}`;
+const flavorProfile = lot.flavorTags.length > 0 ? lot.flavorTags.join(' · ') : lot.longTastingNotes;
+const detailRows: { labelKey: string; value: string }[] = [
+  { labelKey: 'coffee.techOrigin', value: origin },
+  { labelKey: 'coffee.techFarmProducer', value: farmProducer },
   { labelKey: 'coffee.techVariety', value: lot.variety },
   { labelKey: 'coffee.techProcess', value: lot.process },
-  { labelKey: 'coffee.techRegion', value: lot.region },
-  { labelKey: 'coffee.techCountry', value: lot.country },
-  { labelKey: 'coffee.techScore', value: lot.score.toFixed(2) },
-  { labelKey: 'coffee.techRank', value: `#${lot.rank}` },
+  { labelKey: 'coffee.techFermentation', value: resolveFermentationLabel(lot) },
+  { labelKey: 'coffee.techAltitude', value: lot.altitudeMeters ?? '—' },
+  { labelKey: 'coffee.techFlavorProfile', value: flavorProfile },
+  { labelKey: 'coffee.techScore', value: lotScoreLine(lot) },
 ];
-
-const extraRows: { labelKey: string; value: string }[] = [];
-if (lot.altitudeMeters) extraRows.push({ labelKey: 'coffee.techAltitude', value: lot.altitudeMeters });
-if (lot.moisturePct) extraRows.push({ labelKey: 'coffee.techMoisture', value: lot.moisturePct });
-if (lot.screenSize) extraRows.push({ labelKey: 'coffee.techScreen', value: lot.screenSize });
-if (lot.bagSizeKg) extraRows.push({ labelKey: 'coffee.techBag', value: lot.bagSizeKg });
-
-const rows = [...baseRows, ...extraRows];
 ---
 
 <section id="lot-details" class="border-y border-line bg-paper-deep/90 py-20 md:py-24" data-reveal>
   <div class="section-shell">
-    <div class="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+    <div class="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="stage-eyebrow mb-2">{t(locale, 'coffee.techEyebrow')}</p>
-        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">{t(locale, 'coffee.techTitle')}</h2>
+        <h2 class="font-display text-2xl font-semibold text-ink md:text-3xl">{t(locale, 'coffee.techTitle')}</h2>
       </div>
-      <p class="max-w-md text-sm text-cream/55">
-        {t(locale, 'coffee.techDesc')}
-      </p>
+      <p class="max-w-md text-sm text-ink/60">{t(locale, 'coffee.techDesc')}</p>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-      {rows.map((row) => (
-        <div class="rounded-xl border border-line bg-surface-muted px-5 py-5 transition-colors hover:border-line">
-          <p class="text-[11px] font-medium uppercase tracking-[0.18em] text-cream/45">{t(locale, row.labelKey)}</p>
-          <p class="mt-2 text-[15px] leading-snug text-cream/90">{row.value}</p>
-        </div>
-      ))}
+    <div class="overflow-hidden border border-line/90 bg-surface shadow-card">
+      <div class="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden="true"></div>
+      <div class="px-5 py-6 md:px-8 md:py-7">
+        <dl class="divide-y divide-line/70 overflow-hidden border border-line/80 bg-paper/50">
+          {detailRows.map((row) => (
+            <div class="flex flex-col gap-2 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-7 sm:px-5">
+              <dt class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/55">{t(locale, row.labelKey)}</dt>
+              <dd class="text-[15px] font-semibold leading-snug text-ink sm:max-w-[62%] sm:text-right">{row.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
     </div>
   </div>
 </section>

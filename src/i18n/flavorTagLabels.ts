@@ -1,9 +1,5 @@
 import type { Locale } from './types';
 
-/**
- * Ürün kartları ve kahve kahramanı için tadım etiketleri — kaynak veri İngilizce anahtar olarak kalır.
- * Eşleşmeyen etiketler olduğu gibi döner.
- */
 const LABELS: Record<string, Record<Locale, string>> = {
   Floral: { tr: 'Çiçeksi', de: 'Floral' },
   Exotic: { tr: 'Egzotik', de: 'Exotisch' },

@@ -13,6 +13,9 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const locale = lang as Locale;
+
+const formSent = Astro.url.searchParams.get('sent') === '1';
+const formError = Astro.url.searchParams.get('error') === '1';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'contact.title')} description={t(locale, 'contact.description')}>
@@ -31,20 +34,20 @@ const locale = lang as Locale;
       <div class="space-y-8">
         <div>
           <h3 class="stage-eyebrow mb-3">{t(locale, 'contact.infoTitle')}</h3>
-          <ul class="space-y-3 text-sm text-cream/70">
+          <ul class="space-y-3 text-sm text-ink-muted">
             <li>
-              <strong class="text-cream/90">{t(locale, 'contact.emailLabel')}</strong>
-              <a href={mailtoB2B} class="ml-2 text-gold hover:text-cream transition">{site.contactEmail}</a>
+              <strong class="text-ink">{t(locale, 'contact.emailLabel')}</strong>
+              <a href={mailtoB2B} class="ml-2 text-gold hover:text-ink transition">{site.contactEmail}</a>
             </li>
             <li>
-              <strong class="text-cream/90">{t(locale, 'contact.regionLabel')}</strong>
+              <strong class="text-ink">{t(locale, 'contact.regionLabel')}</strong>
               {t(locale, 'contact.regionValue')}
             </li>
             <li>
-              <strong class="text-cream/90">{t(locale, 'contact.partnerLabel')}</strong>
+              <strong class="text-ink">{t(locale, 'contact.partnerLabel')}</strong>
               {t(locale, 'contact.partnerValue')}
             </li>
-            <li class="pt-4 text-[12px] text-cream/50">
+            <li class="pt-4 text-[12px] text-ink-muted/90">
               {t(locale, 'contact.infoFootnote')}
             </li>
           </ul>
@@ -64,17 +67,33 @@ const locale = lang as Locale;
         <div class="rounded-xl border border-line bg-surface-muted p-6">
           <h3 class="stage-eyebrow mb-3">{t(locale, 'contact.mapTitle')}</h3>
           <div class="aspect-[4/3] rounded-xl bg-surface/95 flex items-center justify-center border border-line">
-            <p class="text-xs text-cream/40 uppercase tracking-[0.2em]">
+            <p class="text-xs text-ink-muted uppercase tracking-[0.2em]">
               {t(locale, 'contact.mapPlaceholder')}
             </p>
           </div>
-          <p class="mt-3 text-[11px] text-cream/50">
+          <p class="mt-3 text-[11px] text-ink-muted">
             {t(locale, 'contact.mapNote')}
           </p>
         </div>
       </div>
 
-      <div>
+      <div class="space-y-4">
+        {formSent && (
+          <p
+            class="border border-gold/40 bg-gold/10 px-4 py-3 text-sm leading-relaxed text-ink"
+            role="status"
+          >
+            {t(locale, 'contact.formSent')}
+          </p>
+        )}
+        {formError && (
+          <p
+            class="border border-red-400/35 bg-red-950/25 px-4 py-3 text-sm leading-relaxed text-ink"
+            role="alert"
+          >
+            {t(locale, 'contact.formError')}
+          </p>
+        )}
         <ContactForm locale={locale} />
       </div>
     </div>

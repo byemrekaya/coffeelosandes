@@ -1,7 +1,7 @@
 ---
 import type { Locale } from '../i18n/types';
 import { t } from '../i18n/t';
-import { homeSection } from '../i18n/paths';
+import { homeSection, withLang } from '../i18n/paths';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 interface Props {
@@ -10,12 +10,16 @@ interface Props {
 
 const { locale } = Astro.props;
 
-const navLinks: { hash: string; key: string }[] = [
-  { hash: 'hero', key: 'nav.home' },
-  { hash: 'hikayemiz', key: 'nav.story' },
-  { hash: 'kahvelerimiz', key: 'nav.coffees' },
-  { hash: 'kalite', key: 'nav.qualityDocs' },
-  { hash: 'toptan', key: 'nav.wholesale' },
+type NavItem =
+  | { kind: 'section'; hash: string; key: string }
+  | { kind: 'page'; path: string; key: string };
+
+const navLinks: NavItem[] = [
+  { kind: 'section', hash: 'hero', key: 'nav.home' },
+  { kind: 'page', path: '/about', key: 'nav.about' },
+  { kind: 'section', hash: 'kahvelerimiz', key: 'nav.coffees' },
+  { kind: 'section', hash: 'kalite', key: 'nav.qualityDocs' },
+  { kind: 'section', hash: 'toptan', key: 'nav.wholesale' },
 ];
 
 const navLeft = navLinks.slice(0, 3);
@@ -44,7 +48,10 @@ const linkClass =
         <ul class="flex h-full flex-1 items-center justify-end gap-x-6 pr-[min(8rem,12vw)] xl:gap-x-10">
           {navLeft.map((item) => (
             <li>
-              <a href={homeSection(locale, item.hash)} class={linkClass}>
+              <a
+                href={item.kind === 'section' ? homeSection(locale, item.hash) : withLang(item.path, locale)}
+                class={linkClass}
+              >
                 {t(locale, item.key)}
               </a>
             </li>
@@ -53,10 +60,10 @@ const linkClass =
 
         <a href={homeSection(locale, 'hero')} class="absolute left-1/2 top-[2px] -translate-x-1/2">
           <span
-            class="flex h-[92px] w-[74px] items-center justify-center rounded-b-[18px] border-x border-b border-white/20 bg-ink px-2 pt-2 shadow-[0_10px_18px_rgba(0,0,0,0.28)]"
+            class="flex min-h-[92px] w-[74px] flex-col items-center justify-center gap-1.5 rounded-b-[18px] border-x border-b border-white/20 bg-ink px-2 pb-2.5 pt-2 shadow-[0_10px_18px_rgba(0,0,0,0.28)]"
             aria-hidden="true"
           >
-            <img src="/logo.png" alt="" class="h-12 w-12 object-contain" loading="eager" decoding="async" />
+            <img src="/logo.png" alt="" class="h-11 w-11 shrink-0 object-contain" loading="eager" decoding="async" />
           </span>
           <span class="sr-only">Coffee Los Andes</span>
         </a>
@@ -65,7 +72,10 @@ const linkClass =
           <ul class="flex h-full items-center gap-x-6 xl:gap-x-10">
             {navRight.map((item) => (
               <li>
-                <a href={homeSection(locale, item.hash)} class={linkClass}>
+                <a
+                  href={item.kind === 'section' ? homeSection(locale, item.hash) : withLang(item.path, locale)}
+                  class={linkClass}
+                >
                   {t(locale, item.key)}
                 </a>
               </li>
@@ -85,7 +95,7 @@ const linkClass =
         {navLinks.map((item) => (
           <li class="shrink-0">
             <a
-              href={homeSection(locale, item.hash)}
+              href={item.kind === 'section' ? homeSection(locale, item.hash) : withLang(item.path, locale)}
               class="inline-block border border-white/20 bg-white/5 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-white/85"
             >
               {t(locale, item.key)}

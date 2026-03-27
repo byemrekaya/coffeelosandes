@@ -1,24 +1,39 @@
 ---
 import type { Locale } from '../i18n/types';
 import { t } from '../i18n/t';
+import { withLang } from '../i18n/paths';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
+const redirectPath = withLang('/contact', locale);
+const base = import.meta.env.BASE_URL;
+const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/contact`;
 ---
 
 <form
   class="glass-panel space-y-6 px-8 py-10 md:px-10 md:py-12"
   aria-label={t(locale, 'form.aria')}
-  action="#"
+  action={formAction}
   method="post"
 >
-  <p class="text-sm text-cream/70">{t(locale, 'form.helper')}</p>
+  <input type="hidden" name="_redirect" value={redirectPath} />
+
+  <p class="text-sm text-ink-muted">{t(locale, 'form.helper')}</p>
+
+  <input
+    type="text"
+    name="_gotcha"
+    tabindex="-1"
+    autocomplete="off"
+    class="hidden"
+    aria-hidden="true"
+  />
 
   <div class="space-y-2">
-    <label for="name" class="block text-xs font-medium uppercase tracking-[0.15em] text-cream/80">
+    <label for="name" class="block text-xs font-medium uppercase tracking-[0.15em] text-ink">
       {t(locale, 'form.name')}
     </label>
     <input
@@ -34,7 +49,7 @@ const { locale } = Astro.props;
   </div>
 
   <div class="space-y-2">
-    <label for="contact" class="block text-xs font-medium uppercase tracking-[0.15em] text-cream/80">
+    <label for="contact" class="block text-xs font-medium uppercase tracking-[0.15em] text-ink">
       {t(locale, 'form.contact')}
     </label>
     <input
@@ -42,7 +57,7 @@ const { locale } = Astro.props;
       name="contact"
       type="text"
       required
-      autocomplete="on"
+      autocomplete="email"
       class="w-full rounded-none border border-line bg-surface-muted px-4 py-3.5 text-[15px] text-cream placeholder:text-cream/35 focus:border-terracotta/60 focus:outline-none focus:ring-1 focus:ring-terracotta/40 transition"
       placeholder={t(locale, 'form.contactPh')}
       aria-required="true"
@@ -50,7 +65,7 @@ const { locale } = Astro.props;
   </div>
 
   <div class="space-y-2">
-    <label for="message" class="block text-xs font-medium uppercase tracking-[0.15em] text-cream/80">
+    <label for="message" class="block text-xs font-medium uppercase tracking-[0.15em] text-ink">
       {t(locale, 'form.message')}
     </label>
     <textarea
@@ -60,7 +75,7 @@ const { locale } = Astro.props;
       class="w-full rounded-none border border-line bg-surface-muted px-4 py-3.5 text-[15px] text-cream placeholder:text-cream/35 focus:border-terracotta/60 focus:outline-none focus:ring-1 focus:ring-terracotta/40 transition resize-y min-h-[120px]"
       placeholder={t(locale, 'form.messagePh')}
     ></textarea>
-    <p class="text-[11px] text-cream/50">{t(locale, 'form.messageHint')}</p>
+    <p class="text-[11px] text-ink-muted">{t(locale, 'form.messageHint')}</p>
   </div>
 
   <div class="pt-2">

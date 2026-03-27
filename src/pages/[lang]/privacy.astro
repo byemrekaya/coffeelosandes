@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangStaticPaths } from '../../i18n/staticPaths';
+import type { Locale } from '../../i18n/types';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { t } from '../../i18n/t';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const locale = lang as Locale;
+---
+
+<BaseLayout locale={locale} title={t(locale, 'privacy.title')} description={t(locale, 'privacy.description')}>
+  <section class="pt-36 pb-20">
+    <div class="section-shell space-y-10">
+      <SectionHeader
+        eyebrow={t(locale, 'privacy.heroEyebrow')}
+        title={t(locale, 'privacy.heroTitle')}
+      />
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="section-shell max-w-3xl space-y-6 text-[15px] leading-relaxed text-ink/85">
+      <p>{t(locale, 'privacy.p1')}</p>
+      <p>{t(locale, 'privacy.p2')}</p>
+      <p>{t(locale, 'privacy.p3')}</p>
+    </div>
+  </section>
+</BaseLayout>

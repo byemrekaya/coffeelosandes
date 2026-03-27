@@ -7,6 +7,7 @@ import CoffeeLotCard from '../../../components/coffee/CoffeeLotCard.astro';
 import { getLotsBySegment } from '../../../data/coffeeLots';
 import { localizeCoffeeLots } from '../../../i18n/localizeLot';
 import { t } from '../../../i18n/t';
+import { dictionary } from '../../../i18n/dictionary';
 
 export function getStaticPaths() {
   return getLangStaticPaths();
@@ -15,9 +16,14 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const locale = lang as Locale;
 
-const ultra = localizeCoffeeLots(getLotsBySegment('ultra-premium'), locale);
-const special = localizeCoffeeLots(getLotsBySegment('special-series'), locale);
-const blend = localizeCoffeeLots(getLotsBySegment('blend-mixed'), locale);
+const productsDict = dictionary[locale].products as Record<string, unknown>;
+const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
+
+const competition = localizeCoffeeLots(getLotsBySegment('competition-lots'), locale);
+const microlot = localizeCoffeeLots(getLotsBySegment('premium-microlot'), locale);
+const specialty = localizeCoffeeLots(getLotsBySegment('specialty-series'), locale);
+const barista = localizeCoffeeLots(getLotsBySegment('barista-blend'), locale);
+const commercial = localizeCoffeeLots(getLotsBySegment('commercial'), locale);
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
@@ -36,11 +42,11 @@ const blend = localizeCoffeeLots(getLotsBySegment('blend-mixed'), locale);
     <div class="section-shell space-y-16 md:space-y-24">
       <div>
         <div class="mb-8 max-w-3xl">
-          <h2 class="font-display text-xl font-semibold text-cream md:text-2xl">{t(locale, 'products.segmentUltraTitle')}</h2>
-          <p class="mt-3 text-sm leading-relaxed text-cream/60">{t(locale, 'products.segmentUltraDesc')}</p>
+          <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">{t(locale, 'products.segmentCompetitionTitle')}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentCompetitionDesc')}</p>
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {ultra.map((lot) => (
+          {competition.map((lot) => (
             <CoffeeLotCard lot={lot} locale={locale} />
           ))}
         </div>
@@ -48,11 +54,11 @@ const blend = localizeCoffeeLots(getLotsBySegment('blend-mixed'), locale);
 
       <div>
         <div class="mb-8 max-w-3xl">
-          <h2 class="font-display text-xl font-semibold text-cream md:text-2xl">{t(locale, 'products.segmentSpecialTitle')}</h2>
-          <p class="mt-3 text-sm leading-relaxed text-cream/60">{t(locale, 'products.segmentSpecialDesc')}</p>
+          <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">{t(locale, 'products.segmentMicroTitle')}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentMicroDesc')}</p>
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {special.map((lot) => (
+          {microlot.map((lot) => (
             <CoffeeLotCard lot={lot} locale={locale} />
           ))}
         </div>
@@ -60,14 +66,57 @@ const blend = localizeCoffeeLots(getLotsBySegment('blend-mixed'), locale);
 
       <div>
         <div class="mb-8 max-w-3xl">
-          <h2 class="font-display text-xl font-semibold text-cream md:text-2xl">{t(locale, 'products.segmentBlendTitle')}</h2>
-          <p class="mt-3 text-sm leading-relaxed text-cream/60">{t(locale, 'products.segmentBlendDesc')}</p>
+          <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">{t(locale, 'products.segmentSpecialtyTitle')}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentSpecialtyDesc')}</p>
         </div>
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {blend.map((lot) => (
+          {specialty.map((lot) => (
             <CoffeeLotCard lot={lot} locale={locale} />
           ))}
         </div>
+      </div>
+
+      <div>
+        <div class="mb-8 max-w-3xl">
+          <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">{t(locale, 'products.segmentBaristaTitle')}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentBaristaDesc')}</p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {barista.map((lot) => (
+            <CoffeeLotCard lot={lot} locale={locale} />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div class="mb-8 max-w-3xl">
+          <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">{t(locale, 'products.segmentCommercialTitle')}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentCommercialDesc')}</p>
+        </div>
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {commercial.map((lot) => (
+            <CoffeeLotCard lot={lot} locale={locale} />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <div class="mb-8 max-w-3xl">
+          <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">{t(locale, 'products.segmentRoastedTitle')}</h2>
+          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentRoastedDesc')}</p>
+        </div>
+        <article class="border border-line/80 bg-paper-deep/40 px-6 py-8 md:px-8">
+          <h3 class="font-display text-lg font-semibold text-ink">{t(locale, 'products.retailProductTitle')}</h3>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted">{t(locale, 'products.retailProductStory')}</p>
+          <ul class="mt-6 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
+            {retailSpecLines.map((line) => (
+              <li class="flex gap-2">
+                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
       </div>
     </div>
   </section>

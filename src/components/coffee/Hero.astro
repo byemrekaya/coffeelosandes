@@ -1,5 +1,5 @@
 ---
-import type { CoffeeLot } from '../../data/coffeeLots';
+import { type CoffeeLot, getLotImageSrc, lotScoreLine } from '../../data/coffeeLots';
 import type { Locale } from '../../i18n/types';
 import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
@@ -11,6 +11,8 @@ interface Props {
 
 const { lot, locale } = Astro.props;
 const eyebrow = lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty');
+const coverSrc = getLotImageSrc(lot.slug);
+const lightboxId = `lot-lightbox-${lot.slug}`;
 ---
 
 <section class="relative overflow-hidden border-b border-line pb-16 pt-28 md:pb-24 md:pt-36" data-reveal>
@@ -20,25 +22,69 @@ const eyebrow = lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty');
   <div class="section-shell relative">
     <p class="stage-eyebrow mb-4 text-cream/55">{eyebrow}</p>
 
-    <div class="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
-      <div class="max-w-3xl">
+    <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
+      <div class="lg:col-span-7">
         <h1 class="font-display text-display-xl font-semibold tracking-tight-display text-cream">
           {lot.name}
         </h1>
         <p class="mt-4 text-lg leading-relaxed text-cream/75 md:text-xl">
           {lot.region}, {lot.country}
         </p>
+
+        <div class="mt-8 flex flex-wrap items-end gap-8">
+          <div>
+            <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroCupScore')}</p>
+            <p class="font-display text-4xl font-semibold tabular-nums text-gold md:text-5xl">{lotScoreLine(lot)}</p>
+          </div>
+          <div class="h-12 w-px bg-line" aria-hidden="true"></div>
+          <div>
+            <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroRank')}</p>
+            <p class="font-display text-4xl font-semibold tabular-nums text-cream md:text-5xl">#{lot.rank}</p>
+          </div>
+        </div>
       </div>
 
-      <div class="flex flex-wrap items-end gap-8 lg:justify-end">
-        <div>
-          <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroCupScore')}</p>
-          <p class="font-display text-4xl font-semibold tabular-nums text-gold md:text-5xl">{lot.score.toFixed(2)}</p>
-        </div>
-        <div class="h-12 w-px bg-line" aria-hidden="true"></div>
-        <div>
-          <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroRank')}</p>
-          <p class="font-display text-4xl font-semibold tabular-nums text-cream md:text-5xl">#{lot.rank}</p>
+      <div class="lg:col-span-5">
+        <div
+          class="lot-photo-frame group/frame transition-[box-shadow,transform] duration-500 ease-out will-change-transform hover:-translate-y-0.5"
+        >
+          <div class="lot-photo-frame-inner">
+            <button
+              type="button"
+              class="group/photo relative block w-full overflow-hidden bg-[#1a1510] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1510]"
+              data-lot-lightbox-open
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-controls={lightboxId}
+            >
+              <img
+                src={coverSrc}
+                alt=""
+                class="aspect-[4/3] w-full object-cover object-[center_38%] contrast-[1.03] saturate-[1.04] transition duration-[1.15s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/photo:scale-[1.045]"
+                loading="eager"
+                decoding="async"
+                width="800"
+                height="600"
+              />
+              <div
+                class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_78%_58%_at_50%_20%,rgba(212,168,72,0.26),transparent_60%),radial-gradient(ellipse_95%_85%_at_88%_100%,rgba(48,32,22,0.28),transparent_54%),linear-gradient(to_top,rgba(24,16,11,0.45),transparent_55%)]"
+                aria-hidden="true"
+              />
+              <div class="pointer-events-none absolute inset-0 grain-overlay opacity-[0.4]" aria-hidden="true"></div>
+              <div
+                class="pointer-events-none absolute inset-x-0 bottom-0 h-[38%] bg-gradient-to-t from-[rgba(14,10,7,0.82)] via-[rgba(14,10,7,0.35)] to-transparent"
+                aria-hidden="true"
+              />
+              <span
+                class="pointer-events-none absolute bottom-3 right-3 flex items-center gap-1.5 rounded-full border border-white/35 bg-black/50 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/95 shadow-lg backdrop-blur-md"
+              >
+                <svg class="h-3.5 w-3.5 opacity-90" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                {t(locale, 'coffee.heroImageZoomHint')}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -72,3 +118,99 @@ const eyebrow = lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty');
     </p>
   </div>
 </section>
+
+<dialog
+  id={lightboxId}
+  class="lot-lightbox-dialog"
+  aria-modal="true"
+  aria-label={t(locale, 'coffee.lightboxAria')}
+>
+  <div
+    class="flex h-full min-h-0 w-full cursor-pointer items-center justify-center p-4 md:p-10"
+    data-lot-lightbox-pane
+  >
+    <button
+      type="button"
+      class="absolute right-3 top-3 z-20 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-white/90 bg-white text-ink shadow-[0_4px_20px_rgba(0,0,0,0.45),0_0_0_1px_rgba(0,0,0,0.08)_inset] transition hover:border-gold hover:bg-gold hover:text-ink hover:shadow-[0_6px_28px_rgba(0,0,0,0.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-transparent md:right-6 md:top-6"
+      data-lot-lightbox-close
+      aria-label={t(locale, 'coffee.lightboxClose')}
+    >
+      <svg
+        class="h-6 w-6"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <path d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+    <img
+      src={coverSrc}
+      alt=""
+      class="lot-lightbox-img max-h-[min(88dvh,900px)] max-w-[min(96vw,1200px)] cursor-default rounded-md object-contain shadow-[0_25px_80px_rgba(0,0,0,0.55)] ring-1 ring-white/12 contrast-[1.02] saturate-[1.03]"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+</dialog>
+
+<style is:global>
+  .lot-lightbox-dialog {
+    margin: 0;
+    max-height: 100dvh;
+    max-width: 100vw;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+    background: transparent;
+  }
+  .lot-lightbox-dialog::backdrop {
+    background: rgba(8, 12, 18, 0.92);
+    backdrop-filter: blur(6px);
+  }
+</style>
+
+<script>
+  function initLotLightbox() {
+    const openBtn = document.querySelector('[data-lot-lightbox-open]');
+    const dialog = document.querySelector('.lot-lightbox-dialog');
+    const closeBtn = dialog?.querySelector('[data-lot-lightbox-close]');
+    const pane = dialog?.querySelector('[data-lot-lightbox-pane]');
+    if (!openBtn || !dialog || !(dialog instanceof HTMLDialogElement)) return;
+
+    const setExpanded = (open: boolean) => {
+      openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    };
+
+    const closeLightbox = () => {
+      dialog.close();
+      setExpanded(false);
+    };
+
+    openBtn.addEventListener('click', () => {
+      dialog.showModal();
+      setExpanded(true);
+    });
+
+    closeBtn?.addEventListener('click', () => {
+      closeLightbox();
+    });
+
+    /* Görselin dışındaki koyu alan (pane’in kendisi) — X’e gerek kalmadan kapanır */
+    pane?.addEventListener('click', (e) => {
+      if (e.target === pane) closeLightbox();
+    });
+
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) closeLightbox();
+    });
+
+    dialog.addEventListener('close', () => setExpanded(false));
+  }
+
+  initLotLightbox();
+</script>

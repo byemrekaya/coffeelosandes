@@ -1,11 +1,13 @@
 ---
 import '../styles/global.css';
 import type { Locale } from '../i18n/types';
+import { locales } from '../i18n/types';
 import { dictionary } from '../i18n/dictionary';
 import { defaultLocale, resolveLocale } from '../i18n/config';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../config/site';
+import { withLang, stripLocaleFromPath } from '../i18n/paths';
 
 interface Props {
   locale?: Locale;
@@ -13,6 +15,8 @@ interface Props {
   description?: string;
   hideFooter?: boolean;
   fullpage?: boolean;
+  /** Arama indeksinden çıkarmak için (ör. 404) */
+  noindex?: boolean;
 }
 
 const {
@@ -21,12 +25,29 @@ const {
   description = site.defaultDescription,
   hideFooter = false,
   fullpage = false,
+  noindex = false,
 } = Astro.props;
 
 const locale = resolveLocale(localeProp as string | undefined);
 const htmlLang = String(
   dictionary[locale]?.htmlLang ?? dictionary[defaultLocale].htmlLang ?? 'tr'
 );
+
+const origin = site.canonicalOrigin.replace(/\/$/, '');
+const pathname = Astro.url.pathname;
+const canonicalURL = new URL(pathname, `${origin}/`).href;
+
+const ogImageURL = new URL(site.ogImage.replace(/^\//, ''), `${origin}/`).href;
+
+const pathWithoutLocale = stripLocaleFromPath(pathname);
+const altPaths = locales.map((loc) => {
+  const p = withLang(pathWithoutLocale === '/' ? '/' : pathWithoutLocale, loc);
+  return { loc, href: new URL(p, `${origin}/`).href, hreflang: String(dictionary[loc]?.htmlLang ?? loc) };
+});
+const xDefaultHref = new URL(
+  withLang(pathWithoutLocale === '/' ? '/' : pathWithoutLocale, defaultLocale),
+  `${origin}/`
+).href;
 ---
 
 <!doctype html>
@@ -36,10 +57,26 @@ const htmlLang = String(
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={site.name} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
+    {!noindex && altPaths.map(({ href, hreflang }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
+    {!noindex && <link rel="alternate" hreflang="x-default" href={xDefaultHref} />}
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    {!noindex && (
+      <>
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={site.name} />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:image" content={ogImageURL} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={ogImageURL} />
+      </>
+    )}
     <meta name="theme-color" content="#0D2C3F" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

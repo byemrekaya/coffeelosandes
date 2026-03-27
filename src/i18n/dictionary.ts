@@ -7,6 +7,7 @@ export const dictionary: Record<Locale, Dict> = {
     htmlLang: 'tr',
     nav: {
       home: 'Anasayfa',
+      about: 'Hakkımızda',
       story: 'Hikâyemiz',
       coffees: 'Kahvelerimiz',
       qualityDocs: 'Kalite ve Belgeler',
@@ -17,30 +18,58 @@ export const dictionary: Record<Locale, Dict> = {
     },
     lang: { tr: 'TR', de: 'DE' },
     home: {
-      title: 'Coffee Los Andes – Hayalini Yudumla | Venezuela And Dağları',
+      title: 'Coffee Los Andes – Andenlerden Premium Kahve | Venezuela',
       description:
         'Venezuela And Dağları’nın yüksek rakımlı tarlalarından premium kahve. Toptan ve B2B ortakları için izlenebilir specialty kahve.',
-      slogan: 'Hayalini Yudumla!',
-      heroSubtitle: 'Doğanın kalbinden gelen lezzet',
+      slogan: 'Andenlerden Premium Kahve',
+      heroSubtitle: 'İzlenebilir · Specialty · Sürdürülebilir',
       heroLead:
-        '1.600 – 2.100 metre yükseklikte yetişen, mineral bakımından zengin topraklarda yavaş olgunlaşan çekirdeklerin hikâyesi.',
+        'Venezuela’nın yüksek rakımlı bölgelerinden, seçilmiş çiftliklerden gelen specialty kahveler.',
       badgeAltitude: 'Yüksek İrtifa Lezzeti · ≥ 1.630 m',
+      heroStrip1: 'B2B · Toptan',
+      heroStrip2: 'Venezuela menşe',
+      heroStrip3: 'Berlin · Operasyon',
+      flowTitle: 'Çiftlikten kavurma tesisinize',
+      flowStep1Title: 'Menşede hasat',
+      flowStep1Body: 'Lara bölgesindeki üretici toplulukları tarafından toplanır ve ayıklanır.',
+      flowStep2Title: 'Doğrudan sevkiyat',
+      flowStep2Body: 'İzlenebilir şekilde, Avrupa hattına doğrudan gönderim.',
+      flowStep3Title: 'Avrupa depolama',
+      flowStep3Body: 'Gümrük süreçleri tamamlanır, depolama ve kalite takibi yapılır.',
+      flowStep4Title: 'Kavurma tesisinize',
+      flowStep4Body: '69 kg çuvallarla özenli ve planlı teslimat.',
       lotDetail: 'Lot detayı',
       coffeesSectionTitle: 'Kahvelerimiz',
       coffeesSectionIntro:
-        'Üç ana segmentte sunulan specialty kahveler; skor, menşe ve teknik fiş ile profesyonel alıcılar için.',
+        'Altı vitrin: Competition lot, premium mikro lot, Specialty kahve, harman serisi, ticari seri ve kavrulmuş paket ürün.',
       coffeesCtaAll: 'Tüm kahveleri gör',
+      retailTeaserTitle: 'Perakende kahve (paket)',
+      retailTeaserBody:
+        'Kavrulmuş, öğütülmüş paket ürünler — Café 1600 serisi; tam çekirdek seçenekleri ileride eklenebilir.',
+      originEyebrow: 'Menşe · Venezuela',
+      originTitle: 'Andes, Sanare ve seçilmiş çiftlikler',
+      originBullets: [
+        'Andes bölgesi',
+        'Sanare / Lara',
+        '1.600–2.000 m rakım',
+        'Küçük üreticiler',
+        'Doğal işleme yöntemleri',
+      ],
+      originFarmsTitle: 'Çiftlikler ve üreticiler',
+      originFarms: ['Altos de Veracruz', 'Diğer partner çiftlikler'],
       qualitySectionTitle: 'Kalite ve Belgeler',
       qualitySectionIntro:
         'SGS laboratuvar analizleri, Q Arabica Grader değerlendirmeleri ve INSAI sertifikalarıyla güvence; detaylar için kalite sayfamıza göz atın.',
-      wholesaleSectionTitle: 'Toptan çözümler',
+      wholesaleSectionTitle: 'Neden biz',
       wholesaleSectionIntro:
-        'Roastery ve kafe operasyonları için ölçeklenebilir tedarik, standart torba formatı ve net lojistik ile yanınızdayız.',
-      wholesaleEyebrow: 'B2B operasyon',
+        'Doğrudan kaynak, izlenebilirlik ve uzun vadeli tedarik ile specialty kaliteyi rekabetçi koşullarda sunuyoruz.',
+      wholesaleEyebrow: 'B2B değer önerisi',
       wholesaleBullets: [
-        '60 kg craft torbalarda sunum — depo ve kavurma hattı için pratik format',
-        'Venezuela menşeli lotlar için tarladan depoya kadar koordineli lojistik ve belgelendirme',
-        'Berlin merkezli operasyon ve Dunamix ile doğrudan çiftlik bağlantısı üzerinden tedarik kapasitesi planlaması',
+        'Doğrudan tedarik',
+        'İzlenebilirlik',
+        'Stabil arz',
+        'Specialty kalite',
+        'Rekabetçi fiyatlandırma',
       ],
     },
     homeStory: {
@@ -98,24 +127,51 @@ export const dictionary: Record<Locale, Dict> = {
       },
     ],
     products: {
-      title: 'Kahve portföyü · Coffee Los Andes',
+      title: 'Yeşil ve kavrulmuş kahve · Coffee Los Andes',
       description:
-        'Ultra Premium (84+ SCA), Özel Varyete Serisi ve Roastery Base harmanları — toptan alıcılar için skor ve teknik fiş.',
-      eyebrow: 'Üç ana seri',
-      heading: 'Kahve portföyü',
-      desc: 'Profesyonel toptancı kimliğiyle üç ana seride kategorize edilmiş specialty kahveler; skor, menşe ve kupa profiliyle sunulur.',
-      segmentUltraTitle: 'Ultra Premium · Premium Micro Lot (84+ SCA)',
-      segmentUltraDesc:
-        'En yüksek kalite standardı; çiftlik ve lot bazlı tam izlenebilirlik. Örnek: Geisha (91,54) — egzotik tadım notları ve koleksiyon değeri.',
-      segmentSpecialTitle: 'Özel Varyete Serisi (82,25 – 84,50 SCA)',
-      segmentSpecialDesc:
-        'Belirli varyetelerin karakteristik profilleri; Castillo, Catuaí, Caturra, Colombia 27 ve Bourbon (Santa Marta) gibi lotlar.',
-      segmentBlendTitle: 'Klasik Blend ve Mixed · Roastery Base',
-      segmentBlendDesc:
-        'Kavurma evleri için sürekli kalite ve dengeli gövde; sütlü çikolata ve fındık profilli harmanlar ile commodity mixed serisi.',
-      segmentLabelUltra: 'Ultra Premium',
-      segmentLabelSpecial: 'Özel Varyete',
-      segmentLabelBlend: 'Blend / Mixed',
+        'Competition lot, premium mikro lot, Specialty Coffee, Blend Series, Commercial Series ve kavrulmuş paket ürünler.',
+      eyebrow: 'Portföy',
+      heading: 'Yeşil ve kavrulmuş kahve',
+      desc: 'Roh kahve serileri ve paketlenmiş ürünler; skor, menşe ve teknik fiş ile profesyonel alıcılar için.',
+      segmentCompetitionTitle: 'Competition lot',
+      segmentCompetitionDesc:
+        'Yüksek cup skoru ve koleksiyon odaklı üst segment — Geisha ve Tabi ile sınırlı Competition lotları.',
+      segmentMicroTitle: 'Premium mikro lot',
+      segmentMicroDesc:
+        'Venezuela Andenleri’nden seçilmiş mikro parseller; deneysel ve klasik işlemeler, 88–90 skor bandı.',
+      microBulletFarm: 'Çiftlik adı',
+      microBulletLot: 'Lot adı',
+      microBulletProcess: 'İşleme',
+      microBulletScore: 'Skor',
+      segmentSpecialtyTitle: 'Specialty Coffee',
+      segmentSpecialtyDesc: 'Castillo, Caturra ve Catuaí — sürekli tedarik edilebilen premium Arabica.',
+      segmentBaristaTitle: 'Blend Series',
+      segmentBaristaDesc: 'Espresso performansı için dengeli harman — Barista Blend.',
+      segmentCommercialTitle: 'Commercial Series',
+      segmentCommercialDesc: 'Büyük hacim için fiyat optimize Arabica Mixed; cup skoru bandı 78–82.',
+      segmentRetailTitle: 'Perakende kahve',
+      segmentRetailDesc: 'Kavrulmuş paket ürünler — öğütülmüş ve ileride tam çekirdek.',
+      segmentRoastedTitle: 'Kavrulmuş kahve (paket)',
+      segmentRoastedDesc: 'Mağaza ve son kullanıcı için paketlenmiş ürünler.',
+      retailProductTitle: 'Café 1600 – Catimor',
+      retailProductStory:
+        'Sanare, Venezuela yüksek rakım specialty kahvesi; Altos de Veracruz’ta üretilmiştir. Natural ve Honey işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
+      retailSpecLines: [
+        'Çeşit: Catimor',
+        'Rakım: 1600 m',
+        'İşleme: Natural / Honey',
+        'Cup skoru: 82–84',
+        'Kavurma: Orta',
+        'Asidite: Orta düşük',
+        'Format: Öğütülmüş',
+        'Ağırlık: 500 g',
+      ],
+      segmentLabelCompetition: 'Competition lot',
+      segmentLabelMicro: 'Premium mikro lot',
+      segmentLabelSpecialty: 'Specialty Coffee',
+      segmentLabelBarista: 'Blend Series',
+      segmentLabelCommercial: 'Commercial Series',
+      segmentLabelRetail: 'Kavrulmuş kahve',
     },
     contact: {
       title: 'İletişim – B2B Toptan Talep | Coffee Los Andes',
@@ -142,6 +198,9 @@ export const dictionary: Record<Locale, Dict> = {
       mapTitle: 'Bölge Haritası',
       mapPlaceholder: 'Venezüella · And Etekleri · Plantasyon Bölgeleri',
       mapNote: 'Harita placeholder. Gerçek harita entegrasyonu proje gereksinimlerine göre eklenebilir.',
+      formSent: 'Mesajınız alındı; en kısa sürede size dönüş yapacağız.',
+      formError:
+        'Gönderilemedi. Lütfen bir süre sonra tekrar deneyin veya doğrudan e-posta ile ulaşın. Sunucuda SMTP ayarlarının tanımlı olduğundan emin olun.',
     },
     form: {
       aria: 'Hızlı iletişim formu',
@@ -158,19 +217,125 @@ export const dictionary: Record<Locale, Dict> = {
     about: {
       title: 'Hakkımızda – Coffee Los Andes',
       description:
-        '1990’dan bugüne Venezuela And Dağları menşesi, Berlin merkezli operasyon ve Dunamix ile doğrudan çiftlik bağlantısı.',
-      heroEyebrow: 'Marka Hikâyesi',
-      heroTitle: 'Venezuela And Dağları’ndan, profesyonel B2B sahnesine.',
+        'Los Andes: yaklaşık 20 yıllık Güney Amerika ticari ilişkileri, Avrupa’daki GmbH yapısı ve Venezuela menşeli kahve kalitesi.',
+      heroEyebrow: 'Hakkımızda',
+      heroTitle: 'LOS ANDES – Köken, deneyim ve güven',
       heroDesc:
-        'Coffee Los Andes; yüksek rakımda yetişen çekirdekleri, izlenebilir lot yapısı ve usta kavurma disipliniyle toptan ortaklarımıza taşır.',
-      whoTitle: 'Kimiz?',
-      whoP1:
-        'Merkezimiz Berlin, Almanya; kahve kaynağımız ise Venezuela And Dağları’nın bereketli toprakları ve Multinacional Dunamix, C.A. ile doğrudan çiftlik bağlantımızdır. Hasattan işlemeye, lojistikten kalite kontrole kadar süreci B2B değer zinciri olarak yönetiriz.',
-      whoP2:
-        'Kavurma evleri, kafeler ve distribütörler için tutarlı profiller, lot bazlı şeffaflık ve uzun vadeli iş birliği sunarız. Amacımız yalnızca kahve satmak değil; doğanın ve emeğin buluştuğu deneyimi profesyonel standartlarla yaşatmaktır.',
-      panelEyebrow: 'Venezuela · And Dağları',
-      panelText:
-        '1.600 – 2.100 metre aralığında, mineral bakımından zengin topraklarda yavaş olgunlaşan çekirdekler. Kontrollü hasat, lot bazlı işleme ve koleksiyon değeri taşıyan mikro lotlar.',
+        'Uzun soluklu üretici ortaklıkları, kaynakta kalite kontrolü ve Almanya ile Avrupa’ya yapılandırılmış tedarik.',
+      losAndesTitle: 'LOS ANDES – Köken, deneyim ve güven',
+      losAndesLead: [
+        'Yaklaşık 20 yıldır Güney Amerika’da doğrudan ticari ilişkiler yürütüyor; derin bölgesel bilgi ve sağlam deneyime sahibiz — özellikle kahve sektöründe.',
+        'Bu süre içinde sadece üretim bölgelerini yakından tanımadık; üreticiler, çiftçiler ve yerel işletmelerle uzun vadeli, güvene dayalı ortaklıklar kurduk. Özellikle Venezuela’daki güçlü saha varlığımız, ürünlerimizin kalitesi ve güvenilirliğinin temelini oluşturur.',
+        'Bu deneyimi uluslararası pazarlara başarıyla taşıdık.',
+        'Uzun yıllar boyunca Türkiye, Orta Doğu ve Körfez ülkelerinde faaliyet gösterdik — Birleşik Arap Emirlikleri, Katar, Kuveyt, Bahreyn, Suudi Arabistan ve Türk cumhuriyetleri dahil.',
+        'Bugün bu bilgi birikimini bilinçli bir şekilde Avrupa’ya taşıyoruz.',
+        'LOS ANDES EUROPE GmbH çatısı altında Almanya ve Avrupa pazarına özenle seçilmiş yeşil çekirdek kahveler ile kavrulmuş Los Andes ürünlerini sunuyoruz.',
+      ],
+      losAndesSections: [
+        {
+          title: 'Kalite – Kaynakta doğrudan kontrol',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'Venezuela’daki yerel ekibimiz, üretim sürecinin tamamını sahada takip eder.',
+            },
+            {
+              type: 'p',
+              text:
+                'Çiftçiler ve üreticilerle yakın iş birliğimiz ve bölgelerin derinlemesine bilgisi sayesinde; kahve kirazlarının seçiminden nihai işlemeye kadar her aşamanın kontrollü ve kalite odaklı ilerlemesini sağlıyoruz.',
+            },
+            {
+              type: 'p',
+              text:
+                'Özellikle mikro lotlar ve seçilmiş premium lotlarda şunlara özel önem veriyoruz:',
+            },
+            {
+              type: 'ul',
+              items: [
+                'Parsel bazlı seleksiyon',
+                'Kontrollü fermentasyon',
+                'Özenli kurutma süreçleri',
+                'Hassas ayıklama ve kalite kontrolü',
+              ],
+            },
+            {
+              type: 'p',
+              text:
+                'Bu yaklaşım yalnızca yüksek ürün kalitesini değil, tutarlılık ve güvenilirliği de garanti eder.',
+            },
+          ],
+        },
+        {
+          title: 'Çiftlikten Avrupa’ya – güvenilir yönetim',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'Tedarik zincirimiz baştan sona yapılandırılmış ve şeffaf biçimde organize edilir.',
+            },
+            {
+              type: 'p',
+              text:
+                'Menşeden işlemeye ve lojistiğe kadar her adım planlanır ve izlenir.',
+            },
+            {
+              type: 'p',
+              text:
+                'Böylece Avrupa’daki müşterilerimize istikrarlı, izlenebilir ve sorunsuz bir tedarik sağlarız.',
+            },
+          ],
+        },
+        {
+          title: 'Ürün portföyümüz',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'LOS ANDES, farklı pazar ihtiyaçları için ayrıştırılmış bir ürün yelpazesi sunar:',
+            },
+            {
+              type: 'ul',
+              items: [
+                'Competition ve premium lotlar (90+ puan)',
+                'Seçilmiş mikro lotlar (85–89 puan)',
+                'Sürekli temin edilebilen specialty kahveler',
+                'Gastronomi ve kavurma evleri için Barista harmanları',
+                'Hacim odaklı uygulamalar için ekonomik çözümler',
+                'Kavrulmuş ve paketlenmiş kahve ürünleri',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Anlayışımız',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'LOS ANDES, Güney Amerika’daki bölgesel gücü ve uzun yıllara dayanan deneyimi, net yapılandırılmış bir Avrupa pazar varlığı ile birleştirir.',
+            },
+            {
+              type: 'p',
+              text:
+                'Amacımız; yüksek kaliteli, izlenebilir ve sürdürülebilir üretilen kahveyi güvenilir ve ortaklık temelinde müşterilerimize ulaştırmaktır.',
+            },
+          ],
+        },
+      ],
+      venezuelaTitle: 'Venezuela – Menşe, doğa ve karakter',
+      venezuelaParagraphs: [
+        'Venezuela, Latin Amerika’nın en köklü ve doğal kahve yetiştirme bölgelerinden biridir.',
+        'Lara ve Mérida çevresindeki And bölgelerinde kahveler, 1.200 ile 2.000 metre arası yüksekliklerde ve istikrarlı iklim koşullarında yetişir.',
+        'Yükseklik, verimli toprak ve dengeli sıcaklıkların birleşimi, kahve kirazlarının yavaş olgunlaşmasına olanak tanır. Böylece çekirdekler dengeli bir yapı, doğal tatlılık ve net bir lezzet profili geliştirir.',
+        'Kahve üretimi çoğunlukla küçük, aile işletmelerinde yapılır. Kahve bitkileri sıklıkla kakao, muz ve diğer tropik bitkilerle birlikte karma kültürde yetiştirilir. Bu çok katmanlı ekosistem sadece toprak koruma ve istikrar sağlamakla kalmaz; kahvelerin aromatik gelişimini de etkiler.',
+        'Özellikle kakao ağaçlarının bulunduğu bölgelerde kahvelerde çikolata ve kakao tonları sıklıkla belirgindir. Gölgeli yetiştirme, çekirdeklerin dengeli gelişimini destekler ve uyumlu bir tat profiline katkı sağlar.',
+        'Hasat seçici olarak elle yapılır; yalnızca olgun kahve kirazları işlenir. Bu özenli seçim, tutarlı kalite için kritik bir faktördür.',
+        'İşleme de kahvenin karakterinde belirleyici rol oynar. Venezuela’da klasik yöntemlere ek olarak, aromatiği güçlendirmek ve daha ayrıştırılmış profiller üretmek için giderek daha çok Natural ve Honey işleme kullanılmaktadır.',
+        'Fermentasyon kontrollü ve yavaş yürütüldüğünde; meyvemsi, karamelize ve karmaşık lezzet notlarının gelişmesine önemli ölçüde katkı sağlar. And bölgesinin iklim koşulları, istikrarlı ve dengeli bir fermentasyona olanak tanır.',
+        'Bölge, çeşit ve işlemeye göre kahveler; klasik çikolata–fındık tonlarından daha karmaşık, meyve öncülü ve hafif fermentasyonlu karakterlere kadar farklı profiller sunar.',
+        'Bugün Venezuela kahvesi; özgünlük, denge ve genelde yumuşak bir asidite yapısı için öne çıkar. Aynı zamanda kalite, karakter ve erişilebilirlik arasında ikna edici bir denge sunar.',
+      ],
       valuesEyebrow: 'Değerlerimiz',
       valuesTitle: 'Neden bize güvenmelisiniz?',
       valuesDesc: 'Coffee Los Andes, B2B ortakları için şeffaflık, tutarlılık ve uzun vadeli iş birliği taahhüt eder.',
@@ -185,6 +350,7 @@ export const dictionary: Record<Locale, Dict> = {
       linkFullCatalog: 'Tüm kahve portföyü',
       linkQualityDetail: 'Kalite standartları (detay)',
       linkAbout: 'Kurumsal / Hakkımızda',
+      linkPrivacy: 'Gizlilik',
       partnerships: 'İş Birlikleri',
       contact: 'İletişim',
       fp1: 'Kafeler & restoranlar',
@@ -221,13 +387,22 @@ export const dictionary: Record<Locale, Dict> = {
       techEyebrow: 'Teknik detaylar',
       techTitle: 'Menşe ve lot özellikleri',
       techDesc: 'Satın alma, QC ve menü iletişimi için doğrulanmış lot parametreleri.',
+      techOrigin: 'Menşe',
+      techFarmProducer: 'Çiftlik / Üretici',
       techProducer: 'Üretici',
       techFarm: 'Çiftlik / Hacienda',
       techVariety: 'Çeşit',
+      techFermentation: 'Fermantasyon',
+      techFermentationControlled: 'Kontrollü fermantasyon',
+      techFermentationExperimental: 'Deneysel fermantasyon',
+      techFermentationDefault: 'Standart fermantasyon',
+      techFlavorProfile: 'Lezzet profili',
+      techFlavorNotes: 'Ana lezzet notları',
+      techBadgeSection: 'Menşe ve lot detayları',
       techProcess: 'İşleme',
       techRegion: 'Bölge / Eyalet',
       techCountry: 'Ülke',
-      techScore: 'Kupa skoru',
+      techScore: 'Cupping skoru',
       techRank: 'Sıra',
       techAltitude: 'Rakım',
       techMoisture: 'Nem (tipik aralık)',
@@ -243,15 +418,39 @@ export const dictionary: Record<Locale, Dict> = {
       heroRequest: 'Toptan teklif iste',
       heroDetails: 'Lot detayları',
       heroSheetsNote: 'Lot sayfaları, nitelikli toptan talep üzerine paylaşılır.',
+      heroImageZoomHint: 'Büyütmek için tıklayın',
+      lightboxClose: 'Kapat',
+      lightboxAria: 'Lot görseli — tam ekran önizleme',
     },
     meta: {
       lotSuffix: 'Toptan | Coffee Los Andes',
+    },
+    error404: {
+      title: 'Sayfa bulunamadı · Coffee Los Andes',
+      description: 'Aradığınız sayfa taşınmış, silinmiş veya adres hatalı olabilir.',
+      heading: 'Sayfa bulunamadı',
+      body: 'Bağlantıyı kontrol edin veya anasayfaya dönün.',
+      backHome: 'Anasayfaya git',
+    },
+    privacy: {
+      title: 'Gizlilik · Coffee Los Andes',
+      description:
+        'Coffee Los Andes web sitesinde kişisel verilerin işlenmesi ve çerezler hakkında bilgilendirme.',
+      heroEyebrow: 'Yasal bilgilendirme',
+      heroTitle: 'Gizlilik ve kişisel veriler',
+      p1:
+        'Bu sayfa, web sitemiz yayına alınırken yasal metinlerin (KVKK / GDPR kapsamı) tamamlanması için yer tutucudur. Yayın öncesi hukuk danışmanınızla metni netleştirmenizi öneririz.',
+      p2:
+        'İletişim formu veya e-posta yoluyla paylaştığınız bilgiler yalnızca talebinize yanıt vermek ve B2B iletişim sürecini yürütmek için kullanılmalıdır.',
+      p3:
+        'Güncel gizlilik politikası metni ve veri sorumlusu iletişim bilgileri burada yayınlanacaktır.',
     },
   },
   de: {
     htmlLang: 'de',
     nav: {
       home: 'Startseite',
+      about: 'Über uns',
       story: 'Unsere Geschichte',
       coffees: 'Unsere Kaffees',
       qualityDocs: 'Qualität & Zertifikate',
@@ -262,30 +461,58 @@ export const dictionary: Record<Locale, Dict> = {
     },
     lang: { tr: 'TR', de: 'DE' },
     home: {
-      title: 'Coffee Los Andes – Deinen Traum in jedem Schluck | Anden-Venezuela',
+      title: 'Coffee Los Andes – Premium Kaffee aus den Anden | Venezuela',
       description:
         'Premium-Kaffee aus den Hochlagen der venezolanischen Anden. Großhandel und B2B mit nachvollziehbaren Specialty-Lots.',
-      slogan: 'Deinen Traum in jedem Schluck',
-      heroSubtitle: 'Geschmack aus dem Herzen der Natur',
+      slogan: 'Premium Kaffee aus den Anden',
+      heroSubtitle: 'Rückverfolgbar · Specialty · Nachhaltig',
       heroLead:
-        'Die Geschichte von Körnern, die zwischen 1.600 und 2.100 Metern wachsen und in mineralstoffreichen Böden langsam reifen.',
+        'Specialty-Kaffee aus den Hochlagen Venezuelas — von ausgewählten Farmen.',
       badgeAltitude: 'Hochlagen-Charakter · ≥ 1.630 m',
+      heroStrip1: 'B2B · Großhandel',
+      heroStrip2: 'Venezuela Ursprung',
+      heroStrip3: 'Berlin · HQ',
+      flowTitle: 'From Farm to your Roastery',
+      flowStep1Title: 'Harvest at origin',
+      flowStep1Body: 'Picked and sorted by Lara farmer communities.',
+      flowStep2Title: 'Direct shipment',
+      flowStep2Body: 'Traceable, straight to Europe.',
+      flowStep3Title: 'Storage in Europe',
+      flowStep3Body: 'Customs cleared, warehoused and quality monitored.',
+      flowStep4Title: 'To your roastery',
+      flowStep4Body: 'Delivered in 69 kg bags, handled with care.',
       lotDetail: 'Lot-Details',
       coffeesSectionTitle: 'Unsere Kaffees',
       coffeesSectionIntro:
-        'Drei Segmente Specialty-Kaffee — mit Score, Herkunft und technischem Datenblatt für professionelle Abnehmer.',
+        'Sechs Bereiche: Competition Lot, Premium Micro Lot, Specialty Coffee, Blend Series, Commercial Series und geröstete Packungen.',
       coffeesCtaAll: 'Alle Kaffees ansehen',
+      retailTeaserTitle: 'Retail-Kaffee (Packungen)',
+      retailTeaserBody:
+        'Gerösteter, gemahlener Kaffee — Café 1600 Linie; ganze Bohnen können später ergänzt werden.',
+      originEyebrow: 'Herkunft · Venezuela',
+      originTitle: 'Anden, Sanare und ausgewählte Farmen',
+      originBullets: [
+        'Region Anden',
+        'Sanare / Lara',
+        '1.600–2.000 m Höhe',
+        'Kleinproduzenten',
+        'Natürliche Verarbeitungsmethoden',
+      ],
+      originFarmsTitle: 'Farmen & Produzenten',
+      originFarms: ['Altos de Veracruz', 'Weitere Partnerfarmen'],
       qualitySectionTitle: 'Qualität & Zertifikate',
       qualitySectionIntro:
         'SGS-Laboranalysen, Q-Arabica-Grader-Bewertungen und INSAI-Zertifikate — Details auf der Qualitätsseite.',
-      wholesaleSectionTitle: 'Großhandelslösungen',
+      wholesaleSectionTitle: 'Warum wir',
       wholesaleSectionIntro:
-        'Skalierbare Lieferung für Röstereien und Cafés: Standard-Sackformat, klare Logistik und Planbarkeit.',
-      wholesaleEyebrow: 'B2B-Operation',
+        'Direkte Beschaffung, Rückverfolgbarkeit und stabile Lieferung — Specialty-Qualität zu wettbewerbsfähigen Konditionen.',
+      wholesaleEyebrow: 'B2B Nutzen',
       wholesaleBullets: [
-        'Präsentation in 60-kg-Craft-Säcken — praktisch für Lager und Röstlinie',
-        'Koordinierte Logistik und Dokumentation venezolanischer Lots vom Feld bis ins Lager',
-        'Kapazitätsplanung über den Berliner Hauptsitz und direkte Farmanbindung durch Dunamix',
+        'Direkte Beschaffung',
+        'Rückverfolgbarkeit',
+        'Stabile Lieferung',
+        'Specialty-Qualität',
+        'Wettbewerbsfähige Preise',
       ],
     },
     homeStory: {
@@ -343,24 +570,51 @@ export const dictionary: Record<Locale, Dict> = {
       },
     ],
     products: {
-      title: 'Kaffeeportfolio · Coffee Los Andes',
+      title: 'Grüner & gerösteter Kaffee · Coffee Los Andes',
       description:
-        'Ultra Premium (84+ SCA), Special Series und Roastery-Base-Blends — Scores und technisches Datenblatt für den Großhandel.',
-      eyebrow: 'Drei Hauptlinien',
-      heading: 'Kaffeeportfolio',
-      desc: 'Drei Serien für professionelle Abnehmer: Score, Herkunft und Cup-Profil auf einen Blick.',
-      segmentUltraTitle: 'Ultra Premium · Premium Micro Lot (84+ SCA)',
-      segmentUltraDesc:
-        'Höchster Qualitätsstandard; vollständige Rückverfolgbarkeit auf Farm- und Lot-Ebene — z. B. Geisha (91,54) mit exotischem Profil.',
-      segmentSpecialTitle: 'Special Series (82,25 – 84,50 SCA)',
-      segmentSpecialDesc:
-        'Charakteristische Varietäten: Castillo, Catuaí, Caturra, Colombia 27 und Bourbon (Santa Marta).',
-      segmentBlendTitle: 'Klassische Blends & Mixed · Roastery Base',
-      segmentBlendDesc:
-        'Stabile Basis für Röstereien; Milchschokolade und Haselnuss sowie wirtschaftliche Mixed-Commodity-Lots.',
-      segmentLabelUltra: 'Ultra Premium',
-      segmentLabelSpecial: 'Special Series',
-      segmentLabelBlend: 'Blend / Mixed',
+        'Competition Lots, Premium Micro Lots, Specialty Series, Barista Blend, Commercial und Packungen.',
+      eyebrow: 'Portfolio',
+      heading: 'Grüner & gerösteter Kaffee',
+      desc: 'Rohkaffee-Serien und Packungen für professionelle Abnehmer — mit Score, Herkunft und technischem Datenblatt.',
+      segmentCompetitionTitle: 'Competition Lot',
+      segmentCompetitionDesc:
+        'Höchste Cup-Scores — Geisha und Tabi aus Venezuela–Anden, limitierte Competition Lots.',
+      segmentMicroTitle: 'Premium Micro Lot',
+      segmentMicroDesc:
+        'Ausgewählte Mikroparzellen; experimentelle und klassische Aufbereitung, Score-Band ca. 88–90.',
+      microBulletFarm: 'Farmname',
+      microBulletLot: 'Lotname',
+      microBulletProcess: 'Verarbeitung',
+      microBulletScore: 'Score',
+      segmentSpecialtyTitle: 'Specialty Coffee',
+      segmentSpecialtyDesc: 'Castillo, Caturra und Catuaí — dauerhaft verfügbare Premium-Arabica.',
+      segmentBaristaTitle: 'Blend Series',
+      segmentBaristaDesc: 'Abgestimmter Blend für konstante Espresso-Performance — Barista Blend.',
+      segmentCommercialTitle: 'Commercial Series',
+      segmentCommercialDesc: 'Preisoptimiertes Arabica Mixed für Großvolumen; Cupping-Band 78–82.',
+      segmentRetailTitle: 'Retail-Kaffee',
+      segmentRetailDesc: 'Geröstete Packungen — gemahlen und künftig ganz Bohne.',
+      segmentRoastedTitle: 'Gerösteter Kaffee (Packungen)',
+      segmentRoastedDesc: 'Produkte für Handel und Endverbraucher.',
+      retailProductTitle: 'Café 1600 – Catimor',
+      retailProductStory:
+        'Hochland-Specialty aus Sanare, Venezuela, produziert bei Altos de Veracruz. Natural und Honey verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
+      retailSpecLines: [
+        'Sorte: Catimor',
+        'Höhe: 1600 m',
+        'Verarbeitung: Natural / Honey',
+        'Cupping-Score: 82–84',
+        'Röstung: Medium',
+        'Säure: Mittel-niedrig',
+        'Format: Gemahlen',
+        'Gewicht: 500 g',
+      ],
+      segmentLabelCompetition: 'Competition Lot',
+      segmentLabelMicro: 'Premium Micro Lot',
+      segmentLabelSpecialty: 'Specialty Coffee',
+      segmentLabelBarista: 'Blend Series',
+      segmentLabelCommercial: 'Commercial Series',
+      segmentLabelRetail: 'Gerösteter Kaffee',
     },
     contact: {
       title: 'Kontakt – B2B-Großhandelsanfrage | Coffee Los Andes',
@@ -387,6 +641,9 @@ export const dictionary: Record<Locale, Dict> = {
       mapTitle: 'Regionalkarte',
       mapPlaceholder: 'Venezuela · Anden · Anbaugebiete',
       mapNote: 'Platzhalter-Karte. Echte Kartenintegration je nach Projekt möglich.',
+      formSent: 'Ihre Nachricht ist eingegangen — wir melden uns schnellstmöglich.',
+      formError:
+        'Senden fehlgeschlagen. Bitte versuchen Sie es später erneut oder schreiben Sie uns direkt per E-Mail. Prüfen Sie die SMTP-Konfiguration auf dem Server.',
     },
     form: {
       aria: 'Schnelles Kontaktformular',
@@ -403,19 +660,125 @@ export const dictionary: Record<Locale, Dict> = {
     about: {
       title: 'Über uns – Coffee Los Andes',
       description:
-        'Seit 1990 inspiriert von den Anden; Hauptsitz Berlin, direkte Farmverbindung über Dunamix.',
-      heroEyebrow: 'Markengeschichte',
-      heroTitle: 'Von den venezolanischen Anden zur professionellen B2B-Bühne.',
+        'LOS ANDES: fast 20 Jahre Handelsbeziehungen in Südamerika, GmbH-Struktur in Europa und Qualität am Ursprung in Venezuela.',
+      heroEyebrow: 'Über uns',
+      heroTitle: 'LOS ANDES – Ursprung, Erfahrung und Vertrauen',
       heroDesc:
-        'Coffee Los Andes bringt Hochland-Körner mit nachvollziehbarer Lot-Struktur und meisterlicher Röstung zu Großhandelspartnern.',
-      whoTitle: 'Wer wir sind',
-      whoP1:
-        'Unser Hauptsitz liegt in Deutschland, Berlin; die Ursprungsbohne kommt aus den fruchtbaren Böden der venezolanischen Anden — mit direkter Anbindung über Multinacional Dunamix, C.A. Von der Ernte bis zur Qualitätskontrolle denken wir die Kette als B2B-Wertschöpfung.',
-      whoP2:
-        'Für Röstereien, Cafés und Distributoren liefern wir konsistente Profile, lot-basierte Transparenz und langfristige Partnerschaft. Unser Ziel ist nicht nur Kaffee zu verkaufen, sondern das Erlebnis von Natur und Handwerk mit professionellen Standards zu vermitteln.',
-      panelEyebrow: 'Venezuela · Anden',
-      panelText:
-        'Zwischen 1.600 und 2.100 Metern, mineralstoffreiche Böden, langsame Reife. Kontrollierte Ernte, lotweise Verarbeitung und Mikrolots mit Sammlerwert.',
+        'Langfristige Partnerschaften mit Produzenten, Qualitätskontrolle an der Quelle und strukturierte Belieferung für Deutschland und Europa.',
+      losAndesTitle: 'LOS ANDES – Ursprung, Erfahrung und Vertrauen',
+      losAndesLead: [
+        'Seit nahezu 20 Jahren pflegen wir direkte Handelsbeziehungen in Südamerika und verfügen über fundierte Erfahrung sowie tiefgehendes regionales Know-how – insbesondere im Kaffeesektor.',
+        'In dieser Zeit haben wir nicht nur die Anbauregionen intensiv kennengelernt, sondern auch langfristige und vertrauensvolle Partnerschaften mit Produzenten, Farmern und lokalen Betrieben aufgebaut. Unsere starke Präsenz vor Ort, insbesondere in Venezuela, bildet die Grundlage für die Qualität und Zuverlässigkeit unserer Produkte.',
+        'Diese Erfahrung haben wir erfolgreich in internationale Märkte übertragen.',
+        'Über viele Jahre hinweg waren wir in der Türkei, im Nahen Osten sowie in den Golfstaaten aktiv – darunter die Vereinigten Arabischen Emirate, Katar, Kuwait, Bahrain, Saudi-Arabien sowie in den türkischen Republiken.',
+        'Heute bringen wir dieses Know-how gezielt nach Europa.',
+        'Unter dem Dach der LOS ANDES EUROPE GmbH beliefern wir den deutschen und europäischen Markt mit sorgfältig ausgewählten grünen Kaffeebohnen sowie gerösteten Los Andes Kaffee Produkten.',
+      ],
+      losAndesSections: [
+        {
+          title: 'Qualität – Direkt an der Quelle kontrolliert',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'Unser lokales Team in Venezuela begleitet den gesamten Produktionsprozess direkt vor Ort.',
+            },
+            {
+              type: 'p',
+              text:
+                'Durch unsere enge Zusammenarbeit mit Farmern und Produzenten sowie unsere tiefgehende Kenntnis der Regionen stellen wir sicher, dass jede Phase – von der Auswahl der Kaffeekirschen bis zur finalen Aufbereitung – kontrolliert und qualitätsorientiert erfolgt.',
+            },
+            {
+              type: 'p',
+              text:
+                'Insbesondere bei Micro Lots und selektierten Premium-Lots legen wir besonderen Wert auf:',
+            },
+            {
+              type: 'ul',
+              items: [
+                'Parzellenbasierte Selektion',
+                'Kontrollierte Fermentation',
+                'Sorgfältige Trocknungsprozesse',
+                'Präzise Sortierung und Qualitätskontrolle',
+              ],
+            },
+            {
+              type: 'p',
+              text:
+                'Dieser Ansatz gewährleistet nicht nur eine hohe Produktqualität, sondern auch Konsistenz und Verlässlichkeit.',
+            },
+          ],
+        },
+        {
+          title: 'Von der Farm bis nach Europa – zuverlässig gesteuert',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'Unsere Lieferkette ist vollständig strukturiert und transparent organisiert.',
+            },
+            {
+              type: 'p',
+              text:
+                'Vom Ursprung über die Verarbeitung bis hin zur Logistik wird jeder Schritt geplant und überwacht.',
+            },
+            {
+              type: 'p',
+              text:
+                'So stellen wir sicher, dass unsere Kunden in Europa eine stabile, nachvollziehbare und reibungslose Versorgung erhalten.',
+            },
+          ],
+        },
+        {
+          title: 'Unser Produktportfolio',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'LOS ANDES bietet ein differenziertes Sortiment für verschiedene Marktanforderungen:',
+            },
+            {
+              type: 'ul',
+              items: [
+                'Competition & Premium Lots (90+ Punkte)',
+                'Selektierte Micro Lots (85–89 Punkte)',
+                'Kontinuierlich verfügbare Specialty Coffees',
+                'Barista Blends für Gastronomie und Röstereien',
+                'Wirtschaftliche Lösungen für volumenbasierte Anwendungen',
+                'Geröstete und verpackte Kaffeeprodukte',
+              ],
+            },
+          ],
+        },
+        {
+          title: 'Unser Anspruch',
+          parts: [
+            {
+              type: 'p',
+              text:
+                'LOS ANDES verbindet regionale Stärke und langjährige Erfahrung in Südamerika mit einer klar strukturierten europäischen Marktpräsenz.',
+            },
+            {
+              type: 'p',
+              text:
+                'Unser Anspruch ist es, hochwertigen, rückverfolgbaren und nachhaltig produzierten Kaffee zuverlässig und partnerschaftlich an unsere Kunden zu liefern.',
+            },
+          ],
+        },
+      ],
+      venezuelaTitle: 'Venezuela – Ursprung, Natur und Charakter',
+      venezuelaParagraphs: [
+        'Venezuela zählt zu den ursprünglichsten und natürlichsten Kaffeeanbauregionen Lateinamerikas.',
+        'In den Andenregionen rund um Lara und Mérida wachsen Kaffees in Höhenlagen zwischen 1.200 und 2.000 Metern unter stabilen klimatischen Bedingungen.',
+        'Die Kombination aus Höhenlage, fruchtbaren Böden und gleichmäßigen Temperaturen ermöglicht eine langsame Reifung der Kaffeekirschen. Dadurch entwickeln die Bohnen eine ausgewogene Struktur, natürliche Süße und ein klares Geschmacksprofil.',
+        'Die Kaffeeproduktion erfolgt überwiegend in kleinen, familiengeführten Betrieben. Häufig werden die Kaffeepflanzen in Mischkulturen angebaut – gemeinsam mit Kakao, Bananen und anderen tropischen Pflanzen. Dieses mehrschichtige Ökosystem sorgt nicht nur für Bodenschutz und Stabilität, sondern beeinflusst auch die aromatische Entwicklung der Kaffees.',
+        'Insbesondere in Regionen mit Kakaobestand zeigen die Kaffees oft ausgeprägte Noten von Schokolade und Kakao. Die schattige Kultivierung unterstützt zudem eine gleichmäßige Entwicklung der Bohnen und trägt zu einem harmonischen Geschmacksprofil bei.',
+        'Die Ernte erfolgt selektiv per Hand, wobei ausschließlich reife Kaffeekirschen verarbeitet werden. Diese sorgfältige Auswahl ist ein wesentlicher Faktor für konstante Qualität.',
+        'Auch die Aufbereitung spielt eine entscheidende Rolle für den Charakter des Kaffees. In Venezuela werden neben klassischen Methoden zunehmend Natural- und Honey-Prozesse eingesetzt, um die Aromatik zu intensivieren und differenziertere Profile zu erzeugen.',
+        'Die Fermentation, wenn sie kontrolliert und langsam durchgeführt wird, trägt wesentlich zur Entwicklung fruchtiger, karamellisierter und komplexer Geschmacksnoten bei. Besonders die klimatischen Bedingungen der Andenregion ermöglichen eine stabile und ausgewogene Fermentation.',
+        'Je nach Region, Varietät und Aufbereitung entstehen Kaffees mit unterschiedlichen Profilen – von klassischen schokoladig-nussigen Noten bis hin zu komplexeren, fruchtbetonten und leicht fermentierten Charakteren.',
+        'Heute steht venezolanischer Kaffee für Authentizität, Balance und eine angenehme, meist niedrige Säurestruktur. Gleichzeitig bietet er ein überzeugendes Verhältnis zwischen Qualität, Charakter und Verfügbarkeit.',
+      ],
       valuesEyebrow: 'Unsere Werte',
       valuesTitle: 'Warum uns vertrauen?',
       valuesDesc: 'Coffee Los Andes verpflichtet sich zu Transparenz, Konsistenz und langfristiger B2B-Zusammenarbeit.',
@@ -430,6 +793,7 @@ export const dictionary: Record<Locale, Dict> = {
       linkFullCatalog: 'Gesamtes Kaffeeportfolio',
       linkQualityDetail: 'Qualitätsstandards (Detail)',
       linkAbout: 'Unternehmen / Über uns',
+      linkPrivacy: 'Datenschutz',
       partnerships: 'Partnerschaften',
       contact: 'Kontakt',
       fp1: 'Cafés & Restaurants',
@@ -466,13 +830,22 @@ export const dictionary: Record<Locale, Dict> = {
       techEyebrow: 'Technische Details',
       techTitle: 'Herkunft & Lot-Spezifikation',
       techDesc: 'Verifizierte Lot-Parameter für Einkauf, QC und Menükommunikation.',
+      techOrigin: 'Herkunft',
+      techFarmProducer: 'Farm / Produzent',
       techProducer: 'Produzent',
       techFarm: 'Farm / Hacienda',
       techVariety: 'Sorte',
+      techFermentation: 'Fermentation',
+      techFermentationControlled: 'Kontrollierte Fermentation',
+      techFermentationExperimental: 'Experimentelle Fermentation',
+      techFermentationDefault: 'Standardfermentation',
+      techFlavorProfile: 'Geschmacksprofil',
+      techFlavorNotes: 'Hauptgeschmacksnoten',
+      techBadgeSection: 'Herkunft & Lot-Details',
       techProcess: 'Verarbeitung',
       techRegion: 'Region / Bundesland',
       techCountry: 'Land',
-      techScore: 'Cup-Score',
+      techScore: 'Cupping Score',
       techRank: 'Rang',
       techAltitude: 'Höhe',
       techMoisture: 'Feuchte (typ. Bereich)',
@@ -488,9 +861,32 @@ export const dictionary: Record<Locale, Dict> = {
       heroRequest: 'Großhandelsangebot anfragen',
       heroDetails: 'Lot-Details',
       heroSheetsNote: 'Lot-Infos werden bei qualifizierter Großhandelsanfrage bereitgestellt.',
+      heroImageZoomHint: 'Zum Vergrößern klicken',
+      lightboxClose: 'Schließen',
+      lightboxAria: 'Lot-Bild — Vollbildvorschau',
     },
     meta: {
       lotSuffix: 'Großhandel | Coffee Los Andes',
+    },
+    error404: {
+      title: 'Seite nicht gefunden · Coffee Los Andes',
+      description: 'Die Seite wurde verschoben, gelöscht oder die URL ist falsch.',
+      heading: 'Seite nicht gefunden',
+      body: 'Bitte prüfen Sie den Link oder kehren Sie zur Startseite zurück.',
+      backHome: 'Zur Startseite',
+    },
+    privacy: {
+      title: 'Datenschutz · Coffee Los Andes',
+      description:
+        'Hinweise zur Verarbeitung personenbezogener Daten und zu Cookies auf der Website von Coffee Los Andes.',
+      heroEyebrow: 'Rechtliches',
+      heroTitle: 'Datenschutz & personenbezogene Daten',
+      p1:
+        'Diese Seite ist ein Platzhalter, bis die vollständigen juristischen Texte (z. B. DSGVO) mit Ihrer Rechtsberatung finalisiert sind.',
+      p2:
+        'Daten, die Sie per Formular oder E-Mail mitteilen, sollten ausschließlich zur Bearbeitung Ihrer Anfrage und für die B2B-Kommunikation verwendet werden.',
+      p3:
+        'Die endgültige Datenschutzerklärung und Angaben zur verantwortlichen Stelle werden hier veröffentlicht.',
     },
   },
 };

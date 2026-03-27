@@ -1,15 +1,25 @@
-export type CoffeeSegment = 'ultra-premium' | 'special-series' | 'blend-mixed';
+export type CoffeeSegment =
+  | 'competition-lots'
+  | 'premium-microlot'
+  | 'specialty-series'
+  | 'barista-blend'
+  | 'commercial'
+  | 'retail';
 
 export interface CoffeeLot {
   slug: string;
   name: string;
   rank: number;
+  /** Sıralama ve ilişkili lotlar için sayısal skor; `scoreDisplay` varsa vitrinde o gösterilir */
   score: number;
+  /** Örn. ticari seri için "78–82" gibi aralık gösterimi */
+  scoreDisplay?: string;
   segment: CoffeeSegment;
   producer: string;
   farm: string;
   variety: string;
   process: string;
+  fermentation?: string;
   region: string;
   country: string;
   flavorTags: string[];
@@ -30,13 +40,40 @@ const DEFAULT_MOIST = '9,3–12,5 %';
 const DEFAULT_SCREEN = 'Malla 16–18';
 const DEFAULT_BAG = '60 kg';
 
+/** Kart ve detay sayfasında SCA skor satırı */
+export function lotScoreLine(lot: Pick<CoffeeLot, 'score' | 'scoreDisplay'>): string {
+  return lot.scoreDisplay ?? lot.score.toFixed(2);
+}
+
+/**
+ * `public/` altındaki lot fotoğrafı dosya adları (slug ile eşleşenler).
+ * Eşleşme yoksa `/coffeebeans.webp` kullanılır.
+ */
+const LOT_IMAGE_FILES: Record<string, string> = {
+  'geisha-91-54': '1)Geisha_91,54...jpeg',
+  'geisha-el-recreo-91-03': '2)Geisha..jpeg',
+  'tabi-90-38': '4)Tabi_90,30..jpeg',
+  'otra-89-83': '5)Otra_89,83..jpeg',
+  'villanueva-89-05': '6)Villanuvea..jpeg',
+  'castillo-naranjal-88-83': '7)Castillo_88,83..jpeg',
+  'monteclaro-88-75': '8)Monteclaro-88,75..jpeg',
+  'inia-01-88-73': '9)Inia 01_88,73..jpeg',
+  'bourbon-88-52': '10)Bourbon_88,52..jpeg',
+};
+
+export function getLotImageSrc(slug: string): string {
+  const file = LOT_IMAGE_FILES[slug];
+  if (!file) return '/coffeebeans.webp';
+  return encodeURI(`/${file}`);
+}
+
 export const coffeeLots: CoffeeLot[] = [
   {
     slug: 'geisha-91-54',
     name: 'Geisha',
     rank: 1,
     score: 91.54,
-    segment: 'ultra-premium',
+    segment: 'competition-lots',
     producer: 'Eloína de los Ángeles Useche',
     farm: 'Estancia Aires de Campo',
     variety: 'Geisha',
@@ -57,7 +94,7 @@ export const coffeeLots: CoffeeLot[] = [
       'High-end filter and espresso programmes',
       'Collections showcasing top Venezuelan Geisha',
     ],
-    collectionLabel: 'Premium Micro Lot',
+    collectionLabel: 'Competition Lot',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -68,11 +105,11 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Geisha',
     rank: 2,
     score: 91.03,
-    segment: 'ultra-premium',
+    segment: 'competition-lots',
     producer: 'Hacienda El Recreo',
     farm: 'Hacienda El Recreo',
     variety: 'Geisha',
-    process: 'Experimental',
+    process: 'Natural',
     region: 'Mérida',
     country: 'Venezuela',
     flavorTags: ['Jasmine', 'Berries', 'Kiwi', 'Butter', 'Chocolate'],
@@ -89,7 +126,7 @@ export const coffeeLots: CoffeeLot[] = [
       'Seasonal menus highlighting fruit-syrup sweetness',
       'Premium wholesale clients seeking 91+ scores',
     ],
-    collectionLabel: 'Premium Micro Lot',
+    collectionLabel: 'Competition Lot',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -100,11 +137,11 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Tabi',
     rank: 3,
     score: 90.38,
-    segment: 'ultra-premium',
+    segment: 'competition-lots',
     producer: 'Roney Antonio Durán Mejía',
     farm: 'The Roros Coffee',
     variety: 'Tabi',
-    process: 'Washed',
+    process: 'Washed / Natural',
     region: 'Trujillo',
     country: 'Venezuela',
     flavorTags: ['Dulce de leche', 'Cocoa', 'Coconut', 'Sweet'],
@@ -121,7 +158,7 @@ export const coffeeLots: CoffeeLot[] = [
       'Wholesale lines balancing approachability with 90+ credibility',
       'Batch brew and filter with clarity and body',
     ],
-    collectionLabel: 'Premium Micro Lot',
+    collectionLabel: 'Competition Lot',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -132,7 +169,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Experimental Lot',
     rank: 4,
     score: 89.83,
-    segment: 'ultra-premium',
+    segment: 'premium-microlot',
     producer: 'Jenny T. Escalona Rodríguez and Alberto Gil',
     farm: 'Don Jesús',
     variety: 'Otra',
@@ -164,7 +201,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Villanueva',
     rank: 5,
     score: 89.05,
-    segment: 'ultra-premium',
+    segment: 'premium-microlot',
     producer: 'Andrés Román García',
     farm: 'Santa María',
     variety: 'Villanueva',
@@ -193,14 +230,14 @@ export const coffeeLots: CoffeeLot[] = [
   },
   {
     slug: 'castillo-naranjal-88-83',
-    name: 'Castillo / Naranjal',
+    name: 'Castillo',
     rank: 6,
     score: 88.83,
-    segment: 'ultra-premium',
+    segment: 'premium-microlot',
     producer: 'Javier Fernández / Ascesio Cruz',
     farm: 'Finca Bella Vista',
-    variety: 'Castillo / Naranjal',
-    process: 'Experimental',
+    variety: 'Castillo',
+    process: 'Natural / Honey',
     region: 'Barinas',
     country: 'Venezuela',
     flavorTags: ['Dark chocolate', 'Cherry', 'Hazelnut', 'Creamy'],
@@ -228,7 +265,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Monteclaro',
     rank: 7,
     score: 88.75,
-    segment: 'ultra-premium',
+    segment: 'premium-microlot',
     producer: 'María Guerrero de Hernández',
     farm: 'La Clavellina',
     variety: 'Monteclaro',
@@ -257,10 +294,10 @@ export const coffeeLots: CoffeeLot[] = [
   },
   {
     slug: 'inia-01-88-73',
-    name: 'Inia 01',
+    name: 'INIA 01',
     rank: 8,
     score: 88.73,
-    segment: 'ultra-premium',
+    segment: 'premium-microlot',
     producer: 'Israel Schwarz',
     farm: 'San Antonio',
     variety: 'Inia 01',
@@ -292,7 +329,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Bourbon',
     rank: 9,
     score: 88.52,
-    segment: 'ultra-premium',
+    segment: 'premium-microlot',
     producer: 'Ana Karina Rodríguez',
     farm: 'Las Marías',
     variety: 'Bourbon',
@@ -324,7 +361,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Castillo',
     rank: 10,
     score: 84.5,
-    segment: 'special-series',
+    segment: 'specialty-series',
     producer: 'Finca Las Mesas',
     farm: 'Finca Las Mesas',
     variety: 'Castillo',
@@ -345,7 +382,7 @@ export const coffeeLots: CoffeeLot[] = [
       'Wholesale lines in the 82–84.5 SCA band',
       'Roastery programmes needing identifiable Castillo character',
     ],
-    collectionLabel: 'Special Series',
+    collectionLabel: 'Specialty Coffee',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -356,7 +393,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Catuaí',
     rank: 11,
     score: 84.0,
-    segment: 'special-series',
+    segment: 'specialty-series',
     producer: 'Finca Los Cedros',
     farm: 'Finca Los Cedros',
     variety: 'Catuaí',
@@ -377,7 +414,7 @@ export const coffeeLots: CoffeeLot[] = [
       'Cafés needing reliable clarity and sweetness',
       'Wholesale buyers in the Special Series band',
     ],
-    collectionLabel: 'Special Series',
+    collectionLabel: 'Specialty Coffee',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -388,7 +425,7 @@ export const coffeeLots: CoffeeLot[] = [
     name: 'Caturra',
     rank: 12,
     score: 83.75,
-    segment: 'special-series',
+    segment: 'specialty-series',
     producer: 'Finca La Cuchilla',
     farm: 'Finca La Cuchilla',
     variety: 'Caturra',
@@ -409,71 +446,7 @@ export const coffeeLots: CoffeeLot[] = [
       'Seasonal rotation with clear flavour messaging',
       'B2B buyers needing consistent Caturra character',
     ],
-    collectionLabel: 'Special Series',
-    altitudeMeters: DEFAULT_ALT,
-    moisturePct: DEFAULT_MOIST,
-    screenSize: DEFAULT_SCREEN,
-    bagSizeKg: DEFAULT_BAG,
-  },
-  {
-    slug: 'colombia-27-la-ondonada-83-25',
-    name: 'Colombia 27',
-    rank: 13,
-    score: 83.25,
-    segment: 'special-series',
-    producer: 'Finca La Ondonada',
-    farm: 'Finca La Ondonada',
-    variety: 'Colombia 27',
-    process: 'Washed',
-    region: 'Táchira',
-    country: 'Venezuela',
-    flavorTags: ['White chocolate', 'Orange', 'Sweet'],
-    longTastingNotes:
-      'White chocolate, orange, sweet citrus, creamy mouthfeel',
-    story:
-      'Colombia 27 from La Ondonada — white chocolate and orange in a sweet, approachable cup.',
-    commercialSummary:
-      'Special Series lot for menus that want citrus and confection notes without harsh acidity.',
-    cupProfileSummary:
-      'White chocolate sweetness meets orange zest in a soft, creamy structure.',
-    buyerUseCases: [
-      'Milk-based espresso programmes',
-      'Filter lines with confection-led storytelling',
-      'Wholesale buyers seeking approachable 83+ profiles',
-    ],
-    collectionLabel: 'Special Series',
-    altitudeMeters: DEFAULT_ALT,
-    moisturePct: DEFAULT_MOIST,
-    screenSize: DEFAULT_SCREEN,
-    bagSizeKg: DEFAULT_BAG,
-  },
-  {
-    slug: 'bourbon-santa-marta-83',
-    name: 'Bourbon',
-    rank: 14,
-    score: 83.0,
-    segment: 'special-series',
-    producer: 'Finca Santa Marta',
-    farm: 'Finca Santa Marta',
-    variety: 'Bourbon',
-    process: 'Washed',
-    region: 'Mérida',
-    country: 'Venezuela',
-    flavorTags: ['Almond', 'Peach', 'Cinnamon', 'Citric'],
-    longTastingNotes:
-      'Roasted almond, peach, cinnamon, intense citric acidity, classic premium coffee experience',
-    story:
-      'Separate washed Bourbon lot from Finca Santa Marta (distinct from the 88.52 natural Las Marías lot).',
-    commercialSummary:
-      'Special Series Bourbon for classic washed profile buyers — stone fruit, spice, and bright citric structure.',
-    cupProfileSummary:
-      'Almond and peach lead; cinnamon and citric acidity deliver a structured, classic premium cup.',
-    buyerUseCases: [
-      'Espresso bars wanting a clean, bright washed Bourbon',
-      'Filter programmes with stone-fruit and spice messaging',
-      'Buyers who need the 83-point Santa Marta lot explicitly',
-    ],
-    collectionLabel: 'Special Series',
+    collectionLabel: 'Specialty Coffee',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -481,10 +454,10 @@ export const coffeeLots: CoffeeLot[] = [
   },
   {
     slug: 'dunamix-blend-83-50',
-    name: 'Dunamix Special Blend',
-    rank: 15,
-    score: 83.5,
-    segment: 'blend-mixed',
+    name: 'Barista Blend',
+    rank: 13,
+    score: 82.5,
+    segment: 'barista-blend',
     producer: 'Multinacional Dunamix, C.A.',
     farm: 'Blend — Venezuela',
     variety: 'Blend',
@@ -505,7 +478,7 @@ export const coffeeLots: CoffeeLot[] = [
       'Cafés needing a dependable “base” coffee',
       'Programmes prioritising milk harmony and balance',
     ],
-    collectionLabel: 'Roastery Base',
+    collectionLabel: 'Blend Series',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
@@ -513,10 +486,11 @@ export const coffeeLots: CoffeeLot[] = [
   },
   {
     slug: 'mixed-series-82-50',
-    name: 'Mixed Series',
-    rank: 16,
-    score: 82.5,
-    segment: 'blend-mixed',
+    name: 'Arabica Mixed',
+    rank: 14,
+    score: 80,
+    scoreDisplay: '78–82',
+    segment: 'commercial',
     producer: 'Multinacional Dunamix, C.A.',
     farm: 'Mixed origins — Venezuela',
     variety: 'Mixed',
@@ -537,7 +511,7 @@ export const coffeeLots: CoffeeLot[] = [
       'House blends and bulk espresso',
       'Price-sensitive programmes that still require traceability basics',
     ],
-    collectionLabel: 'Mixed Series',
+    collectionLabel: 'Commercial Series',
     altitudeMeters: DEFAULT_ALT,
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,

@@ -12,14 +12,27 @@ export function getStaticPaths() {
   return getLangStaticPaths();
 }
 
+type AboutPart = { type: 'p'; text: string } | { type: 'ul'; items: string[] };
+
+type AboutSectionBlock = {
+  title: string;
+  parts: AboutPart[];
+};
+
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
 
 const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; body: string }[];
+const aboutRaw = dictionary[locale].about as Record<string, unknown>;
+const losAndesLead = (aboutRaw.losAndesLead as string[] | undefined) ?? [];
+const losAndesSections = (aboutRaw.losAndesSections as AboutSectionBlock[] | undefined) ?? [];
+const venezuelaParagraphs = (aboutRaw.venezuelaParagraphs as string[] | undefined) ?? [];
+const losAndesTitle = (aboutRaw.losAndesTitle as string) ?? '';
+const venezuelaTitle = (aboutRaw.venezuelaTitle as string) ?? '';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'about.title')} description={t(locale, 'about.description')}>
-  <section class="pt-36 pb-24">
+  <section class="pt-36 pb-16">
     <div class="section-shell">
       <SectionHeader
         eyebrow={t(locale, 'about.heroEyebrow')}
@@ -30,23 +43,45 @@ const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; b
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="section-shell grid gap-16 md:grid-cols-2 md:items-center">
-      <div class="space-y-6">
-        <h2 class="stage-heading text-2xl md:text-3xl">{t(locale, 'about.whoTitle')}</h2>
-        <div class="stage-copy space-y-4">
-          <p>{t(locale, 'about.whoP1')}</p>
-          <p>{t(locale, 'about.whoP2')}</p>
-        </div>
+  <section id="los-andes" class="scroll-mt-28 border-t border-line py-16">
+    <div class="section-shell max-w-3xl">
+      <h2 class="stage-heading text-2xl md:text-3xl">{losAndesTitle}</h2>
+      <div class="mt-8 space-y-5 text-sm leading-relaxed text-ink-muted md:text-[15px]">
+        {losAndesLead.map((para) => (
+          <p>{para}</p>
+        ))}
       </div>
-      <div class="glass-panel texture-overlay relative overflow-hidden px-8 py-12">
-        <div class="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-gradient-to-br from-terracotta/30 via-transparent to-transparent blur-3xl" />
-        <div class="relative space-y-4">
-          <p class="stage-eyebrow">{t(locale, 'about.panelEyebrow')}</p>
-          <p class="text-sm text-cream/80">
-            {t(locale, 'about.panelText')}
-          </p>
-        </div>
+
+      <div class="mt-14 space-y-14">
+        {losAndesSections.map((block) => (
+          <div>
+            <h3 class="text-lg font-semibold tracking-tight text-ink md:text-xl">{block.title}</h3>
+            <div class="mt-5 space-y-4 text-sm leading-relaxed text-ink-muted md:text-[15px]">
+              {block.parts.map((part) =>
+                part.type === 'p' ? (
+                  <p>{part.text}</p>
+                ) : (
+                  <ul class="list-disc space-y-2 pl-5">
+                    {part.items.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                )
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="venezuela-herkunft" class="scroll-mt-28 border-t border-line bg-paper-deep/50 py-16">
+    <div class="section-shell max-w-3xl">
+      <h2 class="stage-heading text-2xl md:text-3xl">{venezuelaTitle}</h2>
+      <div class="mt-8 space-y-5 text-sm leading-relaxed text-ink-muted md:text-[15px]">
+        {venezuelaParagraphs.map((para) => (
+          <p>{para}</p>
+        ))}
       </div>
     </div>
   </section>
@@ -61,8 +96,8 @@ const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; b
       <div class="mt-12 grid gap-8 md:grid-cols-3">
         {brandValues.map((value) => (
           <article class="glass-panel px-6 py-8">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-cream/80">{value.title}</h3>
-            <p class="mt-4 text-sm leading-relaxed text-cream/70">{value.body}</p>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-ink">{value.title}</h3>
+            <p class="mt-4 text-sm leading-relaxed text-ink-muted">{value.body}</p>
           </article>
         ))}
       </div>

@@ -17,7 +17,7 @@ export const lotLocalePatches: Record<
 > = {
   'geisha-91-54': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Competition Lot',
       story:
         '2025 kazanan lotlar koleksiyonundaki en yüksek puanlı kahve. Mérida, Estancia Aires de Campo’da Eloína de los Ángeles Useche tarafından üretilen bu Geisha; katmanlı aromatik karmaşıklığı, çiçeksi zarafeti ve ifade doğal işleme profiliyle öne çıkar.',
       commercialSummary:
@@ -31,7 +31,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Competition Lot',
       story:
         'Die höchstbewertete Mischung der Winning-Lots-Kollektion 2025. Diese Geisha aus Mérida (Estancia Aires de Campo) von Eloína de los Ángeles Useche besticht durch aromatische Tiefe, florale Eleganz und ein ausdrucksvolles Natural-Profil.',
       commercialSummary:
@@ -47,7 +47,7 @@ export const lotLocalePatches: Record<
   },
   'tabi-90-38': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Competition Lot',
       story:
         'Trujillo’dan yıkanmış, tatlı ve temiz bir Tabi lotu; kremsi, rahatlatıcı bir fincan profiliyle ticari olarak çekici, erişilebilir ama premium bir duyusal çizgi sunar.',
       commercialSummary:
@@ -61,7 +61,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Competition Lot',
       story:
         'Ein süßes, sauberes gewaschenes Tabi aus Trujillo mit cremigem, tröstendem Cup — kommerziell attraktiv durch ein zugängliches, aber premium Sensory-Profil.',
       commercialSummary:
@@ -77,7 +77,7 @@ export const lotLocalePatches: Record<
   },
   'otra-89-83': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Çay benzeri zarafet, çiçeksi yükseliş ve tatlı narenciye karmaşıklığını birleştiren rafine aromatik yapıya sahip deneysel bir lot.',
       commercialSummary:
@@ -91,7 +91,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Ein experimentelles Lot mit verfeinerter Struktur: Tee-Eleganz, florale Lift und süße Zitrus-Komplexität.',
       commercialSummary:
@@ -107,7 +107,7 @@ export const lotLocalePatches: Record<
   },
   'villanueva-89-05': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Olgun taş meyve tatlılığını karamelize derinlik ve baharat katmanlarıyla dengeleyen honey işlemeli bir kahve.',
       commercialSummary:
@@ -121,7 +121,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Ein Honey-Prozess-Kaffee, der reife Steinobst-Süße mit karamellisierter Tiefe und Schichten von Gewürzen balanciert.',
       commercialSummary:
@@ -137,7 +137,7 @@ export const lotLocalePatches: Record<
   },
   'castillo-naranjal-88-83': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Daha zengin, çikolata odaklı bir fincanı fındık tatlılığı ve kremsi gövde ile destekleyen deneysel bir profil.',
       commercialSummary:
@@ -151,7 +151,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Ein experimentelles Profil mit reicheren, schokoladigeren Tönen, unterstützt von nussiger Süße und cremigem Körper.',
       commercialSummary:
@@ -167,7 +167,7 @@ export const lotLocalePatches: Record<
   },
   'monteclaro-88-75': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Temiz yapı, meyve parlaklığı ve klasik çikolata-karamel temeli olan yıkanmış bir kahve.',
       commercialSummary:
@@ -181,7 +181,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Ein gewaschener Kaffee mit klarer Struktur, fruchtiger Frische und klassischer Schokoladen-Karamel-Basis.',
       commercialSummary:
@@ -197,7 +197,7 @@ export const lotLocalePatches: Record<
   },
   'inia-01-88-73': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Tatlı böğürtlen ifadesi, baharat detayı ve yumuşak, yaklaşılabilir gövde sunan yıkanmış bir lot.',
       commercialSummary:
@@ -211,7 +211,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Ein gewaschenes Lot mit süßer Beerenexpression, Gewürzdetail und weichem, zugänglichem Körper.',
       commercialSummary:
@@ -227,7 +227,7 @@ export const lotLocalePatches: Record<
   },
   'bourbon-88-52': {
     tr: {
-      collectionLabel: '2025 Ödüllü Lotlar',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Yoğun meyve intensitesi, daha koyu çikolata tonları ve rafine çiçeksi bir finish sunan doğal işlem Bourbon.',
       commercialSummary:
@@ -241,7 +241,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: '2025 Winning Lots',
+      collectionLabel: 'Premium Micro Lot',
       story:
         'Ein Natural Bourbon mit ausdrucksstarker Fruchtintensität, dunkleren Schokolatetönen und verfeinertem floralen Finish.',
       commercialSummary:
@@ -257,7 +257,7 @@ export const lotLocalePatches: Record<
   },
   'geisha-el-recreo-91-03': {
     tr: {
-      collectionLabel: 'Premium Micro Lot',
+      collectionLabel: 'Competition Lot',
       story:
         'Hacienda El Recreo’dan deneysel işlem görmüş Geisha; orman meyveleri, böğürtlen ve kivi ile yasemin zarafeti; tereyağımsı gövde ve bitter çikolata ile dengelenir.',
       commercialSummary:
@@ -271,7 +271,7 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: 'Premium Micro Lot',
+      collectionLabel: 'Competition Lot',
       story:
         'Experimentelle Geisha von Hacienda El Recreo: Waldbeeren, Brombeere und Kiwi mit Jasmin-Eleganz; butteriger Körper, bittere Schokolade im Gleichgewicht.',
       commercialSummary:
@@ -287,7 +287,7 @@ export const lotLocalePatches: Record<
   },
   'castillo-las-mesas-84-50': {
     tr: {
-      collectionLabel: 'Özel Varyete Serisi',
+      collectionLabel: 'Specialty Coffee',
       story:
         'Finca Las Mesas’tan Castillo; mandalina, bal ve çikolata birlikteliği, incir, kuru üzüm ve macadamia ile ipeksi doku.',
       commercialSummary:
@@ -297,7 +297,7 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['Espresso ve süt bazlı menüler', '82–84,5 SCA bandı toptan', 'Castillo karakteri net programlar'],
     },
     de: {
-      collectionLabel: 'Special Series',
+      collectionLabel: 'Specialty Coffee',
       story:
         'Castillo von Finca Las Mesas: Mandarine, Honig und Schokolade; Feige, Rosine und Macadamia mit seidiger Textur.',
       commercialSummary:
@@ -309,7 +309,7 @@ export const lotLocalePatches: Record<
   },
   'catuai-los-cedros-84': {
     tr: {
-      collectionLabel: 'Özel Varyete Serisi',
+      collectionLabel: 'Specialty Coffee',
       story:
         'Finca Los Cedros’tan yıkanmış Catuaí; vanilya, ipeksi gövde ve ferahlatıcı sitrik asidite.',
       commercialSummary:
@@ -319,7 +319,7 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['Günlük espresso ve batch brew', 'Netlik ve tatlılık dengesi', 'Special Series bandı'],
     },
     de: {
-      collectionLabel: 'Special Series',
+      collectionLabel: 'Specialty Coffee',
       story:
         'Gewaschener Catuaí von Finca Los Cedros: Vanille, seidiger Körper, erfrischende Zitronensäure.',
       commercialSummary:
@@ -331,7 +331,7 @@ export const lotLocalePatches: Record<
   },
   'caturra-la-cuchilla-83-75': {
     tr: {
-      collectionLabel: 'Özel Varyete Serisi',
+      collectionLabel: 'Specialty Coffee',
       story:
         'Finca La Cuchilla’dan Caturra; akçaağaç şurubu ve çikolata dengesi, temiz finish.',
       commercialSummary:
@@ -341,7 +341,7 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['House espresso ve filtre', 'Sezon rotasyonu', 'Caturra mesajı'],
     },
     de: {
-      collectionLabel: 'Special Series',
+      collectionLabel: 'Specialty Coffee',
       story:
         'Caturra von Finca La Cuchilla: Ahornsirup und Schokolade mit sauberem Finish.',
       commercialSummary:
@@ -351,53 +351,9 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['House-Espresso', 'Saisonrotation', 'klarer Caturra-Charakter'],
     },
   },
-  'colombia-27-la-ondonada-83-25': {
-    tr: {
-      collectionLabel: 'Özel Varyete Serisi',
-      story:
-        'Finca La Ondonada’dan Colombia 27; beyaz çikolata ve portakal notaları, kremsi his.',
-      commercialSummary:
-        'Konfeksiyon ve narenciye uyumu arayan sütlü içecek odaklı menüler için.',
-      cupProfileSummary:
-        'Beyaz çikolata tatlılığı portakal dokunuşuyla dengelenir; yumuşak gövde.',
-      buyerUseCases: ['Sütlü espresso', 'Filtre hatları', '83+ erişilebilir profil'],
-    },
-    de: {
-      collectionLabel: 'Special Series',
-      story:
-        'Colombia 27 von Finca La Ondonada: weiße Schokolade und Orange mit cremigem Mundgefühl.',
-      commercialSummary:
-        'Für Milch-Espresso und konfektionsartige Profile im Special-Series-Band.',
-      cupProfileSummary:
-        'Weiße Schokolade trifft Orange; weiche Textur.',
-      buyerUseCases: ['Milch-Espresso', 'Filter', 'zugängliches 83+ Profil'],
-    },
-  },
-  'bourbon-santa-marta-83': {
-    tr: {
-      collectionLabel: 'Özel Varyete Serisi',
-      story:
-        'Finca Santa Marta’dan yıkanmış Bourbon (Las Marías’taki 88,52 doğal lotundan ayrı bir SKU). Kavrulmuş badem, şeftali, tarçın ve yoğun sitrik asidite.',
-      commercialSummary:
-        'Klasik yıkanmış Bourbon profili arayanlar için Special Series seçeneği.',
-      cupProfileSummary:
-        'Badem ve şeftali öncülüğünde tarçın ve canlı asidite — “premium klasik” fincan.',
-      buyerUseCases: ['Parlak yıkanmış espresso', 'Taş meyve ve baharat anlatımı', 'İki Bourbon lotunu ayıran menüler'],
-    },
-    de: {
-      collectionLabel: 'Special Series',
-      story:
-        'Gewaschener Bourbon von Finca Santa Marta — separates SKU neben dem 88,52-Natural aus Las Marías. Geröstete Mandel, Pfirsich, Zimt und intensive Zitronensäure.',
-      commercialSummary:
-        'Special Series für klassisches gewaschenes Bourbon-Profil.',
-      cupProfileSummary:
-        'Mandel und Pfirsich mit Zimt und lebendiger Säure — „klassisch premium“.',
-      buyerUseCases: ['Helles gewaschenes Espresso', 'Steinobst-Story', 'Menüs mit zwei Bourbon-Lots'],
-    },
-  },
   'dunamix-blend-83-50': {
     tr: {
-      collectionLabel: 'Roastery Base',
+      collectionLabel: 'Blend Series',
       story:
         'Dunamix özel harmanı; panela, kakao ve karamel üzerine tarçın ve karanfil gibi kahverengi baharatlar, espresso bazlı içecekler için yumuşak gövde.',
       commercialSummary:
@@ -407,7 +363,7 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['Yüksek hacim espresso', 'House blend', 'Sütlü menü uyumu'],
     },
     de: {
-      collectionLabel: 'Roastery Base',
+      collectionLabel: 'Blend Series',
       story:
         'Dunamix Special Blend: Panela, Kakao, Karamell, Zimt und Nelke — weicher Körper für Espresso-Getränke.',
       commercialSummary:
@@ -419,7 +375,7 @@ export const lotLocalePatches: Record<
   },
   'mixed-series-82-50': {
     tr: {
-      collectionLabel: 'Mixed Series',
+      collectionLabel: 'Commercial Series',
       story:
         'Yüksek hacim noktaları için ekonomik ve kalite kontrollü commodity mixed serisi; kakao ve fındık dengesi. İşlem: Natural veya Washed (esnek).',
       commercialSummary:
@@ -429,7 +385,7 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['Zincir ve hacim', 'House blend hammaddesi', 'Fiyat duyarlı QC’li programlar'],
     },
     de: {
-      collectionLabel: 'Mixed Series',
+      collectionLabel: 'Commercial Series',
       story:
         'Wirtschaftliche Mixed-Commodity-Linie für hohe Volumina; Kakao und Haselnuss. Verarbeitung: Natural oder Washed (flexibel).',
       commercialSummary:

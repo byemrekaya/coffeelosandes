@@ -6,6 +6,8 @@ import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
 import { dictionary } from '../../i18n/dictionary';
 import { coffeeLots } from '../../data/coffeeLots';
+import { localizeCoffeeLots } from '../../i18n/localizeLot';
+import CoffeeLotCard from '../coffee/CoffeeLotCard.astro';
 import { site, mailtoB2B } from '../../config/site';
 
 interface Props {
@@ -19,30 +21,124 @@ const homeStory = dictionary[locale].homeStory as { eyebrow: string; title: stri
 const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; body: string }[];
 const homeDict = dictionary[locale].home as Record<string, unknown>;
 const wholesaleBullets = (homeDict.wholesaleBullets ?? []) as string[];
+const productsDict = dictionary[locale].products as Record<string, unknown>;
+const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
+const localizedLots = localizeCoffeeLots(coffeeLots, locale);
 
 const segmentDefs = [
   {
-    id: 'ultra-premium',
-    label: t(locale, 'products.segmentLabelUltra'),
-    title: t(locale, 'products.segmentUltraTitle'),
-    desc: t(locale, 'products.segmentUltraDesc'),
+    id: 'competition-lots',
+    label: t(locale, 'products.segmentLabelCompetition'),
+    title: t(locale, 'products.segmentCompetitionTitle'),
+    desc: t(locale, 'products.segmentCompetitionDesc'),
   },
   {
-    id: 'special-series',
-    label: t(locale, 'products.segmentLabelSpecial'),
-    title: t(locale, 'products.segmentSpecialTitle'),
-    desc: t(locale, 'products.segmentSpecialDesc'),
+    id: 'premium-microlot',
+    label: t(locale, 'products.segmentLabelMicro'),
+    title: t(locale, 'products.segmentMicroTitle'),
+    desc: t(locale, 'products.segmentMicroDesc'),
   },
   {
-    id: 'blend-mixed',
-    label: t(locale, 'products.segmentLabelBlend'),
-    title: t(locale, 'products.segmentBlendTitle'),
-    desc: t(locale, 'products.segmentBlendDesc'),
+    id: 'specialty-series',
+    label: t(locale, 'products.segmentLabelSpecialty'),
+    title: t(locale, 'products.segmentSpecialtyTitle'),
+    desc: t(locale, 'products.segmentSpecialtyDesc'),
+  },
+  {
+    id: 'barista-blend',
+    label: t(locale, 'products.segmentLabelBarista'),
+    title: t(locale, 'products.segmentBaristaTitle'),
+    desc: t(locale, 'products.segmentBaristaDesc'),
+  },
+  {
+    id: 'commercial',
+    label: t(locale, 'products.segmentLabelCommercial'),
+    title: t(locale, 'products.segmentCommercialTitle'),
+    desc: t(locale, 'products.segmentCommercialDesc'),
+  },
+  {
+    id: 'retail',
+    label: t(locale, 'products.segmentLabelRetail'),
+    title: t(locale, 'products.segmentRoastedTitle'),
+    desc: t(locale, 'products.segmentRoastedDesc'),
   },
 ] as const;
 
 const defaultSegment = segmentDefs[0].id;
+
+const farmToRoasteryFlow = [
+  {
+    title: t(locale, 'home.flowStep1Title'),
+    body: t(locale, 'home.flowStep1Body'),
+    icon: 'harvest',
+  },
+  {
+    title: t(locale, 'home.flowStep2Title'),
+    body: t(locale, 'home.flowStep2Body'),
+    icon: 'shipment',
+  },
+  {
+    title: t(locale, 'home.flowStep3Title'),
+    body: t(locale, 'home.flowStep3Body'),
+    icon: 'storage',
+  },
+  {
+    title: t(locale, 'home.flowStep4Title'),
+    body: t(locale, 'home.flowStep4Body'),
+    icon: 'roastery',
+  },
+] as const;
 ---
+
+<section class="border-y border-line/80 bg-paper py-14 md:py-16" data-reveal>
+  <div class="section-shell">
+    <p class="stage-eyebrow">{t(locale, 'home.wholesaleEyebrow')}</p>
+    <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-ink md:text-[2.25rem]">
+      {t(locale, 'home.flowTitle')}
+    </h2>
+    <div class="relative mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="pointer-events-none absolute left-10 right-10 top-[2.35rem] hidden h-px bg-gradient-to-r from-transparent via-gold/55 to-transparent xl:block" aria-hidden="true"></div>
+      {farmToRoasteryFlow.map((step, idx) => (
+        <article class="glass-panel relative overflow-hidden px-6 py-6 transition-transform duration-300 hover:-translate-y-0.5">
+          <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/65 to-transparent" aria-hidden="true"></div>
+          <p class="absolute right-5 top-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/35">
+            {String(idx + 1).padStart(2, '0')}
+          </p>
+          <div class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gold/45 bg-gold/15 text-ink shadow-soft-gold">
+            {step.icon === 'harvest' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 21v-7a5 5 0 0 1 10 0v7" stroke-linecap="round" />
+                <circle cx="12" cy="7" r="3" />
+              </svg>
+            )}
+            {step.icon === 'shipment' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M3 7h12v9H3zM15 10h3l3 3v3h-6z" stroke-linejoin="round" />
+                <circle cx="8" cy="18" r="1.5" />
+                <circle cx="18" cy="18" r="1.5" />
+              </svg>
+            )}
+            {step.icon === 'storage' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M3 10 12 4l9 6v10H3z" />
+                <path d="M9 20v-5h6v5" />
+              </svg>
+            )}
+            {step.icon === 'roastery' && (
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M7 14a5 5 0 0 0 10 0V9H7z" />
+                <path d="M17 11h1a2 2 0 1 1 0 4h-1" />
+                <path d="M12 4c2 1.2 2 2.6.6 4M9 5.4c1.6 1 1.6 2.2.5 3.3" stroke-linecap="round" />
+              </svg>
+            )}
+          </div>
+          <h3 class="font-display text-[1.9rem] font-semibold leading-[1.05] tracking-tight text-ink">{step.title}</h3>
+          <p class="mt-4 text-[15px] leading-relaxed text-ink-muted">{step.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
 
 <section id="hikayemiz" class="anchor-target scroll-mt-28 py-20 md:py-24" data-reveal>
   <div class="section-shell">
@@ -60,6 +156,24 @@ const defaultSegment = segmentDefs[0].id;
         </article>
       ))}
     </div>
+    <article class="glass-panel mt-6 px-7 py-8 md:px-10" data-reveal>
+      <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/55">{t(locale, 'home.originEyebrow')}</p>
+      <h3 class="mt-2 font-display text-xl font-semibold text-ink">{t(locale, 'home.originTitle')}</h3>
+      <ul class="mt-5 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
+        {((homeDict.originBullets ?? []) as string[]).map((line) => (
+          <li class="flex gap-2">
+            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+            <span>{line}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'home.originFarmsTitle')}</p>
+      <ul class="mt-3 space-y-1 text-sm text-ink-muted">
+        {((homeDict.originFarms ?? []) as string[]).map((line) => (
+          <li>{line}</li>
+        ))}
+      </ul>
+    </article>
   </div>
 </section>
 
@@ -71,7 +185,7 @@ const defaultSegment = segmentDefs[0].id;
       description={t(locale, 'home.coffeesSectionIntro')}
     />
 
-    <div class="mt-8 flex flex-wrap gap-3" data-category-filter-root>
+    <div class="relative z-20 mt-8 flex flex-wrap gap-3" data-category-filter-root>
       {segmentDefs.map((segment, i) => (
         <button
           type="button"
@@ -99,25 +213,35 @@ const defaultSegment = segmentDefs[0].id;
     </div>
 
     <div class="mt-10 grid gap-6 md:grid-cols-3" data-category-cards>
-      {coffeeLots.map((lot) => (
-        <article
+      {localizedLots.map((lot) => (
+        <div
           data-category-card
           data-segment={lot.segment}
-          class:list={['border border-line bg-surface shadow-card', lot.segment !== defaultSegment && 'hidden']}
+          class:list={[lot.segment !== defaultSegment && 'hidden']}
         >
-          <div class="border-b border-line bg-surface-muted px-5 py-4">
-            <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/55">{lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty')}</p>
-            <h4 class="mt-2 text-[17px] font-bold text-ink">{lot.name}</h4>
-            <p class="mt-1 text-sm text-ink-muted">{lot.region}, {lot.country}</p>
-          </div>
-          <div class="px-5 py-4">
-            <p class="text-[12px] font-semibold text-ink">SCA {lot.score.toFixed(2)}</p>
-            <a href={withLang(`/coffees/${lot.slug}`, locale)} class="mt-3 inline-flex text-[11px] font-semibold uppercase tracking-[0.14em] text-gold hover:text-ink">
-              {t(locale, 'home.lotDetail')}
-            </a>
-          </div>
-        </article>
+          <CoffeeLotCard lot={lot} locale={locale} />
+        </div>
       ))}
+      <div
+        data-category-card
+        data-segment="retail"
+        class:list={['md:col-span-3', defaultSegment !== 'retail' && 'hidden']}
+      >
+        <article class="glass-panel border border-line/90 px-7 py-10 md:px-10">
+          <h3 class="font-display text-xl font-semibold text-ink">{t(locale, 'home.retailTeaserTitle')}</h3>
+          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted">{t(locale, 'home.retailTeaserBody')}</p>
+          <p class="mt-6 text-sm font-semibold text-ink">{t(locale, 'products.retailProductTitle')}</p>
+          <p class="mt-2 max-w-3xl text-sm leading-relaxed text-ink-muted">{t(locale, 'products.retailProductStory')}</p>
+          <ul class="mt-6 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
+            {retailSpecLines.map((line) => (
+              <li class="flex gap-2">
+                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
     </div>
 
     <div class="mt-12 flex justify-center" data-category-cta>
@@ -238,35 +362,54 @@ const defaultSegment = segmentDefs[0].id;
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     const buttons = Array.from(root.querySelectorAll<HTMLElement>('[data-category-tab]'));
+    const cardsRoot = document.querySelector('[data-category-cards]');
     const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-segment-panel]'));
-    const cards = Array.from(document.querySelectorAll<HTMLElement>('[data-category-card][data-segment]'));
+    const cards = cardsRoot
+      ? Array.from(cardsRoot.querySelectorAll<HTMLElement>('[data-category-card][data-segment]'))
+      : [];
     if (!buttons.length || !cards.length) return;
 
-    const setActive = (segment: string) => {
+    const setActive = (segment: string, opts?: { skipClear?: boolean }) => {
       buttons.forEach((btn) => {
-        const isActive = btn.dataset.categoryTab === segment;
+        const tab = btn.getAttribute('data-category-tab');
+        const isActive = tab === segment;
         btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        applyClasses(btn, btn.dataset.activeClasses ?? '', false);
-        applyClasses(btn, btn.dataset.inactiveClasses ?? '', false);
+        applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', false);
+        applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', false);
         if (isActive) {
-          applyClasses(btn, btn.dataset.activeClasses ?? '', true);
+          applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', true);
         } else {
-          applyClasses(btn, btn.dataset.inactiveClasses ?? '', true);
+          applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', true);
         }
       });
 
       panels.forEach((panel) => {
-        panel.classList.toggle('hidden', panel.dataset.segmentPanel !== segment);
+        const pid = panel.getAttribute('data-segment-panel');
+        panel.classList.toggle('hidden', pid !== segment);
       });
 
       cards.forEach((card) => {
-        card.classList.toggle('hidden', card.dataset.segment !== segment);
+        const sid = card.getAttribute('data-segment');
+        const match = sid === segment;
+        card.classList.toggle('hidden', !match);
+        /* İlk yüklemede clearProps yapma — giriş animasyonundaki opacity:0 ile çakışır */
+        if (match && !opts?.skipClear) {
+          gsap.killTweensOf(card);
+          gsap.set(card, { clearProps: 'opacity,transform,scale' });
+        }
       });
 
-      if (prefersReduced) return;
+      if (prefersReduced) {
+        cards.forEach((card) => {
+          if (card.getAttribute('data-segment') === segment) {
+            gsap.set(card, { opacity: 1, y: 0, scale: 1 });
+          }
+        });
+        return;
+      }
 
-      const activePanel = panels.find((panel) => panel.dataset.segmentPanel === segment);
-      const activeCards = cards.filter((card) => card.dataset.segment === segment);
+      const activePanel = panels.find((p) => p.getAttribute('data-segment-panel') === segment);
+      const activeCards = cards.filter((c) => c.getAttribute('data-segment') === segment);
 
       if (activePanel) {
         gsap.fromTo(
@@ -285,14 +428,16 @@ const defaultSegment = segmentDefs[0].id;
       }
     };
 
-    const initial = buttons[0]?.dataset.categoryTab;
-    if (initial) setActive(initial);
+    const initial = buttons[0]?.getAttribute('data-category-tab');
+    if (initial) setActive(initial, { skipClear: true });
 
-    buttons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const segment = btn.dataset.categoryTab;
-        if (segment) setActive(segment);
-      });
+    root.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const btn = t.closest('[data-category-tab]');
+      if (!btn || !root.contains(btn)) return;
+      const segment = btn.getAttribute('data-category-tab');
+      if (segment) setActive(segment);
     });
   }
 
@@ -301,9 +446,14 @@ const defaultSegment = segmentDefs[0].id;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const root = document.querySelector('[data-category-cards]');
-    const cards = document.querySelectorAll<HTMLElement>('[data-category-card]');
+    if (!root) return;
+
+    /* Sadece seçili segmentteki kartlar: tüm grid'e opacity:0 yazmak, gizli segmentleri sonra görünür yapınca boş bırakıyordu */
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-category-card]')).filter(
+      (el) => !el.classList.contains('hidden')
+    );
     const cta = document.querySelector<HTMLElement>('[data-category-cta]');
-    if (!root || !cards.length) return;
+    if (!cards.length) return;
 
     gsap.set(cards, { opacity: 0, y: 48, scale: 0.94, transformOrigin: 'center bottom' });
     if (cta) gsap.set(cta, { opacity: 0, y: 20 });
