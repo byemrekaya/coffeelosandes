@@ -1,0 +1,55 @@
+---
+/**
+ * Ana sayfa hikâye bandı — ürün kartlarıyla uyumlu altın çerçeve + editoryal vitrin.
+ */
+interface Props {
+  src: string;
+  alt?: string;
+}
+
+const { src, alt = '' } = Astro.props;
+---
+
+<div
+  class="story-spotlight group relative mx-auto w-full max-w-[300px] sm:max-w-[340px] lg:max-w-[380px]"
+  aria-hidden="true"
+>
+  <div
+    class="pointer-events-none absolute -left-[12%] top-[5%] h-[52%] w-[48%] rounded-full bg-gold/20 blur-3xl"
+    aria-hidden="true"
+  />
+  <div
+    class="pointer-events-none absolute -right-[10%] bottom-[8%] h-[42%] w-[44%] rounded-full bg-olive/12 blur-3xl"
+    aria-hidden="true"
+  />
+  <div
+    class="relative transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform group-hover:-translate-y-1 md:-rotate-[1.25deg] md:group-hover:-rotate-[0.5deg]"
+  >
+    <div
+      class="pointer-events-none absolute inset-0 translate-x-3 translate-y-3 rounded-[1.35rem] border border-line/70 bg-paper-deep shadow-sm"
+      aria-hidden="true"
+    />
+    <div
+      class="lot-photo-frame relative transition-[box-shadow,transform] duration-500 ease-out group-hover:shadow-card-hover"
+    >
+      <div class="lot-photo-frame-inner">
+        <div class="relative overflow-hidden bg-[#1a1510]">
+          <img
+            src={src}
+            alt={alt}
+            width="640"
+            height="800"
+            class="aspect-[4/5] w-full object-cover object-[center_42%] contrast-[1.02] saturate-[1.05] transition duration-[1.15s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.035]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div
+            class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_65%_at_50%_30%,rgba(200,154,60,0.14),transparent_55%),linear-gradient(to_top,rgba(13,44,63,0.12),transparent_48%)]"
+            aria-hidden="true"
+          />
+          <div class="pointer-events-none absolute inset-0 grain-overlay opacity-[0.32]" aria-hidden="true" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -15,40 +15,54 @@ const coverSrc = getLotImageSrc(lot.slug);
 const lightboxId = `lot-lightbox-${lot.slug}`;
 ---
 
-<section class="relative overflow-hidden border-b border-line pb-16 pt-28 md:pb-24 md:pt-36" data-reveal>
+<section class="relative overflow-hidden border-b border-line pb-12 pt-24 md:pb-16 md:pt-28 lg:pt-32" data-reveal>
   <div class="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-terracotta/10 blur-3xl" aria-hidden="true"></div>
   <div class="pointer-events-none absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-bronze/10 blur-3xl" aria-hidden="true"></div>
 
   <div class="section-shell relative">
-    <p class="stage-eyebrow mb-4 text-cream/55">{eyebrow}</p>
+    <p class="stage-eyebrow mb-3 text-cream/55">{eyebrow}</p>
 
-    <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-12">
-      <div class="lg:col-span-7">
-        <h1 class="font-display text-display-xl font-semibold tracking-tight-display text-cream">
-          {lot.name}
+    <div class="grid gap-6 lg:grid-cols-12 lg:items-start lg:gap-8 xl:gap-12">
+      <div class="lg:col-span-6">
+        <h1 class="m-0 p-0 font-display font-semibold">
+          <span class="lot-ink-tag lot-ink-tag--title">{lot.name}</span>
         </h1>
-        <p class="mt-4 text-lg leading-relaxed text-cream/75 md:text-xl">
+        <p class="mt-3 text-base leading-relaxed text-cream/75 md:text-lg">
           {lot.region}, {lot.country}
         </p>
 
-        <div class="mt-8 flex flex-wrap items-end gap-8">
-          <div>
-            <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroCupScore')}</p>
-            <p class="font-display text-4xl font-semibold tabular-nums text-gold md:text-5xl">{lotScoreLine(lot)}</p>
-          </div>
-          <div class="h-12 w-px bg-line" aria-hidden="true"></div>
-          <div>
-            <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroRank')}</p>
-            <p class="font-display text-4xl font-semibold tabular-nums text-cream md:text-5xl">#{lot.rank}</p>
-          </div>
+        <div class="mt-5">
+          <p class="text-[11px] font-medium uppercase tracking-[0.2em] text-cream/45">{t(locale, 'coffee.heroCupScore')}</p>
+          <p class="mt-1 font-display text-3xl font-semibold tabular-nums text-gold md:text-4xl">{lotScoreLine(lot)}</p>
         </div>
+
+        <p class="mt-4 max-w-3xl text-[16px] leading-[1.6] text-cream/85 md:mt-5 md:text-[17px] md:leading-[1.65]">
+          {lot.story}
+        </p>
+
+        <p class="mt-5 max-w-3xl border-l-2 border-gold/40 pl-5 text-[16px] leading-[1.7] text-cream/85 md:text-[17px] md:leading-[1.75]">
+          {lot.commercialSummary}
+        </p>
+
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center md:mt-8">
+          <a href={withLang('/contact', locale)} class="btn-primary inline-flex justify-center px-8 py-3.5">
+            {t(locale, 'coffee.heroRequest')}
+          </a>
+          <a
+            href="#lot-details"
+            class="btn-secondary inline-flex justify-center px-8 py-3.5"
+          >
+            {t(locale, 'coffee.heroDetails')}
+          </a>
+        </div>
+        <p class="mt-4 text-[12px] text-cream/45">{t(locale, 'coffee.heroSheetsNote')}</p>
       </div>
 
-      <div class="lg:col-span-5">
+      <div class="lg:col-span-6 lg:justify-self-end xl:-mr-4 2xl:-mr-8">
         <div
-          class="lot-photo-frame group/frame transition-[box-shadow,transform] duration-500 ease-out will-change-transform hover:-translate-y-0.5"
+          class="lot-photo-frame group/frame w-full max-w-none transition-[box-shadow,transform] duration-500 ease-out will-change-transform hover:-translate-y-0.5 lg:max-w-[min(100%,560px)] xl:max-w-[min(100%,620px)]"
         >
-          <div class="lot-photo-frame-inner">
+          <div class="lot-photo-frame-inner w-full overflow-hidden">
             <button
               type="button"
               class="group/photo relative block w-full overflow-hidden bg-[#1a1510] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1510]"
@@ -60,7 +74,7 @@ const lightboxId = `lot-lightbox-${lot.slug}`;
               <img
                 src={coverSrc}
                 alt=""
-                class="aspect-[4/3] w-full object-cover object-[center_38%] contrast-[1.03] saturate-[1.04] transition duration-[1.15s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/photo:scale-[1.045]"
+                class="aspect-[4/3] w-full object-cover object-[center_38%] contrast-[1.03] saturate-[1.04] transition duration-[1.15s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/photo:scale-[1.045] min-h-[220px] sm:min-h-[280px] lg:aspect-auto lg:h-[min(52vh,520px)] lg:min-h-[380px]"
                 loading="eager"
                 decoding="async"
                 width="800"
@@ -88,34 +102,6 @@ const lightboxId = `lot-lightbox-${lot.slug}`;
         </div>
       </div>
     </div>
-
-    <div class="mt-10 flex flex-wrap gap-2">
-      {lot.flavorTags.map((tag) => (
-        <span class="rounded-lg border border-line bg-surface-muted px-3 py-1.5 text-[11px] font-medium uppercase tracking-wider text-ink/85">
-          {tag}
-        </span>
-      ))}
-    </div>
-    <p class="mt-3 max-w-2xl text-[11px] leading-relaxed text-cream/45">{t(locale, 'coffee.flavorTagsLegend')}</p>
-
-    <p class="mt-10 max-w-3xl text-[17px] leading-[1.65] text-cream/80">
-      {lot.story}
-    </p>
-
-    <div class="mt-12 flex flex-col gap-3 sm:flex-row sm:items-center">
-      <a href={withLang('/contact', locale)} class="btn-primary inline-flex justify-center px-8 py-3.5">
-        {t(locale, 'coffee.heroRequest')}
-      </a>
-      <a
-        href="#lot-details"
-        class="btn-secondary inline-flex justify-center px-8 py-3.5"
-      >
-        {t(locale, 'coffee.heroDetails')}
-      </a>
-    </div>
-    <p class="mt-4 text-[12px] text-cream/45">
-      {t(locale, 'coffee.heroSheetsNote')}
-    </p>
   </div>
 </section>
 

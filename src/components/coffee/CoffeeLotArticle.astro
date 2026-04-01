@@ -1,8 +1,7 @@
 ---
 import CoffeeHero from './Hero.astro';
-import CoffeeOverview from './Overview.astro';
 import TechnicalGrid from './TechnicalGrid.astro';
-import CupProfile from './CupProfile.astro';
+import FarmMap from './FarmMap.astro';
 import BuyerUseCases from './BuyerUseCases.astro';
 import CoffeeCTA from './CoffeeCTA.astro';
 import RelatedLots from './RelatedLots.astro';
@@ -20,10 +19,9 @@ const { lot, relatedLots, locale } = Astro.props;
 
 <article class="coffee-lot-page">
   <CoffeeHero lot={lot} locale={locale} />
-  <CoffeeOverview lot={lot} locale={locale} />
   <TechnicalGrid lot={lot} locale={locale} />
-  <CupProfile lot={lot} locale={locale} />
   <BuyerUseCases lot={lot} locale={locale} />
+  {lot.farmMapQuery && <FarmMap lot={lot} locale={locale} />}
   <CoffeeCTA lotName={lot.name} locale={locale} />
   <RelatedLots relatedLots={relatedLots} locale={locale} />
 </article>

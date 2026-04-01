@@ -1,0 +1,51 @@
+---
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
+
+interface Props {
+  locale: Locale;
+  class?: string;
+  /** Koyu arka planlı bölümler (ör. ilgili lotlar) için */
+  inverse?: boolean;
+}
+
+const { locale, class: className = '', inverse = false } = Astro.props;
+const badgeBase = inverse
+  ? 'border-white/22 bg-black/28 text-cream/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
+  : 'border-gold/35 bg-paper-deep/90 text-ink/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]';
+const badgeQ = inverse
+  ? 'border-gold/45 bg-black/28 text-gold shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
+  : 'border-gold/35 bg-paper-deep/90 text-gold shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]';
+const sgsLabel = t(locale, 'coffee.badgeSgsTitle');
+const qLabel = t(locale, 'coffee.badgeQGraderTitle');
+---
+
+<div
+  class:list={['inline-flex shrink-0 items-center gap-1.5', className]}
+  role="group"
+  aria-label={`${sgsLabel}; ${qLabel}`}
+>
+  <span class:list={['inline-flex h-7 w-7 items-center justify-center rounded border', badgeBase]} title={sgsLabel}>
+    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.6"
+        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+      ></path>
+    </svg>
+  </span>
+  <span class:list={['inline-flex h-7 w-7 items-center justify-center rounded border', badgeQ]} title={qLabel}>
+    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.25" stroke="currentColor" stroke-width="1.35"></circle>
+      <text
+        x="12"
+        y="15.5"
+        text-anchor="middle"
+        fill="currentColor"
+        font-size="10.5"
+        font-weight="700"
+        font-family="ui-sans-serif, system-ui, sans-serif">Q</text>
+    </svg>
+  </span>
+</div>

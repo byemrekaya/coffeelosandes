@@ -8,7 +8,7 @@ export const site = {
   contactEmail: 'info@coffeelosandes.com',
   canonicalOrigin: 'https://coffeelosandes.com',
   /** Open Graph / paylaşım görseli (`public/` altında) */
-  ogImage: '/banner.jpeg',
+  ogImage: '/bannervideo.mp4',
 } as const;
 
 export const mailtoB2B = `mailto:${site.contactEmail}`;

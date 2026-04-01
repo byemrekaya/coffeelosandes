@@ -3,6 +3,7 @@ import { type CoffeeLot, getLotImageSrc, lotScoreLine } from '../../data/coffeeL
 import type { Locale } from '../../i18n/types';
 import { withLang } from '../../i18n/paths';
 import { t } from '../../i18n/t';
+import LotTrustBadges from './LotTrustBadges.astro';
 
 interface Props {
   lot: CoffeeLot;
@@ -69,9 +70,12 @@ const segmentLabelKey =
 
   <div class="flex flex-1 flex-col justify-between gap-4 px-5 py-4 text-[12px] text-ink/75">
     <div>
-      <h3 class="font-display text-[1.28rem] font-semibold leading-snug tracking-tight text-ink md:text-[1.35rem]">
-        {lot.name}
-      </h3>
+      <div class="flex flex-wrap items-start gap-2.5">
+        <h3 class="min-w-0 flex-1 font-display text-[1.28rem] font-semibold leading-snug tracking-tight text-ink md:text-[1.35rem]">
+          {lot.name}
+        </h3>
+        <LotTrustBadges locale={locale} class="pt-0.5" />
+      </div>
       <p class="mt-3 line-clamp-3 leading-relaxed">{lot.commercialSummary}</p>
     </div>
     <div class="flex flex-wrap gap-2">

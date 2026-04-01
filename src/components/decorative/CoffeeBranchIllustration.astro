@@ -1,0 +1,53 @@
+---
+/**
+ * Kahve dalı çizimi — kiraz kümeleri viewBox’ta içe (sayfa merkezine) kaydırıldı;
+ * sol kenarda kesilince meyve kaybı olmaması için x ≥ ~320 bölgesinde yoğunlaştırıldı.
+ */
+interface Props {
+  side: 'left' | 'right';
+}
+
+const { side } = Astro.props;
+const mirror = side === 'right';
+---
+
+<svg
+  class:list={[mirror && '-scale-x-100']}
+  viewBox="0 0 746 736"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  focusable="false"
+>
+  <g stroke="currentColor" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Ana dal: sol alttan gelir, meyveler sağ/orta bölgede kalır (kesilmez) -->
+    <g fill="none">
+      <path d="M 48 708 C 120 560 180 420 240 280 C 300 140 380 60 480 40" />
+      <path d="M 48 708 C -20 600 20 480 60 360" />
+      <path d="M 240 280 C 320 240 420 220 520 200" />
+      <path d="M 240 280 C 200 220 160 200 120 240" />
+      <path d="M 380 120 C 440 80 520 48 600 32" />
+      <path d="M 480 40 C 560 80 620 160 660 260" />
+      <path d="M 520 200 C 580 260 640 320 680 400" />
+      <ellipse cx="420" cy="200" rx="52" ry="24" transform="rotate(-28 420 200)" />
+      <ellipse cx="520" cy="280" rx="56" ry="26" transform="rotate(16 520 280)" />
+      <ellipse cx="340" cy="320" rx="48" ry="22" transform="rotate(-42 340 320)" />
+      <ellipse cx="580" cy="380" rx="54" ry="25" transform="rotate(20 580 380)" />
+      <ellipse cx="460" cy="480" rx="46" ry="22" transform="rotate(-14 460 480)" />
+      <ellipse cx="620" cy="120" rx="44" ry="20" transform="rotate(38 620 120)" />
+    </g>
+    <!-- Kirazlar: orta–iç bölge (x ≈ 380–620) tam görünsün -->
+    <g fill="currentColor" fill-opacity="0.38" stroke="currentColor" stroke-width="1">
+      <circle cx="450" cy="155" r="17" />
+      <circle cx="490" cy="185" r="15" />
+      <circle cx="470" cy="225" r="16" />
+      <circle cx="530" cy="210" r="14" />
+      <circle cx="400" cy="380" r="13" />
+      <circle cx="430" cy="415" r="12" />
+      <circle cx="560" cy="340" r="14" />
+      <circle cx="600" cy="380" r="13" />
+      <circle cx="500" cy="520" r="14" />
+      <circle cx="460" cy="560" r="12" />
+      <circle cx="640" cy="200" r="11" />
+    </g>
+  </g>
+</svg>

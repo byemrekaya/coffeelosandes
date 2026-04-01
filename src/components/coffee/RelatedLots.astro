@@ -3,6 +3,7 @@ import { type CoffeeLot, lotScoreLine } from '../../data/coffeeLots';
 import type { Locale } from '../../i18n/types';
 import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
+import LotTrustBadges from './LotTrustBadges.astro';
 
 interface Props {
   relatedLots: CoffeeLot[];
@@ -32,8 +33,13 @@ const { relatedLots, locale } = Astro.props;
             class="group flex flex-col rounded-xl border border-line bg-surface-muted p-6 transition-all hover:border-line hover:bg-surface/90"
           >
             <div class="flex items-start justify-between gap-3">
-              <h3 class="font-display text-xl font-semibold text-cream group-hover:text-cream">{lot.name}</h3>
-              <span class="font-display text-lg tabular-nums text-gold">{lotScoreLine(lot)}</span>
+              <div class="flex min-w-0 flex-1 items-start gap-2">
+                <h3 class="min-w-0 flex-1 font-display text-xl font-semibold text-cream group-hover:text-cream">
+                  {lot.name}
+                </h3>
+                <LotTrustBadges locale={locale} inverse class="pt-0.5" />
+              </div>
+              <span class="shrink-0 font-display text-lg tabular-nums text-gold">{lotScoreLine(lot)}</span>
             </div>
             <p class="mt-2 text-[13px] text-cream/50">
               {lot.region} · {lot.process}

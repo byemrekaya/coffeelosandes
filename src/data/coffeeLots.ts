@@ -1,3 +1,6 @@
+import type { TastingStructuredRow } from './tastingStructured';
+import { tastingStructuredBySlug } from './tastingStructured';
+
 export type CoffeeSegment =
   | 'competition-lots'
   | 'premium-microlot'
@@ -33,6 +36,12 @@ export interface CoffeeLot {
   moisturePct?: string;
   screenSize?: string;
   bagSizeKg?: string;
+  /** Çiftlik kategori adı (DE/TR) — harita başlığında gösterilir */
+  farmCategory?: string;
+  /** Google Maps embed için arama sorgusu */
+  farmMapQuery?: string;
+  /** PDF ile uyumlu yapılandırılmış tadım satırları */
+  tastingStructured?: TastingStructuredRow[];
 }
 
 const DEFAULT_ALT = '≥ 1.630 m';
@@ -67,7 +76,7 @@ export function getLotImageSrc(slug: string): string {
   return encodeURI(`/${file}`);
 }
 
-export const coffeeLots: CoffeeLot[] = [
+const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
   {
     slug: 'geisha-91-54',
     name: 'Geisha',
@@ -99,6 +108,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Hochlandfarmen',
+    farmMapQuery: 'Estancia Aires de Campo, Mérida, Venezuela',
   },
   {
     slug: 'geisha-el-recreo-91-03',
@@ -131,6 +142,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Hochlandfarmen',
+    farmMapQuery: 'Hacienda El Recreo, Mérida, Venezuela',
   },
   {
     slug: 'tabi-90-38',
@@ -163,6 +176,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Parzellen',
+    farmMapQuery: 'The Roros Coffee, Trujillo, Venezuela',
   },
   {
     slug: 'otra-89-83',
@@ -195,6 +210,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Mikroparzellen',
+    farmMapQuery: 'Finca Don Jesús, Lara, Venezuela',
   },
   {
     slug: 'villanueva-89-05',
@@ -227,6 +244,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Lokale Kleinproduzenten',
+    farmMapQuery: 'Finca Santa María, Trujillo, Venezuela',
   },
   {
     slug: 'castillo-naranjal-88-83',
@@ -259,6 +278,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Regionale Farmen',
+    farmMapQuery: 'Finca Bella Vista, Barinas, Venezuela',
   },
   {
     slug: 'monteclaro-88-75',
@@ -291,6 +312,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Regionale Farmen',
+    farmMapQuery: 'Táchira, Venezuela coffee highlands',
   },
   {
     slug: 'inia-01-88-73',
@@ -323,6 +346,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Regionale Farmen',
+    farmMapQuery: 'Yaracuy, Venezuela coffee farms',
   },
   {
     slug: 'bourbon-88-52',
@@ -355,6 +380,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Regionale Farmen',
+    farmMapQuery: 'Lara, Venezuela coffee highlands',
   },
   {
     slug: 'castillo-las-mesas-84-50',
@@ -387,6 +414,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Hochlandfarmen',
+    farmMapQuery: 'Finca Las Mesas, Mérida, Venezuela',
   },
   {
     slug: 'catuai-los-cedros-84',
@@ -419,6 +448,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Hochlandfarmen',
+    farmMapQuery: 'Finca Los Cedros, Mérida, Venezuela',
   },
   {
     slug: 'caturra-la-cuchilla-83-75',
@@ -451,6 +482,8 @@ export const coffeeLots: CoffeeLot[] = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Regionale Farmen',
+    farmMapQuery: 'Finca La Cuchilla, Táchira, Venezuela',
   },
   {
     slug: 'dunamix-blend-83-50',
@@ -518,6 +551,11 @@ export const coffeeLots: CoffeeLot[] = [
     bagSizeKg: DEFAULT_BAG,
   },
 ];
+
+export const coffeeLots: CoffeeLot[] = coffeeLotsRaw.map((lot) => ({
+  ...lot,
+  tastingStructured: tastingStructuredBySlug[lot.slug],
+}));
 
 export function getCoffeeLotBySlug(slug: string): CoffeeLot | undefined {
   return coffeeLots.find((l) => l.slug === slug);

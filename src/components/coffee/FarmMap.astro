@@ -1,0 +1,120 @@
+---
+import type { CoffeeLot } from '../../data/coffeeLots';
+import type { Locale } from '../../i18n/types';
+import { t } from '../../i18n/t';
+
+interface Props {
+  lot: CoffeeLot;
+  locale: Locale;
+}
+
+const { lot, locale } = Astro.props;
+
+if (!lot.farmMapQuery) return;
+
+const encodedQuery = encodeURIComponent(lot.farmMapQuery);
+const mapSrc = `https://maps.google.com/maps?q=${encodedQuery}&output=embed&z=11`;
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
+
+const categoryLabel = lot.farmCategory ?? lot.region;
+---
+
+<section class="border-t border-line py-20 md:py-24" data-reveal>
+  <div class="section-shell">
+
+    <!-- Başlık -->
+    <div class="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="stage-eyebrow mb-2">{t(locale, 'coffee.mapEyebrow')}</p>
+        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">
+          {t(locale, 'coffee.mapTitle')}
+        </h2>
+      </div>
+      <a
+        href={mapsLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-gold/80 underline-offset-4 transition hover:text-gold hover:underline"
+        aria-label={t(locale, 'coffee.mapOpenExternal')}
+      >
+        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/>
+          <line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        {t(locale, 'coffee.mapOpenExternal')}
+      </a>
+    </div>
+
+    <!-- Kart -->
+    <div class="overflow-hidden border border-line/90 bg-surface shadow-card">
+      <div class="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden="true"></div>
+
+      <!-- Üst bilgi bandı -->
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-line/60 px-5 py-4 md:px-8">
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, 'coffee.mapFarm')}</p>
+          <p class="mt-0.5 text-[14px] font-semibold text-cream">{lot.farm}</p>
+        </div>
+        <div class="h-6 w-px bg-line/60" aria-hidden="true"></div>
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, 'coffee.mapRegion')}</p>
+          <p class="mt-0.5 text-[14px] font-semibold text-cream">{lot.region}, {lot.country}</p>
+        </div>
+        <div class="h-6 w-px bg-line/60" aria-hidden="true"></div>
+        <div>
+          <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, 'coffee.mapCategory')}</p>
+          <p class="mt-0.5 text-[14px] font-semibold text-cream">{categoryLabel}</p>
+        </div>
+      </div>
+
+      <!-- Google Maps iframe -->
+      <div class="relative aspect-[16/9] w-full overflow-hidden bg-paper-deep md:aspect-[21/9]" data-farm-map>
+        <iframe
+          src={mapSrc}
+          class="h-full w-full border-0 opacity-0 transition-opacity duration-700"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={`${lot.farm} – ${lot.region}, ${lot.country}`}
+          data-farm-map-frame
+        ></iframe>
+
+        <!-- Yükleniyor göstergesi -->
+        <div
+          class="pointer-events-none absolute inset-0 flex items-center justify-center bg-paper-deep transition-opacity duration-500"
+          data-farm-map-loader
+          aria-hidden="true"
+        >
+          <div class="flex flex-col items-center gap-3 text-cream/40">
+            <svg class="h-10 w-10 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="9" r="2.5" stroke-linecap="round"/>
+            </svg>
+            <span class="text-xs font-medium uppercase tracking-wider">{t(locale, 'coffee.mapLoading')}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-3 text-[11px] text-ink/40">{t(locale, 'coffee.mapDisclaimer')}</p>
+  </div>
+</section>
+
+<script>
+  function initFarmMap() {
+    const frame = document.querySelector<HTMLIFrameElement>('[data-farm-map-frame]');
+    const loader = document.querySelector<HTMLElement>('[data-farm-map-loader]');
+    if (!frame || !loader) return;
+
+    frame.addEventListener('load', () => {
+      frame.style.opacity = '1';
+      loader.style.opacity = '0';
+      setTimeout(() => { loader.style.display = 'none'; }, 500);
+    });
+  }
+
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initFarmMap)
+    : initFarmMap();
+</script>
