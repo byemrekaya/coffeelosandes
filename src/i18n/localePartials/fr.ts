@@ -195,6 +195,7 @@ export const frPartial: Dict = {
     panelTitle: 'Approvisionnement café B2B centré sur Berlin',
     panelDesc: 'Un interlocuteur clair pour sélection de lots, devis et planification livraison.',
     infoTitle: 'Coordonnées',
+    companyLabel: 'Société :',
     emailLabel: 'E-mail :',
     regionLabel: 'Siège :',
     regionValue: 'Berlin, Allemagne',
@@ -229,6 +230,7 @@ export const frPartial: Dict = {
   },
   form: {
     aria: 'Formulaire de contact B2B',
+    operatorLabel: 'Entité légale',
     helper:
       'Remplissez les champs et validez — votre messagerie s’ouvre avec un message prérempli ; il ne reste qu’à envoyer.',
     company: 'Nom de l’entreprise',
@@ -237,6 +239,7 @@ export const frPartial: Dict = {
     phonePh: '+33 …',
     message: 'Message',
     messagePh: 'Votre demande en bref.',
+    mailBodyOperator: 'Entité légale',
     mailBodyCompany: 'Entreprise',
     mailBodyPhone: 'Téléphone',
     mailBodyMessage: 'Message',
@@ -371,7 +374,7 @@ export const frPartial: Dict = {
     heroTitle: 'Confidentialité & données personnelles',
     controllerTitle: 'Responsable du traitement',
     controllerBody:
-      'Responsable au sens du RGPD pour les traitements sur ce site : Losandes Europe GmbH. Demandes : info@losandeseurope.de.',
+      'Responsable au sens du RGPD pour les traitements sur ce site : Proteam Handels GmbH. Demandes : info@losandeseurope.de.',
     hostingTitle: 'Hébergement & diffusion (Cloudflare Pages)',
     hostingBody:
       'Ce site est hébergé sur Cloudflare Pages et diffusé via CDN. Des données de connexion peuvent être traitées pour la mise à disposition, la sécurité et les performances (ex. IP, horodatage, URL, user-agent, référent).',
@@ -402,6 +405,10 @@ export const frPartial: Dict = {
     strategyDesignIntro: 'Conception et développement du site par :',
     developerName: 'Emre Kaya',
     strategyDesignLinkedInAria: 'Emre Kaya sur LinkedIn',
+    labelSeat: 'Siège social :',
+    labelHrb: 'Registre du commerce :',
+    labelVatId: 'N° TVA (USt-IdNr.) :',
+    labelEori: 'Numéro EORI :',
   },
   cookieConsent: {
     title: 'Utilisation des cookies',

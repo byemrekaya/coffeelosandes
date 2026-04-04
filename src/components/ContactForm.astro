@@ -19,6 +19,8 @@ const lMsg = t(locale, 'form.mailBodyMessage');
   class="space-y-6 rounded-[24px] border border-[#ded7c9] bg-white px-8 py-10 shadow-[0_18px_40px_rgba(22,18,12,0.08)] md:px-10 md:py-12"
   aria-label={t(locale, 'form.aria')}
   data-mail-to={mailTo}
+  data-legal-entity={site.legalEntityName}
+  data-label-operator={t(locale, 'form.mailBodyOperator')}
   data-label-company={lCompany}
   data-label-phone={lPhone}
   data-label-message={lMsg}
@@ -86,6 +88,8 @@ const lMsg = t(locale, 'form.mailBodyMessage');
     const form = e.currentTarget;
     if (!(form instanceof HTMLFormElement)) return;
     const mailTo = form.dataset.mailTo;
+    const lOperator = form.dataset.labelOperator ?? '';
+    const legalEntity = form.dataset.legalEntity ?? '';
     const lCompany = form.dataset.labelCompany ?? '';
     const lPhone = form.dataset.labelPhone ?? '';
     const lMsg = form.dataset.labelMessage ?? '';
@@ -98,8 +102,10 @@ const lMsg = t(locale, 'form.mailBodyMessage');
     const message = messageEl && 'value' in messageEl ? String(messageEl.value).trim() : '';
     if (!company || !phone || !message) return;
     const subject = encodeURIComponent('[Coffee Los Andes B2B] ' + company);
+    const operatorBlock =
+      lOperator && legalEntity ? lOperator + ': ' + legalEntity + '\n\n' : '';
     const body = encodeURIComponent(
-      lCompany + ': ' + company + '\n' + lPhone + ': ' + phone + '\n\n' + lMsg + ':\n' + message
+      operatorBlock + lCompany + ': ' + company + '\n' + lPhone + ': ' + phone + '\n\n' + lMsg + ':\n' + message
     );
     window.location.href = 'mailto:' + mailTo + '?subject=' + subject + '&body=' + body;
   });

@@ -195,6 +195,7 @@ export const enPartial: Dict = {
     panelTitle: 'Berlin-centred B2B coffee supply',
     panelDesc: 'One clear contact for lot selection, quoting and delivery planning.',
     infoTitle: 'Contact details',
+    companyLabel: 'Company:',
     emailLabel: 'Email:',
     regionLabel: 'Head office:',
     regionValue: 'Berlin, Germany',
@@ -228,6 +229,7 @@ export const enPartial: Dict = {
   },
   form: {
     aria: 'B2B contact form',
+    operatorLabel: 'Legal entity',
     helper:
       'Fill in the fields and submit — your email app opens with a pre-filled message; you only need to send.',
     company: 'Company name',
@@ -236,6 +238,7 @@ export const enPartial: Dict = {
     phonePh: '+49 …',
     message: 'Message',
     messagePh: 'Your enquiry in brief.',
+    mailBodyOperator: 'Legal entity',
     mailBodyCompany: 'Company',
     mailBodyPhone: 'Phone',
     mailBodyMessage: 'Message',
@@ -369,7 +372,7 @@ export const enPartial: Dict = {
     heroTitle: 'Privacy & personal data',
     controllerTitle: 'Controller',
     controllerBody:
-      'Controller under GDPR for processing on this website is Losandes Europe GmbH. Privacy requests: info@losandeseurope.de.',
+      'Controller under GDPR for processing on this website is Proteam Handels GmbH. Privacy requests: info@losandeseurope.de.',
     hostingTitle: 'Hosting & content delivery (Cloudflare Pages)',
     hostingBody:
       'This site is hosted on Cloudflare Pages and delivered via CDN. Connection and access data may be processed for provision, security and performance (e.g. IP, time, URL, user-agent, referrer).',
@@ -400,6 +403,10 @@ export const enPartial: Dict = {
     strategyDesignIntro: 'Concept and development of this website by:',
     developerName: 'Emre Kaya',
     strategyDesignLinkedInAria: 'Emre Kaya on LinkedIn',
+    labelSeat: 'Registered seat:',
+    labelHrb: 'Commercial register:',
+    labelVatId: 'VAT ID (USt-IdNr.):',
+    labelEori: 'EORI number:',
   },
   cookieConsent: {
     title: 'Cookie use',
