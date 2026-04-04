@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "npm run build && wrangler dev",
     "lint": "astro check",
-    "check": "astro check"
+    "check": "astro check",
+    "deploy": "npm run build && wrangler deploy",
+    "cf-typegen": "wrangler types"
   },
   "repository": {
     "type": "git",
@@ -34,9 +36,11 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "wrangler": "^4.80.0"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "12",
     "@astrojs/node": "^9.5.5",
     "@astrojs/tailwind": "^6.0.2",
     "gsap": "^3.12.0"
