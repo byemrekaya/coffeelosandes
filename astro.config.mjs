@@ -3,8 +3,10 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import node from '@astrojs/node';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
-  adapter: node({ mode: 'standalone' }),
+  adapter: cloudflare(),
   integrations: [
     tailwind(),
     sitemap({
@@ -29,4 +31,3 @@ export default defineConfig({
   },
   site: 'https://coffeelosandes.com',
 });
-
