@@ -6,7 +6,6 @@ import CoffeeLotCard from '../../../components/coffee/CoffeeLotCard.astro';
 import { getLotsBySegment } from '../../../data/coffeeLots';
 import { localizeCoffeeLots } from '../../../i18n/localizeLot';
 import { t } from '../../../i18n/t';
-import { getLocalizedDictionary } from '../../../i18n/localizedDictionary';
 import { resolveLocale } from '../../../i18n/config';
 
 export function getStaticPaths() {
@@ -16,15 +15,12 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
 
-const dict = getLocalizedDictionary(locale);
-const productsDict = (dict.products ?? {}) as Record<string, unknown>;
-const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
-
 const competition = localizeCoffeeLots(getLotsBySegment('competition-lots'), locale);
 const microlot = localizeCoffeeLots(getLotsBySegment('premium-microlot'), locale);
 const specialty = localizeCoffeeLots(getLotsBySegment('specialty-series'), locale);
 const barista = localizeCoffeeLots(getLotsBySegment('barista-blend'), locale);
 const commercial = localizeCoffeeLots(getLotsBySegment('commercial'), locale);
+const retail = localizeCoffeeLots(getLotsBySegment('retail'), locale);
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
@@ -115,18 +111,11 @@ const commercial = localizeCoffeeLots(getLotsBySegment('commercial'), locale);
         <h2 class="font-display text-xl font-semibold text-heading md:text-2xl">{t(locale, 'products.segmentRoastedTitle')}</h2>
         <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'products.segmentRoastedDesc')}</p>
       </div>
-      <article class="border border-line/80 bg-paper-deep/40 px-6 py-8 md:px-8">
-        <h3 class="font-display text-lg font-semibold text-heading">{t(locale, 'products.retailProductTitle')}</h3>
-        <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted">{t(locale, 'products.retailProductStory')}</p>
-        <ul class="mt-6 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
-          {retailSpecLines.map((line) => (
-            <li class="flex gap-2">
-              <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading" aria-hidden="true" />
-              <span>{line}</span>
-            </li>
-          ))}
-        </ul>
-      </article>
+      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+        {retail.map((lot) => (
+          <CoffeeLotCard lot={lot} locale={locale} />
+        ))}
+      </div>
     </div>
   </section>
 </BaseLayout>

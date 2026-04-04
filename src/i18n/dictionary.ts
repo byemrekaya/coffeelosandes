@@ -59,7 +59,7 @@ const trDict: Dict = {
       productsCtaAll: 'Tüm ürünleri gör',
       retailTeaserTitle: 'Perakende kahve (paket)',
       retailTeaserBody:
-        'Kavrulmuş, öğütülmüş paket ürünler — Café 1600 serisi; tam çekirdek seçenekleri ileride eklenebilir.',
+        'Kavrulmuş, öğütülmüş paket ürünler — Barista Blend; tam çekirdek seçenekleri ileride eklenebilir.',
       qualitySectionTitle: 'Kalite ve Belgeler',
       qualitySectionIntro:
         'SGS laboratuvar analizleri, Q Arabica Grader değerlendirmeleri ve INSAI sertifikalarıyla güvence; detaylar için kalite sayfamıza göz atın.',
@@ -162,7 +162,7 @@ const trDict: Dict = {
       segmentRetailDesc: 'Kavrulmuş paket ürünler — öğütülmüş ve ileride tam çekirdek.',
       segmentRoastedTitle: 'Kavrulmuş kahve (paket)',
       segmentRoastedDesc: 'Mağaza ve son kullanıcı için paketlenmiş ürünler.',
-      retailProductTitle: 'Café 1600 – Catimor',
+      retailProductTitle: 'Barista Blend',
       retailProductStory:
         'Sanare, Venezuela yüksek rakım specialty kahvesi; Altos de Veracruz’ta üretilmiştir. Natural ve Honey işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
       retailSpecLines: [
@@ -629,7 +629,7 @@ const deDict: Dict = {
       productsCtaAll: 'Alle Produkte ansehen',
       retailTeaserTitle: 'Retail-Kaffee (Packungen)',
       retailTeaserBody:
-        'Gerösteter, gemahlener Kaffee — Café 1600 Linie; ganze Bohnen können später ergänzt werden.',
+        'Gerösteter, gemahlener Kaffee — Barista Blend; ganze Bohnen können später ergänzt werden.',
       qualitySectionTitle: 'Qualität & Zertifikate',
       qualitySectionIntro:
         'SGS-Laboranalysen, Q-Arabica-Grader-Bewertungen und INSAI-Zertifikate — Details auf der Qualitätsseite.',
@@ -732,7 +732,7 @@ const deDict: Dict = {
       segmentRetailDesc: 'Geröstete Packungen — gemahlen und künftig ganz Bohne.',
       segmentRoastedTitle: 'Gerösteter Kaffee (Packungen)',
       segmentRoastedDesc: 'Produkte für Handel und Endverbraucher.',
-      retailProductTitle: 'Café 1600 – Catimor',
+      retailProductTitle: 'Barista Blend',
       retailProductStory:
         'Hochland-Specialty aus Sanare, Venezuela, produziert bei Altos de Veracruz. Natural und Honey verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
       retailSpecLines: [

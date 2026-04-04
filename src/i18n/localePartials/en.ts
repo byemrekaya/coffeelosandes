@@ -140,7 +140,7 @@ export const enPartial: Dict = {
     segmentRetailDesc: 'Roasted packs — ground and whole bean to follow.',
     segmentRoastedTitle: 'Roasted coffee (packs)',
     segmentRoastedDesc: 'Products for trade and consumers.',
-    retailProductTitle: 'Café 1600 – Catimor',
+    retailProductTitle: 'Barista Blend',
     retailProductStory:
       'Highland specialty from Sanare, Venezuela, produced at Altos de Veracruz. Natural and honey processed — balanced cup with fruit, cocoa and caramel notes.',
     retailSpecLines: [

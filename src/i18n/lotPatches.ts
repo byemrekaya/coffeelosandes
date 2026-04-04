@@ -217,4 +217,62 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['Ketten und Volumen', 'Rohbasis für Blends', 'preissensibles QC-Programm'],
     },
   },
+  'cafe-1600-catimor': {
+    tr: {
+      collectionLabel: 'Barista Blend',
+      story:
+        'Sanare, Venezuela yüksek rakım specialty kahvesi; Altos de Veracruz’ta üretilmiştir. Natural ve Honey işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
+      commercialSummary:
+        '500 g öğütülmüş perakende paket — mağaza, ofis ve toptan hatlar için Venezuela menşe hikâyesiyle hazır satış.',
+      cupProfileSummary:
+        'Meyvemsi gövde, kakao ve karamel dengesi; orta gövde, orta-düşük asidite.',
+      buyerUseCases: [
+        'Perakende raflar ve ofis kahve programları',
+        'Paketli Venezuela hattı ekleyen toptan alımlar',
+        'Yeşil çekirdek almadan origin deneyimi sunan işletmeler',
+      ],
+    },
+    de: {
+      collectionLabel: 'Barista Blend',
+      story:
+        'Hochland-Specialty aus Sanare, Venezuela, produziert bei Altos de Veracruz. Natural und Honey verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
+      commercialSummary:
+        '500 g gemahlenes Retail-Pack — für Regal, Büro und B2B mit klarer Herkunftsgeschichte.',
+      cupProfileSummary:
+        'Frucht, Kakao und Karamell im Gleichgewicht; mittlerer Körper, mittel-niedrige Säure.',
+      buyerUseCases: [
+        'Einzelhandel, Delis und Office-Kaffeeprogramme',
+        'Großhandel mit verpackter Venezuela-Linie',
+        'Verkostung ohne Rohkaffee-Einkauf',
+      ],
+    },
+    fr: {
+      collectionLabel: 'Barista Blend',
+      story:
+        'Spécialité de haute altitude de Sanare, Venezuela, produite à Altos de Veracruz. Natural et honey — tasse équilibrée aux notes fruitées, cacao et caramel.',
+      commercialSummary:
+        'Format retail moulu 500 g — rayons, bureaux et B2B avec récit d’origine vénézuélien.',
+      cupProfileSummary:
+        'Fruits, cacao et caramel équilibrés ; corps moyen, acidité moyenne-faible.',
+      buyerUseCases: [
+        'Rayons retail et programmes café bureau',
+        'Grossistes ajoutant une ligne emballée Venezuela',
+        'Dégustation sans achat de vert',
+      ],
+    },
+    es: {
+      collectionLabel: 'Barista Blend',
+      story:
+        'Especialidad de altura de Sanare, Venezuela, producida en Altos de Veracruz. Natural y honey — taza equilibrada con notas frutales, cacao y caramelo.',
+      commercialSummary:
+        'Pack retail molido 500 g — estanterías, oficinas y B2B con historia de origen venezolano.',
+      cupProfileSummary:
+        'Fruta, cacao y caramelo equilibrados; cuerpo medio, acidez media-baja.',
+      buyerUseCases: [
+        'Retail, delicatessen y programas de café en oficina',
+        'Mayoristas que añaden línea empaquetada Venezuela',
+        'Cata sin compra de verde',
+      ],
+    },
+  },
 };

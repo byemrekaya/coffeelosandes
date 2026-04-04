@@ -58,6 +58,7 @@ const LOT_IMAGE_FILES: Record<string, string> = {
   'monteclaro-88-75': 'monteclaro-coffee-beans.webp',
   'inia-01-88-73': 'inia-coffee-beans.webp',
   'bourbon-88-52': 'bourbon-coffee-beans.webp',
+  'cafe-1600-catimor': 'losandes-coffee-package.webp',
 };
 
 const LOT_IMAGE_ALTS: Record<string, string> = {
@@ -70,6 +71,7 @@ const LOT_IMAGE_ALTS: Record<string, string> = {
   'monteclaro-88-75': 'Monteclaro coffee beans from Venezuela',
   'inia-01-88-73': 'Inia coffee beans for professional roasting',
   'bourbon-88-52': 'Bourbon coffee beans from Venezuela',
+  'cafe-1600-catimor': 'Barista Blend roasted coffee pack',
 };
 
 export function getLotImageSrc(slug: string): string {
@@ -555,6 +557,40 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+  },
+  {
+    slug: 'cafe-1600-catimor',
+    name: 'Barista Blend',
+    rank: 15,
+    score: 83,
+    scoreDisplay: '82–84',
+    segment: 'retail',
+    producer: 'Altos de Veracruz',
+    farm: 'Sanare highlands',
+    variety: 'Catimor',
+    process: 'Natural / Honey',
+    region: 'Mérida',
+    country: 'Venezuela',
+    flavorTags: ['Cocoa', 'Caramel', 'Fruit'],
+    longTastingNotes:
+      'Fruit-forward cup with cocoa and caramel depth; medium roast, medium-low acidity — ground retail format (500 g).',
+    story:
+      'Highland specialty from Sanare, Venezuela, produced at Altos de Veracruz. Natural and honey processed — balanced cup with fruit, cocoa and caramel notes.',
+    commercialSummary:
+      'Roasted retail pack (500 g ground) for shelves, offices and B2B programmes that need a ready-to-sell Venezuelan specialty with a clear origin story.',
+    cupProfileSummary:
+      'Balanced fruit, cocoa and caramel; medium body and medium-low acidity — approachable for daily service.',
+    buyerUseCases: [
+      'Retail shelves, delis and office coffee programmes',
+      'Wholesale buyers adding a packaged Venezuelan line',
+      'Sampling Altos de Veracruz without green coffee sourcing',
+    ],
+    collectionLabel: 'Barista Blend',
+    altitudeMeters: '1.600 m',
+    moisturePct: DEFAULT_MOIST,
+    screenSize: DEFAULT_SCREEN,
+    bagSizeKg: '0,5 kg (retail)',
+    farmCategory: 'Retail pack',
   },
 ];
 

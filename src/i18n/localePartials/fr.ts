@@ -140,7 +140,7 @@ export const frPartial: Dict = {
     segmentRetailDesc: 'Emballages torréfiés — moulu et grain à venir.',
     segmentRoastedTitle: 'Café torréfié (emballages)',
     segmentRoastedDesc: 'Produits pour le commerce et les consommateurs.',
-    retailProductTitle: 'Café 1600 – Catimor',
+    retailProductTitle: 'Barista Blend',
     retailProductStory:
       'Spécialité de haute altitude de Sanare, Venezuela, produite à Altos de Veracruz. Natural et honey — tasse équilibrée aux notes fruitées, cacao et caramel.',
     retailSpecLines: [

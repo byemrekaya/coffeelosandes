@@ -140,7 +140,7 @@ export const esPartial: Dict = {
     segmentRetailDesc: 'Envases tostados — molido y en grano próximamente.',
     segmentRoastedTitle: 'Café tostado (envases)',
     segmentRoastedDesc: 'Productos para comercio y consumidores.',
-    retailProductTitle: 'Café 1600 – Catimor',
+    retailProductTitle: 'Barista Blend',
     retailProductStory:
       'Especialidad de altura de Sanare, Venezuela, producida en Altos de Veracruz. Natural y honey — taza equilibrada con notas frutales, cacao y caramelo.',
     retailSpecLines: [

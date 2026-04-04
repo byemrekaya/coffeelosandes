@@ -29,8 +29,6 @@ const homeStory = dict.homeStory as {
   imageAlt: string;
   badgeSince: string;
 };
-const productsDict = (dict.products ?? {}) as Record<string, unknown>;
-const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
 const localizedLots = localizeCoffeeLots(coffeeLots, locale);
 const totalLots = localizedLots.length;
 
@@ -213,58 +211,6 @@ const categoryWordByLocale: Record<Locale, string> = {
           <CoffeeLotCard lot={lot} locale={locale} />
         </div>
       ))}
-      <div
-        data-category-card
-        data-segment="retail"
-        class:list={['md:col-span-3', 'hidden']}
-      >
-        <article class="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
-          <div class="relative h-64 overflow-hidden bg-[#e9e2d6] md:h-72">
-            <Image
-              src="/losandes-coffee-package.webp"
-              alt={t(locale, 'products.retailProductTitle')}
-              class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-[1.03]"
-              loading="lazy"
-              width="1200"
-              height="800"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"
-              aria-hidden="true"
-            />
-            <div class="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
-              <p class="inline-flex items-center rounded-full border border-white/35 bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
-                {t(locale, 'products.segmentLabelRetail')}
-              </p>
-            </div>
-          </div>
-
-          <div class="flex flex-1 flex-col justify-between p-6">
-            <div>
-              <h3 class="font-display text-[1.75rem] font-semibold leading-[1.08] tracking-header text-heading md:text-[1.95rem]">
-                {t(locale, 'products.retailProductTitle')}
-              </h3>
-              <p class="mt-4 text-[16px] leading-[1.6] text-[#5f5b55]">
-                {t(locale, 'products.retailProductStory')}
-              </p>
-              <ul class="mt-5 grid gap-2 text-[14px] text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
-                {retailSpecLines.slice(0, 6).map((line) => (
-                  <li class="flex gap-2">
-                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading" aria-hidden="true" />
-                    <span>{line}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div class="mt-6 border-t border-[#e7dfd3] pt-5 text-center">
-              <span class="text-[13px] font-semibold uppercase tracking-[0.16em] text-heading transition group-hover:tracking-[0.18em]">
-                {t(locale, 'home.lotDetail')}
-              </span>
-            </div>
-          </div>
-        </article>
-      </div>
     </div>
 
     <div class="mt-12 flex justify-center" data-category-cta>
