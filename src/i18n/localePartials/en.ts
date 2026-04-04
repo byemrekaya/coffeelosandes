@@ -351,7 +351,7 @@ export const enPartial: Dict = {
     heroTitle: 'Privacy & personal data',
     controllerTitle: 'Controller',
     controllerBody:
-      'Controller under GDPR for processing on this website is Losandes Europe GmbH. Privacy requests: info@coffeelosandes.com.',
+      'Controller under GDPR for processing on this website is Losandes Europe GmbH. Privacy requests: info@losandeseurope.de.',
     hostingTitle: 'Hosting & content delivery (Cloudflare Pages)',
     hostingBody:
       'This site is hosted on Cloudflare Pages and delivered via CDN. Connection and access data may be processed for provision, security and performance (e.g. IP, time, URL, user-agent, referrer).',

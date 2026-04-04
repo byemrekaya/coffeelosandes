@@ -512,7 +512,7 @@ const trDict: Dict = {
       heroTitle: 'Gizlilik ve kişisel veriler',
       controllerTitle: 'Veri sorumlusu',
       controllerBody:
-        'İşbu internet sitesinde gerçekleştirilen kişisel veri işleme faaliyetlerinden Losandes Europe GmbH, GDPR anlamında veri sorumlusu sıfatıyla sorumludur. Veri koruma kapsamındaki başvurularınızı info@coffeelosandes.com adresine iletebilirsiniz.',
+        'İşbu internet sitesinde gerçekleştirilen kişisel veri işleme faaliyetlerinden Losandes Europe GmbH, GDPR anlamında veri sorumlusu sıfatıyla sorumludur. Veri koruma kapsamındaki başvurularınızı info@losandeseurope.de adresine iletebilirsiniz.',
       hostingTitle: 'Hosting ve içerik dağıtımı (Cloudflare Pages)',
       hostingBody:
         'Web sitesi, Cloudflare Pages altyapısı üzerinden barındırılır ve içerik dağıtımı CDN aracılığıyla sağlanır. Hizmetin teknik olarak sunulması, sistem güvenliğinin temini ve performansın izlenmesi amacıyla bağlantı/erişim logları (ör. IP adresi, istek zamanı, URL, user-agent, referrer) işlenebilir.',
@@ -1054,7 +1054,7 @@ const deDict: Dict = {
       heroTitle: 'Datenschutz & personenbezogene Daten',
       controllerTitle: 'Verantwortliche Stelle',
       controllerBody:
-        'Verantwortliche Stelle im Sinne der DSGVO für die auf dieser Website vorgenommenen Verarbeitungen personenbezogener Daten ist die Losandes Europe GmbH. Datenschutzanfragen können an info@coffeelosandes.com gerichtet werden.',
+        'Verantwortliche Stelle im Sinne der DSGVO für die auf dieser Website vorgenommenen Verarbeitungen personenbezogener Daten ist die Losandes Europe GmbH. Datenschutzanfragen können an info@losandeseurope.de gerichtet werden.',
       hostingTitle: 'Hosting & Content Delivery (Cloudflare Pages)',
       hostingBody:
         'Diese Website wird über Cloudflare Pages gehostet und über ein CDN ausgeliefert. Zur technischen Bereitstellung, Gewährleistung der Systemsicherheit und Leistungsüberwachung können Verbindungs- und Zugriffsdaten verarbeitet werden (z. B. IP-Adresse, Zeitpunkt, URL, User-Agent, Referrer).',

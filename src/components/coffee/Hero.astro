@@ -48,16 +48,16 @@ const heroIntro = t(locale, 'coffee.heroIntroTemplate')
           {lot.flavorTags.slice(0, 3).join(' • ')}
         </p>
 
-        <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="mx-auto mt-10 flex w-full max-w-md flex-col items-center gap-3 sm:mx-0 sm:max-w-none sm:flex-row sm:items-stretch">
           <a
             href={withLang('/contact', locale)}
-            class="inline-flex justify-center rounded-full bg-heading px-8 py-3.5 text-[13px] font-semibold uppercase tracking-[0.08em] text-white shadow-[0_10px_24px_rgba(40,96,63,0.28)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_16px_34px_rgba(40,96,63,0.35)]"
+            class="inline-flex min-h-[48px] w-full max-w-full items-center justify-center rounded-full bg-heading px-5 py-3.5 text-center text-[12px] font-semibold uppercase leading-snug tracking-[0.08em] text-balance text-white shadow-[0_10px_24px_rgba(40,96,63,0.28)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_16px_34px_rgba(40,96,63,0.35)] sm:w-auto sm:px-8 sm:text-[13px]"
           >
             {t(locale, 'coffee.heroRequest')}
           </a>
           <a
             href="#lot-details"
-            class="inline-flex justify-center rounded-full border border-heading/35 bg-white/65 px-6 py-2.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-heading transition-all duration-300 hover:border-heading/60 hover:bg-white"
+            class="inline-flex min-h-[48px] w-full max-w-full items-center justify-center rounded-full border border-heading/35 bg-white/65 px-5 py-2.5 text-center text-[11px] font-semibold uppercase leading-snug tracking-[0.1em] text-balance text-heading transition-all duration-300 hover:border-heading/60 hover:bg-white sm:w-auto"
           >
             {t(locale, 'coffee.heroDetails')}
           </a>
@@ -143,7 +143,7 @@ const heroIntro = t(locale, 'coffee.heroIntroTemplate')
     <img
       src={coverSrc}
       alt=""
-      class="lot-lightbox-img max-h-[min(88dvh,900px)] max-w-[min(96vw,1200px)] cursor-default rounded-md object-contain shadow-[0_25px_80px_rgba(0,0,0,0.55)] ring-1 ring-white/12 contrast-[1.02] saturate-[1.03]"
+      class="lot-lightbox-img h-auto max-h-[min(88dvh,900px)] w-auto max-w-full cursor-default rounded-md object-contain shadow-[0_25px_80px_rgba(0,0,0,0.55)] ring-1 ring-white/12 contrast-[1.02] saturate-[1.03] sm:max-w-[min(100%,1200px)]"
       loading="eager"
       decoding="async"
     />
@@ -154,7 +154,7 @@ const heroIntro = t(locale, 'coffee.heroIntroTemplate')
   .lot-lightbox-dialog {
     margin: 0;
     max-height: 100dvh;
-    max-width: 100vw;
+    max-width: 100%;
     width: 100%;
     height: 100%;
     border: none;

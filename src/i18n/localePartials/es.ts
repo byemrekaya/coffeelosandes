@@ -352,7 +352,7 @@ export const esPartial: Dict = {
     heroTitle: 'Privacidad y datos personales',
     controllerTitle: 'Responsable del tratamiento',
     controllerBody:
-      'Responsable según el RGPD para el tratamiento en este sitio: Losandes Europe GmbH. Consultas de privacidad: info@coffeelosandes.com.',
+      'Responsable según el RGPD para el tratamiento en este sitio: Losandes Europe GmbH. Consultas de privacidad: info@losandeseurope.de.',
     hostingTitle: 'Alojamiento y entrega (Cloudflare Pages)',
     hostingBody:
       'Este sitio está alojado en Cloudflare Pages y se entrega vía CDN. Pueden tratarse datos de conexión para prestación, seguridad y rendimiento (p. ej. IP, hora, URL, user-agent, referrer).',

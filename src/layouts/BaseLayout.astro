@@ -118,11 +118,20 @@ const websiteSchema = {
       rel="stylesheet"
     />
   </head>
-  <body class={fullpage ? 'page-shell relative h-screen flex flex-col overflow-hidden' : 'page-shell relative overflow-x-hidden'}>
+  <body
+    class:list={[
+      'page-shell relative max-w-full overflow-x-hidden',
+      fullpage ? 'h-screen flex flex-col overflow-hidden' : '',
+    ]}
+  >
     <div class="pointer-events-none fixed inset-0 -z-20 bg-paper"></div>
     <div class="pointer-events-none fixed inset-0 -z-10 texture-overlay opacity-55"></div>
     <Navbar locale={locale} />
-    <main class={fullpage ? 'flex-1 min-h-0 overflow-hidden' : ''}>
+    <main
+      class:list={[
+        fullpage ? 'flex-1 min-h-0 overflow-hidden' : 'min-w-0 w-full max-w-full overflow-x-hidden',
+      ]}
+    >
       <slot />
     </main>
     {!hideFooter && <Footer locale={locale} />}

@@ -52,52 +52,56 @@ function splitToChips(value: string): string[] {
 }
 ---
 
-<section id="lot-details" class="section-band-b border-y border-line py-20 md:py-24" data-reveal>
+<section id="lot-details" class="section-band-b border-y border-line py-12 sm:py-16 md:py-24" data-reveal>
   <div class="section-shell">
-    <div class="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+    <div class="mb-6 flex flex-col gap-4 sm:mb-8 md:mb-10 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="stage-eyebrow mb-2">{t(locale, 'coffee.techEyebrow')}</p>
-        <h2 class="font-display text-2xl font-semibold text-heading md:text-3xl">{t(locale, 'coffee.techTitle')}</h2>
+        <h2 class="font-display text-[clamp(1.35rem,4.5vw,2rem)] font-semibold leading-tight text-heading sm:text-2xl md:text-3xl">
+          {t(locale, 'coffee.techTitle')}
+        </h2>
       </div>
-      <p class="max-w-md text-[15px] text-[#6f6a61] md:text-base">{t(locale, 'coffee.techDesc')}</p>
+      <p class="max-w-md text-[14px] leading-relaxed text-[#6f6a61] sm:text-[15px] md:text-base">{t(locale, 'coffee.techDesc')}</p>
     </div>
 
-    <div class="grid gap-8 lg:grid-cols-2">
-      <article class="rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-        <div class="mb-7">
+    <div class="grid gap-6 sm:gap-8 lg:grid-cols-2">
+      <article class="overflow-hidden rounded-2xl border border-[#ddd4c7] bg-[#fcfbf7] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:rounded-[24px] sm:p-6 md:p-8">
+        <div class="mb-5 sm:mb-7">
           <span class="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6f7f5f]">
             {t(locale, 'coffee.techEyebrow')}
           </span>
-          <h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] font-semibold leading-tight text-heading">
+          <h3 class="font-display text-[clamp(1.5rem,3.5vw,2.4rem)] font-semibold leading-tight text-heading">
             {t(locale, 'coffee.techTitle')}
           </h3>
-          <p class="mt-2 text-[14px] text-[#6f6a61]">{t(locale, 'coffee.techDesc')}</p>
+          <p class="mt-2 text-[13px] leading-relaxed text-[#6f6a61] sm:text-[14px]">{t(locale, 'coffee.techDesc')}</p>
         </div>
 
         <dl class="divide-y divide-[#e7dfd3]">
           {detailRows.map((row) => (
-            <div class="grid grid-cols-1 gap-3 py-5 sm:grid-cols-[minmax(0,180px)_1fr] sm:items-start sm:gap-6">
-              <dt class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a847b]">{t(locale, row.labelKey)}</dt>
-              <dd class="sm:text-right">
+            <div class="grid grid-cols-1 gap-1.5 py-4 md:grid-cols-[minmax(0,12rem)_1fr] md:items-start md:gap-x-8 md:gap-y-0 md:py-5 lg:grid-cols-[minmax(0,13rem)_1fr]">
+              <dt class="min-w-0 shrink-0 text-[10px] font-semibold uppercase leading-snug tracking-[0.18em] text-[#8a847b] md:pt-0.5 md:tracking-[0.22em]">
+                {t(locale, row.labelKey)}
+              </dt>
+              <dd class="min-w-0 text-left md:text-right">
                 {
                   row.labelKey === 'coffee.techProcess' && isProcessBadge(lot) ? (
-                    <span class="inline-flex rounded-full border border-[#cfd9c7] bg-[#eef4e8] px-4 py-1.5 text-sm font-semibold text-heading">
+                    <span class="inline-flex max-w-full break-words rounded-full border border-[#cfd9c7] bg-[#eef4e8] px-3 py-1.5 text-sm font-semibold text-heading sm:px-4">
                       {row.value}
                     </span>
                   ) : row.labelKey === 'coffee.techFermentation' ? (
-                    <span class="inline-flex rounded-full border border-[#ddd4c7] bg-[#f4efe6] px-4 py-1.5 text-sm font-semibold text-[#4f4a44]">
+                    <span class="inline-flex max-w-full break-words rounded-full border border-[#ddd4c7] bg-[#f4efe6] px-3 py-1.5 text-sm font-semibold text-[#4f4a44] sm:px-4">
                       {row.value}
                     </span>
                   ) : row.labelKey === 'coffee.techAltitude' ? (
-                    <span class="inline-flex rounded-full bg-[#f1ede5] px-4 py-1.5 text-sm font-semibold text-[#4f4a44]">
+                    <span class="inline-flex max-w-full break-words rounded-full bg-[#f1ede5] px-3 py-1.5 text-sm font-semibold text-[#4f4a44] sm:px-4">
                       {row.value}
                     </span>
                   ) : row.labelKey === 'coffee.techScore' ? (
-                    <span class="inline-flex rounded-full bg-[#1f1f1c] px-4 py-1.5 text-sm font-semibold text-white">
+                    <span class="inline-flex max-w-full break-words rounded-full bg-[#1f1f1c] px-3 py-1.5 text-sm font-semibold text-white sm:px-4">
                       {row.value}
                     </span>
                   ) : (
-                    <span class="text-[18px] font-semibold leading-snug text-[#1f1f1c]">{row.value}</span>
+                    <span class="break-words text-[16px] font-semibold leading-snug text-[#1f1f1c] sm:text-[17px] md:text-[18px]">{row.value}</span>
                   )
                 }
               </dd>
@@ -107,32 +111,36 @@ function splitToChips(value: string): string[] {
       </article>
 
       {tastingRows.length > 0 && (
-        <article class="rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
-          <div class="mb-7">
+        <article class="overflow-hidden rounded-2xl border border-[#ddd4c7] bg-[#fcfbf7] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:rounded-[24px] sm:p-6 md:p-8">
+          <div class="mb-5 sm:mb-7">
             <span class="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6f7f5f]">
               {t(locale, 'coffee.tastingSheetEyebrow')}
             </span>
-            <h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] font-semibold leading-tight text-heading">
+            <h3 class="font-display text-[clamp(1.5rem,3.5vw,2.4rem)] font-semibold leading-tight text-heading">
               {t(locale, 'coffee.tastingSheetTitle')}
             </h3>
-            <p class="mt-2 text-[14px] text-[#6f6a61]">{t(locale, 'coffee.techDesc')}</p>
+            <p class="mt-2 text-[13px] leading-relaxed text-[#6f6a61] sm:text-[14px]">{t(locale, 'coffee.techDesc')}</p>
           </div>
 
-          <div class="space-y-4">
+          <div class="space-y-3 sm:space-y-4">
             {tastingRows.map((row) => {
               const chips = splitToChips(row.value);
               return (
-                <div class="rounded-2xl border border-[#e7dfd3] bg-[#f9f6f0] p-5">
-                  <dt class="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a847b]">{row.label}</dt>
-                  <dd>
+                <div class="rounded-xl border border-[#e7dfd3] bg-[#f9f6f0] p-4 sm:rounded-2xl sm:p-5">
+                  <dt class="mb-2 text-[10px] font-semibold uppercase leading-snug tracking-[0.18em] text-[#8a847b] sm:mb-3 sm:tracking-[0.22em]">
+                    {row.label}
+                  </dt>
+                  <dd class="min-w-0">
                     {chips.length > 0 ? (
                       <div class="flex flex-wrap gap-2">
                         {chips.map((chip) => (
-                          <span class="rounded-full bg-white px-3 py-2 text-sm font-medium text-[#1f1f1c]">{chip}</span>
+                          <span class="max-w-full break-words rounded-full bg-white px-2.5 py-1.5 text-[13px] font-medium leading-snug text-[#1f1f1c] sm:px-3 sm:py-2 sm:text-sm">
+                            {chip}
+                          </span>
                         ))}
                       </div>
                     ) : (
-                      <p class="text-[17px] font-medium leading-7 text-[#1f1f1c]">{row.value}</p>
+                      <p class="break-words text-[16px] font-medium leading-relaxed text-[#1f1f1c] sm:text-[17px] sm:leading-7">{row.value}</p>
                     )}
                   </dd>
                 </div>
