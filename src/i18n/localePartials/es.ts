@@ -1,7 +1,6 @@
 import type { Dict } from './types';
 import { esAbout } from './es-about';
 
-/** Español — fusionado con `deDict`; las claves faltantes siguen en alemán hasta añadirlas. */
 export const esPartial: Dict = {
   htmlLang: 'es',
   lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
@@ -18,12 +17,15 @@ export const esPartial: Dict = {
     contact: 'Contacto',
     cta: 'Solicitar presupuesto',
     aria: 'Navegación principal',
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
+    drawerHeading: 'Menú',
   },
   home: {
-    title: 'Coffee Los Andes – Café premium de los Andes | Venezuela',
+    title: 'Coffee Los Andes – El sabor de las alturas de los Andes | Venezuela',
     description:
       'Café premium de las tierras altas de los Andes venezolanos. Mayorista y B2B con lotes de especialidad trazables.',
-    slogan: 'Café premium de los Andes',
+    slogan: 'El sabor de las alturas de los Andes.',
     heroSubtitle: 'Trazable · Especialidad · Sostenible',
     badgeAltitude: 'Carácter de alta montaña · ≥ 1.630 m',
     heroStrip1: 'B2B · Mayorista',
@@ -96,7 +98,7 @@ export const esPartial: Dict = {
     eyebrow: 'Contacto B2B',
     title: 'Su consulta mayorista',
     description:
-      'Nuestro equipo en Berlín le acompaña en lotes venezolanos, logística y muestras — envíe el formulario y responderemos pronto.',
+      'Nuestro equipo en Berlín le acompaña en lotes venezolanos, logística y muestras — use el formulario para abrir su correo con un borrador hacia nosotros.',
   },
   cta: {
     eyebrow: 'Colaboración',
@@ -184,7 +186,7 @@ export const esPartial: Dict = {
     heroEyebrow: 'Contacto B2B',
     heroTitle: 'Contáctenos para suministro de café B2B',
     heroDesc:
-      'Para alianzas con cafeterías, hoteles, oficinas y distribuidores: envíe su consulta con el formulario breve — nuestro equipo responde con una recomendación adaptada.',
+      'Para alianzas con cafeterías, hoteles, oficinas y distribuidores: use el formulario breve — se abre su cliente de correo con un mensaje preparado para nosotros.',
     responseBadge: 'Respuesta en 24–48 h',
     heroTrust1: 'Conexión directa con origen',
     heroTrust2: 'Acompañamiento sourcing B2B',
@@ -213,7 +215,7 @@ export const esPartial: Dict = {
     who4: 'Distribuidores',
     who5: 'Marcas white label',
     formCardTitle: 'Enviar su consulta',
-    formCardDesc: 'Indique su empresa, volumen previsto y tipo de necesidad.',
+    formCardDesc: 'Introduzca empresa, teléfono y mensaje — se abre su correo con un borrador listo.',
     strip1: 'Respuesta con primera valoración en 24–48 h',
     strip2: 'Proceso de oferta y evaluación B2B',
     strip3: 'Comunicación y operaciones centradas en Berlín',
@@ -223,31 +225,23 @@ export const esPartial: Dict = {
     mapLink: 'Abrir en Google Maps',
     mapPlaceholder: 'Venezuela · Andes · zonas de cultivo',
     mapNote: 'Por favor programe visitas y reuniones con antelación.',
-    formSent: 'Su mensaje fue recibido — le responderemos pronto.',
-    formError:
-      'Error al enviar. Inténtelo más tarde o escríbanos por correo. Revise la configuración SMTP en el servidor.',
   },
   form: {
-    aria: 'Formulario de contacto rápido',
-    helper: 'Envíe su consulta con el formulario breve; nuestro equipo responde con una valoración adaptada.',
-    name: 'Nombre',
-    namePh: 'Nombre y apellidos',
-    contact: 'Correo o teléfono',
-    contactPh: '+49 … o correo@dominio.com',
-    company: 'Empresa',
-    companyPh: 'Nombre de su empresa',
-    requestType: 'Tipo de consulta',
-    requestTypePh: 'Seleccione el tipo de consulta',
-    optionWholesale: 'Compra mayorista',
-    optionWhiteLabel: 'Marca blanca',
-    optionDistributor: 'Distribución',
-    optionOffice: 'Solución café oficina',
-    optionOther: 'Otro',
-    message: 'Su mensaje',
-    messagePh: 'Describa brevemente lo que necesita.',
-    messageHint: 'Este campo puede quedar vacío.',
-    privacyNote: 'Sus datos se usan solo para responder a su consulta.',
-    submit: 'Enviar consulta B2B',
+    aria: 'Formulario de contacto B2B',
+    helper:
+      'Complete los campos y envíe — se abre su cliente de correo con el mensaje preparado; solo debe pulsar enviar.',
+    company: 'Nombre de la empresa',
+    companyPh: 'Razón social o nombre comercial',
+    phone: 'Número de teléfono',
+    phonePh: '+34 …',
+    message: 'Mensaje',
+    messagePh: 'Su consulta en breve.',
+    mailBodyCompany: 'Empresa',
+    mailBodyPhone: 'Teléfono',
+    mailBodyMessage: 'Mensaje',
+    privacyNote:
+      'Sus datos solo se usan en este borrador de correo; el envío ocurre desde su aplicación de correo.',
+    submit: 'Abrir correo y enviar',
   },
   about: esAbout,
   footer: {
@@ -385,6 +379,10 @@ export const esPartial: Dict = {
     heroTitle: 'Aviso legal',
     companyTitle: 'Datos de la empresa',
     contactTitle: 'Contacto',
+    strategyDesignTitle: 'Estrategia y diseño',
+    strategyDesignIntro: 'Conceptualización y desarrollo del sitio web por:',
+    developerName: 'Emre Kaya',
+    strategyDesignLinkedInAria: 'Emre Kaya en LinkedIn',
   },
   cookieConsent: {
     title: 'Uso de cookies',

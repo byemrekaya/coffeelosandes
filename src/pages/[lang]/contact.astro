@@ -17,8 +17,6 @@ const encodedAddress = encodeURIComponent(officeAddress);
 const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
-const formSent = Astro.url.searchParams.get('sent') === '1';
-const formError = Astro.url.searchParams.get('error') === '1';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'contact.title')} description={t(locale, 'contact.description')}>
@@ -106,22 +104,6 @@ const formError = Astro.url.searchParams.get('error') === '1';
       </div>
 
       <div class="space-y-4">
-        {formSent && (
-          <p
-            class="border border-heading/40 bg-heading/10 px-4 py-3 text-sm leading-relaxed text-ink"
-            role="status"
-          >
-            {t(locale, 'contact.formSent')}
-          </p>
-        )}
-        {formError && (
-          <p
-            class="border border-red-400/35 bg-red-950/25 px-4 py-3 text-sm leading-relaxed text-ink"
-            role="alert"
-          >
-            {t(locale, 'contact.formError')}
-          </p>
-        )}
         <div class="mb-2 rounded-[24px] border border-[#e1d9cd] bg-white px-8 py-7 shadow-[0_18px_40px_rgba(22,18,12,0.08)] md:px-10">
           <h3 class="font-display text-[1.55rem] font-semibold text-heading">{t(locale, 'contact.formCardTitle')}</h3>
           <p class="mt-2 text-[14px] leading-relaxed text-ink/70">{t(locale, 'contact.formCardDesc')}</p>

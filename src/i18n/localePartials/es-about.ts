@@ -1,4 +1,3 @@
-/** Página Acerca de — español (fusionado sobre `deDict`). */
 export const esAbout = {
   title: 'Sobre nosotros – Coffee Los Andes',
   description:

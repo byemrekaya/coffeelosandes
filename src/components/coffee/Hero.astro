@@ -193,7 +193,6 @@ const heroIntro = t(locale, 'coffee.heroIntroTemplate')
       closeLightbox();
     });
 
-    /* Görselin dışındaki koyu alan (pane’in kendisi) — X’e gerek kalmadan kapanır */
     pane?.addEventListener('click', (e) => {
       if (e.target === pane) closeLightbox();
     });

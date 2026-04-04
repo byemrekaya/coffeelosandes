@@ -1,4 +1,3 @@
-/** About page — English (merged over German `deDict`). */
 export const enAbout = {
   title: 'About us – Coffee Los Andes',
   description:

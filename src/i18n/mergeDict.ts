@@ -1,6 +1,5 @@
 type Dict = Record<string, unknown>;
 
-/** `fallback` üzerine `overlay` bindirir; diziler ve iç içe nesneler için alt alanlar birleşir. */
 export function deepMergeDict(fallback: Dict, overlay: Dict): Dict {
   const out: Dict = { ...fallback };
   for (const key of Object.keys(overlay)) {

@@ -13,9 +13,7 @@ export interface CoffeeLot {
   slug: string;
   name: string;
   rank: number;
-  /** Sıralama ve ilişkili lotlar için sayısal skor; `scoreDisplay` varsa vitrinde o gösterilir */
   score: number;
-  /** Örn. ticari seri için "78–82" gibi aralık gösterimi */
   scoreDisplay?: string;
   segment: CoffeeSegment;
   producer: string;
@@ -36,11 +34,8 @@ export interface CoffeeLot {
   moisturePct?: string;
   screenSize?: string;
   bagSizeKg?: string;
-  /** Çiftlik kategori adı (DE/TR) — harita başlığında gösterilir */
   farmCategory?: string;
-  /** Google Maps embed için arama sorgusu */
   farmMapQuery?: string;
-  /** PDF ile uyumlu yapılandırılmış tadım satırları */
   tastingStructured?: TastingStructuredRow[];
 }
 
@@ -49,15 +44,10 @@ const DEFAULT_MOIST = '9,3–12,5 %';
 const DEFAULT_SCREEN = 'Malla 16–18';
 const DEFAULT_BAG = '60 kg';
 
-/** Kart ve detay sayfasında SCA skor satırı */
 export function lotScoreLine(lot: Pick<CoffeeLot, 'score' | 'scoreDisplay'>): string {
   return lot.scoreDisplay ?? lot.score.toFixed(2);
 }
 
-/**
- * `public/` altındaki lot fotoğrafı dosya adları (slug ile eşleşenler).
- * Eşleşme yoksa `/coffee-beans-closeup.webp` kullanılır.
- */
 const LOT_IMAGE_FILES: Record<string, string> = {
   'geisha-91-54': 'geisha-coffee-beans.webp',
   'geisha-el-recreo-91-03': 'geisha-specialty-coffee.webp',

@@ -36,7 +36,6 @@ const farmToRoasteryFlow = [
 ---
 
 <section id="hero" class="relative min-h-screen overflow-hidden scroll-mt-0">
-  <!-- Full-screen video background -->
   <div class="absolute inset-0" data-hero-scene>
     <video
       data-hero-video
@@ -51,19 +50,16 @@ const farmToRoasteryFlow = [
       <source src="/coffee-farm-hero-video.mp4" type="video/mp4" />
     </video>
 
-    <!-- Cinematic okunabilirlik overlay -->
     <div
       class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75"
       aria-hidden="true"
     ></div>
-    <!-- Marka yeşili hafif aksan -->
     <div
       class="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_30%_50%,rgba(40,96,63,0.14),transparent_65%)]"
       aria-hidden="true"
     ></div>
   </div>
 
-  <!-- İçerik katmanı -->
   <div class="relative z-10 flex min-h-screen items-center justify-center">
     <div class="w-full px-6 pb-24 pt-32 text-center md:px-10 lg:px-16 xl:px-20">
       <div class="mx-auto max-w-4xl">
@@ -169,7 +165,6 @@ const farmToRoasteryFlow = [
 
     if (!scene || !headline) return;
 
-    // Başlangıç durumları
     gsap.set(scene, { opacity: 0 });
     if (video) gsap.set(video, { scale: 1.08 });
     gsap.set(headline, { opacity: 0, y: 40, filter: 'blur(4px)' });
@@ -178,14 +173,11 @@ const farmToRoasteryFlow = [
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    // Video arka plan açılır + yavaş zoom
     tl.to(scene, { opacity: 1, duration: 1.1 }, '+=0');
     if (video) tl.to(video, { scale: 1, duration: 2.5, ease: 'power2.out' }, '<');
 
-    // Logo önce gelsin
     if (logo) tl.to(logo, { opacity: 1, y: 0, duration: 0.7 }, '-=1.55');
 
-    // Ana başlık blur'dan netleşerek gelir
     tl.to(headline, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9 }, '-=1.2');
     tl.to(cta, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9 }, '-=1.2');
   }

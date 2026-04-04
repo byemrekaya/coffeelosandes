@@ -1,4 +1,3 @@
-/** Page À propos — français (fusionné sur `deDict`). */
 export const frAbout = {
   title: 'À propos – Coffee Los Andes',
   description:

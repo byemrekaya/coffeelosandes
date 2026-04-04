@@ -53,19 +53,39 @@ const linkClass =
     data-navbar-surface
   >
     <div class="section-shell relative">
-      <div class="flex items-center justify-between gap-3 py-3.5 lg:hidden">
-        <a href={homeSection(locale, 'hero')} class="flex min-w-0 items-center gap-2" aria-label={homeAriaByLocale[locale]}>
-          <Image
-            src="/coffeelosandes-navbar-logo.svg"
-            alt="Coffee Los Andes"
-            class="h-8 w-auto max-w-[min(100%,200px)] object-contain object-left"
-            width="200"
-            height="40"
-            loading="eager"
-          />
-        </a>
-        <div class="flex shrink-0 items-center gap-2">
-          <LanguageSwitcher locale={locale} variant="dark" />
+      <div class="flex items-center gap-2 py-3.5 lg:hidden">
+        <div class="flex w-[3.25rem] shrink-0 justify-start sm:w-14">
+          <LanguageSwitcher locale={locale} variant="dark" dropdownAlign="left" />
+        </div>
+        <div class="flex min-w-0 flex-1 justify-center px-1">
+          <a
+            href={homeSection(locale, 'hero')}
+            class="flex max-w-[min(100%,220px)] items-center justify-center"
+            aria-label={homeAriaByLocale[locale]}
+          >
+            <Image
+              src="/coffeelosandes-navbar-logo.svg"
+              alt=""
+              class="h-8 w-auto max-h-9 object-contain object-center"
+              width="220"
+              height="44"
+              loading="eager"
+            />
+          </a>
+        </div>
+        <div class="flex w-[3.25rem] shrink-0 justify-end sm:w-14">
+          <button
+            type="button"
+            class="flex h-10 w-10 items-center justify-center rounded-xl border border-nav-cream/25 bg-nav-surface/90 text-nav-cream shadow-sm transition hover:bg-white/10 sm:h-11 sm:w-11"
+            aria-expanded="false"
+            aria-controls="mobile-nav-drawer"
+            data-mobile-nav-open
+            aria-label={t(locale, 'nav.menuOpen')}
+          >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"></path>
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -128,24 +148,80 @@ const linkClass =
       </nav>
     </div>
   </div>
-
-  <div class="border-t border-nav-cream/10 bg-nav lg:hidden">
-    <div class="section-shell overflow-x-auto py-2">
-      <ul class="flex w-max min-w-full gap-2 pb-0.5">
-        {navLinks.map((item) => (
-          <li class="shrink-0">
-            <a
-              href={item.kind === 'section' ? homeSection(locale, item.hash) : withLang(item.path, locale)}
-              class="inline-block border border-nav-cream/25 bg-nav-surface/80 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-nav-cream/90"
-            >
-              {t(locale, item.key)}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </div>
 </header>
+
+<div
+  class="pointer-events-none fixed inset-0 z-[45] bg-black/50 opacity-0 transition-opacity duration-300 lg:hidden"
+  data-mobile-nav-overlay
+  aria-hidden="true"
+></div>
+<div
+  id="mobile-nav-drawer"
+  class="fixed left-0 top-0 z-[50] flex h-[100dvh] w-[min(88vw,19rem)] max-w-full -translate-x-full flex-col border-r border-nav-cream/15 bg-nav shadow-[8px_0_32px_rgba(0,0,0,0.35)] transition-transform duration-300 ease-out sm:w-[min(85vw,20rem)] lg:hidden"
+  data-mobile-nav-drawer
+  role="dialog"
+  aria-modal="true"
+  aria-label={t(locale, 'nav.aria')}
+>
+  <div class="flex shrink-0 items-center justify-between border-b border-nav-cream/15 px-3 py-3 pt-[max(0.75rem,env(safe-area-inset-top))]">
+    <span class="pl-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-nav-cream/55">{t(locale, 'nav.drawerHeading')}</span>
+    <button
+      type="button"
+      class="flex h-10 w-10 items-center justify-center rounded-xl text-nav-cream transition hover:bg-white/10"
+      data-mobile-nav-close
+      aria-label={t(locale, 'nav.menuClose')}
+    >
+      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"></path>
+      </svg>
+    </button>
+  </div>
+  <nav class="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 pb-[max(1rem,env(safe-area-inset-bottom))] pt-2" aria-label={t(locale, 'nav.aria')}>
+    <ul class="space-y-0.5">
+      {navLinks.map((item) => (
+        <li>
+          <a
+            href={item.kind === 'section' ? homeSection(locale, item.hash) : withLang(item.path, locale)}
+            class="block rounded-lg px-3 py-3.5 text-[11px] font-semibold uppercase tracking-brand text-nav-cream/90 transition hover:bg-white/10"
+            data-mobile-nav-link
+          >
+            {t(locale, item.key)}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>
+
+<script is:inline>
+  (function () {
+    const openBtn = document.querySelector('[data-mobile-nav-open]');
+    const drawer = document.querySelector('[data-mobile-nav-drawer]');
+    const overlay = document.querySelector('[data-mobile-nav-overlay]');
+    const closeBtn = document.querySelector('[data-mobile-nav-close]');
+    if (!(openBtn instanceof HTMLElement) || !(drawer instanceof HTMLElement) || !(overlay instanceof HTMLElement)) return;
+
+    const setOpen = (open) => {
+      drawer.classList.toggle('-translate-x-full', !open);
+      drawer.classList.toggle('translate-x-0', open);
+      overlay.classList.toggle('opacity-0', !open);
+      overlay.classList.toggle('pointer-events-none', !open);
+      openBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      overlay.setAttribute('aria-hidden', open ? 'false' : 'true');
+      document.body.classList.toggle('overflow-hidden', open);
+    };
+
+    openBtn.addEventListener('click', () => setOpen(true));
+    closeBtn?.addEventListener('click', () => setOpen(false));
+    overlay.addEventListener('click', () => setOpen(false));
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') setOpen(false);
+    });
+    drawer.querySelectorAll('[data-mobile-nav-link]').forEach((a) => {
+      a.addEventListener('click', () => setOpen(false));
+    });
+  })();
+</script>
 
 {
   isHomePath && (

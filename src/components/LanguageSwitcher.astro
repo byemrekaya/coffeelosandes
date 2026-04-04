@@ -6,9 +6,10 @@ import { switchLocalePath } from '../i18n/paths';
 interface Props {
   locale: Locale;
   variant?: 'default' | 'dark';
+  dropdownAlign?: 'left' | 'right';
 }
 
-const { locale, variant = 'default' } = Astro.props;
+const { locale, variant = 'default', dropdownAlign = 'right' } = Astro.props;
 const pathname = Astro.url.pathname;
 
 const localeMeta: Record<Locale, { flag: string; label: string }> = {
@@ -47,7 +48,13 @@ const itemClass =
     <span>{localeMeta[locale].label}</span>
   </summary>
 
-  <div class:list={['absolute right-0 z-50 mt-2 min-w-[10rem] overflow-hidden rounded-xl p-1', menuClass]}>
+  <div
+    class:list={[
+      'absolute z-50 mt-2 min-w-[10rem] overflow-hidden rounded-xl p-1',
+      dropdownAlign === 'left' ? 'left-0' : 'right-0',
+      menuClass,
+    ]}
+  >
     {locales.map((code) => {
       const href = switchLocalePath(pathname, code);
       const active = code === locale;

@@ -16,6 +16,7 @@ const officeAddress = 'Grazer Platz 10, 12157 Berlin';
 const encodedAddress = encodeURIComponent(officeAddress);
 const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+const developerLinkedInUrl = 'https://www.linkedin.com/in/emre-kaya-/';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'impressum.title')} description={t(locale, 'impressum.description')}>
@@ -44,6 +45,39 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddre
             {site.contactEmail}
           </a>
         </p>
+      </div>
+
+      <div
+        class="rounded-2xl border border-line/80 bg-gradient-to-br from-paper-deep/50 via-surface to-surface p-6 shadow-[0_8px_30px_rgba(15,38,28,0.06)] ring-1 ring-black/[0.03]"
+      >
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">
+          {t(locale, 'impressum.strategyDesignTitle')}
+        </h2>
+        <p class="mt-4 text-[15px] leading-relaxed text-ink/80">{t(locale, 'impressum.strategyDesignIntro')}</p>
+        <a
+          href={developerLinkedInUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group mt-4 inline-flex items-center gap-2.5 rounded-xl border border-heading/15 bg-white/80 px-4 py-3 text-[16px] font-semibold text-heading shadow-sm transition hover:border-heading/30 hover:bg-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/40 focus-visible:ring-offset-2"
+          aria-label={t(locale, 'impressum.strategyDesignLinkedInAria')}
+        >
+          <svg class="h-5 w-5 shrink-0 text-[#0a66c2]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+          <span class="border-b border-transparent pb-px transition group-hover:border-heading/40">{t(locale, 'impressum.developerName')}</span>
+          <svg
+            class="h-4 w-4 shrink-0 text-ink/40 transition group-hover:translate-x-0.5 group-hover:text-heading/70"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            aria-hidden="true"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+          </svg>
+        </a>
       </div>
 
       <div class="rounded-xl border border-line bg-surface-muted p-5">

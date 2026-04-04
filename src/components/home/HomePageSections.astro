@@ -161,25 +161,36 @@ const categoryWordByLocale: Record<Locale, string> = {
       </p>
     </div>
 
-    <div class="relative z-20 mt-10 overflow-x-auto pb-1" data-category-filter-root>
-      <div class="inline-flex min-w-max items-center gap-1.5 rounded-full border border-[#ddd4c7] bg-[#f3efe7] p-1.5">
-      {segmentDefs.map((segment, i) => (
-        <button
-          type="button"
-          data-category-tab={segment.id}
-          data-active-classes="bg-[#1d1d1b] text-white border-[#1d1d1b]"
-          data-inactive-classes="bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45"
-          class:list={[
-            'rounded-full border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-200',
-            i === 0
-              ? 'bg-[#1d1d1b] text-white border-[#1d1d1b]'
-              : 'bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45',
-          ]}
-          aria-pressed={i === 0 ? 'true' : 'false'}
+    <div class="relative z-20 mt-10" data-category-filter-root>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent md:w-16"
+        aria-hidden="true"
+      />
+      <div
+        class="overflow-x-auto overscroll-x-contain scroll-pl-4 scroll-pr-2 pb-2 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+      >
+        <div
+          class="inline-flex min-w-max items-center gap-3 rounded-[28px] border border-black/5 bg-[#f5f2ed] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_28px_rgba(15,38,28,0.06)] ring-1 ring-black/[0.03]"
         >
-          {segment.label}
-        </button>
-      ))}
+          {segmentDefs.map((segment, i) => (
+            <button
+              type="button"
+              data-category-tab={segment.id}
+              data-active-classes="bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white border-black/15 shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45"
+              data-inactive-classes="bg-[#f0ebe4] text-[#3d3835] border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:border-black/10 hover:bg-[#f7f4ef] hover:shadow-[0_3px_14px_rgba(15,38,28,0.09)]"
+              class:list={[
+                'home-filter-pill-btn group relative flex min-h-[46px] shrink-0 snap-start items-center gap-2 rounded-full border px-4 py-2.5 text-left text-[13px] font-semibold leading-snug tracking-tight transition-all duration-200 ease-out motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
+                i === 0
+                  ? 'border-black/15 bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45'
+                  : 'border-black/[0.06] bg-[#f0ebe4] text-[#3d3835] shadow-[0_1px_3px_rgba(0,0,0,0.05)]',
+              ]}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              <span class="home-filter-pill-dot shrink-0" aria-hidden="true" />
+              <span class="relative z-[1]">{segment.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
 
@@ -283,25 +294,36 @@ const categoryWordByLocale: Record<Locale, string> = {
       </p>
     </div>
 
-    <div class="relative z-20 mt-10 overflow-x-auto pb-1" data-master-filter-root>
-      <div class="inline-flex min-w-max items-center gap-1.5 rounded-full border border-[#ddd4c7] bg-[#f3efe7] p-1.5">
-      {masterSegmentDefs.map((segment, i) => (
-        <button
-          type="button"
-          data-master-tab={segment.id}
-          data-active-classes="bg-[#1d1d1b] text-white border-[#1d1d1b]"
-          data-inactive-classes="bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45"
-          class:list={[
-            'rounded-full border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-200',
-            i === 0
-              ? 'bg-[#1d1d1b] text-white border-[#1d1d1b]'
-              : 'bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45',
-          ]}
-          aria-pressed={i === 0 ? 'true' : 'false'}
+    <div class="relative z-20 mt-10" data-master-filter-root>
+      <div
+        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-surface to-transparent md:w-16"
+        aria-hidden="true"
+      />
+      <div
+        class="overflow-x-auto overscroll-x-contain scroll-pl-4 scroll-pr-2 pb-2 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+      >
+        <div
+          class="inline-flex min-w-max items-center gap-3 rounded-[28px] border border-black/5 bg-[#f7f5f1] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_10px_28px_rgba(15,38,28,0.05)] ring-1 ring-black/[0.03]"
         >
-          {segment.label}
-        </button>
-      ))}
+          {masterSegmentDefs.map((segment, i) => (
+            <button
+              type="button"
+              data-master-tab={segment.id}
+              data-active-classes="bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white border-black/15 shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45"
+              data-inactive-classes="bg-[#f2efe9] text-[#3d3835] border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:border-black/10 hover:bg-[#faf8f3] hover:shadow-[0_3px_14px_rgba(15,38,28,0.09)]"
+              class:list={[
+                'home-filter-pill-btn group relative flex min-h-[46px] shrink-0 snap-start items-center gap-2 rounded-full border px-4 py-2.5 text-left text-[13px] font-semibold leading-snug tracking-tight transition-all duration-200 ease-out motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
+                i === 0
+                  ? 'border-black/15 bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45'
+                  : 'border-black/[0.06] bg-[#f2efe9] text-[#3d3835] shadow-[0_1px_3px_rgba(0,0,0,0.05)]',
+              ]}
+              aria-pressed={i === 0 ? 'true' : 'false'}
+            >
+              <span class="home-filter-pill-dot shrink-0" aria-hidden="true" />
+              <span class="relative z-[1]">{segment.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
 
@@ -385,6 +407,38 @@ const categoryWordByLocale: Record<Locale, string> = {
   </div>
 </section>
 
+<style is:global>
+  [data-category-filter-root] .home-filter-pill-dot,
+  [data-master-filter-root] .home-filter-pill-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: linear-gradient(145deg, #c5d4b8 0%, #8fa68a 100%);
+    box-shadow:
+      0 0 0 1px rgba(77, 107, 82, 0.35),
+      0 1px 4px rgba(15, 38, 28, 0.25);
+    opacity: 0;
+    transform: scale(0.45);
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  [data-category-filter-root] .home-filter-pill-btn[aria-pressed='true'] .home-filter-pill-dot,
+  [data-master-filter-root] .home-filter-pill-btn[aria-pressed='true'] .home-filter-pill-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-category-filter-root] .home-filter-pill-btn,
+    [data-master-filter-root] .home-filter-pill-btn {
+      transform: none !important;
+    }
+  }
+</style>
+
 <script>
   import { gsap } from 'gsap';
 
@@ -430,7 +484,6 @@ const categoryWordByLocale: Record<Locale, string> = {
         const sid = card.getAttribute('data-segment');
         const match = sid === segment;
         card.classList.toggle('hidden', !match);
-        /* İlk yüklemede clearProps yapma — giriş animasyonundaki opacity:0 ile çakışır */
         if (match && !opts?.skipClear) {
           gsap.killTweensOf(card);
           gsap.set(card, { clearProps: 'opacity,transform,scale' });
@@ -486,7 +539,6 @@ const categoryWordByLocale: Record<Locale, string> = {
     const root = document.querySelector('[data-category-cards]');
     if (!root) return;
 
-    /* Sadece seçili segmentteki kartlar: tüm grid'e opacity:0 yazmak, gizli segmentleri sonra görünür yapınca boş bırakıyordu */
     const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-category-card]')).filter(
       (el) => !el.classList.contains('hidden')
     );
@@ -497,26 +549,39 @@ const categoryWordByLocale: Record<Locale, string> = {
     if (cta) gsap.set(cta, { opacity: 0, y: 20 });
 
     let played = false;
-    const obs = new IntersectionObserver(
+    let obs: IntersectionObserver;
+    const runReveal = () => {
+      if (played) return;
+      played = true;
+      obs.disconnect();
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.75,
+        stagger: 0.06,
+        force3D: true,
+      }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
+    };
+
+    obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting || played) return;
-          played = true;
-          const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-          tl.to(cards, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.75,
-            stagger: 0.06,
-            force3D: true,
-          }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
-          obs.disconnect();
+          if (entry.isIntersecting) runReveal();
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0, rootMargin: '0px 0px 24% 0px' }
     );
     obs.observe(root);
+
+    const tryRevealIfVisible = () => {
+      const rect = root.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.top < vh && rect.bottom > 0) runReveal();
+    };
+    requestAnimationFrame(tryRevealIfVisible);
+    setTimeout(tryRevealIfVisible, 350);
   }
 
   function initMasterFilter() {
@@ -620,26 +685,39 @@ const categoryWordByLocale: Record<Locale, string> = {
     if (cta) gsap.set(cta, { opacity: 0, y: 20 });
 
     let played = false;
-    const obs = new IntersectionObserver(
+    let obs: IntersectionObserver;
+    const runReveal = () => {
+      if (played) return;
+      played = true;
+      obs.disconnect();
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.to(cards, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.75,
+        stagger: 0.06,
+        force3D: true,
+      }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
+    };
+
+    obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting || played) return;
-          played = true;
-          const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-          tl.to(cards, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.75,
-            stagger: 0.06,
-            force3D: true,
-          }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
-          obs.disconnect();
+          if (entry.isIntersecting) runReveal();
         });
       },
-      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+      { threshold: 0, rootMargin: '0px 0px 24% 0px' }
     );
     obs.observe(root);
+
+    const tryRevealIfVisible = () => {
+      const rect = root.getBoundingClientRect();
+      const vh = window.innerHeight;
+      if (rect.top < vh && rect.bottom > 0) runReveal();
+    };
+    requestAnimationFrame(tryRevealIfVisible);
+    setTimeout(tryRevealIfVisible, 350);
   }
 
   function run() {

@@ -1,7 +1,6 @@
 import type { Dict } from './types';
 import { enAbout } from './en-about';
 
-/** English overlay — merged with `deDict`; missing keys stay German until added. */
 export const enPartial: Dict = {
   htmlLang: 'en',
   lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
@@ -18,12 +17,15 @@ export const enPartial: Dict = {
     contact: 'Contact',
     cta: 'Get a quote',
     aria: 'Main navigation',
+    menuOpen: 'Open menu',
+    menuClose: 'Close menu',
+    drawerHeading: 'Menu',
   },
   home: {
-    title: 'Coffee Los Andes – Premium coffee from the Andes | Venezuela',
+    title: 'Coffee Los Andes – The taste from the heights of the Andes | Venezuela',
     description:
       'Premium coffee from the highlands of the Venezuelan Andes. Wholesale and B2B with traceable specialty lots.',
-    slogan: 'Premium coffee from the Andes',
+    slogan: 'The taste from the heights of the Andes.',
     heroSubtitle: 'Traceable · Specialty · Sustainable',
     badgeAltitude: 'High-altitude character · ≥ 1,630 m',
     heroStrip1: 'B2B · Wholesale',
@@ -96,7 +98,7 @@ export const enPartial: Dict = {
     eyebrow: 'B2B contact',
     title: 'Your wholesale enquiry',
     description:
-      'Our Berlin team supports you on Venezuelan lots, logistics and samples — send the form and we’ll respond quickly.',
+      'Our Berlin team supports you on Venezuelan lots, logistics and samples — use the form to open your email app with a pre-filled message to us.',
   },
   cta: {
     eyebrow: 'Partnership',
@@ -184,7 +186,7 @@ export const enPartial: Dict = {
     heroEyebrow: 'B2B contact',
     heroTitle: 'Contact us for B2B coffee supply',
     heroDesc:
-      'For partnerships with cafés, hotels, offices and distributors: send your enquiry via the short form — our team will respond with a tailored recommendation.',
+      'For partnerships with cafés, hotels, offices and distributors: use the short form — your email app opens with a draft message to us.',
     responseBadge: 'Response within 24–48 hours',
     heroTrust1: 'Direct connection to origin',
     heroTrust2: 'B2B-focused sourcing support',
@@ -213,7 +215,7 @@ export const enPartial: Dict = {
     who4: 'Distributors',
     who5: 'White-label brands',
     formCardTitle: 'Send your enquiry',
-    formCardDesc: 'Share your company, planned volume and type of need.',
+    formCardDesc: 'Enter company name, phone and message — your email app opens with a ready draft.',
     strip1: 'Reply including first assessment within 24–48 hours',
     strip2: 'B2B-specific offer and evaluation process',
     strip3: 'Berlin-centred communication and operations',
@@ -223,31 +225,22 @@ export const enPartial: Dict = {
     mapLink: 'Open in Google Maps',
     mapPlaceholder: 'Venezuela · Andes · growing areas',
     mapNote: 'Please schedule visits and meetings in advance.',
-    formSent: 'Your message was received — we’ll get back to you shortly.',
-    formError:
-      'Sending failed. Please try again later or email us directly. Check SMTP configuration on the server.',
   },
   form: {
-    aria: 'Quick contact form',
-    helper: 'Send your enquiry via the short form; our team responds with a tailored assessment.',
-    name: 'Name',
-    namePh: 'First and last name',
-    contact: 'Email or phone',
-    contactPh: '+49 … or email@domain.com',
-    company: 'Company',
-    companyPh: 'Your company name',
-    requestType: 'Enquiry type',
-    requestTypePh: 'Select enquiry type',
-    optionWholesale: 'Wholesale purchase',
-    optionWhiteLabel: 'White label',
-    optionDistributor: 'Distribution',
-    optionOffice: 'Office coffee solution',
-    optionOther: 'Other',
-    message: 'Your message',
-    messagePh: 'Briefly describe what you need.',
-    messageHint: 'This field can be left empty.',
-    privacyNote: 'Your details are used only to respond to your enquiry.',
-    submit: 'Send B2B enquiry',
+    aria: 'B2B contact form',
+    helper:
+      'Fill in the fields and submit — your email app opens with a pre-filled message; you only need to send.',
+    company: 'Company name',
+    companyPh: 'Your company or business name',
+    phone: 'Phone number',
+    phonePh: '+49 …',
+    message: 'Message',
+    messagePh: 'Your enquiry in brief.',
+    mailBodyCompany: 'Company',
+    mailBodyPhone: 'Phone',
+    mailBodyMessage: 'Message',
+    privacyNote: 'Your entries are only used in this email draft; sending happens through your email app.',
+    submit: 'Open email and send',
   },
   about: enAbout,
   footer: {
@@ -385,6 +378,10 @@ export const enPartial: Dict = {
     heroTitle: 'Legal notice',
     companyTitle: 'Company details',
     contactTitle: 'Contact',
+    strategyDesignTitle: 'Strategy & design',
+    strategyDesignIntro: 'Concept and development of this website by:',
+    developerName: 'Emre Kaya',
+    strategyDesignLinkedInAria: 'Emre Kaya on LinkedIn',
   },
   cookieConsent: {
     title: 'Cookie use',

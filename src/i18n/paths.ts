@@ -1,7 +1,6 @@
 import { resolveLocale } from './config';
 import type { Locale } from './types';
 
-/** Eski `/tr/...` URL’leri ve geçersiz dil kodlarını güvenli biçimde çözümler. */
 export function withLang(path: string, locale: string | undefined | null): string {
   const loc = resolveLocale(locale);
   const normalized = path === '' ? '/' : path.startsWith('/') ? path : `/${path}`;

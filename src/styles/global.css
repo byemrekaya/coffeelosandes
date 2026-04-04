@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Referans tema değişkenleri — başlık yeşil, gövde Jost, başlıklar Poppins */
 :root {
   --main: #28603f;
   --second: #28603f;
@@ -20,7 +19,6 @@
   --theme-illustration-fill-color: rgba(40, 96, 63, 0.35);
 }
 
-/* Jost — italic 400 (dar unicode); tam Latin için Google Fonts BaseLayout’ta */
 @font-face {
   font-family: 'Jost';
   font-style: italic;
@@ -29,7 +27,6 @@
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 
-/* Poppins 300 — ek unicode aralığı (Google Fonts ana linki Latin’i kapsar) */
 @font-face {
   font-family: 'Poppins';
   font-style: normal;
@@ -69,7 +66,6 @@ body {
   color: var(--black);
 }
 
-/** Açık zemin: koyu metin (`text-ink`, `text-ink-muted`, `text-heading`). Koyu zemin: `text-white` / `text-white/…`. `text-cream` = beyaz; yalnızca koyu yüzeylerde kullanın. */
 .text-on-light {
   color: var(--black);
 }
@@ -105,7 +101,6 @@ body {
   @apply mt-4 text-[18px] leading-[1.65] text-ink-muted;
 }
 
-/* Açık zemin üzerinde gövde metni — yeterli kontrast (WCAG) */
 .stage-copy {
   @apply space-y-4 text-[18px] leading-[1.7] text-ink-muted;
 }
@@ -114,7 +109,6 @@ body {
   @apply rounded-none border border-line bg-surface shadow-card;
 }
 
-/** Tam genişlik bölüm zeminleri — 1↔3 aynı, 2↔4 aynı (sırayla A/B) */
 .section-band-a {
   @apply w-full bg-paper;
 }
@@ -123,12 +117,10 @@ body {
   @apply w-full bg-surface;
 }
 
-/** Kutu yerine hafif çerçeve; gölge yok */
 .section-panel-flat {
   @apply border border-line/70 bg-surface/40 px-6 py-6 sm:px-7 sm:py-8;
 }
 
-/** Ana sayfa hikâye bandı — sağda organik “blob” görünümü */
 .home-story-blob {
   position: relative;
   overflow: hidden;
@@ -154,7 +146,6 @@ body {
   pointer-events: none;
 }
 
-/* Lot ürün görselleri — çerçeve + lightbox */
 .lot-photo-frame {
   border-radius: 1.35rem;
   padding: 1px;
@@ -177,7 +168,6 @@ body {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
-/* Lot sayfası başlık etiketi — Poppins, marka yeşili */
 .lot-ink-tag {
   font-family: var(--font-headers);
   font-weight: 600;
@@ -189,7 +179,6 @@ body {
   filter: none;
 }
 
-/* Ürün adı: geniş marker vurgusu — kenarlar hafif titrek */
 .lot-ink-tag--title {
   display: inline-block;
   max-width: 100%;
@@ -217,7 +206,6 @@ body {
   }
 }
 
-/* Tadım etiketleri — gövde fontu Jost */
 .lot-ink-tag--pill {
   display: inline-flex;
   align-items: center;
@@ -303,7 +291,6 @@ body {
   transition-delay: 360ms;
 }
 
-/* Yan illüstrasyonlar (hikâye vb.) */
 .illustration {
   --illustration-translate-x: 0;
   --illustration-translate-y: 0;
@@ -332,7 +319,6 @@ body {
   width: 100%;
 }
 
-/* Kenara itmemek: meyveler kırpılmasın — hafif içeride, translate küçük */
 .illustration--left {
   --illustration-left: 0;
   --illustration-top: 2%;

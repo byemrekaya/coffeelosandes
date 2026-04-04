@@ -1,111 +1,74 @@
 ---
 import type { Locale } from '../i18n/types';
 import { t } from '../i18n/t';
-import { withLang } from '../i18n/paths';
+import { site } from '../config/site';
 
 interface Props {
   locale: Locale;
 }
 
 const { locale } = Astro.props;
-const redirectPath = withLang('/contact', locale);
-const base = import.meta.env.BASE_URL;
-const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/contact`;
+const mailTo = site.contactEmail;
+const lCompany = t(locale, 'form.mailBodyCompany');
+const lPhone = t(locale, 'form.mailBodyPhone');
+const lMsg = t(locale, 'form.mailBodyMessage');
 ---
 
 <form
+  id="contact-mailto-form"
   class="space-y-6 rounded-[24px] border border-[#ded7c9] bg-white px-8 py-10 shadow-[0_18px_40px_rgba(22,18,12,0.08)] md:px-10 md:py-12"
   aria-label={t(locale, 'form.aria')}
-  action={formAction}
-  method="post"
+  data-mail-to={mailTo}
+  data-label-company={lCompany}
+  data-label-phone={lPhone}
+  data-label-message={lMsg}
 >
-  <input type="hidden" name="_redirect" value={redirectPath} />
-
   <p class="text-sm leading-relaxed text-ink-muted">{t(locale, 'form.helper')}</p>
 
-  <input
-    type="text"
-    name="_gotcha"
-    tabindex="-1"
-    autocomplete="off"
-    class="hidden"
-    aria-hidden="true"
-  />
-
   <div class="space-y-2">
-    <label for="name" class="block text-sm font-medium text-ink/88">
-      {t(locale, 'form.name')}
-    </label>
-    <input
-      id="name"
-      name="name"
-      type="text"
-      required
-      autocomplete="name"
-      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
-      placeholder={t(locale, 'form.namePh')}
-      aria-required="true"
-    />
-  </div>
-
-  <div class="space-y-2">
-    <label for="contact" class="block text-sm font-medium text-ink/88">
-      {t(locale, 'form.contact')}
-    </label>
-    <input
-      id="contact"
-      name="contact"
-      type="text"
-      required
-      autocomplete="email"
-      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
-      placeholder={t(locale, 'form.contactPh')}
-      aria-required="true"
-    />
-  </div>
-
-  <div class="space-y-2">
-    <label for="company" class="block text-sm font-medium text-ink/88">
+    <label for="contact-company" class="block text-sm font-medium text-ink/88">
       {t(locale, 'form.company')}
     </label>
     <input
-      id="company"
+      id="contact-company"
       name="company"
       type="text"
+      required
       autocomplete="organization"
       class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
       placeholder={t(locale, 'form.companyPh')}
+      aria-required="true"
     />
   </div>
 
   <div class="space-y-2">
-    <label for="requestType" class="block text-sm font-medium text-ink/88">
-      {t(locale, 'form.requestType')}
+    <label for="contact-phone" class="block text-sm font-medium text-ink/88">
+      {t(locale, 'form.phone')}
     </label>
-    <select
-      id="requestType"
-      name="requestType"
-      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
-    >
-      <option value="">{t(locale, 'form.requestTypePh')}</option>
-      <option value="wholesale">{t(locale, 'form.optionWholesale')}</option>
-      <option value="white-label">{t(locale, 'form.optionWhiteLabel')}</option>
-      <option value="distributor">{t(locale, 'form.optionDistributor')}</option>
-      <option value="office-solution">{t(locale, 'form.optionOffice')}</option>
-      <option value="other">{t(locale, 'form.optionOther')}</option>
-    </select>
+    <input
+      id="contact-phone"
+      name="phone"
+      type="tel"
+      required
+      autocomplete="tel"
+      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
+      placeholder={t(locale, 'form.phonePh')}
+      aria-required="true"
+    />
   </div>
 
   <div class="space-y-2">
-    <label for="message" class="block text-sm font-medium text-ink/88">
+    <label for="contact-message" class="block text-sm font-medium text-ink/88">
       {t(locale, 'form.message')}
     </label>
     <textarea
-      id="message"
+      id="contact-message"
       name="message"
       rows="6"
+      required
       class="w-full min-h-[150px] resize-y rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
       placeholder={t(locale, 'form.messagePh')}
+      aria-required="true"
     ></textarea>
     <p class="text-[11px] text-ink-muted">{t(locale, 'form.privacyNote')}</p>
   </div>
@@ -116,3 +79,28 @@ const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/cont
     </button>
   </div>
 </form>
+
+<script is:inline>
+  document.getElementById('contact-mailto-form')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    if (!(form instanceof HTMLFormElement)) return;
+    const mailTo = form.dataset.mailTo;
+    const lCompany = form.dataset.labelCompany ?? '';
+    const lPhone = form.dataset.labelPhone ?? '';
+    const lMsg = form.dataset.labelMessage ?? '';
+    if (!mailTo) return;
+    const companyEl = document.getElementById('contact-company');
+    const phoneEl = document.getElementById('contact-phone');
+    const messageEl = document.getElementById('contact-message');
+    const company = companyEl && 'value' in companyEl ? String(companyEl.value).trim() : '';
+    const phone = phoneEl && 'value' in phoneEl ? String(phoneEl.value).trim() : '';
+    const message = messageEl && 'value' in messageEl ? String(messageEl.value).trim() : '';
+    if (!company || !phone || !message) return;
+    const subject = encodeURIComponent('[Coffee Los Andes B2B] ' + company);
+    const body = encodeURIComponent(
+      lCompany + ': ' + company + '\n' + lPhone + ': ' + phone + '\n\n' + lMsg + ':\n' + message
+    );
+    window.location.href = 'mailto:' + mailTo + '?subject=' + subject + '&body=' + body;
+  });
+</script>

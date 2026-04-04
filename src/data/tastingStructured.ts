@@ -1,7 +1,3 @@
-/**
- * PDF “Tadım Etiketleri” yapısı — satır başlığı + içerik (TR).
- * Menşe ve lot özellikleri bölümünde tablo olarak gösterilir.
- */
 export type TastingStructuredRow = {
   label: string;
   value: string;
