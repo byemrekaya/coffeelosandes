@@ -30,6 +30,8 @@ export const POST: APIRoute = async ({ request }) => {
 
   const name = String(formData.get('name') ?? '').trim();
   const contact = String(formData.get('contact') ?? '').trim();
+  const company = String(formData.get('company') ?? '').trim();
+  const requestType = String(formData.get('requestType') ?? '').trim();
   const message = String(formData.get('message') ?? '').trim();
   const redirectRaw = String(formData.get('_redirect') ?? '/tr/contact');
 
@@ -51,6 +53,8 @@ export const POST: APIRoute = async ({ request }) => {
   const text = [
     `İsim / Name: ${name}`,
     `İletişim / Contact: ${contact}`,
+    `Şirket / Company: ${company || '(belirtilmedi / not specified)'}`,
+    `Talep Türü / Request Type: ${requestType || '(belirtilmedi / not specified)'}`,
     '',
     message || '(Mesaj yok / no message)',
     '',

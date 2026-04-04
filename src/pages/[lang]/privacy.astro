@@ -24,10 +24,39 @@ const locale = lang as Locale;
   </section>
 
   <section class="pb-24">
-    <div class="section-shell max-w-3xl space-y-6 text-[15px] leading-relaxed text-ink/85">
-      <p>{t(locale, 'privacy.p1')}</p>
-      <p>{t(locale, 'privacy.p2')}</p>
-      <p>{t(locale, 'privacy.p3')}</p>
+    <div class="section-shell max-w-3xl space-y-8 text-[15px] leading-relaxed text-ink/85">
+      <section class="space-y-3">
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'privacy.controllerTitle')}</h2>
+        <p>{t(locale, 'privacy.controllerBody')}</p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'privacy.hostingTitle')}</h2>
+        <p>{t(locale, 'privacy.hostingBody')}</p>
+        <p>{t(locale, 'privacy.hostingBody2')}</p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'privacy.dataTypesTitle')}</h2>
+        <p>{t(locale, 'privacy.dataTypesBody')}</p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'privacy.legalBasisTitle')}</h2>
+        <p>{t(locale, 'privacy.legalBasisBody')}</p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'privacy.cookiesTitle')}</h2>
+        <p>{t(locale, 'privacy.cookiesBody')}</p>
+      </section>
+
+      <section class="space-y-3">
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'privacy.rightsTitle')}</h2>
+        <p>{t(locale, 'privacy.rightsBody')}</p>
+      </section>
+
+      <p class="text-[13px] text-ink/60">{t(locale, 'privacy.lastUpdated')}</p>
     </div>
   </section>
 </BaseLayout>

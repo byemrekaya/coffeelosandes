@@ -1,0 +1,62 @@
+---
+import { Image } from 'astro:assets';
+import type { Locale } from '../../i18n/types';
+import type { VenezuelaCoffeeMasterItem } from '../../data/venezuelaCoffeeMaster';
+import { withLang } from '../../i18n/paths';
+import { t } from '../../i18n/t';
+
+interface Props {
+  item: VenezuelaCoffeeMasterItem;
+  locale: Locale;
+  slug: string;
+}
+
+const { item, locale, slug } = Astro.props;
+---
+
+<article class="group flex h-full flex-col overflow-hidden rounded-[20px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_8px_24px_rgba(0,0,0,0.04)] transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)]">
+  <div class="relative h-56 overflow-hidden bg-[#e9e2d6]">
+    <Image
+      src="/cekirdek.jpg"
+      alt={`${item.cesit} kahve çekirdeği`}
+      class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-[1.03]"
+      loading="lazy"
+      width="1200"
+      height="800"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent" aria-hidden="true"></div>
+  </div>
+
+  <div class="flex flex-1 flex-col p-5">
+  <div class="mb-4 flex items-center justify-between gap-3">
+    <span class="rounded-full border border-heading/30 bg-heading/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-heading">
+      {item.segment}
+    </span>
+    <span class="rounded-full bg-[#1f1f1c] px-3 py-1 text-[11px] font-semibold text-white">{item.cupping_score}</span>
+  </div>
+
+  <h3 class="font-display text-[1.15rem] font-semibold leading-snug text-heading">{item.cesit}</h3>
+  <p class="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-ink/52">{item.bolge}</p>
+
+  <dl class="mt-4 space-y-2 text-[13px] leading-relaxed text-ink/78">
+    <div>
+      <dt class="inline font-semibold text-ink/65">Üretici: </dt>
+      <dd class="inline">{item.uretici}</dd>
+    </div>
+    <div>
+      <dt class="inline font-semibold text-ink/65">Çiftlik: </dt>
+      <dd class="inline">{item.ciftlik}</dd>
+    </div>
+  </dl>
+
+  <p class="mt-4 inline-flex w-fit rounded-full bg-[#f3efe7] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#4f4a44]">
+    {item.ticari_segment}
+  </p>
+
+  <div class="mt-6 border-t border-[#e7dfd3] pt-5 text-center">
+    <a href={withLang(`/products/${slug}`, locale)} class="text-[13px] font-semibold uppercase tracking-[0.16em] text-heading transition group-hover:tracking-[0.18em]">
+      {t(locale, 'home.lotDetail')}
+    </a>
+  </div>
+  </div>
+</article>

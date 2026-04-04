@@ -11,11 +11,11 @@ interface Props {
 
 const { locale, class: className = '', inverse = false } = Astro.props;
 const badgeBase = inverse
-  ? 'border-white/22 bg-black/28 text-cream/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-  : 'border-gold/35 bg-paper-deep/90 text-ink/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]';
+  ? 'border-white/22 bg-black/28 text-white/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
+  : 'border-heading/35 bg-paper-deep/90 text-ink/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]';
 const badgeQ = inverse
-  ? 'border-gold/45 bg-black/28 text-gold shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
-  : 'border-gold/35 bg-paper-deep/90 text-gold shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]';
+  ? 'border-heading/45 bg-black/28 text-heading shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]'
+  : 'border-heading/35 bg-paper-deep/90 text-heading shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]';
 const sgsLabel = t(locale, 'coffee.badgeSgsTitle');
 const qLabel = t(locale, 'coffee.badgeQGraderTitle');
 ---

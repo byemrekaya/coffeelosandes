@@ -19,14 +19,14 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedQuery
 const categoryLabel = lot.farmCategory ?? lot.region;
 ---
 
-<section class="border-t border-line py-20 md:py-24" data-reveal>
+<section class="section-band-b border-t border-line py-20 md:py-24" data-reveal>
   <div class="section-shell">
 
     <!-- Başlık -->
     <div class="mb-8 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="stage-eyebrow mb-2">{t(locale, 'coffee.mapEyebrow')}</p>
-        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">
+        <h2 class="font-display text-2xl font-semibold text-heading md:text-3xl">
           {t(locale, 'coffee.mapTitle')}
         </h2>
       </div>
@@ -34,7 +34,7 @@ const categoryLabel = lot.farmCategory ?? lot.region;
         href={mapsLink}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-sm font-semibold text-gold/80 underline-offset-4 transition hover:text-gold hover:underline"
+        class="inline-flex items-center gap-2 text-sm font-semibold text-heading/80 underline-offset-4 transition hover:text-heading hover:underline"
         aria-label={t(locale, 'coffee.mapOpenExternal')}
       >
         <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -48,23 +48,23 @@ const categoryLabel = lot.farmCategory ?? lot.region;
 
     <!-- Kart -->
     <div class="overflow-hidden border border-line/90 bg-surface shadow-card">
-      <div class="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden="true"></div>
+      <div class="h-1 w-full bg-gradient-to-r from-transparent via-heading to-transparent" aria-hidden="true"></div>
 
       <!-- Üst bilgi bandı -->
       <div class="flex flex-wrap items-center gap-x-8 gap-y-3 border-b border-line/60 px-5 py-4 md:px-8">
         <div>
           <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, 'coffee.mapFarm')}</p>
-          <p class="mt-0.5 text-[14px] font-semibold text-cream">{lot.farm}</p>
+          <p class="mt-0.5 text-[14px] font-semibold text-ink">{lot.farm}</p>
         </div>
         <div class="h-6 w-px bg-line/60" aria-hidden="true"></div>
         <div>
           <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, 'coffee.mapRegion')}</p>
-          <p class="mt-0.5 text-[14px] font-semibold text-cream">{lot.region}, {lot.country}</p>
+          <p class="mt-0.5 text-[14px] font-semibold text-ink">{lot.region}, {lot.country}</p>
         </div>
         <div class="h-6 w-px bg-line/60" aria-hidden="true"></div>
         <div>
           <p class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, 'coffee.mapCategory')}</p>
-          <p class="mt-0.5 text-[14px] font-semibold text-cream">{categoryLabel}</p>
+          <p class="mt-0.5 text-[14px] font-semibold text-ink">{categoryLabel}</p>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ const categoryLabel = lot.farmCategory ?? lot.region;
           data-farm-map-loader
           aria-hidden="true"
         >
-          <div class="flex flex-col items-center gap-3 text-cream/40">
+          <div class="flex flex-col items-center gap-3 text-ink/40">
             <svg class="h-10 w-10 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
               <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="12" cy="9" r="2.5" stroke-linecap="round"/>

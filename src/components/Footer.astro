@@ -19,28 +19,40 @@ const footerNav: FooterNavItem[] = [
   { kind: 'page', path: '/about', key: 'nav.about' },
   { kind: 'section', hash: 'kahvelerimiz', key: 'nav.coffees' },
   { kind: 'section', hash: 'kalite', key: 'nav.qualityDocs' },
-  { kind: 'section', hash: 'toptan', key: 'nav.contact' },
+  { kind: 'page', path: '/contact', key: 'nav.contact' },
 ];
 
-const linkClass = 'text-ink/75 transition hover:text-ink';
+const linkClass =
+  'relative inline-block text-ink/78 transition-colors duration-200 hover:text-ink after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-heading after:transition-all after:duration-200 hover:after:w-full';
+
+/** Sütun: grid hücresinde dikey ortalama + mobilde merkez; md+ hizalı okuma */
+const footerColClass =
+  'flex min-h-0 w-full flex-col items-center justify-center gap-6 self-stretch text-center md:items-start md:justify-start md:text-left';
 ---
 
-<footer class="mt-24 border-t border-line bg-paper-deep py-16 text-sm text-ink">
-  <div class="section-shell flex flex-col gap-12 md:flex-row md:items-start md:justify-between">
-    <div class="max-w-xs space-y-4">
-      <div class="flex items-center gap-3">
-        <div class="h-9 w-9 shrink-0 bg-ink" aria-hidden="true" />
-        <span class="text-xs font-bold uppercase tracking-brand text-ink">{site.name}</span>
+<footer class="relative border-t border-line bg-paper-deep py-16 text-[15px] text-ink">
+  <div class="section-shell relative">
+    <div class="grid grid-cols-1 items-stretch gap-10 md:grid-cols-3 md:gap-14">
+      <div
+        class:list={[footerColClass, 'transition-all duration-700 ease-out will-change-transform']}
+        data-footer-reveal
+      >
+        <div class="flex flex-wrap items-center justify-center gap-3 md:justify-start">
+          <img src="/logogreen.svg" alt="" class="h-14 w-auto shrink-0 object-contain" loading="lazy" decoding="async" />
+          <span class="min-w-0 text-[12px] font-semibold uppercase leading-snug tracking-[0.14em] text-heading">
+            {site.legalEntityName}
+          </span>
+        </div>
+        <p class="max-w-sm text-balance text-[16px] leading-relaxed text-ink/88">{t(locale, 'footer.brandHeadline')}</p>
+        <p class="max-w-sm text-balance text-[15px] leading-relaxed text-ink/70">{t(locale, 'footer.brandBody')}</p>
       </div>
-      <p class="text-[14px] leading-relaxed text-ink-muted">
-        {t(locale, 'footer.tagline')}
-      </p>
-    </div>
 
-    <div class="grid grid-cols-2 gap-10 md:grid-cols-3 md:gap-16">
-      <div class="space-y-4">
-        <h3 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">{t(locale, 'footer.links')}</h3>
-        <ul class="space-y-2.5">
+      <div
+        class:list={[footerColClass, 'transition-all duration-700 ease-out will-change-transform']}
+        data-footer-reveal
+      >
+        <h3 class="w-full text-[11px] font-semibold uppercase tracking-[0.22em] text-heading">{t(locale, 'footer.links')}</h3>
+        <ul class="flex w-full flex-col items-center gap-2.5 text-[15px] md:items-start">
           {footerNav.map((item) => (
             <li>
               <a
@@ -51,50 +63,84 @@ const linkClass = 'text-ink/75 transition hover:text-ink';
               </a>
             </li>
           ))}
-          <li>
-            <a href={withLang('/products', locale)} class={linkClass}>
-              {t(locale, 'footer.linkFullCatalog')}
-            </a>
-          </li>
-          <li>
-            <a href={withLang('/quality', locale)} class={linkClass}>
-              {t(locale, 'footer.linkQualityDetail')}
-            </a>
-          </li>
-          <li>
-            <a href={withLang('/privacy', locale)} class={linkClass}>
-              {t(locale, 'footer.linkPrivacy')}
-            </a>
-          </li>
         </ul>
       </div>
 
-      <div class="space-y-4">
-        <h3 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">{t(locale, 'footer.partnerships')}</h3>
-        <ul class="space-y-2.5 text-ink/75">
-          <li>{t(locale, 'footer.fp1')}</li>
-          <li>{t(locale, 'footer.fp2')}</li>
-          <li>{t(locale, 'footer.fp3')}</li>
-        </ul>
-      </div>
-
-      <div class="space-y-4">
-        <h3 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">{t(locale, 'footer.contact')}</h3>
-        <ul class="space-y-2.5 text-ink/75">
-          <li>
-            <a href={mailtoB2B} class="transition hover:text-ink">{site.contactEmail}</a>
-          </li>
-          <li>{t(locale, 'footer.office')}</li>
-          <li class="text-[12px] text-ink/55">{t(locale, 'footer.formHint')}</li>
-        </ul>
+      <div
+        class:list={[footerColClass, 'gap-8', 'transition-all duration-700 ease-out will-change-transform']}
+        data-footer-reveal
+      >
+        <div class="flex w-full flex-col items-center md:items-start">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-heading">{t(locale, 'footer.contact')}</h3>
+          <ul class="mt-3 flex w-full flex-col items-center gap-2.5 text-[15px] text-ink/78 md:items-start">
+            <li>
+              <a href={mailtoB2B} class={linkClass}>{site.contactEmail}</a>
+            </li>
+            <li>{t(locale, 'footer.office')}</li>
+          </ul>
+        </div>
+        <div class="flex w-full flex-col items-center md:items-start">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-heading">{t(locale, 'footer.legal')}</h3>
+          <ul class="mt-3 flex w-full flex-col items-center gap-2.5 text-[15px] text-ink/78 md:items-start">
+            <li>
+              <a href={withLang('/impressum', locale)} class={linkClass}>
+                {t(locale, 'footer.linkImpressum')}
+              </a>
+            </li>
+            <li>
+              <a href={withLang('/privacy', locale)} class={linkClass}>
+                {t(locale, 'footer.linkPrivacy')}
+              </a>
+            </li>
+            <li>
+              <button type="button" class={linkClass} data-cookie-open>
+                {t(locale, 'footer.cookieSettings')}
+              </button>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="mt-12 border-t border-line bg-ink py-6">
-    <div class="section-shell flex flex-col justify-between gap-3 text-[12px] text-white/60 md:flex-row md:items-center">
-      <p>© {new Date().getFullYear()} {site.name}. {t(locale, 'footer.copyright')}</p>
-      <p>{t(locale, 'footer.line2')}</p>
+    <div class="mt-12 border-t border-line pt-6 transition-all duration-700 ease-out will-change-transform" data-footer-reveal>
+      <div class="flex flex-col justify-between gap-2 text-[13px] text-ink/62 md:flex-row md:items-center">
+        <p>© {new Date().getFullYear()} {site.name} — {t(locale, 'footer.bottomLeft')}</p>
+        <p>{t(locale, 'footer.bottomRight')}</p>
+      </div>
     </div>
   </div>
 </footer>
+
+<script>
+  function initFooterReveal() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const items = Array.from(document.querySelectorAll<HTMLElement>('[data-footer-reveal]'));
+    if (!items.length) return;
+
+    items.forEach((el) => {
+      el.classList.add('opacity-0', 'translate-y-6');
+    });
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.some((entry) => entry.isIntersecting);
+        if (!visible) return;
+
+        items.forEach((el, index) => {
+          window.setTimeout(() => {
+            el.classList.remove('opacity-0', 'translate-y-6');
+          }, index * 85);
+        });
+        obs.disconnect();
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+
+    obs.observe(items[0]);
+  }
+
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initFooterReveal)
+    : initFooterReveal();
+</script>

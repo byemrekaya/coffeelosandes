@@ -35,60 +35,112 @@ const detailRows: { labelKey: string; value: string }[] = [
 ];
 
 const tastingRows = lot.tastingStructured ?? [];
+
+function isProcessBadge(currentLot: CoffeeLot): boolean {
+  const process = currentLot.process.toLowerCase();
+  return process.includes('experimental') || process.includes('anaerobic');
+}
+
+function splitToChips(value: string): string[] {
+  const parts = value
+    .split(/[,;/]|·/g)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  if (parts.length < 2 || parts.length > 6) return [];
+  if (parts.some((part) => part.length > 28)) return [];
+  return parts;
+}
 ---
 
-<section id="lot-details" class="border-y border-line bg-paper-deep/90 py-20 md:py-24" data-reveal>
+<section id="lot-details" class="section-band-b border-y border-line py-20 md:py-24" data-reveal>
   <div class="section-shell">
     <div class="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="stage-eyebrow mb-2">{t(locale, 'coffee.techEyebrow')}</p>
-        <h2 class="font-display text-2xl font-semibold text-ink md:text-3xl">{t(locale, 'coffee.techTitle')}</h2>
+        <h2 class="font-display text-2xl font-semibold text-heading md:text-3xl">{t(locale, 'coffee.techTitle')}</h2>
       </div>
-      <p class="max-w-md text-sm text-ink/60">{t(locale, 'coffee.techDesc')}</p>
+      <p class="max-w-md text-[15px] text-[#6f6a61] md:text-base">{t(locale, 'coffee.techDesc')}</p>
     </div>
 
-    <div class="overflow-hidden border border-line/90 bg-surface shadow-card">
-      <div class="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden="true"></div>
-      <div class="px-5 py-6 md:px-8 md:py-7">
-        <dl class="divide-y divide-line/70 overflow-hidden border border-line/80 bg-paper/50">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <article class="rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+        <div class="mb-7">
+          <span class="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6f7f5f]">
+            {t(locale, 'coffee.techEyebrow')}
+          </span>
+          <h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] font-semibold leading-tight text-heading">
+            {t(locale, 'coffee.techTitle')}
+          </h3>
+          <p class="mt-2 text-[14px] text-[#6f6a61]">{t(locale, 'coffee.techDesc')}</p>
+        </div>
+
+        <dl class="divide-y divide-[#e7dfd3]">
           {detailRows.map((row) => (
-            <div class="flex flex-col gap-2 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-7 sm:px-5">
-              <dt class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/55">{t(locale, row.labelKey)}</dt>
-              <dd class="text-[15px] font-semibold leading-snug text-ink sm:max-w-[62%] sm:text-right">{row.value}</dd>
+            <div class="grid grid-cols-1 gap-3 py-5 sm:grid-cols-[minmax(0,180px)_1fr] sm:items-start sm:gap-6">
+              <dt class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a847b]">{t(locale, row.labelKey)}</dt>
+              <dd class="sm:text-right">
+                {
+                  row.labelKey === 'coffee.techProcess' && isProcessBadge(lot) ? (
+                    <span class="inline-flex rounded-full border border-[#cfd9c7] bg-[#eef4e8] px-4 py-1.5 text-sm font-semibold text-heading">
+                      {row.value}
+                    </span>
+                  ) : row.labelKey === 'coffee.techFermentation' ? (
+                    <span class="inline-flex rounded-full border border-[#ddd4c7] bg-[#f4efe6] px-4 py-1.5 text-sm font-semibold text-[#4f4a44]">
+                      {row.value}
+                    </span>
+                  ) : row.labelKey === 'coffee.techAltitude' ? (
+                    <span class="inline-flex rounded-full bg-[#f1ede5] px-4 py-1.5 text-sm font-semibold text-[#4f4a44]">
+                      {row.value}
+                    </span>
+                  ) : row.labelKey === 'coffee.techScore' ? (
+                    <span class="inline-flex rounded-full bg-[#1f1f1c] px-4 py-1.5 text-sm font-semibold text-white">
+                      {row.value}
+                    </span>
+                  ) : (
+                    <span class="text-[18px] font-semibold leading-snug text-[#1f1f1c]">{row.value}</span>
+                  )
+                }
+              </dd>
             </div>
           ))}
         </dl>
-      </div>
-    </div>
+      </article>
 
-    {
-      tastingRows.length > 0 && (
-        <div class="mt-12 border-t border-line/60 pt-12 md:mt-14 md:pt-14">
-          <div class="mb-8">
-            <p class="stage-eyebrow mb-2">{t(locale, 'coffee.tastingSheetEyebrow')}</p>
-            <h3 class="font-display text-xl font-semibold tracking-tight text-ink md:text-2xl">
+      {tastingRows.length > 0 && (
+        <article class="rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.04)]">
+          <div class="mb-7">
+            <span class="mb-2 block text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6f7f5f]">
+              {t(locale, 'coffee.tastingSheetEyebrow')}
+            </span>
+            <h3 class="font-display text-[clamp(1.85rem,3vw,2.4rem)] font-semibold leading-tight text-heading">
               {t(locale, 'coffee.tastingSheetTitle')}
             </h3>
+            <p class="mt-2 text-[14px] text-[#6f6a61]">{t(locale, 'coffee.techDesc')}</p>
           </div>
-          <div class="overflow-hidden border border-line/90 bg-surface shadow-card">
-            <div class="h-1 w-full bg-gradient-to-r from-transparent via-gold to-transparent" aria-hidden="true"></div>
-            <div class="px-5 py-6 md:px-8 md:py-7">
-              <dl class="divide-y divide-line/70 overflow-hidden border border-line/80 bg-paper/50">
-                {tastingRows.map((row) => (
-                  <div class="flex flex-col gap-2 px-4 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-7 sm:px-5">
-                    <dt class="max-w-[min(100%,220px)] shrink-0 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/55">
-                      {row.label}
-                    </dt>
-                    <dd class="text-[15px] font-semibold leading-relaxed text-ink sm:max-w-[62%] sm:text-right">
-                      {row.value}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            </div>
+
+          <div class="space-y-4">
+            {tastingRows.map((row) => {
+              const chips = splitToChips(row.value);
+              return (
+                <div class="rounded-2xl border border-[#e7dfd3] bg-[#f9f6f0] p-5">
+                  <dt class="mb-3 text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8a847b]">{row.label}</dt>
+                  <dd>
+                    {chips.length > 0 ? (
+                      <div class="flex flex-wrap gap-2">
+                        {chips.map((chip) => (
+                          <span class="rounded-full bg-white px-3 py-2 text-sm font-medium text-[#1f1f1c]">{chip}</span>
+                        ))}
+                      </div>
+                    ) : (
+                      <p class="text-[17px] font-medium leading-7 text-[#1f1f1c]">{row.value}</p>
+                    )}
+                  </dd>
+                </div>
+              );
+            })}
           </div>
-        </div>
-      )
-    }
+        </article>
+      )}
+    </div>
   </div>
 </section>

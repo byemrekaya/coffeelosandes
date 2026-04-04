@@ -3,7 +3,6 @@ import { type CoffeeLot, getLotImageSrc, lotScoreLine } from '../../data/coffeeL
 import type { Locale } from '../../i18n/types';
 import { withLang } from '../../i18n/paths';
 import { t } from '../../i18n/t';
-import LotTrustBadges from './LotTrustBadges.astro';
 
 interface Props {
   lot: CoffeeLot;
@@ -30,65 +29,48 @@ const segmentLabelKey =
 
 <a
   href={withLang(`/coffees/${lot.slug}`, locale)}
-  class="group relative flex h-full flex-col overflow-hidden border border-line/90 bg-surface shadow-card transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:shadow-card-hover"
+  class="group relative flex h-[34rem] flex-col overflow-hidden rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)] md:h-[36rem]"
 >
-  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
-
-  <div class="relative aspect-[4/3] overflow-hidden bg-[#1a1510] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.07)]">
+  <div class="relative h-60 overflow-hidden bg-[#e9e2d6] md:h-72">
     <img
       src={coverSrc}
       alt=""
-      class="absolute inset-0 h-full w-full object-cover object-[center_38%] contrast-[1.03] saturate-[1.04] transition duration-[1.1s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.045]"
+      class="absolute inset-0 h-full w-full object-cover object-[center_38%] transition duration-500 ease-out group-hover:scale-[1.03]"
       loading="lazy"
       decoding="async"
       width="800"
       height="600"
     />
     <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_88%_68%_at_50%_16%,rgba(212,168,72,0.24),transparent_60%),radial-gradient(ellipse_78%_58%_at_100%_88%,rgba(44,30,20,0.34),transparent_52%)]"
+      class="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent"
       aria-hidden="true"
     />
-    <div class="absolute inset-0 grain-overlay opacity-[0.42]" aria-hidden="true" />
-    <div
-      class="absolute inset-0 bg-gradient-to-b from-[rgba(55,38,26,0.2)] via-[rgba(0,0,0,0.06)] to-[rgba(10,7,5,0.9)]"
-      aria-hidden="true"
-    />
-    <div class="absolute inset-5 flex flex-col justify-between">
-      <div>
-        <p class="mb-2 inline-flex items-center border border-white/30 bg-black/30 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-white/95">
-          {lot.collectionLabel ?? t(locale, segmentLabelKey)}
-        </p>
-        <p class="text-[11px] font-medium uppercase tracking-[0.18em] text-white/65">
-          #{lot.rank} · SCA {lotScoreLine(lot)}
-        </p>
-      </div>
-      <p class="text-[11px] uppercase tracking-[0.14em] text-white/75">
-        {lot.region}, {lot.country} · {lot.process}
+    <div class="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
+      <p class="inline-flex items-center rounded-full border border-white/35 bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+        {lot.collectionLabel ?? t(locale, segmentLabelKey)}
       </p>
+      <span class="inline-flex rounded-full bg-black/80 px-3 py-1.5 text-[12px] font-semibold text-white backdrop-blur-sm">
+        {lotScoreLine(lot)}
+      </span>
     </div>
   </div>
 
-  <div class="flex flex-1 flex-col justify-between gap-4 px-5 py-4 text-[12px] text-ink/75">
+  <div class="flex flex-1 flex-col justify-between p-6">
     <div>
-      <div class="flex flex-wrap items-start gap-2.5">
-        <h3 class="min-w-0 flex-1 font-display text-[1.28rem] font-semibold leading-snug tracking-tight text-ink md:text-[1.35rem]">
-          {lot.name}
-        </h3>
-        <LotTrustBadges locale={locale} class="pt-0.5" />
-      </div>
-      <p class="mt-3 line-clamp-3 leading-relaxed">{lot.commercialSummary}</p>
+      <h3 class="font-display text-[1.75rem] font-semibold leading-[1.08] tracking-header text-heading md:text-[1.95rem]">
+        {lot.name}
+      </h3>
+      <p class="mt-2 text-[11px] font-medium uppercase tracking-[0.16em] text-[#8a847b]">
+        {lot.region}, {lot.country}
+      </p>
+      <p class="mt-4 overflow-hidden text-[16px] leading-[1.6] text-[#5f5b55] [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4]">
+        {lot.commercialSummary}
+      </p>
     </div>
-    <div class="flex flex-wrap gap-2">
-      {lot.flavorTags.slice(0, 4).map((note) => (
-        <span class="border border-line/80 bg-paper px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-ink/80">
-          {note}
-        </span>
-      ))}
-    </div>
-    <div class="mt-1 flex items-center justify-between border-t border-line/80 pt-3">
-      <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/50">{t(locale, segmentLabelKey)}</span>
-      <span class="text-[10px] font-semibold uppercase tracking-[0.16em] text-gold transition-colors group-hover:text-ink">
-        {t(locale, 'home.lotDetail')} ->
+
+    <div class="mt-6 border-t border-[#e7dfd3] pt-5 text-center">
+      <span class="text-[13px] font-semibold uppercase tracking-[0.16em] text-heading transition group-hover:tracking-[0.18em]">
+        {t(locale, 'home.lotDetail')}
       </span>
     </div>
   </div>

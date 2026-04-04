@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getLangStaticPaths } from '../../i18n/staticPaths';
+import type { Locale } from '../../i18n/types';
+import SectionHeader from '../../components/SectionHeader.astro';
+import { t } from '../../i18n/t';
+import { site } from '../../config/site';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const { lang } = Astro.params;
+const locale = lang as Locale;
+const officeAddress = 'Grazer Platz 10, 12157 Berlin';
+const encodedAddress = encodeURIComponent(officeAddress);
+const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+---
+
+<BaseLayout locale={locale} title={t(locale, 'impressum.title')} description={t(locale, 'impressum.description')}>
+  <section class="pb-10 pt-36">
+    <div class="section-shell space-y-10">
+      <SectionHeader
+        eyebrow={t(locale, 'impressum.heroEyebrow')}
+        title={t(locale, 'impressum.heroTitle')}
+      />
+    </div>
+  </section>
+
+  <section class="pb-24">
+    <div class="section-shell max-w-3xl space-y-8 text-[15px] leading-relaxed text-ink/85">
+      <div>
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'impressum.companyTitle')}</h2>
+        <p class="mt-2">{site.legalEntityName}</p>
+        <p>{officeAddress}</p>
+      </div>
+
+      <div>
+        <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'impressum.contactTitle')}</h2>
+        <p class="mt-2">
+          E-Mail:
+          <a href={`mailto:${site.contactEmail}`} class="underline underline-offset-2 hover:text-ink">
+            {site.contactEmail}
+          </a>
+        </p>
+      </div>
+
+      <div class="rounded-xl border border-line bg-surface-muted p-5">
+        <div class="mb-3 flex items-center justify-between gap-3">
+          <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">Standort</h2>
+          <a
+            href={mapsLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[11px] font-semibold uppercase tracking-[0.14em] text-heading/80 underline-offset-4 hover:text-heading hover:underline"
+          >
+            Google Maps
+          </a>
+        </div>
+        <div class="aspect-[16/9] overflow-hidden rounded-lg border border-line">
+          <iframe
+            src={mapSrc}
+            class="h-full w-full border-0"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title={officeAddress}
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

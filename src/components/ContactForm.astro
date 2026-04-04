@@ -14,14 +14,14 @@ const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/cont
 ---
 
 <form
-  class="glass-panel space-y-6 px-8 py-10 md:px-10 md:py-12"
+  class="space-y-6 rounded-[24px] border border-[#ded7c9] bg-white px-8 py-10 shadow-[0_18px_40px_rgba(22,18,12,0.08)] md:px-10 md:py-12"
   aria-label={t(locale, 'form.aria')}
   action={formAction}
   method="post"
 >
   <input type="hidden" name="_redirect" value={redirectPath} />
 
-  <p class="text-sm text-ink-muted">{t(locale, 'form.helper')}</p>
+  <p class="text-sm leading-relaxed text-ink-muted">{t(locale, 'form.helper')}</p>
 
   <input
     type="text"
@@ -33,7 +33,7 @@ const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/cont
   />
 
   <div class="space-y-2">
-    <label for="name" class="block text-xs font-medium uppercase tracking-[0.15em] text-ink">
+    <label for="name" class="block text-sm font-medium text-ink/88">
       {t(locale, 'form.name')}
     </label>
     <input
@@ -42,14 +42,14 @@ const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/cont
       type="text"
       required
       autocomplete="name"
-      class="w-full rounded-none border border-line bg-surface-muted px-4 py-3.5 text-[15px] text-cream placeholder:text-cream/35 focus:border-terracotta/60 focus:outline-none focus:ring-1 focus:ring-terracotta/40 transition"
+      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
       placeholder={t(locale, 'form.namePh')}
       aria-required="true"
     />
   </div>
 
   <div class="space-y-2">
-    <label for="contact" class="block text-xs font-medium uppercase tracking-[0.15em] text-ink">
+    <label for="contact" class="block text-sm font-medium text-ink/88">
       {t(locale, 'form.contact')}
     </label>
     <input
@@ -58,28 +58,60 @@ const formAction = base.endsWith('/') ? `${base}api/contact` : `${base}/api/cont
       type="text"
       required
       autocomplete="email"
-      class="w-full rounded-none border border-line bg-surface-muted px-4 py-3.5 text-[15px] text-cream placeholder:text-cream/35 focus:border-terracotta/60 focus:outline-none focus:ring-1 focus:ring-terracotta/40 transition"
+      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
       placeholder={t(locale, 'form.contactPh')}
       aria-required="true"
     />
   </div>
 
   <div class="space-y-2">
-    <label for="message" class="block text-xs font-medium uppercase tracking-[0.15em] text-ink">
+    <label for="company" class="block text-sm font-medium text-ink/88">
+      {t(locale, 'form.company')}
+    </label>
+    <input
+      id="company"
+      name="company"
+      type="text"
+      autocomplete="organization"
+      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
+      placeholder={t(locale, 'form.companyPh')}
+    />
+  </div>
+
+  <div class="space-y-2">
+    <label for="requestType" class="block text-sm font-medium text-ink/88">
+      {t(locale, 'form.requestType')}
+    </label>
+    <select
+      id="requestType"
+      name="requestType"
+      class="w-full rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
+    >
+      <option value="">{t(locale, 'form.requestTypePh')}</option>
+      <option value="wholesale">{t(locale, 'form.optionWholesale')}</option>
+      <option value="white-label">{t(locale, 'form.optionWhiteLabel')}</option>
+      <option value="distributor">{t(locale, 'form.optionDistributor')}</option>
+      <option value="office-solution">{t(locale, 'form.optionOffice')}</option>
+      <option value="other">{t(locale, 'form.optionOther')}</option>
+    </select>
+  </div>
+
+  <div class="space-y-2">
+    <label for="message" class="block text-sm font-medium text-ink/88">
       {t(locale, 'form.message')}
     </label>
     <textarea
       id="message"
       name="message"
-      rows="5"
-      class="w-full rounded-none border border-line bg-surface-muted px-4 py-3.5 text-[15px] text-cream placeholder:text-cream/35 focus:border-terracotta/60 focus:outline-none focus:ring-1 focus:ring-terracotta/40 transition resize-y min-h-[120px]"
+      rows="6"
+      class="w-full min-h-[150px] resize-y rounded-xl border border-[#d9d1c3] bg-[#fcfbf8] px-4 py-4 text-[15px] text-ink placeholder:text-ink/42 focus:border-heading/55 focus:outline-none focus:ring-2 focus:ring-heading/20 transition"
       placeholder={t(locale, 'form.messagePh')}
     ></textarea>
-    <p class="text-[11px] text-ink-muted">{t(locale, 'form.messageHint')}</p>
+    <p class="text-[11px] text-ink-muted">{t(locale, 'form.privacyNote')}</p>
   </div>
 
-  <div class="pt-2">
-    <button type="submit" class="btn-primary w-full md:w-auto">
+  <div class="pt-1">
+    <button type="submit" class="btn-primary w-full justify-center">
       {t(locale, 'form.submit')}
     </button>
   </div>

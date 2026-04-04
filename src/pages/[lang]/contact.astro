@@ -3,7 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../i18n/staticPaths';
 import type { Locale } from '../../i18n/types';
 import ContactForm from '../../components/ContactForm.astro';
-import SectionHeader from '../../components/SectionHeader.astro';
 import { site, mailtoB2B } from '../../config/site';
 import { t } from '../../i18n/t';
 
@@ -13,74 +12,103 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const locale = lang as Locale;
+const officeAddress = 'Grazer Platz 10, 12157 Berlin';
+const encodedAddress = encodeURIComponent(officeAddress);
+const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;
+const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
 
 const formSent = Astro.url.searchParams.get('sent') === '1';
 const formError = Astro.url.searchParams.get('error') === '1';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'contact.title')} description={t(locale, 'contact.description')}>
-  <section class="pt-36 pb-20">
-    <div class="section-shell space-y-10">
-      <SectionHeader
-        eyebrow={t(locale, 'contact.heroEyebrow')}
-        title={t(locale, 'contact.heroTitle')}
-        description={t(locale, 'contact.heroDesc')}
-      />
+  <section class="section-band-a border-b border-line/60 pb-14 pt-32 md:pb-16 md:pt-36">
+    <div class="section-shell">
+      <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div class="max-w-3xl">
+          <p class="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#6f7f5f]">
+            {t(locale, 'contact.heroEyebrow')}
+          </p>
+          <h1 class="font-display text-[clamp(2.1rem,4.8vw,3.6rem)] font-semibold leading-[1.07] tracking-tight text-heading">
+            {t(locale, 'contact.heroTitle')}
+          </h1>
+          <p class="mt-5 text-[17px] leading-[1.65] text-[#5f5b55]">
+            {t(locale, 'contact.heroDesc')}
+          </p>
+          <div class="mt-7 flex flex-wrap gap-2.5">
+            <span class="rounded-full border border-[#d8d0c2] bg-[#f7f3ec] px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.heroTrust1')}</span>
+            <span class="rounded-full border border-[#d8d0c2] bg-[#f7f3ec] px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.heroTrust2')}</span>
+            <span class="rounded-full border border-[#d8d0c2] bg-[#f7f3ec] px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.heroTrust3')}</span>
+          </div>
+        </div>
+        <div class="flex justify-start lg:justify-end">
+          <div class="rounded-full border border-[#d5ccb9] bg-[#f6f2e9] px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.15em] text-heading">
+            {t(locale, 'contact.responseBadge')}
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="pb-24">
+  <section class="section-band-b py-16 md:py-20">
     <div class="section-shell grid gap-16 lg:grid-cols-[1fr_minmax(0,1.2fr)] lg:items-start">
       <div class="space-y-8">
-        <div>
-          <h3 class="stage-eyebrow mb-3">{t(locale, 'contact.infoTitle')}</h3>
-          <ul class="space-y-3 text-sm text-ink-muted">
-            <li>
-              <strong class="text-ink">{t(locale, 'contact.emailLabel')}</strong>
-              <a href={mailtoB2B} class="ml-2 text-gold hover:text-ink transition">{site.contactEmail}</a>
+        <div class="rounded-[24px] border border-[#d8cfbf] bg-[#f2eee5] px-7 py-8 shadow-[0_16px_34px_rgba(23,20,14,0.08)]">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">{t(locale, 'contact.panelEyebrow')}</p>
+          <h2 class="mt-3 font-display text-[clamp(1.45rem,2.8vw,2rem)] font-semibold leading-tight text-heading">{t(locale, 'contact.panelTitle')}</h2>
+          <p class="mt-3 text-[15px] leading-relaxed text-ink/75">{t(locale, 'contact.panelDesc')}</p>
+
+          <ul class="mt-6 space-y-3 text-[14px] text-ink/78">
+            <li class="flex gap-3">
+              <span class="mt-0.5 text-heading">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+              </span>
+              <span><strong class="font-semibold text-ink">{t(locale, 'contact.emailLabel')}</strong> <a href={mailtoB2B} class="text-heading hover:text-ink transition">{site.contactEmail}</a></span>
             </li>
-            <li>
-              <strong class="text-ink">{t(locale, 'contact.regionLabel')}</strong>
-              {t(locale, 'contact.regionValue')}
+            <li class="flex gap-3">
+              <span class="mt-0.5 text-heading">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
+              </span>
+              <span><strong class="font-semibold text-ink">{t(locale, 'contact.regionLabel')}</strong> {t(locale, 'contact.regionValue')}</span>
             </li>
-            <li>
-              <strong class="text-ink">{t(locale, 'contact.partnerLabel')}</strong>
-              {t(locale, 'contact.partnerValue')}
+            <li class="flex gap-3">
+              <span class="mt-0.5 text-heading">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18"></path><path d="M5 21V7l7-4 7 4v14"></path><path d="M9 10h6M9 14h6"></path></svg>
+              </span>
+              <span><strong class="font-semibold text-ink">{t(locale, 'contact.addressLabel')}</strong> {officeAddress}</span>
             </li>
-            <li class="pt-4 text-[12px] text-ink-muted/90">
-              {t(locale, 'contact.infoFootnote')}
+            <li class="flex gap-3">
+              <span class="mt-0.5 text-heading">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18"></path><path d="M12 3a15 15 0 0 1 0 18"></path><path d="M12 3a15 15 0 0 0 0 18"></path></svg>
+              </span>
+              <span><strong class="font-semibold text-ink">{t(locale, 'contact.partnerLabel')}</strong> {t(locale, 'contact.partnerValue')}</span>
             </li>
           </ul>
+          <p class="mt-5 text-[12px] leading-relaxed text-ink/62">{t(locale, 'contact.infoFootnote')}</p>
         </div>
 
-        <div class="glass-panel px-6 py-8">
-          <h3 class="stage-eyebrow mb-4">{t(locale, 'contact.whoTitle')}</h3>
-          <ul class="space-y-2 text-sm text-cream/70">
-            <li>{t(locale, 'contact.who1')}</li>
-            <li>{t(locale, 'contact.who2')}</li>
-            <li>{t(locale, 'contact.who3')}</li>
-            <li>{t(locale, 'contact.who4')}</li>
-            <li>{t(locale, 'contact.who5')}</li>
-          </ul>
+        <div class="rounded-[22px] border border-[#d9d1c3] bg-[#faf7f1] p-6">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">{t(locale, 'contact.networkEyebrow')}</p>
+          <h3 class="mt-2 font-display text-[1.28rem] font-semibold text-heading">{t(locale, 'contact.networkTitle')}</h3>
+          <p class="mt-3 text-[14px] leading-relaxed text-ink/74">{t(locale, 'contact.networkBody')}</p>
         </div>
 
-        <div class="rounded-xl border border-line bg-surface-muted p-6">
-          <h3 class="stage-eyebrow mb-3">{t(locale, 'contact.mapTitle')}</h3>
-          <div class="aspect-[4/3] rounded-xl bg-surface/95 flex items-center justify-center border border-line">
-            <p class="text-xs text-ink-muted uppercase tracking-[0.2em]">
-              {t(locale, 'contact.mapPlaceholder')}
-            </p>
+        <div class="rounded-[22px] border border-[#d9d1c3] bg-[#faf7f1] p-6">
+          <h3 class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">{t(locale, 'contact.whoTitle')}</h3>
+          <div class="mt-4 flex flex-wrap gap-2.5">
+            <span class="rounded-full border border-[#d8d0c2] bg-white px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.who1')}</span>
+            <span class="rounded-full border border-[#d8d0c2] bg-white px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.who2')}</span>
+            <span class="rounded-full border border-[#d8d0c2] bg-white px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.who3')}</span>
+            <span class="rounded-full border border-[#d8d0c2] bg-white px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.who4')}</span>
+            <span class="rounded-full border border-[#d8d0c2] bg-white px-3.5 py-2 text-[12px] font-medium text-ink/78">{t(locale, 'contact.who5')}</span>
           </div>
-          <p class="mt-3 text-[11px] text-ink-muted">
-            {t(locale, 'contact.mapNote')}
-          </p>
         </div>
       </div>
 
       <div class="space-y-4">
         {formSent && (
           <p
-            class="border border-gold/40 bg-gold/10 px-4 py-3 text-sm leading-relaxed text-ink"
+            class="border border-heading/40 bg-heading/10 px-4 py-3 text-sm leading-relaxed text-ink"
             role="status"
           >
             {t(locale, 'contact.formSent')}
@@ -94,8 +122,50 @@ const formError = Astro.url.searchParams.get('error') === '1';
             {t(locale, 'contact.formError')}
           </p>
         )}
+        <div class="mb-2 rounded-[24px] border border-[#e1d9cd] bg-white px-8 py-7 shadow-[0_18px_40px_rgba(22,18,12,0.08)] md:px-10">
+          <h3 class="font-display text-[1.55rem] font-semibold text-heading">{t(locale, 'contact.formCardTitle')}</h3>
+          <p class="mt-2 text-[14px] leading-relaxed text-ink/70">{t(locale, 'contact.formCardDesc')}</p>
+        </div>
         <ContactForm locale={locale} />
       </div>
+    </div>
+  </section>
+
+  <section class="section-band-a border-y border-line/60 py-10">
+    <div class="section-shell grid gap-4 md:grid-cols-3">
+      <article class="rounded-2xl border border-[#d9d1c3] bg-[#faf7f1] px-5 py-4 text-[13px] font-medium text-ink/76">{t(locale, 'contact.strip1')}</article>
+      <article class="rounded-2xl border border-[#d9d1c3] bg-[#faf7f1] px-5 py-4 text-[13px] font-medium text-ink/76">{t(locale, 'contact.strip2')}</article>
+      <article class="rounded-2xl border border-[#d9d1c3] bg-[#faf7f1] px-5 py-4 text-[13px] font-medium text-ink/76">{t(locale, 'contact.strip3')}</article>
+    </div>
+  </section>
+
+  <section class="section-band-b py-16 md:py-20">
+    <div class="section-shell">
+      <div class="mb-4 flex items-center justify-between gap-3">
+        <div>
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">{t(locale, 'contact.mapEyebrow')}</p>
+          <h3 class="mt-2 font-display text-[1.5rem] font-semibold text-heading">{t(locale, 'contact.mapTitle')}</h3>
+          <p class="mt-1 text-[14px] text-ink/70">{t(locale, 'contact.mapDesc')}</p>
+        </div>
+        <a
+          href={mapsLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[11px] font-semibold uppercase tracking-[0.14em] text-heading/80 underline-offset-4 hover:text-heading hover:underline"
+        >
+          {t(locale, 'contact.mapLink')}
+        </a>
+      </div>
+      <div class="aspect-[16/7] overflow-hidden rounded-[22px] border border-[#d9d1c3] bg-white">
+        <iframe
+          src={mapSrc}
+          class="h-full w-full border-0"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title={officeAddress}
+        ></iframe>
+      </div>
+      <p class="mt-3 text-[12px] text-ink/62">{t(locale, 'contact.mapNote')}</p>
     </div>
   </section>
 </BaseLayout>

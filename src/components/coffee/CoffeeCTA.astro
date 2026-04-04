@@ -1,5 +1,4 @@
 ---
-import { site, mailtoB2B } from '../../config/site';
 import type { Locale } from '../../i18n/types';
 import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
@@ -13,26 +12,19 @@ const { lotName, locale } = Astro.props;
 const title = t(locale, 'coffee.ctaTitle').replace('{name}', lotName);
 ---
 
-<section class="pb-24 pt-8 md:pb-32" data-reveal>
+<section class="section-band-a border-t border-line pb-24 pt-12 md:pb-32 md:pt-16" data-reveal>
   <div class="section-shell">
-    <div class="relative overflow-hidden rounded-2xl border border-line bg-surface px-8 py-12 md:px-14 md:py-16">
-      <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-terracotta/15 blur-3xl" aria-hidden="true"></div>
-      <div class="relative mx-auto max-w-2xl text-center">
-        <p class="stage-eyebrow mb-4">{t(locale, 'coffee.wholesale')}</p>
-        <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">
-          {title}
-        </h2>
-        <p class="mt-5 text-[15px] leading-relaxed text-cream/70">
-          {t(locale, 'coffee.ctaBody')}
-        </p>
-        <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href={withLang('/contact', locale)} class="btn-primary px-10">
-            {t(locale, 'coffee.ctaPrimary')}
-          </a>
-          <a href={mailtoB2B} class="btn-secondary px-10">
-            {site.contactEmail}
-          </a>
-        </div>
+    <div class="mx-auto max-w-3xl text-center">
+      <div class="space-y-4">
+        <p class="stage-eyebrow">{t(locale, 'coffee.wholesale')}</p>
+        <h2 class="stage-heading">{title}</h2>
+        <p class="stage-subtitle">{t(locale, 'coffee.ctaBody')}</p>
+      </div>
+
+      <div class="mt-8 flex justify-center">
+        <a href={withLang('/contact', locale)} class="btn-primary px-10">
+          {t(locale, 'coffee.ctaPrimary')}
+        </a>
       </div>
     </div>
   </div>

@@ -1,9 +1,8 @@
 ---
-import { type CoffeeLot, lotScoreLine } from '../../data/coffeeLots';
+import type { CoffeeLot } from '../../data/coffeeLots';
 import type { Locale } from '../../i18n/types';
 import { t } from '../../i18n/t';
-import { withLang } from '../../i18n/paths';
-import LotTrustBadges from './LotTrustBadges.astro';
+import CoffeeLotCard from './CoffeeLotCard.astro';
 
 interface Props {
   relatedLots: CoffeeLot[];
@@ -14,42 +13,21 @@ const { relatedLots, locale } = Astro.props;
 ---
 
 {relatedLots.length > 0 && (
-  <section class="border-t border-line pb-24 pt-20 md:pb-32 md:pt-24" data-reveal>
+  <section class="section-band-b border-t border-line pb-24 pt-20 md:pb-32 md:pt-24" data-reveal>
     <div class="section-shell">
       <div class="mb-12 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
         <div>
           <p class="stage-eyebrow mb-2">{t(locale, 'coffee.relatedEyebrow')}</p>
-          <h2 class="font-display text-2xl font-semibold text-cream md:text-3xl">{t(locale, 'coffee.relatedTitle')}</h2>
+          <h2 class="font-display text-2xl font-semibold text-heading md:text-3xl">{t(locale, 'coffee.relatedTitle')}</h2>
         </div>
-        <p class="max-w-md text-sm text-cream/55">
+        <p class="max-w-md text-sm text-ink-muted">
           {t(locale, 'coffee.relatedDesc')}
         </p>
       </div>
 
-      <div class="grid gap-6 md:grid-cols-3">
+      <div class="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         {relatedLots.map((lot) => (
-          <a
-            href={withLang(`/coffees/${lot.slug}`, locale)}
-            class="group flex flex-col rounded-xl border border-line bg-surface-muted p-6 transition-all hover:border-line hover:bg-surface/90"
-          >
-            <div class="flex items-start justify-between gap-3">
-              <div class="flex min-w-0 flex-1 items-start gap-2">
-                <h3 class="min-w-0 flex-1 font-display text-xl font-semibold text-cream group-hover:text-cream">
-                  {lot.name}
-                </h3>
-                <LotTrustBadges locale={locale} inverse class="pt-0.5" />
-              </div>
-              <span class="shrink-0 font-display text-lg tabular-nums text-gold">{lotScoreLine(lot)}</span>
-            </div>
-            <p class="mt-2 text-[13px] text-cream/50">
-              {lot.region} · {lot.process}
-            </p>
-            <p class="mt-4 line-clamp-3 flex-1 text-sm leading-relaxed text-cream/65">{lot.commercialSummary}</p>
-            <span class="mt-6 inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-wider text-gold/90">
-              {t(locale, 'coffee.viewLot')}
-              <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
-            </span>
-          </a>
+          <CoffeeLotCard lot={lot} locale={locale} />
         ))}
       </div>
     </div>

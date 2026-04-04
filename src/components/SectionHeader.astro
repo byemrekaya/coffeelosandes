@@ -10,7 +10,7 @@ interface Props {
 const { eyebrow, title, description, align = 'left', variant = 'default' } = Astro.props;
 
 const isDark = variant === 'onDark';
-const barClass = isDark ? 'bg-white' : 'bg-gold';
+const barClass = isDark ? 'bg-white' : 'bg-heading';
 const eyebrowClass = isDark
   ? 'text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90'
   : 'stage-eyebrow';

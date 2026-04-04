@@ -22,19 +22,19 @@ const blocks = [
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'qualityPage.title')} description={t(locale, 'qualityPage.description')}>
-  <section class="border-b border-line pb-16 pt-32 md:pb-20 md:pt-36">
+  <section class="section-band-a w-full pb-16 pt-32 md:pb-20 md:pt-36">
     <div class="section-shell max-w-3xl">
       <p class="stage-eyebrow mb-3">{t(locale, 'qualityPage.heroEyebrow')}</p>
-      <h1 class="font-display text-display-md font-semibold tracking-tight-display text-ink">{t(locale, 'qualityPage.heroTitle')}</h1>
+      <h1 class="font-display text-display-md font-semibold tracking-header text-heading">{t(locale, 'qualityPage.heroTitle')}</h1>
       <p class="mt-6 text-base leading-relaxed text-ink-muted">{t(locale, 'qualityPage.heroDesc')}</p>
     </div>
   </section>
 
-  <section class="py-16 md:py-24">
-    <div class="section-shell grid gap-8 md:grid-cols-2">
+  <section class="section-band-b w-full py-16 md:py-24">
+    <div class="section-shell grid gap-10 md:grid-cols-2 md:gap-12">
       {blocks.map((b) => (
-        <article class="glass-panel px-8 py-10" data-reveal>
-          <h2 class="font-display text-lg font-semibold text-ink md:text-xl">{t(locale, b.titleKey)}</h2>
+        <article class="border-l-[3px] border-heading/30 pl-6 md:pl-8" data-reveal>
+          <h2 class="font-display text-lg font-semibold text-heading md:text-xl">{t(locale, b.titleKey)}</h2>
           <p class="mt-4 text-sm leading-relaxed text-ink-muted">{t(locale, b.bodyKey)}</p>
         </article>
       ))}
@@ -42,6 +42,7 @@ const blocks = [
   </section>
 
   <CTASection
+    variant="a"
     eyebrow={t(locale, 'cta.eyebrow')}
     title={t(locale, 'cta.title')}
     body={t(locale, 'cta.body')}

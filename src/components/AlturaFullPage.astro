@@ -9,6 +9,29 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+
+const farmToRoasteryFlow = [
+  {
+    title: t(locale, 'home.flowStep1Title'),
+    body: t(locale, 'home.flowStep1Body'),
+    icon: 'harvest',
+  },
+  {
+    title: t(locale, 'home.flowStep2Title'),
+    body: t(locale, 'home.flowStep2Body'),
+    icon: 'shipment',
+  },
+  {
+    title: t(locale, 'home.flowStep3Title'),
+    body: t(locale, 'home.flowStep3Body'),
+    icon: 'storage',
+  },
+  {
+    title: t(locale, 'home.flowStep4Title'),
+    body: t(locale, 'home.flowStep4Body'),
+    icon: 'roastery',
+  },
+] as const;
 ---
 
 <section id="hero" class="relative min-h-screen overflow-hidden scroll-mt-0">
@@ -27,97 +50,109 @@ const { locale } = Astro.props;
       <source src="/bannervideo.mp4" type="video/mp4" />
     </video>
 
-    <!-- Okunabilirlik için çok katmanlı overlay -->
+    <!-- Cinematic okunabilirlik overlay -->
     <div
-      class="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/50 to-ink/75"
+      class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75"
       aria-hidden="true"
     ></div>
-    <!-- Altın ton aksan -->
+    <!-- Marka yeşili hafif aksan -->
     <div
-      class="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_30%_50%,rgba(200,154,60,0.12),transparent_65%)]"
+      class="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_30%_50%,rgba(40,96,63,0.14),transparent_65%)]"
       aria-hidden="true"
     ></div>
   </div>
 
   <!-- İçerik katmanı -->
-  <div class="relative z-10 flex min-h-screen items-center">
-    <div class="w-full px-6 pb-24 pt-32 md:px-12 lg:px-20 xl:px-28">
-      <div class="flex gap-6 lg:gap-10">
-        <!-- Altın dikey çizgi -->
-        <span
-          data-hero-bar
-          class="mt-1 hidden h-[min(12rem,22vh)] w-[3px] shrink-0 rounded-none bg-gold lg:block"
-          aria-hidden="true"
-        ></span>
+  <div class="relative z-10 flex min-h-screen items-center justify-center">
+    <div class="w-full px-6 pb-24 pt-32 text-center md:px-10 lg:px-16 xl:px-20">
+      <div class="mx-auto max-w-4xl">
+        <div data-hero-logo>
+          <img
+            src="/navbarlogo.svg"
+            alt="Coffee Los Andes"
+            width="360"
+            height="92"
+            class="mx-auto h-16 w-auto max-w-[min(100%,360px)] object-contain drop-shadow-[0_6px_28px_rgba(0,0,0,0.42)] md:h-[10rem]"
+            loading="eager"
+            decoding="async"
+          />
+          <p class="mt-4 text-[18px] font-semibold uppercase tracking-[0.14em] text-white/75">
+            {site.legalEntityName}
+          </p>
+        </div>
 
-        <div class="min-w-0 max-w-2xl">
-          <!-- Logo + şirket adı -->
-          <div class="mb-8" data-hero-item>
-            <img
-              src="/logo.png"
-              alt="Coffee Los Andes"
-              width="112"
-              height="112"
-              class="h-14 w-auto object-contain object-left brightness-0 invert md:h-16"
-              loading="eager"
-              decoding="async"
-            />
-            <p class="mt-3 text-[11px] font-semibold uppercase leading-snug tracking-[0.14em] text-white/65 md:text-xs">
-              {site.legalEntityName}
-            </p>
-          </div>
+        <h1
+          data-hero-headline
+          class="mt-16 font-display text-[clamp(2.05rem,5.3vw,4.2rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-white drop-shadow-[0_3px_18px_rgba(0,0,0,0.62)] md:mt-20"
+        >
+          {t(locale, 'home.slogan')}
+        </h1>
 
-          <!-- Ana başlık -->
-          <h1
-            data-hero-headline
-            class="font-sans text-[clamp(2rem,5vw,3.5rem)] font-bold uppercase leading-[1.08] tracking-[0.06em] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]"
+        <div class="mt-10" data-hero-cta>
+          <a
+            href={withLang('/products', locale)}
+            class="inline-flex items-center justify-center rounded-full border border-white/55 bg-white/10 px-7 py-3 text-[12px] font-semibold uppercase tracking-[0.14em] text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 hover:border-white/80"
           >
-            {t(locale, 'home.slogan')}
-          </h1>
-
-          <!-- Alt başlık -->
-          <p class="mt-5 font-sans text-base font-semibold tracking-wide text-white/90 md:text-lg drop-shadow-[0_1px_6px_rgba(0,0,0,0.4)]" data-hero-item>
-            {t(locale, 'home.heroSubtitle')}
-          </p>
-
-          <!-- Açıklama metni -->
-          <p class="mt-5 max-w-xl text-[15px] leading-relaxed text-white/75 md:text-[16px] drop-shadow-[0_1px_4px_rgba(0,0,0,0.35)]" data-hero-item>
-            {t(locale, 'home.heroLead')}
-          </p>
-
-          <!-- CTA düğmeleri -->
-          <div class="mt-10 flex flex-wrap gap-3" data-hero-item>
-            <a href={withLang('/products', locale)} class="btn-primary inline-flex w-fit">
-              {t(locale, 'home.coffeesCtaAll')}
-            </a>
-            <a
-              href={withLang('/contact', locale)}
-              class="inline-flex w-fit items-center gap-2 rounded-none border border-white/40 bg-white/10 px-6 py-3 text-sm font-semibold uppercase tracking-[0.08em] text-white backdrop-blur-sm transition-all duration-200 hover:bg-white/20 hover:border-white/60"
-            >
-              {t(locale, 'nav.cta')}
-            </a>
-          </div>
+            {t(locale, 'home.coffeesCtaAll')}
+          </a>
         </div>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- Aşağı scroll göstergesi -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10" data-hero-scroll-hint aria-hidden="true">
-    <div class="flex flex-col items-center gap-2 opacity-60">
-      <div class="h-8 w-[1px] bg-white/50 animate-[scrollbar_1.8s_ease-in-out_infinite]"></div>
+<section class="border-t border-white/10 bg-[#0f0f0f]">
+  <div class="mx-auto max-w-6xl px-6 py-16 text-center md:py-20">
+    <h2 class="font-display text-[clamp(1.8rem,3.2vw,2.5rem)] font-semibold tracking-header text-white">
+      {t(locale, 'home.flowTitle')}
+    </h2>
+
+    <div class="relative mt-12 grid grid-cols-1 gap-10 md:grid-cols-4" data-flow-root>
+      <div class="pointer-events-none absolute left-0 right-0 top-7 hidden h-px bg-white/10 md:block" aria-hidden="true"></div>
+
+      {farmToRoasteryFlow.map((step, idx) => (
+        <article class="relative transition-all duration-300 hover:scale-[1.02] hover:opacity-100" data-flow-step data-step-index={idx}>
+          <div class="mb-4 flex justify-center">
+            <span
+              class="inline-flex h-14 w-14 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-all duration-300"
+              data-flow-icon
+            >
+              {step.icon === 'harvest' && (
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                  <path d="M7 21v-7a5 5 0 0 1 10 0v7" stroke-linecap="round" />
+                  <circle cx="12" cy="7" r="3" />
+                </svg>
+              )}
+              {step.icon === 'shipment' && (
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                  <path d="M3 7h12v9H3zM15 10h3l3 3v3h-6z" stroke-linejoin="round" />
+                  <circle cx="8" cy="18" r="1.5" />
+                  <circle cx="18" cy="18" r="1.5" />
+                </svg>
+              )}
+              {step.icon === 'storage' && (
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                  <path d="M3 10 12 4l9 6v10H3z" />
+                  <path d="M9 20v-5h6v5" />
+                </svg>
+              )}
+              {step.icon === 'roastery' && (
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                  <path d="M7 14a5 5 0 0 0 10 0V9H7z" />
+                  <path d="M17 11h1a2 2 0 1 1 0 4h-1" />
+                  <path d="M12 4c2 1.2 2 2.6.6 4M9 5.4c1.6 1 1.6 2.2.5 3.3" stroke-linecap="round" />
+                </svg>
+              )}
+            </span>
+          </div>
+
+          <h3 class="text-[1rem] font-semibold text-white transition-all duration-300" data-flow-title>{step.title}</h3>
+          <p class="mx-auto mt-2 max-w-[24ch] text-sm leading-relaxed text-white/60 transition-all duration-300" data-flow-body>{step.body}</p>
+        </article>
+      ))}
     </div>
   </div>
 </section>
-
-<style>
-  @keyframes scrollbar {
-    0%, 100% { transform: scaleY(0); transform-origin: top; opacity: 0; }
-    30% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-    70% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
-    99% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
-  }
-</style>
 
 <script>
   import { gsap } from 'gsap';
@@ -129,45 +164,90 @@ const { locale } = Astro.props;
     const scene = document.querySelector('[data-hero-scene]');
     const video = document.querySelector('[data-hero-video]');
     const headline = document.querySelector('[data-hero-headline]');
-    const bar = document.querySelector('[data-hero-bar]');
-    const items = document.querySelectorAll('[data-hero-item]');
-    const scrollHint = document.querySelector('[data-hero-scroll-hint]');
-    const navbar = document.querySelector('[data-navbar]');
+    const logo = document.querySelector('[data-hero-logo]');
+    const cta = document.querySelector('[data-hero-cta]');
 
     if (!scene || !headline) return;
 
     // Başlangıç durumları
-    if (navbar) gsap.set(navbar, { opacity: 0, y: -20 });
     gsap.set(scene, { opacity: 0 });
     if (video) gsap.set(video, { scale: 1.08 });
-    if (bar) gsap.set(bar, { scaleY: 0, transformOrigin: 'top center' });
     gsap.set(headline, { opacity: 0, y: 40, filter: 'blur(4px)' });
-    gsap.set(items, { opacity: 0, y: 24 });
-    if (scrollHint) gsap.set(scrollHint, { opacity: 0 });
+    if (logo) gsap.set(logo, { opacity: 0, y: 16 });
+    if (cta) gsap.set(cta, { opacity: 0, y: 40, filter: 'blur(4px)' });
 
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    // Navbar
-    if (navbar) tl.to(navbar, { opacity: 1, y: 0, duration: 0.5 });
-
     // Video arka plan açılır + yavaş zoom
-    tl.to(scene, { opacity: 1, duration: 1.1 }, '-=0.3');
+    tl.to(scene, { opacity: 1, duration: 1.1 }, '+=0');
     if (video) tl.to(video, { scale: 1, duration: 2.5, ease: 'power2.out' }, '<');
 
-    // Altın çizgi yukarıdan aşağıya uzar
-    if (bar) tl.to(bar, { scaleY: 1, duration: 0.7, ease: 'power2.out' }, '-=1.6');
+    // Logo önce gelsin
+    if (logo) tl.to(logo, { opacity: 1, y: 0, duration: 0.7 }, '-=1.55');
 
     // Ana başlık blur'dan netleşerek gelir
     tl.to(headline, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9 }, '-=1.2');
+    tl.to(cta, { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.9 }, '-=1.2');
+  }
 
-    // Alt öğeler sırayla (stagger)
-    tl.to(items, { opacity: 1, y: 0, duration: 0.7, stagger: 0.15 }, '-=0.5');
+  function initFlowProgress() {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
 
-    // Scroll hint
-    if (scrollHint) tl.to(scrollHint, { opacity: 1, duration: 0.6 }, '-=0.2');
+    const root = document.querySelector('[data-flow-root]');
+    const steps = Array.from(document.querySelectorAll<HTMLElement>('[data-flow-step]'));
+    if (!(root instanceof HTMLElement) || steps.length < 2) return;
+
+    const activateStep = (activeIndex: number) => {
+      steps.forEach((step, i) => {
+        const icon = step.querySelector<HTMLElement>('[data-flow-icon]');
+        const title = step.querySelector<HTMLElement>('[data-flow-title]');
+        const body = step.querySelector<HTMLElement>('[data-flow-body]');
+        const isActive = i === activeIndex;
+
+        if (icon) {
+          icon.classList.toggle('bg-white', isActive);
+          icon.classList.toggle('text-[#101010]', isActive);
+          icon.classList.toggle('border-white/90', isActive);
+          icon.classList.toggle('shadow-[0_0_18px_rgba(255,255,255,0.7)]', isActive);
+          icon.classList.toggle('bg-white/5', !isActive);
+          icon.classList.toggle('text-white', !isActive);
+          icon.classList.toggle('border-white/15', !isActive);
+        }
+
+        if (title) {
+          title.classList.toggle('drop-shadow-[0_0_12px_rgba(255,255,255,0.5)]', isActive);
+          title.classList.toggle('text-white/85', !isActive);
+        }
+
+        if (body) {
+          body.classList.toggle('text-white/85', isActive);
+          body.classList.toggle('drop-shadow-[0_0_10px_rgba(255,255,255,0.32)]', isActive);
+          body.classList.toggle('text-white/60', !isActive);
+        }
+      });
+    };
+
+    let stepIndex = -1;
+    let timer: number | undefined;
+
+    const runStep = () => {
+      stepIndex = (stepIndex + 1) % steps.length;
+      activateStep(stepIndex);
+    };
+
+    runStep();
+    timer = window.setInterval(runStep, 1400);
+
+    window.addEventListener('beforeunload', () => {
+      if (timer) window.clearInterval(timer);
+    });
   }
 
   document.readyState === 'loading'
-    ? document.addEventListener('DOMContentLoaded', initHomeHero)
-    : initHomeHero();
+    ? document.addEventListener('DOMContentLoaded', () => {
+        initHomeHero();
+        initFlowProgress();
+      })
+    : (initHomeHero(), initFlowProgress());
 </script>

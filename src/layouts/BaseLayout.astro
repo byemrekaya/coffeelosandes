@@ -6,6 +6,7 @@ import { dictionary } from '../i18n/dictionary';
 import { defaultLocale, resolveLocale } from '../i18n/config';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import CookieConsentModal from '../components/CookieConsentModal.astro';
 import { site } from '../config/site';
 import { withLang, stripLocaleFromPath } from '../i18n/paths';
 
@@ -61,7 +62,8 @@ const xDefaultHref = new URL(
     {!noindex && <link rel="canonical" href={canonicalURL} />}
     {!noindex && altPaths.map(({ href, hreflang }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
     {!noindex && <link rel="alternate" hreflang="x-default" href={xDefaultHref} />}
-    <link rel="icon" href="/logo.png" type="image/png" />
+    <link rel="icon" href="/navbarlogo.svg?v=1" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/navbarlogo.svg?v=1" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/logo.png" />
     {!noindex && (
       <>
@@ -77,11 +79,11 @@ const xDefaultHref = new URL(
         <meta name="twitter:image" content={ogImageURL} />
       </>
     )}
-    <meta name="theme-color" content="#0D2C3F" />
+    <meta name="theme-color" content="#28603f" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -93,6 +95,7 @@ const xDefaultHref = new URL(
       <slot />
     </main>
     {!hideFooter && <Footer locale={locale} />}
+    <CookieConsentModal locale={locale} />
 
     <script>
       import { initScrollReveal } from '../client/scroll-reveal';

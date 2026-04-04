@@ -6,9 +6,10 @@ import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
 import { dictionary } from '../../i18n/dictionary';
 import { coffeeLots } from '../../data/coffeeLots';
+import { venezuelaCoffeeMasterWithSlug } from '../../data/venezuelaCoffeeMaster';
 import { localizeCoffeeLots } from '../../i18n/localizeLot';
 import CoffeeLotCard from '../coffee/CoffeeLotCard.astro';
-import StorySpotlightImage from './StorySpotlightImage.astro';
+import CoffeeMasterCard from '../products/CoffeeMasterCard.astro';
 
 interface Props {
   locale: Locale;
@@ -24,12 +25,13 @@ const homeStory = dictionary[locale].homeStory as {
   body: string;
   paragraphs: string[];
   knowMore: string;
+  imageAlt: string;
+  badgeSince: string;
 };
-const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; body: string }[];
-const homeDict = dictionary[locale].home as Record<string, unknown>;
 const productsDict = dictionary[locale].products as Record<string, unknown>;
 const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
 const localizedLots = localizeCoffeeLots(coffeeLots, locale);
+const totalLots = localizedLots.length;
 
 const segmentDefs = [
   {
@@ -71,173 +73,112 @@ const segmentDefs = [
 ] as const;
 
 const defaultSegment = segmentDefs[0].id;
-
-const farmToRoasteryFlow = [
-  {
-    title: t(locale, 'home.flowStep1Title'),
-    body: t(locale, 'home.flowStep1Body'),
-    icon: 'harvest',
-  },
-  {
-    title: t(locale, 'home.flowStep2Title'),
-    body: t(locale, 'home.flowStep2Body'),
-    icon: 'shipment',
-  },
-  {
-    title: t(locale, 'home.flowStep3Title'),
-    body: t(locale, 'home.flowStep3Body'),
-    icon: 'storage',
-  },
-  {
-    title: t(locale, 'home.flowStep4Title'),
-    body: t(locale, 'home.flowStep4Body'),
-    icon: 'roastery',
-  },
+const totalCategories = segmentDefs.length;
+const masterSegmentDefs = [
+  { id: 'MICRO LOT', label: t(locale, 'products.segmentLabelMicro') },
+  { id: 'SPECIALTY', label: t(locale, 'products.segmentLabelSpecialty') },
+  { id: 'COMMERCIAL', label: t(locale, 'products.segmentLabelCommercial') },
 ] as const;
+const masterDefaultSegment = masterSegmentDefs[0].id;
+const masterTotalCategories = masterSegmentDefs.length;
+const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
+
 ---
 
-<section class="border-y border-line/80 bg-paper py-14 md:py-16" data-reveal>
+<section id="hikayemiz" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
   <div class="section-shell">
-    <p class="stage-eyebrow">{t(locale, 'home.wholesaleEyebrow')}</p>
-    <h2 class="mt-2 font-display text-3xl font-semibold tracking-tight text-ink md:text-[2.25rem]">
-      {t(locale, 'home.flowTitle')}
-    </h2>
-    <div class="relative mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-      <div class="pointer-events-none absolute left-10 right-10 top-[2.35rem] hidden h-px bg-gradient-to-r from-transparent via-gold/55 to-transparent xl:block" aria-hidden="true"></div>
-      {farmToRoasteryFlow.map((step, idx) => (
-        <article class="glass-panel relative overflow-hidden px-6 py-6 transition-transform duration-300 hover:-translate-y-0.5">
-          <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/65 to-transparent" aria-hidden="true"></div>
-          <p class="absolute right-5 top-4 text-[11px] font-semibold uppercase tracking-[0.16em] text-ink/35">
-            {String(idx + 1).padStart(2, '0')}
-          </p>
-          <div class="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-lg border border-gold/45 bg-gold/15 text-ink shadow-soft-gold">
-            {step.icon === 'harvest' && (
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M7 21v-7a5 5 0 0 1 10 0v7" stroke-linecap="round" />
-                <circle cx="12" cy="7" r="3" />
-              </svg>
-            )}
-            {step.icon === 'shipment' && (
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M3 7h12v9H3zM15 10h3l3 3v3h-6z" stroke-linejoin="round" />
-                <circle cx="8" cy="18" r="1.5" />
-                <circle cx="18" cy="18" r="1.5" />
-              </svg>
-            )}
-            {step.icon === 'storage' && (
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M3 10 12 4l9 6v10H3z" />
-                <path d="M9 20v-5h6v5" />
-              </svg>
-            )}
-            {step.icon === 'roastery' && (
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                <path d="M7 14a5 5 0 0 0 10 0V9H7z" />
-                <path d="M17 11h1a2 2 0 1 1 0 4h-1" />
-                <path d="M12 4c2 1.2 2 2.6.6 4M9 5.4c1.6 1 1.6 2.2.5 3.3" stroke-linecap="round" />
-              </svg>
-            )}
-          </div>
-          <h3 class="font-display text-[1.9rem] font-semibold leading-[1.05] tracking-tight text-ink">{step.title}</h3>
-          <p class="mt-4 text-[15px] leading-relaxed text-ink-muted">{step.body}</p>
-        </article>
-      ))}
-    </div>
-  </div>
-</section>
-
-<section id="hikayemiz" class="anchor-target scroll-mt-28 bg-paper py-20 md:py-24" data-reveal>
-  <div class="section-shell">
-    <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
-      <div class="flex justify-center lg:justify-start">
-        <StorySpotlightImage src="/about.svg" />
-      </div>
-      <div class="flex flex-col justify-center">
-        <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-ink md:text-xs">
+    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
+      <div class="order-2 flex min-w-0 flex-col justify-center lg:order-1">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f] md:text-xs">
           {homeStory.tagline}
         </p>
-        <h2 class="mt-3 font-display text-[clamp(1.65rem,3.5vw,2.25rem)] font-semibold leading-tight tracking-tight text-ink">
+        <h2 class="mt-4 font-display text-[clamp(2rem,4.2vw,3.2rem)] font-semibold leading-[1.1] tracking-tight text-heading">
           {homeStory.title}
         </h2>
-        <div class="mt-6 space-y-4 text-[15px] leading-relaxed text-ink-muted md:text-[16px]">
-          {homeStory.paragraphs.map((p) => (
+        <div class="mt-6 space-y-4 text-[17px] leading-[1.72] text-[#5f5b55]">
+          {homeStory.paragraphs.slice(0, 2).map((p) => (
             <p>{p}</p>
           ))}
         </div>
         <a
           href={withLang('/about', locale)}
-          class="mt-8 inline-flex w-fit items-center justify-center rounded-xl bg-ink px-7 py-3.5 text-[13px] font-semibold text-white shadow-sm transition hover:bg-ink/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/50 focus-visible:ring-offset-2"
+          class="mt-9 inline-flex w-fit items-center justify-center rounded-full bg-heading px-8 py-3.5 text-[13px] font-semibold text-white shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/50 focus-visible:ring-offset-2"
         >
           {homeStory.knowMore}
         </a>
       </div>
+      <div class="relative order-1 min-w-0 lg:order-2">
+        <div class="absolute -left-3 -top-4 z-10 rounded-full bg-white px-5 py-3 text-sm font-semibold text-heading shadow-[0_10px_30px_rgba(0,0,0,0.14)] md:-left-5 md:-top-5 md:px-6 md:py-4">
+          {homeStory.badgeSince}
+        </div>
+        <div class="group relative overflow-hidden rounded-[30px]">
+          <img
+            src="/about.jpg"
+            alt={homeStory.imageAlt}
+            width="960"
+            height="1200"
+            class="h-full w-full object-cover object-[52%_46%] transition-transform duration-700 group-hover:scale-[1.03]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 to-transparent"></div>
+        </div>
+      </div>
     </div>
-
-    <div class="mt-14 grid gap-6 md:grid-cols-2 md:mt-16">
-      {brandValues.slice(0, 2).map((value, i) => (
-        <article class="glass-panel px-7 py-8" data-reveal-step={String(i + 1)}>
-          <h3 class="text-[13px] font-semibold uppercase tracking-[0.18em] text-ink">{value.title}</h3>
-          <p class="mt-3 text-sm leading-relaxed text-ink-muted">{value.body}</p>
-        </article>
-      ))}
-    </div>
-    <article class="glass-panel mt-6 px-7 py-8 md:px-10" data-reveal>
-      <p class="text-[11px] font-semibold uppercase tracking-[0.2em] text-ink/55">{t(locale, 'home.originEyebrow')}</p>
-      <h3 class="mt-2 font-display text-xl font-semibold text-ink">{t(locale, 'home.originTitle')}</h3>
-      <ul class="mt-5 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
-        {((homeDict.originBullets ?? []) as string[]).map((line) => (
-          <li class="flex gap-2">
-            <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-            <span>{line}</span>
-          </li>
-        ))}
-      </ul>
-      <p class="mt-6 text-[12px] font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'home.originFarmsTitle')}</p>
-      <ul class="mt-3 space-y-1 text-sm text-ink-muted">
-        {((homeDict.originFarms ?? []) as string[]).map((line) => (
-          <li>{line}</li>
-        ))}
-      </ul>
-    </article>
   </div>
 </section>
 
-<section id="kahvelerimiz" class="anchor-target scroll-mt-28 bg-paper py-20 md:py-24" data-reveal>
+<section id="kahvelerimiz" class="section-band-a anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
   <div class="section-shell">
-    <SectionHeader
-      eyebrow={t(locale, 'products.eyebrow')}
-      title={t(locale, 'home.coffeesSectionTitle')}
-      description={t(locale, 'home.coffeesSectionIntro')}
-    />
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <span class="mb-3 block text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f]">
+          {t(locale, 'products.eyebrow')}
+        </span>
+        <h2 class="font-display text-[clamp(2.35rem,4.6vw,3.8rem)] font-semibold tracking-tight text-heading">
+          {t(locale, 'home.awardedSectionTitle')}
+        </h2>
+        <p class="mt-4 text-[18px] leading-[1.65] text-[#5f5b55]">
+          {t(locale, 'home.awardedSectionIntro')}
+        </p>
+      </div>
+      <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
+        {totalLots} lot · {totalCategories} kategori
+      </p>
+    </div>
 
-    <div class="relative z-20 mt-8 flex flex-wrap gap-3" data-category-filter-root>
+    <div class="relative z-20 mt-10 overflow-x-auto pb-1" data-category-filter-root>
+      <div class="inline-flex min-w-max items-center gap-1.5 rounded-full border border-[#ddd4c7] bg-[#f3efe7] p-1.5">
       {segmentDefs.map((segment, i) => (
         <button
           type="button"
           data-category-tab={segment.id}
-          data-active-classes="bg-ink text-white border-ink"
-          data-inactive-classes="bg-surface text-ink/75 border-line hover:border-ink/30"
+          data-active-classes="bg-[#1d1d1b] text-white border-[#1d1d1b]"
+          data-inactive-classes="bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45"
           class:list={[
-            'border px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors',
-            i === 0 ? 'bg-ink text-white border-ink' : 'bg-surface text-ink/75 border-line hover:border-ink/30',
+            'rounded-full border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-200',
+            i === 0
+              ? 'bg-[#1d1d1b] text-white border-[#1d1d1b]'
+              : 'bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45',
           ]}
           aria-pressed={i === 0 ? 'true' : 'false'}
         >
           {segment.label}
         </button>
       ))}
+      </div>
     </div>
 
     <div class="mt-8 space-y-4">
       {segmentDefs.map((segment, i) => (
         <div data-segment-panel={segment.id} class:list={[i !== 0 && 'hidden']}>
-          <h3 class="text-lg font-bold text-ink">{segment.title}</h3>
-          <p class="mt-2 max-w-3xl text-sm leading-relaxed text-ink-muted">{segment.desc}</p>
+          <h3 class="text-[22px] font-semibold text-ink">{segment.title}</h3>
+          <p class="mt-2 max-w-3xl text-[17px] leading-[1.6] text-[#5f5b55]">{segment.desc}</p>
         </div>
       ))}
     </div>
 
-    <div class="mt-10 grid gap-6 md:grid-cols-3" data-category-cards>
+    <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3" data-category-cards>
       {localizedLots.map((lot) => (
         <div
           data-category-card
@@ -252,48 +193,146 @@ const farmToRoasteryFlow = [
         data-segment="retail"
         class:list={['md:col-span-3', defaultSegment !== 'retail' && 'hidden']}
       >
-        <article class="glass-panel border border-line/90 px-7 py-10 md:px-10">
-          <h3 class="font-display text-xl font-semibold text-ink">{t(locale, 'home.retailTeaserTitle')}</h3>
-          <p class="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted">{t(locale, 'home.retailTeaserBody')}</p>
-          <p class="mt-6 text-sm font-semibold text-ink">{t(locale, 'products.retailProductTitle')}</p>
-          <p class="mt-2 max-w-3xl text-sm leading-relaxed text-ink-muted">{t(locale, 'products.retailProductStory')}</p>
-          <ul class="mt-6 grid gap-2 text-sm text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
-            {retailSpecLines.map((line) => (
-              <li class="flex gap-2">
-                <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
+        <article class="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
+          <div class="relative h-64 overflow-hidden bg-[#e9e2d6] md:h-72">
+            <img
+              src="/paketli_kahve.svg"
+              alt={t(locale, 'products.retailProductTitle')}
+              class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-[1.03]"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="800"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/5 to-transparent"
+              aria-hidden="true"
+            />
+            <div class="absolute inset-x-4 top-4 flex items-center justify-between gap-2">
+              <p class="inline-flex items-center rounded-full border border-white/35 bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur-sm">
+                {t(locale, 'products.segmentLabelRetail')}
+              </p>
+            </div>
+          </div>
+
+          <div class="flex flex-1 flex-col justify-between p-6">
+            <div>
+              <h3 class="font-display text-[1.75rem] font-semibold leading-[1.08] tracking-header text-heading md:text-[1.95rem]">
+                {t(locale, 'products.retailProductTitle')}
+              </h3>
+              <p class="mt-4 text-[16px] leading-[1.6] text-[#5f5b55]">
+                {t(locale, 'products.retailProductStory')}
+              </p>
+              <ul class="mt-5 grid gap-2 text-[14px] text-ink-muted sm:grid-cols-2 lg:grid-cols-3">
+                {retailSpecLines.slice(0, 6).map((line) => (
+                  <li class="flex gap-2">
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading" aria-hidden="true" />
+                    <span>{line}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div class="mt-6 border-t border-[#e7dfd3] pt-5 text-center">
+              <span class="text-[13px] font-semibold uppercase tracking-[0.16em] text-heading transition group-hover:tracking-[0.18em]">
+                {t(locale, 'home.lotDetail')}
+              </span>
+            </div>
+          </div>
         </article>
       </div>
     </div>
 
     <div class="mt-12 flex justify-center" data-category-cta>
-      <a href={withLang('/products', locale)} class="btn-primary inline-flex justify-center px-8">
-        {t(locale, 'home.coffeesCtaAll')}
+      <a href={withLang('/products/awarded', locale)} class="btn-primary inline-flex justify-center px-8">
+        {t(locale, 'home.awardedCtaAll')}
       </a>
     </div>
   </div>
 </section>
 
-<section id="kalite" class="anchor-target scroll-mt-28 border-y border-line bg-paper-deep py-20 md:py-24" data-reveal>
+<section id="urunlerimiz" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
+  <div class="section-shell">
+    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <div class="max-w-3xl">
+        <span class="mb-3 block text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f]">
+          {t(locale, 'products.eyebrow')}
+        </span>
+        <h2 class="font-display text-[clamp(2.35rem,4.6vw,3.8rem)] font-semibold tracking-tight text-heading">
+          {t(locale, 'home.productsSectionTitle')}
+        </h2>
+        <p class="mt-4 text-[18px] leading-[1.65] text-[#5f5b55]">
+          {t(locale, 'home.productsSectionIntro')}
+        </p>
+      </div>
+      <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
+        {masterTotalLots} lot · {masterTotalCategories} kategori
+      </p>
+    </div>
+
+    <div class="relative z-20 mt-10 overflow-x-auto pb-1" data-master-filter-root>
+      <div class="inline-flex min-w-max items-center gap-1.5 rounded-full border border-[#ddd4c7] bg-[#f3efe7] p-1.5">
+      {masterSegmentDefs.map((segment, i) => (
+        <button
+          type="button"
+          data-master-tab={segment.id}
+          data-active-classes="bg-[#1d1d1b] text-white border-[#1d1d1b]"
+          data-inactive-classes="bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45"
+          class:list={[
+            'rounded-full border px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.18em] transition-colors duration-200',
+            i === 0
+              ? 'bg-[#1d1d1b] text-white border-[#1d1d1b]'
+              : 'bg-transparent text-[#5f5b55] border-transparent hover:text-[#1f1f1c] hover:bg-white/45',
+          ]}
+          aria-pressed={i === 0 ? 'true' : 'false'}
+        >
+          {segment.label}
+        </button>
+      ))}
+      </div>
+    </div>
+
+    <div class="mt-8 space-y-4">
+      {masterSegmentDefs.map((segment, i) => (
+        <div data-master-panel={segment.id} class:list={[i !== 0 && 'hidden']}>
+          <h3 class="text-[22px] font-semibold text-ink">{segment.label}</h3>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3" data-master-cards>
+      {venezuelaCoffeeMasterWithSlug.map((item) => (
+        <div data-master-card data-master-segment={item.segment} class:list={[item.segment !== masterDefaultSegment && 'hidden']}>
+          <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 flex justify-center" data-master-cta>
+      <a href={withLang('/products', locale)} class="btn-primary inline-flex justify-center px-8">
+        {t(locale, 'home.productsCtaAll')}
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="kalite" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
   <div class="section-shell">
     <SectionHeader
       title={t(locale, 'home.qualitySectionTitle')}
       description={t(locale, 'home.qualitySectionIntro')}
       align="center"
     />
-    <div class="mt-12 grid gap-6 md:grid-cols-3">
-      <article class="glass-panel px-6 py-7">
+    <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+      <article class="border-l-[3px] border-heading/30 pl-6">
         <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'qualityPage.sgsTitle')}</h3>
         <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'qualityPage.sgsBody')}</p>
       </article>
-      <article class="glass-panel px-6 py-7">
+      <article class="border-l-[3px] border-heading/30 pl-6">
         <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'qualityPage.qTitle')}</h3>
         <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'qualityPage.qBody')}</p>
       </article>
-      <article class="glass-panel px-6 py-7">
+      <article class="border-l-[3px] border-heading/30 pl-6">
         <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'qualityPage.insaiTitle')}</h3>
         <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'qualityPage.insaiBody')}</p>
       </article>
@@ -301,7 +340,7 @@ const farmToRoasteryFlow = [
   </div>
 </section>
 
-<section id="toptan" class="anchor-target scroll-mt-28 relative min-h-[min(480px,78vh)] overflow-hidden" data-reveal>
+<section id="toptan" class="anchor-target scroll-mt-28 relative min-h-[min(480px,78vh)] overflow-hidden border-t border-line/60" data-reveal>
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
     <img
       src="/coffefruits.webp"
@@ -318,7 +357,7 @@ const farmToRoasteryFlow = [
 
   <div class="section-shell relative z-10 flex min-h-[min(480px,78vh)] items-center py-16 md:py-24">
     <div class="max-w-xl">
-      <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-gold">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-heading">
         {t(locale, 'home.b2bCtaEyebrow')}
       </p>
       <h2 class="mt-4 font-display text-[clamp(1.85rem,4.5vw,2.75rem)] font-bold leading-[1.12] tracking-tight text-white drop-shadow-[0_2px_24px_rgba(0,0,0,0.35)]">
@@ -468,9 +507,134 @@ const farmToRoasteryFlow = [
     obs.observe(root);
   }
 
+  function initMasterFilter() {
+    const root = document.querySelector('[data-master-filter-root]');
+    if (!root) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const buttons = Array.from(root.querySelectorAll<HTMLElement>('[data-master-tab]'));
+    const cardsRoot = document.querySelector('[data-master-cards]');
+    const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-master-panel]'));
+    const cards = cardsRoot
+      ? Array.from(cardsRoot.querySelectorAll<HTMLElement>('[data-master-card][data-master-segment]'))
+      : [];
+    if (!buttons.length || !cards.length) return;
+
+    const setActive = (segment: string, opts?: { skipClear?: boolean }) => {
+      buttons.forEach((btn) => {
+        const tab = btn.getAttribute('data-master-tab');
+        const isActive = tab === segment;
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', false);
+        applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', false);
+        if (isActive) {
+          applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', true);
+        } else {
+          applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', true);
+        }
+      });
+
+      panels.forEach((panel) => {
+        const pid = panel.getAttribute('data-master-panel');
+        panel.classList.toggle('hidden', pid !== segment);
+      });
+
+      cards.forEach((card) => {
+        const sid = card.getAttribute('data-master-segment');
+        const match = sid === segment;
+        card.classList.toggle('hidden', !match);
+        if (match && !opts?.skipClear) {
+          gsap.killTweensOf(card);
+          gsap.set(card, { clearProps: 'opacity,transform,scale' });
+        }
+      });
+
+      if (prefersReduced) {
+        cards.forEach((card) => {
+          if (card.getAttribute('data-master-segment') === segment) {
+            gsap.set(card, { opacity: 1, y: 0, scale: 1 });
+          }
+        });
+        return;
+      }
+
+      const activePanel = panels.find((p) => p.getAttribute('data-master-panel') === segment);
+      const activeCards = cards.filter((c) => c.getAttribute('data-master-segment') === segment);
+
+      if (activePanel) {
+        gsap.fromTo(
+          activePanel,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' }
+        );
+      }
+
+      if (activeCards.length) {
+        gsap.fromTo(
+          activeCards,
+          { opacity: 0, y: 18, scale: 0.985 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.42, stagger: 0.06, ease: 'power2.out', overwrite: 'auto' }
+        );
+      }
+    };
+
+    const initial = buttons[0]?.getAttribute('data-master-tab');
+    if (initial) setActive(initial, { skipClear: true });
+
+    root.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const btn = t.closest('[data-master-tab]');
+      if (!btn || !root.contains(btn)) return;
+      const segment = btn.getAttribute('data-master-tab');
+      if (segment) setActive(segment);
+    });
+  }
+
+  function initMasterCardsAnimation() {
+    if (typeof document === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const root = document.querySelector('[data-master-cards]');
+    if (!root) return;
+
+    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-master-card]')).filter(
+      (el) => !el.classList.contains('hidden')
+    );
+    const cta = document.querySelector<HTMLElement>('[data-master-cta]');
+    if (!cards.length) return;
+
+    gsap.set(cards, { opacity: 0, y: 48, scale: 0.94, transformOrigin: 'center bottom' });
+    if (cta) gsap.set(cta, { opacity: 0, y: 20 });
+
+    let played = false;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting || played) return;
+          played = true;
+          const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+          tl.to(cards, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.75,
+            stagger: 0.06,
+            force3D: true,
+          }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
+          obs.disconnect();
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -8% 0px' }
+    );
+    obs.observe(root);
+  }
+
   function run() {
     initCategoryFilter();
     initCategoryCardsAnimation();
+    initMasterFilter();
+    initMasterCardsAnimation();
   }
 
   document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run();
