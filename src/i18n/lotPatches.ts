@@ -1,10 +1,8 @@
-import type { Locale } from './types';
-
 export const lotLocalePatches: Record<
   string,
   Partial<
     Record<
-      Locale,
+      string,
       {
         story?: string;
         commercialSummary?: string;
@@ -16,20 +14,6 @@ export const lotLocalePatches: Record<
   >
 > = {
   'geisha-91-54': {
-    tr: {
-      collectionLabel: 'Competition Lot',
-      story:
-        '2025 kazanan lotlar koleksiyonundaki en yüksek puanlı kahve. Mérida, Estancia Aires de Campo’da Eloína de los Ángeles Useche tarafından üretilen bu Geisha; katmanlı aromatik karmaşıklığı, çiçeksi zarafeti ve ifade doğal işleme profiliyle öne çıkar.',
-      commercialSummary:
-        'Çiçeksi karmaşıklık, yüksek cup skoru ve ayırt edici egzotik profil arayan specialty kavurmacılar için premium tek menşe çıkışı olarak ideal.',
-      cupProfileSummary:
-        'Fincanda yoğun katmanlı okuma: önce çiçekler yükselir, ardından taş meyve ve şampanya benzeri asidite, kakao ve karamel finishi sabitler. Hacimden çok ayırt edicilik arayan alıcılar için net bir lot.',
-      buyerUseCases: [
-        'Amiral gemisi tek menşe ve sınırlı sezon çıkışları',
-        'Çiçeksi karmaşıklık arayan üst segment filtre ve espresso programları',
-        'Menüde üst puanlı Venezüella Geisha konumlandıran kavurmacılar',
-      ],
-    },
     de: {
       collectionLabel: 'Competition Lot',
       story:
@@ -46,20 +30,6 @@ export const lotLocalePatches: Record<
     },
   },
   'tabi-90-38': {
-    tr: {
-      collectionLabel: 'Competition Lot',
-      story:
-        'Trujillo’dan yıkanmış, tatlı ve temiz bir Tabi lotu; kremsi, rahatlatıcı bir fincan profiliyle ticari olarak çekici, erişilebilir ama premium bir duyusal çizgi sunar.',
-      commercialSummary:
-        'Çikolata ve karamel derinliği olan, tatlı ve yaklaşılabilir yüksek kaliteli yıkanmış kahve arayan kavurmacılar için mükemmel.',
-      cupProfileSummary:
-        'Konfor odaklı ve temiz: kakao ve beyaz çikolata kremsi gövdeyi taşır; karamelize tatlılık specialty inandırıcılığını koruyarak erişilebilir kalır.',
-      buyerUseCases: [
-        'Güvenilir tatlılık gerektiren günlük espresso ve süt bazlı menüler',
-        'Erişilebilirlik ile yüksek cup kalitesini dengeleyen toptan programlar',
-        'Netlik ve gövdenin önemli olduğu filtre ve batch brew hatları',
-      ],
-    },
     de: {
       collectionLabel: 'Competition Lot',
       story:
@@ -76,20 +46,6 @@ export const lotLocalePatches: Record<
     },
   },
   'otra-89-83': {
-    tr: {
-      collectionLabel: 'Premium Micro Lot',
-      story:
-        'Çay benzeri zarafet, çiçeksi yükseliş ve tatlı narenciye karmaşıklığını birleştiren rafine aromatik yapıya sahip deneysel bir lot.',
-      commercialSummary:
-        'Daha maceracı, zarif asidite ve katmanlı aromatikler isteyen kavurmacılar için ayırt edici bir seçenek.',
-      cupProfileSummary:
-        'Çay yapısı narenciye ve çiçeklerle buluşuyor: zarif, karmaşık ve bilinçli şekilde jenerik değil — cupping masasında konuşturan bir lot arayan alıcılar için.',
-      buyerUseCases: [
-        'Maceracı veya sezonluk menüler kuran specialty kavurmacılar',
-        'Filtre odaklı kafeler ve cupping ağırlıklı toptan müşteriler',
-        'Deneysel işlemeyi dengeyle sunan programlar',
-      ],
-    },
     de: {
       collectionLabel: 'Premium Micro Lot',
       story:
@@ -106,20 +62,6 @@ export const lotLocalePatches: Record<
     },
   },
   'villanueva-89-05': {
-    tr: {
-      collectionLabel: 'Premium Micro Lot',
-      story:
-        'Olgun taş meyve tatlılığını karamelize derinlik ve baharat katmanlarıyla dengeleyen honey işlemeli bir kahve.',
-      commercialSummary:
-        'Tatlılık, gövde ve katmanlı meyve karakteri arayan kavurmacılar için sezonluk tekliflerde güçlü bir tercih.',
-      cupProfileSummary:
-        'Honey işleme olgun taş meyve ve esmer şekeri kakao ve bahisle konuşturur — cömert ve farklı demleme yöntemlerine uyumlu bir fincan.',
-      buyerUseCases: [
-        'Sezonluk tek menşe ve honey profil vitrinleri',
-        'Espresso veya filtre için tatlılık, gövde ve meyve katmanı arayan kavurmacılar',
-        'Dönüşümlü öne çıkan lotlu premium kafe menüleri',
-      ],
-    },
     de: {
       collectionLabel: 'Premium Micro Lot',
       story:
@@ -136,20 +78,6 @@ export const lotLocalePatches: Record<
     },
   },
   'castillo-naranjal-88-83': {
-    tr: {
-      collectionLabel: 'Premium Micro Lot',
-      story:
-        'Daha zengin, çikolata odaklı bir fincanı fındık tatlılığı ve kremsi gövde ile destekleyen deneysel bir profil.',
-      commercialSummary:
-        'Hâlâ specialty karmaşıklığı taşıyan, daha tok bir profil arayan kavurmacılara uygun.',
-      cupProfileSummary:
-        'Çikolata öncülü ve kremsi: kiraz ve fındık tok, doyurucu bir yapıyı destekler — ağırlık isteyen ama kaba ağırlık istemeyen alıcılar için.',
-      buyerUseCases: [
-        'Daha tok imza arayan espresso ve tek menşe harmanları',
-        'Gövde ve çikolata odaklı menüleri önceliklendiren toptan müşteriler',
-        'Klasik konfor ile specialty detayı köprüleyen programlar',
-      ],
-    },
     de: {
       collectionLabel: 'Premium Micro Lot',
       story:
@@ -166,20 +94,6 @@ export const lotLocalePatches: Record<
     },
   },
   'monteclaro-88-75': {
-    tr: {
-      collectionLabel: 'Premium Micro Lot',
-      story:
-        'Temiz yapı, meyve parlaklığı ve klasik çikolata-karamel temeli olan yıkanmış bir kahve.',
-      commercialSummary:
-        'Denge, netlik ve yaklaşılabilir karmaşıklık arayan alıcılar için yıkanmış profilde güçlü bir seçenek.',
-      cupProfileSummary:
-        'Temiz yıkanmış mimari: kırmızı meyve ve narenciye fincanı aydınlatır; sütlü çikolata ve karamel merkezi tutar — seçici toptan programlar için güvenilir bir specialty profil.',
-      buyerUseCases: [
-        'Hacim genelinde denge ve netlik arayan kavurmacılar ve distribütörler',
-        'Geniş çekiciliğe sahip premium filtre ve espresso teklifleri',
-        'Uç noktalara kutuplaşmadan yaklaşılabilir karmaşıklık isteyen alıcılar',
-      ],
-    },
     de: {
       collectionLabel: 'Premium Micro Lot',
       story:
@@ -196,20 +110,6 @@ export const lotLocalePatches: Record<
     },
   },
   'inia-01-88-73': {
-    tr: {
-      collectionLabel: 'Premium Micro Lot',
-      story:
-        'Tatlı böğürtlen ifadesi, baharat detayı ve yumuşak, yaklaşılabilir gövde sunan yıkanmış bir lot.',
-      commercialSummary:
-        'Meyve ve baharatı denge kaybetmeden isteyen kavurmacılar için çok yönlü, karakterli bir tek menşe.',
-      cupProfileSummary:
-        'Böğürtlen öncülü, ot-baharat boyutu: tatlı, karakterli ve yumuşak gövdeli — agresif olmadan ayırt edicilik gerektiğinde ideal.',
-      buyerUseCases: [
-        'Meyve ve baharat hikâyesi olan tek menşe rotasyonları',
-        'Dengenin kritik olduğu filtre ve hafif espresso programları',
-        'Çok yönlü, karakter odaklı menüler kuran toptan alıcılar',
-      ],
-    },
     de: {
       collectionLabel: 'Premium Micro Lot',
       story:
@@ -226,20 +126,6 @@ export const lotLocalePatches: Record<
     },
   },
   'bourbon-88-52': {
-    tr: {
-      collectionLabel: 'Premium Micro Lot',
-      story:
-        'Yoğun meyve intensitesi, daha koyu çikolata tonları ve rafine çiçeksi bir finish sunan doğal işlem Bourbon.',
-      commercialSummary:
-        'Sofistike bir profile sahip, meyve odaklı doğal lot arayan kavurmacılar için uygun.',
-      cupProfileSummary:
-        'Doğal yoğunluk ile incelik: orman meyvesi ve fermente kiraz fincanı yükseltir; kakao ve bitter çikolata yere oturtur — ham funk yerine çiçeksi bir zarafetle biter.',
-      buyerUseCases: [
-        'Doğal odaklı menüler ve sınırlı çıkışlar',
-        'Meyve yoğunluğunu rafine bir finish ile göstermek isteyen kavurmacılar',
-        'Sofistike doğal profille farklılaşan specialty programlar',
-      ],
-    },
     de: {
       collectionLabel: 'Premium Micro Lot',
       story:
@@ -256,20 +142,6 @@ export const lotLocalePatches: Record<
     },
   },
   'geisha-el-recreo-91-03': {
-    tr: {
-      collectionLabel: 'Competition Lot',
-      story:
-        'Hacienda El Recreo’dan deneysel işlem görmüş Geisha; orman meyveleri, böğürtlen ve kivi ile yasemin zarafeti; tereyağımsı gövde ve bitter çikolata ile dengelenir.',
-      commercialSummary:
-        'Deneysel Geisha arayan, tatlı meyve şerbeti ve rafine çiçeksi yükseliş isteyen ultra premium alıcılar için.',
-      cupProfileSummary:
-        'Böğürtlen ve kivi parlaklığı yaseminle buluşur; ipeksi gövde bitter çikolataya oturur — 91+ koleksiyon vitrinleri için.',
-      buyerUseCases: [
-        'Deneysel Geisha vitrinleri ve seçici filtre/espresso',
-        'Tatlı meyve şerbeti profili arayan sezon menüleri',
-        '91+ skorlu toptan programlar',
-      ],
-    },
     de: {
       collectionLabel: 'Competition Lot',
       story:
@@ -286,16 +158,6 @@ export const lotLocalePatches: Record<
     },
   },
   'castillo-las-mesas-84-50': {
-    tr: {
-      collectionLabel: 'Specialty Coffee',
-      story:
-        'Finca Las Mesas’tan Castillo; mandalina, bal ve çikolata birlikteliği, incir, kuru üzüm ve macadamia ile ipeksi doku.',
-      commercialSummary:
-        'Özel Varyete bandında güçlü Castillo profili arayan kavurmacılar için tatlı ve gövdeli seçenek.',
-      cupProfileSummary:
-        'Bal ve çikolata üzerine kurulu incir ve macadamia dokusu; espresso ve sütlü içeceklerle uyumlu.',
-      buyerUseCases: ['Espresso ve süt bazlı menüler', '82–84,5 SCA bandı toptan', 'Castillo karakteri net programlar'],
-    },
     de: {
       collectionLabel: 'Specialty Coffee',
       story:
@@ -308,16 +170,6 @@ export const lotLocalePatches: Record<
     },
   },
   'catuai-los-cedros-84': {
-    tr: {
-      collectionLabel: 'Specialty Coffee',
-      story:
-        'Finca Los Cedros’tan yıkanmış Catuaí; vanilya, ipeksi gövde ve ferahlatıcı sitrik asidite.',
-      commercialSummary:
-        'Dengeli espresso ve filtre için kalabalık pleaser profili arayan alıcılar için.',
-      cupProfileSummary:
-        'Vanilya tatlılığı ipeksi gövdeyle birleşir; sitrik asidite fincanı canlı tutar.',
-      buyerUseCases: ['Günlük espresso ve batch brew', 'Netlik ve tatlılık dengesi', 'Special Series bandı'],
-    },
     de: {
       collectionLabel: 'Specialty Coffee',
       story:
@@ -330,16 +182,6 @@ export const lotLocalePatches: Record<
     },
   },
   'caturra-la-cuchilla-83-75': {
-    tr: {
-      collectionLabel: 'Specialty Coffee',
-      story:
-        'Finca La Cuchilla’dan Caturra; akçaağaç şurubu ve çikolata dengesi, temiz finish.',
-      commercialSummary:
-        'Maple-çikolata dengesi isteyen house programme için güvenilir Special Series lotu.',
-      cupProfileSummary:
-        'Akçaağaç ve kakao yuvarlak bir gövde kurar; bitiş temiz ve yönlendirilebilir.',
-      buyerUseCases: ['House espresso ve filtre', 'Sezon rotasyonu', 'Caturra mesajı'],
-    },
     de: {
       collectionLabel: 'Specialty Coffee',
       story:
@@ -352,16 +194,6 @@ export const lotLocalePatches: Record<
     },
   },
   'dunamix-blend-83-50': {
-    tr: {
-      collectionLabel: 'Blend Series',
-      story:
-        'Dunamix özel harmanı; panela, kakao ve karamel üzerine tarçın ve karanfil gibi kahverengi baharatlar, espresso bazlı içecekler için yumuşak gövde.',
-      commercialSummary:
-        'Kavurma evleri için istikrarlı “temel” harman; sütlü içeceklerle uyumlu.',
-      cupProfileSummary:
-        'Esmer şeker ve kakao temeli, hafif baharat ve dengeli gövde.',
-      buyerUseCases: ['Yüksek hacim espresso', 'House blend', 'Sütlü menü uyumu'],
-    },
     de: {
       collectionLabel: 'Blend Series',
       story:
@@ -374,16 +206,6 @@ export const lotLocalePatches: Record<
     },
   },
   'mixed-series-82-50': {
-    tr: {
-      collectionLabel: 'Commercial Series',
-      story:
-        'Yüksek hacim noktaları için ekonomik ve kalite kontrollü commodity mixed serisi; kakao ve fındık dengesi. İşlem: Natural veya Washed (esnek).',
-      commercialSummary:
-        'Ölçeklenen operasyonlar için dengeli profil ve erişilebilir fiyat bandı.',
-      cupProfileSummary:
-        'Sütlü çikolata ve fındık gövdeli, yumuşak denge.',
-      buyerUseCases: ['Zincir ve hacim', 'House blend hammaddesi', 'Fiyat duyarlı QC’li programlar'],
-    },
     de: {
       collectionLabel: 'Commercial Series',
       story:

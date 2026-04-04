@@ -1,7 +1,7 @@
 import type { Locale } from './types';
 import { locales } from './types';
 
-export const defaultLocale: Locale = 'tr';
+export const defaultLocale: Locale = 'de';
 
 export function isLocale(s: string): s is Locale {
   return (locales as readonly string[]).includes(s);

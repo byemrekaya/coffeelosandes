@@ -1,22 +1,23 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../../i18n/staticPaths';
-import type { Locale } from '../../../i18n/types';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CoffeeLotCard from '../../../components/coffee/CoffeeLotCard.astro';
 import { getLotsBySegment } from '../../../data/coffeeLots';
 import { localizeCoffeeLots } from '../../../i18n/localizeLot';
 import { t } from '../../../i18n/t';
-import { dictionary } from '../../../i18n/dictionary';
+import { getLocalizedDictionary } from '../../../i18n/localizedDictionary';
+import { resolveLocale } from '../../../i18n/config';
 
 export function getStaticPaths() {
   return getLangStaticPaths();
 }
 
 const { lang } = Astro.params;
-const locale = lang as Locale;
+const locale = resolveLocale(lang);
 
-const productsDict = dictionary[locale].products as Record<string, unknown>;
+const dict = getLocalizedDictionary(locale);
+const productsDict = (dict.products ?? {}) as Record<string, unknown>;
 const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
 
 const competition = localizeCoffeeLots(getLotsBySegment('competition-lots'), locale);
@@ -24,15 +25,14 @@ const microlot = localizeCoffeeLots(getLotsBySegment('premium-microlot'), locale
 const specialty = localizeCoffeeLots(getLotsBySegment('specialty-series'), locale);
 const barista = localizeCoffeeLots(getLotsBySegment('barista-blend'), locale);
 const commercial = localizeCoffeeLots(getLotsBySegment('commercial'), locale);
-const isTR = locale === 'tr';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
   <section class="border-b border-line pb-16 pt-32 md:pb-20 md:pt-36">
     <div class="section-shell">
       <SectionHeader
-        eyebrow={isTR ? 'Ödüllü Ürünler' : 'Awarded Lots'}
-        title={isTR ? 'Skor odaklı seçili lot koleksiyonu' : 'Score-driven curated lot collection'}
+        eyebrow={t(locale, 'home.awardedSectionTitle')}
+        title={t(locale, 'home.awardedSectionTitle')}
         description={t(locale, 'products.desc')}
         align="center"
       />

@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { Locale } from '../i18n/types';
 import { t } from '../i18n/t';
 import { homeSection, withLang } from '../i18n/paths';
@@ -25,7 +26,14 @@ const navLinks: NavItem[] = [
 
 const navLeft = navLinks.slice(0, 3);
 const navRight = navLinks.slice(3);
-const isHomePath = /^\/(?:(tr|de)\/?)?$/.test(Astro.url.pathname);
+const isHomePath = /^\/(?:(tr|de|en|fr|es)\/?)?$/.test(Astro.url.pathname);
+const homeAriaByLocale: Record<Locale, string> = {
+  tr: 'Coffee Los Andes ana sayfa',
+  de: 'Coffee Los Andes Startseite',
+  en: 'Coffee Los Andes homepage',
+  fr: 'Page d accueil Coffee Los Andes',
+  es: 'Pagina de inicio Coffee Los Andes',
+};
 
 const linkClass =
   'whitespace-nowrap text-[10px] font-semibold uppercase tracking-brand text-nav-cream/80 transition-colors hover:text-nav-cream xl:text-[11px]';
@@ -46,15 +54,14 @@ const linkClass =
   >
     <div class="section-shell relative">
       <div class="flex items-center justify-between gap-3 py-3.5 lg:hidden">
-        <a href={homeSection(locale, 'hero')} class="flex min-w-0 items-center gap-2">
-          <img
-            src="/navbarlogo.svg"
+        <a href={homeSection(locale, 'hero')} class="flex min-w-0 items-center gap-2" aria-label={homeAriaByLocale[locale]}>
+          <Image
+            src="/coffeelosandes-navbar-logo.svg"
             alt="Coffee Los Andes"
             class="h-8 w-auto max-w-[min(100%,200px)] object-contain object-left"
             width="200"
             height="40"
             loading="eager"
-            decoding="async"
           />
         </a>
         <div class="flex shrink-0 items-center gap-2">
@@ -83,19 +90,19 @@ const linkClass =
             isHomePath && 'opacity-0 -translate-y-2 scale-95 pointer-events-none',
           ]}
           data-navbar-center-link
+          aria-label={homeAriaByLocale[locale]}
         >
           <span
             class="flex min-h-[86px] min-w-[108px] max-w-[180px] flex-col items-center justify-center gap-1 rounded-b-[16px] border-x border-b border-nav-cream/20 bg-nav-surface px-3 pb-2 pt-2 shadow-nav-floating"
             aria-hidden="true"
           >
-            <img
-              src="/navbarlogo.svg"
+            <Image
+              src="/coffeelosandes-navbar-logo.svg"
               alt=""
               class="h-[46px] w-full max-w-[164px] object-contain object-center"
               width="164"
               height="46"
               loading="eager"
-              decoding="async"
             />
           </span>
           <span class="sr-only">Coffee Los Andes</span>

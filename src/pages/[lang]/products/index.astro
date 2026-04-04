@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../../i18n/staticPaths';
-import type { Locale } from '../../../i18n/types';
+import { resolveLocale } from '../../../i18n/config';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CoffeeMasterCard from '../../../components/products/CoffeeMasterCard.astro';
-import { venezuelaCoffeeMasterWithSlug } from '../../../data/venezuelaCoffeeMaster';
+import { getMasterItemsBySegment } from '../../../data/venezuelaCoffeeMaster';
 import { t } from '../../../i18n/t';
 
 export function getStaticPaths() {
@@ -12,12 +12,11 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const locale = lang as Locale;
+const locale = resolveLocale(lang);
 
-const masterMicroLots = venezuelaCoffeeMasterWithSlug.filter((i) => i.segment === 'MICRO LOT');
-const masterSpecialty = venezuelaCoffeeMasterWithSlug.filter((i) => i.segment === 'SPECIALTY');
-const masterCommercial = venezuelaCoffeeMasterWithSlug.filter((i) => i.segment === 'COMMERCIAL');
-const isTR = locale === 'tr';
+const masterMicroLots = getMasterItemsBySegment('MICRO LOT');
+const masterSpecialty = getMasterItemsBySegment('SPECIALTY');
+const masterCommercial = getMasterItemsBySegment('COMMERCIAL');
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
@@ -36,10 +35,10 @@ const isTR = locale === 'tr';
     <div class="section-shell">
       <div class="mb-10 max-w-3xl">
         <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">
-          {isTR ? 'Ürünlerimiz' : 'Our Products'}
+          {t(locale, 'products.masterSectionLabel')}
         </p>
         <h2 class="mt-2 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold text-heading">
-          {isTR ? 'Venezuela Coffee Master yeni ürün portföyü' : 'Venezuela Coffee Master new product portfolio'}
+          {t(locale, 'products.masterPortfolioTitle')}
         </h2>
       </div>
 

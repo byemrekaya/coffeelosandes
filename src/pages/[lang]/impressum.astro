@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../i18n/staticPaths';
-import type { Locale } from '../../i18n/types';
 import SectionHeader from '../../components/SectionHeader.astro';
+import { resolveLocale } from '../../i18n/config';
 import { t } from '../../i18n/t';
 import { site } from '../../config/site';
 
@@ -11,7 +11,7 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const locale = lang as Locale;
+const locale = resolveLocale(lang);
 const officeAddress = 'Grazer Platz 10, 12157 Berlin';
 const encodedAddress = encodeURIComponent(officeAddress);
 const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;

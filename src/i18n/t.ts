@@ -17,7 +17,8 @@ function getDeep(obj: unknown, path: string): string | undefined {
 
 export function t(locale: Locale | string | undefined, key: string): string {
   const loc = resolveLocale(locale);
-  const fromLocale = getDeep(dictionary[loc], key);
+  const bundle = dictionary[loc] ?? dictionary[defaultLocale];
+  const fromLocale = getDeep(bundle, key);
   if (fromLocale) return fromLocale;
   const fallback = getDeep(dictionary[defaultLocale], key);
   return fallback ?? key;

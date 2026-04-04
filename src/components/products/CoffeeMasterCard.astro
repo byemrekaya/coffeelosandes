@@ -12,13 +12,20 @@ interface Props {
 }
 
 const { item, locale, slug } = Astro.props;
+const labelByLocale: Record<Locale, { producer: string; farm: string; imageAlt: string }> = {
+  tr: { producer: 'Üretici', farm: 'Çiftlik', imageAlt: 'Venezuela premium kahve çekirdekleri' },
+  de: { producer: 'Produzent', farm: 'Farm', imageAlt: 'Premium Kaffeebohnen aus Venezuela' },
+  en: { producer: 'Producer', farm: 'Farm', imageAlt: 'premium coffee beans from Venezuela' },
+  fr: { producer: 'Producteur', farm: 'Ferme', imageAlt: 'grains de cafe premium du Venezuela' },
+  es: { producer: 'Productor', farm: 'Finca', imageAlt: 'granos de cafe premium de Venezuela' },
+};
 ---
 
 <article class="group flex h-full flex-col overflow-hidden rounded-[20px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_8px_24px_rgba(0,0,0,0.04)] transition-all duration-250 hover:-translate-y-0.5 hover:shadow-[0_14px_28px_rgba(0,0,0,0.08)]">
   <div class="relative h-56 overflow-hidden bg-[#e9e2d6]">
     <Image
-      src="/cekirdek.jpg"
-      alt={`${item.cesit} kahve çekirdeği`}
+      src="/roasted-coffee-beans.webp"
+      alt={`${item.cesit} ${labelByLocale[locale].imageAlt}`}
       class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-[1.03]"
       loading="lazy"
       width="1200"
@@ -40,11 +47,11 @@ const { item, locale, slug } = Astro.props;
 
   <dl class="mt-4 space-y-2 text-[13px] leading-relaxed text-ink/78">
     <div>
-      <dt class="inline font-semibold text-ink/65">Üretici: </dt>
+      <dt class="inline font-semibold text-ink/65">{labelByLocale[locale].producer}: </dt>
       <dd class="inline">{item.uretici}</dd>
     </div>
     <div>
-      <dt class="inline font-semibold text-ink/65">Çiftlik: </dt>
+      <dt class="inline font-semibold text-ink/65">{labelByLocale[locale].farm}: </dt>
       <dd class="inline">{item.ciftlik}</dd>
     </div>
   </dl>

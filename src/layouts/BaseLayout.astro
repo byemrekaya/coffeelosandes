@@ -31,7 +31,7 @@ const {
 
 const locale = resolveLocale(localeProp as string | undefined);
 const htmlLang = String(
-  dictionary[locale]?.htmlLang ?? dictionary[defaultLocale].htmlLang ?? 'tr'
+  dictionary[locale]?.htmlLang ?? locale
 );
 
 const origin = site.canonicalOrigin.replace(/\/$/, '');
@@ -39,6 +39,15 @@ const pathname = Astro.url.pathname;
 const canonicalURL = new URL(pathname, `${origin}/`).href;
 
 const ogImageURL = new URL(site.ogImage.replace(/^\//, ''), `${origin}/`).href;
+const ogLocaleMap: Record<string, string> = {
+  tr: 'tr_TR',
+  de: 'de_DE',
+  en: 'en_US',
+  fr: 'fr_FR',
+  es: 'es_ES',
+};
+const ogLocale = ogLocaleMap[htmlLang] ?? 'de_DE';
+const ogAlternateLocales = Object.values(ogLocaleMap).filter((loc) => loc !== ogLocale);
 
 const pathWithoutLocale = stripLocaleFromPath(pathname);
 const altPaths = locales.map((loc) => {
@@ -49,6 +58,23 @@ const xDefaultHref = new URL(
   withLang(pathWithoutLocale === '/' ? '/' : pathWithoutLocale, defaultLocale),
   `${origin}/`
 ).href;
+
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.legalEntityName,
+  url: origin,
+  email: site.contactEmail,
+  brand: site.name,
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: site.name,
+  url: origin,
+  inLanguage: locales.map((loc) => String(dictionary[loc]?.htmlLang ?? loc)),
+};
 ---
 
 <!doctype html>
@@ -62,9 +88,9 @@ const xDefaultHref = new URL(
     {!noindex && <link rel="canonical" href={canonicalURL} />}
     {!noindex && altPaths.map(({ href, hreflang }) => <link rel="alternate" hreflang={hreflang} href={href} />)}
     {!noindex && <link rel="alternate" hreflang="x-default" href={xDefaultHref} />}
-    <link rel="icon" href="/navbarlogo.svg?v=1" type="image/svg+xml" />
-    <link rel="shortcut icon" href="/navbarlogo.svg?v=1" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/logo.png" />
+    <link rel="icon" href="/coffeelosandes-navbar-logo.svg?v=1" type="image/svg+xml" />
+    <link rel="shortcut icon" href="/coffeelosandes-navbar-logo.svg?v=1" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/coffeelosandes-navbar-logo.svg" />
     {!noindex && (
       <>
         <meta property="og:title" content={title} />
@@ -72,13 +98,19 @@ const xDefaultHref = new URL(
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content={site.name} />
         <meta property="og:url" content={canonicalURL} />
+        <meta property="og:locale" content={ogLocale} />
+        {ogAlternateLocales.map((alt) => <meta property="og:locale:alternate" content={alt} />)}
         <meta property="og:image" content={ogImageURL} />
+        <meta property="og:image:alt" content={`${site.name} — ${site.defaultDescription}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageURL} />
+        <meta name="twitter:image:alt" content={`${site.name} — ${site.defaultDescription}`} />
       </>
     )}
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)}></script>
     <meta name="theme-color" content="#28603f" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

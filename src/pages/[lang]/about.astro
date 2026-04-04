@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../i18n/staticPaths';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CTASection from '../../components/CTASection.astro';
-import { dictionary } from '../../i18n/dictionary';
+import { getLocalizedDictionary } from '../../i18n/localizedDictionary';
 import { resolveLocale } from '../../i18n/config';
 import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
@@ -21,9 +21,10 @@ type AboutSectionBlock = {
 
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
+const dict = getLocalizedDictionary(locale);
 
-const brandValues = (dictionary[locale].brandValues ?? []) as { title: string; body: string }[];
-const aboutRaw = dictionary[locale].about as Record<string, unknown>;
+const brandValues = (dict.brandValues ?? []) as { title: string; body: string }[];
+const aboutRaw = (dict.about ?? {}) as Record<string, unknown>;
 const losAndesLead = (aboutRaw.losAndesLead as string[] | undefined) ?? [];
 const losAndesSections = (aboutRaw.losAndesSections as AboutSectionBlock[] | undefined) ?? [];
 const venezuelaParagraphs = (aboutRaw.venezuelaParagraphs as string[] | undefined) ?? [];

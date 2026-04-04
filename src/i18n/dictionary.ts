@@ -1,9 +1,11 @@
-import type { Locale } from './types';
+import { deepMergeDict } from './mergeDict';
+import { enPartial } from './localePartials/en';
+import { frPartial } from './localePartials/fr';
+import { esPartial } from './localePartials/es';
 
 type Dict = Record<string, unknown>;
 
-export const dictionary: Record<Locale, Dict> = {
-  tr: {
+const trDict: Dict = {
     htmlLang: 'tr',
     nav: {
       home: 'Anasayfa',
@@ -539,8 +541,9 @@ export const dictionary: Record<Locale, Dict> = {
       acceptEssential: 'Sadece zorunlu',
       acceptAll: 'Tümünü kabul et',
     },
-  },
-  de: {
+};
+
+const deDict: Dict = {
     htmlLang: 'de',
     nav: {
       home: 'Startseite',
@@ -1051,7 +1054,7 @@ export const dictionary: Record<Locale, Dict> = {
       heroTitle: 'Impressum',
       companyTitle: 'Unternehmensangaben',
       contactTitle: 'Kontakt',
-      },
+    },
     cookieConsent: {
       title: 'Cookie-Nutzung',
       body:
@@ -1062,5 +1065,12 @@ export const dictionary: Record<Locale, Dict> = {
       acceptEssential: 'Nur notwendige',
       acceptAll: 'Alle akzeptieren',
     },
-  },
+};
+
+export const dictionary: Record<string, Dict> = {
+  tr: trDict,
+  de: deDict,
+  en: deepMergeDict(deDict, enPartial),
+  fr: deepMergeDict(deDict, frPartial),
+  es: deepMergeDict(deDict, esPartial),
 };

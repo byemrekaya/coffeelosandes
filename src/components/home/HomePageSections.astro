@@ -1,10 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import SectionHeader from '../SectionHeader.astro';
 import type { Locale } from '../../i18n/types';
 import { resolveLocale } from '../../i18n/config';
+import { getLocalizedDictionary } from '../../i18n/localizedDictionary';
 import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
-import { dictionary } from '../../i18n/dictionary';
 import { coffeeLots } from '../../data/coffeeLots';
 import { venezuelaCoffeeMasterWithSlug } from '../../data/venezuelaCoffeeMaster';
 import { localizeCoffeeLots } from '../../i18n/localizeLot';
@@ -17,18 +18,18 @@ interface Props {
 
 const { locale: localeProp } = Astro.props;
 const locale = resolveLocale(localeProp as string | undefined);
+const dict = getLocalizedDictionary(locale);
 
-const homeStory = dictionary[locale].homeStory as {
+const homeStory = dict.homeStory as {
   eyebrow: string;
   tagline: string;
   title: string;
-  body: string;
   paragraphs: string[];
   knowMore: string;
   imageAlt: string;
   badgeSince: string;
 };
-const productsDict = dictionary[locale].products as Record<string, unknown>;
+const productsDict = (dict.products ?? {}) as Record<string, unknown>;
 const retailSpecLines = (productsDict.retailSpecLines ?? []) as string[];
 const localizedLots = localizeCoffeeLots(coffeeLots, locale);
 const totalLots = localizedLots.length;
@@ -82,6 +83,20 @@ const masterSegmentDefs = [
 const masterDefaultSegment = masterSegmentDefs[0].id;
 const masterTotalCategories = masterSegmentDefs.length;
 const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
+const lotWordByLocale: Record<Locale, string> = {
+  tr: 'lot',
+  de: 'Lots',
+  en: 'lots',
+  fr: 'lots',
+  es: 'lotes',
+};
+const categoryWordByLocale: Record<Locale, string> = {
+  tr: 'kategori',
+  de: 'Kategorien',
+  en: 'categories',
+  fr: 'categories',
+  es: 'categorias',
+};
 
 ---
 
@@ -112,14 +127,13 @@ const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
           {homeStory.badgeSince}
         </div>
         <div class="group relative overflow-hidden rounded-[30px]">
-          <img
-            src="/about.jpg"
+          <Image
+            src="/coffee-farm-about.webp"
             alt={homeStory.imageAlt}
             width="960"
             height="1200"
             class="h-full w-full object-cover object-[52%_46%] transition-transform duration-700 group-hover:scale-[1.03]"
             loading="lazy"
-            decoding="async"
           />
           <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 to-transparent"></div>
         </div>
@@ -143,7 +157,7 @@ const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
         </p>
       </div>
       <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
-        {totalLots} lot · {totalCategories} kategori
+        {totalLots} {lotWordByLocale[locale]} · {totalCategories} {categoryWordByLocale[locale]}
       </p>
     </div>
 
@@ -191,16 +205,15 @@ const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
       <div
         data-category-card
         data-segment="retail"
-        class:list={['md:col-span-3', defaultSegment !== 'retail' && 'hidden']}
+        class:list={['md:col-span-3', 'hidden']}
       >
         <article class="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
           <div class="relative h-64 overflow-hidden bg-[#e9e2d6] md:h-72">
-            <img
-              src="/paketli_kahve.svg"
+            <Image
+              src="/packaged-coffee-icon.svg"
               alt={t(locale, 'products.retailProductTitle')}
               class="absolute inset-0 h-full w-full object-cover object-center transition duration-500 ease-out group-hover:scale-[1.03]"
               loading="lazy"
-              decoding="async"
               width="1200"
               height="800"
             />
@@ -266,7 +279,7 @@ const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
         </p>
       </div>
       <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
-        {masterTotalLots} lot · {masterTotalCategories} kategori
+        {masterTotalLots} {lotWordByLocale[locale]} · {masterTotalCategories} {categoryWordByLocale[locale]}
       </p>
     </div>
 
@@ -342,12 +355,11 @@ const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
 
 <section id="toptan" class="anchor-target scroll-mt-28 relative min-h-[min(480px,78vh)] overflow-hidden border-t border-line/60" data-reveal>
   <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-    <img
-      src="/coffefruits.webp"
-      alt=""
+    <Image
+      src="/coffee-cherries.webp"
+      alt="Fresh coffee cherries from farm"
       class="h-full w-full object-cover object-center brightness-[1.05] saturate-[1.03]"
       loading="lazy"
-      decoding="async"
       width="1920"
       height="1080"
     />

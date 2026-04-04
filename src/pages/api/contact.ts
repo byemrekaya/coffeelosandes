@@ -1,13 +1,16 @@
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 import { site } from '../../config/site';
+import { defaultLocale } from '../../i18n/config';
+import { locales } from '../../i18n/types';
 
 export const prerender = false;
 
 function contactRedirectPath(base: string, kind: 'sent' | 'error'): string {
   const pathOnly = (base.split('?')[0] || '').trim();
-  const valid = /^\/(tr|de)\/contact\/?$/.test(pathOnly);
-  const prefix = valid ? pathOnly.replace(/\/$/, '') : '/tr/contact';
+  const localeGroup = locales.join('|');
+  const valid = new RegExp(`^\\/(${localeGroup})\\/contact\\/?$`).test(pathOnly);
+  const prefix = valid ? pathOnly.replace(/\/$/, '') : `/${defaultLocale}/contact`;
   return `${prefix}?${kind === 'sent' ? 'sent=1' : 'error=1'}`;
 }
 
@@ -33,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
   const company = String(formData.get('company') ?? '').trim();
   const requestType = String(formData.get('requestType') ?? '').trim();
   const message = String(formData.get('message') ?? '').trim();
-  const redirectRaw = String(formData.get('_redirect') ?? '/tr/contact');
+  const redirectRaw = String(formData.get('_redirect') ?? `/${defaultLocale}/contact`);
 
   if (!name || !contact) {
     const next = contactRedirectPath(redirectRaw, 'error');

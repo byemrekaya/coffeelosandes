@@ -13,6 +13,10 @@ const { lot, locale } = Astro.props;
 const eyebrow = lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty');
 const coverSrc = getLotImageSrc(lot.slug);
 const lightboxId = `lot-lightbox-${lot.slug}`;
+const heroIntro = t(locale, 'coffee.heroIntroTemplate')
+  .replace('{producer}', lot.producer)
+  .replace('{farm}', lot.farm)
+  .replace('{region}', lot.region);
 ---
 
 <section class="section-band-a relative overflow-hidden border-b border-line pb-12 pt-24 md:pb-16 md:pt-28 lg:pt-32" data-reveal>
@@ -29,9 +33,7 @@ const lightboxId = `lot-lightbox-${lot.slug}`;
           {lot.name}
         </h1>
 
-        <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/78 md:text-[16px]">
-          {lot.story}
-        </p>
+        <p class="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink/78 md:text-[16px]">{heroIntro}</p>
 
         <div class="mt-8">
           <span class="font-display text-[clamp(2.5rem,6.2vw,4.2rem)] font-semibold tabular-nums leading-none text-heading">

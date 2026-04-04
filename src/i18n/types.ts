@@ -1,3 +1,3 @@
-export type Locale = 'tr' | 'de';
+export type Locale = 'tr' | 'de' | 'en' | 'fr' | 'es';
 
-export const locales: Locale[] = ['tr', 'de'];
+export const locales: Locale[] = ['tr', 'de', 'en', 'fr', 'es'];

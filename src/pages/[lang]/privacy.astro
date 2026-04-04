@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../i18n/staticPaths';
-import type { Locale } from '../../i18n/types';
 import SectionHeader from '../../components/SectionHeader.astro';
+import { resolveLocale } from '../../i18n/config';
 import { t } from '../../i18n/t';
 
 export function getStaticPaths() {
@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const locale = lang as Locale;
+const locale = resolveLocale(lang);
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'privacy.title')} description={t(locale, 'privacy.description')}>

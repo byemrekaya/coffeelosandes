@@ -1,5 +1,5 @@
 ---
-import { type CoffeeLot, getLotImageSrc, lotScoreLine } from '../../data/coffeeLots';
+import { type CoffeeLot, getLotImageAlt, getLotImageSrc, lotScoreLine } from '../../data/coffeeLots';
 import type { Locale } from '../../i18n/types';
 import { withLang } from '../../i18n/paths';
 import { t } from '../../i18n/t';
@@ -12,6 +12,7 @@ interface Props {
 const { lot, locale } = Astro.props;
 
 const coverSrc = getLotImageSrc(lot.slug);
+const coverAlt = getLotImageAlt(lot.slug, lot.name);
 
 const segmentLabelKey =
   lot.segment === 'competition-lots'
@@ -34,7 +35,7 @@ const segmentLabelKey =
   <div class="relative h-60 overflow-hidden bg-[#e9e2d6] md:h-72">
     <img
       src={coverSrc}
-      alt=""
+      alt={coverAlt}
       class="absolute inset-0 h-full w-full object-cover object-[center_38%] transition duration-500 ease-out group-hover:scale-[1.03]"
       loading="lazy"
       decoding="async"

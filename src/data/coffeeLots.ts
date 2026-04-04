@@ -56,24 +56,40 @@ export function lotScoreLine(lot: Pick<CoffeeLot, 'score' | 'scoreDisplay'>): st
 
 /**
  * `public/` altındaki lot fotoğrafı dosya adları (slug ile eşleşenler).
- * Eşleşme yoksa `/coffeebeans.webp` kullanılır.
+ * Eşleşme yoksa `/coffee-beans-closeup.webp` kullanılır.
  */
 const LOT_IMAGE_FILES: Record<string, string> = {
-  'geisha-91-54': '1)Geisha_91,54...jpeg',
-  'geisha-el-recreo-91-03': '2)Geisha..jpeg',
-  'tabi-90-38': '4)Tabi_90,30..jpeg',
-  'otra-89-83': '5)Otra_89,83..jpeg',
-  'villanueva-89-05': '6)Villanuvea..jpeg',
-  'castillo-naranjal-88-83': '7)Castillo_88,83..jpeg',
-  'monteclaro-88-75': '8)Monteclaro-88,75..jpeg',
-  'inia-01-88-73': '9)Inia 01_88,73..jpeg',
-  'bourbon-88-52': '10)Bourbon_88,52..jpeg',
+  'geisha-91-54': 'geisha-coffee-beans.webp',
+  'geisha-el-recreo-91-03': 'geisha-specialty-coffee.webp',
+  'tabi-90-38': 'tabi-coffee-beans.webp',
+  'otra-89-83': 'otra-coffee-beans.webp',
+  'villanueva-89-05': 'villanueva-coffee-beans.webp',
+  'castillo-naranjal-88-83': 'castillo-coffee-beans.webp',
+  'monteclaro-88-75': 'monteclaro-coffee-beans.webp',
+  'inia-01-88-73': 'inia-coffee-beans.webp',
+  'bourbon-88-52': 'bourbon-coffee-beans.webp',
+};
+
+const LOT_IMAGE_ALTS: Record<string, string> = {
+  'geisha-91-54': 'Premium Geisha coffee beans from Venezuela',
+  'geisha-el-recreo-91-03': 'Geisha specialty coffee beans from Venezuela',
+  'tabi-90-38': 'Tabi coffee beans for specialty roasting',
+  'otra-89-83': 'Otra coffee beans from Venezuelan highlands',
+  'villanueva-89-05': 'Villanueva coffee beans for wholesale supply',
+  'castillo-naranjal-88-83': 'Castillo specialty coffee beans wholesale',
+  'monteclaro-88-75': 'Monteclaro coffee beans from Venezuela',
+  'inia-01-88-73': 'Inia coffee beans for professional roasting',
+  'bourbon-88-52': 'Bourbon coffee beans from Venezuela',
 };
 
 export function getLotImageSrc(slug: string): string {
   const file = LOT_IMAGE_FILES[slug];
-  if (!file) return '/coffeebeans.webp';
+  if (!file) return '/coffee-beans-closeup.webp';
   return encodeURI(`/${file}`);
+}
+
+export function getLotImageAlt(slug: string, lotName: string): string {
+  return LOT_IMAGE_ALTS[slug] ?? `${lotName} coffee beans from Venezuela`;
 }
 
 const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [

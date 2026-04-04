@@ -84,3 +84,9 @@ export const venezuelaCoffeeMasterWithSlug: VenezuelaCoffeeMasterItemWithSlug[] 
   ...item,
   slug: getVenezuelaCoffeeMasterSlug(item, index),
 }));
+
+export function getMasterItemsBySegment(
+  segment: VenezuelaCoffeeMasterItem['segment'],
+): VenezuelaCoffeeMasterItemWithSlug[] {
+  return venezuelaCoffeeMasterWithSlug.filter((i) => i.segment === segment);
+}

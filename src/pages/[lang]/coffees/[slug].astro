@@ -2,19 +2,13 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CoffeeLotArticle from '../../../components/coffee/CoffeeLotArticle.astro';
 import { coffeeLots, getRelatedLots, lotScoreLine } from '../../../data/coffeeLots';
-import { locales } from '../../../i18n/types';
-import type { Locale } from '../../../i18n/types';
+import { buildLangSlugStaticPaths } from '../../../i18n/staticPaths';
 import { localizeCoffeeLot, localizeCoffeeLots } from '../../../i18n/localizeLot';
+import { resolveLocale } from '../../../i18n/config';
 import { t } from '../../../i18n/t';
 
 export function getStaticPaths() {
-  const paths: { params: { lang: string; slug: string }; props: { lot: (typeof coffeeLots)[number] } }[] = [];
-  for (const lang of locales) {
-    for (const lot of coffeeLots) {
-      paths.push({ params: { lang, slug: lot.slug }, props: { lot } });
-    }
-  }
-  return paths;
+  return buildLangSlugStaticPaths(coffeeLots, (lot) => lot.slug, (lot) => ({ lot }));
 }
 
 interface Props {
@@ -23,7 +17,7 @@ interface Props {
 
 const { lot: baseLot } = Astro.props;
 const { lang } = Astro.params;
-const locale = lang as Locale;
+const locale = resolveLocale(lang);
 
 const lot = localizeCoffeeLot(baseLot, locale);
 const related = localizeCoffeeLots(getRelatedLots(lot.slug, 3), locale);
