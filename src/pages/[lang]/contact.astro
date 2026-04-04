@@ -12,7 +12,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
-const officeAddress = 'Grazer Platz 10, 12157 Berlin';
+const officeAddress = site.officeAddressLine;
 const encodedAddress = encodeURIComponent(officeAddress);
 const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
@@ -54,9 +54,23 @@ const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddre
         <div class="rounded-[24px] border border-[#d8cfbf] bg-[#f2eee5] px-7 py-8 shadow-[0_16px_34px_rgba(23,20,14,0.08)]">
           <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">{t(locale, 'contact.panelEyebrow')}</p>
           <h2 class="mt-3 font-display text-[clamp(1.45rem,2.8vw,2rem)] font-semibold leading-tight text-heading">{t(locale, 'contact.panelTitle')}</h2>
-          <p class="mt-3 text-[15px] leading-relaxed text-ink/75">{t(locale, 'contact.panelDesc')}</p>
+          <p class="mt-4 text-[15px] leading-relaxed text-ink/75">{t(locale, 'contact.panelDesc')}</p>
 
           <ul class="mt-6 space-y-3 text-[14px] text-ink/78">
+            <li class="flex gap-3">
+              <span class="mt-0.5 shrink-0 text-heading" aria-hidden="true">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M6 21V10l6-4 6 4v11"></path>
+                  <path d="M9 21v-6h6v6"></path>
+                  <path d="M9 10h6"></path>
+                </svg>
+              </span>
+              <span>
+                <strong class="font-semibold text-ink">{t(locale, 'contact.companyLabel')}</strong>{' '}
+                {site.legalEntityName}
+              </span>
+            </li>
             <li class="flex gap-3">
               <span class="mt-0.5 text-heading">
                 <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v14H4z"></path><path d="m4 7 8 6 8-6"></path></svg>

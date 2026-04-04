@@ -217,6 +217,7 @@ const trDict: Dict = {
       panelTitle: 'Berlin merkezli B2B kahve tedarik iletişimi',
       panelDesc: 'Doğru lot seçimi, tekliflendirme ve tedarik planı için tek bir iletişim hattı sunuyoruz.',
       infoTitle: 'İletişim Bilgileri',
+      companyLabel: 'Şirket:',
       emailLabel: 'E-posta:',
       regionLabel: 'Merkez:',
       regionValue: 'Berlin, Almanya',
@@ -250,6 +251,7 @@ const trDict: Dict = {
     },
     form: {
       aria: 'B2B iletişim formu',
+      operatorLabel: 'İletişim yapılan şirket',
       helper:
         'Bilgileri doldurup gönder’e basın; e-posta uygulamanız açılır, mesaj hazır gelir — yalnızca göndermeniz yeterlidir.',
       company: 'Şirket adı',
@@ -258,6 +260,7 @@ const trDict: Dict = {
       phonePh: '+90 …',
       message: 'Mesaj',
       messagePh: 'Talebinizi kısaca yazın.',
+      mailBodyOperator: 'Operatör',
       mailBodyCompany: 'Şirket',
       mailBodyPhone: 'Telefon',
       mailBodyMessage: 'Mesaj',
@@ -531,7 +534,7 @@ const trDict: Dict = {
       heroTitle: 'Gizlilik ve kişisel veriler',
       controllerTitle: 'Veri sorumlusu',
       controllerBody:
-        'İşbu internet sitesinde gerçekleştirilen kişisel veri işleme faaliyetlerinden Losandes Europe GmbH, GDPR anlamında veri sorumlusu sıfatıyla sorumludur. Veri koruma kapsamındaki başvurularınızı info@losandeseurope.de adresine iletebilirsiniz.',
+        'İşbu internet sitesinde gerçekleştirilen kişisel veri işleme faaliyetlerinden Proteam Handels GmbH, GDPR anlamında veri sorumlusu sıfatıyla sorumludur. Veri koruma kapsamındaki başvurularınızı info@losandeseurope.de adresine iletebilirsiniz.',
       hostingTitle: 'Hosting ve içerik dağıtımı (Cloudflare Pages)',
       hostingBody:
         'Web sitesi, Cloudflare Pages altyapısı üzerinden barındırılır ve içerik dağıtımı CDN aracılığıyla sağlanır. Hizmetin teknik olarak sunulması, sistem güvenliğinin temini ve performansın izlenmesi amacıyla bağlantı/erişim logları (ör. IP adresi, istek zamanı, URL, user-agent, referrer) işlenebilir.',
@@ -562,6 +565,10 @@ const trDict: Dict = {
       strategyDesignIntro: 'Web sitesinin konsepsiyonu ve geliştirilmesi:',
       developerName: 'Emre Kaya',
       strategyDesignLinkedInAria: 'Emre Kaya – LinkedIn profili',
+      labelSeat: 'Sitz:',
+      labelHrb: 'Handelsregister:',
+      labelVatId: 'USt-IdNr.:',
+      labelEori: 'EORI-Nummer:',
     },
     cookieConsent: {
       title: 'Çerez kullanımı',
@@ -787,6 +794,7 @@ const deDict: Dict = {
       panelTitle: 'Berlin-zentrierte B2B-Kaffeeversorgung',
       panelDesc: 'Für Lot-Auswahl, Angebot und Lieferplanung bieten wir einen klaren Ansprechpartner.',
       infoTitle: 'Kontaktdaten',
+      companyLabel: 'Unternehmen:',
       emailLabel: 'E-Mail:',
       regionLabel: 'Hauptsitz:',
       regionValue: 'Berlin, Deutschland',
@@ -820,6 +828,7 @@ const deDict: Dict = {
     },
     form: {
       aria: 'B2B-Kontaktformular',
+      operatorLabel: 'Anbieter',
       helper:
         'Felder ausfüllen und absenden — Ihr E-Mail-Programm öffnet sich mit vorgefüllter Nachricht; Sie müssen nur noch senden.',
       company: 'Firmenname',
@@ -828,6 +837,7 @@ const deDict: Dict = {
       phonePh: '+49 …',
       message: 'Nachricht',
       messagePh: 'Ihre Anfrage in Kurzform.',
+      mailBodyOperator: 'Anbieter',
       mailBodyCompany: 'Firma',
       mailBodyPhone: 'Telefon',
       mailBodyMessage: 'Nachricht',
@@ -1092,7 +1102,7 @@ const deDict: Dict = {
       heroTitle: 'Datenschutz & personenbezogene Daten',
       controllerTitle: 'Verantwortliche Stelle',
       controllerBody:
-        'Verantwortliche Stelle im Sinne der DSGVO für die auf dieser Website vorgenommenen Verarbeitungen personenbezogener Daten ist die Losandes Europe GmbH. Datenschutzanfragen können an info@losandeseurope.de gerichtet werden.',
+        'Verantwortliche Stelle im Sinne der DSGVO für die auf dieser Website vorgenommenen Verarbeitungen personenbezogener Daten ist die Proteam Handels GmbH. Datenschutzanfragen können an info@losandeseurope.de gerichtet werden.',
       hostingTitle: 'Hosting & Content Delivery (Cloudflare Pages)',
       hostingBody:
         'Diese Website wird über Cloudflare Pages gehostet und über ein CDN ausgeliefert. Zur technischen Bereitstellung, Gewährleistung der Systemsicherheit und Leistungsüberwachung können Verbindungs- und Zugriffsdaten verarbeitet werden (z. B. IP-Adresse, Zeitpunkt, URL, User-Agent, Referrer).',
@@ -1123,6 +1133,10 @@ const deDict: Dict = {
       strategyDesignIntro: 'Konzeption und Entwicklung der Website durch:',
       developerName: 'Emre Kaya',
       strategyDesignLinkedInAria: 'Emre Kaya auf LinkedIn',
+      labelSeat: 'Sitz:',
+      labelHrb: 'Handelsregister:',
+      labelVatId: 'USt-IdNr.:',
+      labelEori: 'EORI-Nummer:',
     },
     cookieConsent: {
       title: 'Cookie-Nutzung',

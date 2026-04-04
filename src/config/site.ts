@@ -1,6 +1,14 @@
 export const site = {
   name: 'Coffee Los Andes',
-  legalEntityName: 'Losandes Europe GmbH',
+  /** Geçici: yeni şirket kurulana kadar mevcut hukuki operatör (Impressum, iletişim, footer). */
+  legalEntityName: 'Proteam Handels GmbH',
+  officeAddressLine: 'Stallschreiberstr. 8-11, 10969 Berlin',
+  /** Handelsregister / Steuern (Impressum) */
+  legalSeat: 'Berlin, AG Charlottenburg',
+  commercialRegisterHrb: 'HRB 211052',
+  vatId: 'DE327328537',
+  /** EU-EORI (Zoll); Anzeige wie im Handelsdokument. */
+  eoriNumber: 'DE826480858564019',
   defaultTitle: 'Coffee Los Andes – Geschmack aus den Höhen der Anden · B2B',
   defaultDescription:
     'B2B-Kaffeeversorgung mit direkt angebundenen Ursprungslots aus Venezuela: transparent, planbar und auf professionelle Abnehmer ausgerichtet.',

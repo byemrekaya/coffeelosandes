@@ -12,7 +12,7 @@ export function getStaticPaths() {
 
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
-const officeAddress = 'Grazer Platz 10, 12157 Berlin';
+const officeAddress = site.officeAddressLine;
 const encodedAddress = encodeURIComponent(officeAddress);
 const mapSrc = `https://maps.google.com/maps?q=${encodedAddress}&output=embed&z=15`;
 const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
@@ -35,6 +35,24 @@ const developerLinkedInUrl = 'https://www.linkedin.com/in/emre-kaya-/';
         <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'impressum.companyTitle')}</h2>
         <p class="mt-2">{site.legalEntityName}</p>
         <p>{officeAddress}</p>
+        <div class="mt-5 space-y-2 border-t border-line/60 pt-5">
+          <p>
+            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelSeat')}</span>{' '}
+            {site.legalSeat}
+          </p>
+          <p>
+            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelHrb')}</span>{' '}
+            {site.commercialRegisterHrb}
+          </p>
+          <p>
+            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelVatId')}</span>{' '}
+            {site.vatId}
+          </p>
+          <p>
+            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelEori')}</span>{' '}
+            {site.eoriNumber}
+          </p>
+        </div>
       </div>
 
       <div>

@@ -195,6 +195,7 @@ export const esPartial: Dict = {
     panelTitle: 'Suministro de café B2B centrado en Berlín',
     panelDesc: 'Un interlocutor claro para selección de lotes, presupuesto y planificación de entrega.',
     infoTitle: 'Datos de contacto',
+    companyLabel: 'Empresa:',
     emailLabel: 'Correo:',
     regionLabel: 'Sede:',
     regionValue: 'Berlín, Alemania',
@@ -228,6 +229,7 @@ export const esPartial: Dict = {
   },
   form: {
     aria: 'Formulario de contacto B2B',
+    operatorLabel: 'Entidad legal',
     helper:
       'Complete los campos y envíe — se abre su cliente de correo con el mensaje preparado; solo debe pulsar enviar.',
     company: 'Nombre de la empresa',
@@ -236,6 +238,7 @@ export const esPartial: Dict = {
     phonePh: '+34 …',
     message: 'Mensaje',
     messagePh: 'Su consulta en breve.',
+    mailBodyOperator: 'Entidad legal',
     mailBodyCompany: 'Empresa',
     mailBodyPhone: 'Teléfono',
     mailBodyMessage: 'Mensaje',
@@ -370,7 +373,7 @@ export const esPartial: Dict = {
     heroTitle: 'Privacidad y datos personales',
     controllerTitle: 'Responsable del tratamiento',
     controllerBody:
-      'Responsable según el RGPD para el tratamiento en este sitio: Losandes Europe GmbH. Consultas de privacidad: info@losandeseurope.de.',
+      'Responsable según el RGPD para el tratamiento en este sitio: Proteam Handels GmbH. Consultas de privacidad: info@losandeseurope.de.',
     hostingTitle: 'Alojamiento y entrega (Cloudflare Pages)',
     hostingBody:
       'Este sitio está alojado en Cloudflare Pages y se entrega vía CDN. Pueden tratarse datos de conexión para prestación, seguridad y rendimiento (p. ej. IP, hora, URL, user-agent, referrer).',
@@ -401,6 +404,10 @@ export const esPartial: Dict = {
     strategyDesignIntro: 'Conceptualización y desarrollo del sitio web por:',
     developerName: 'Emre Kaya',
     strategyDesignLinkedInAria: 'Emre Kaya en LinkedIn',
+    labelSeat: 'Sede social :',
+    labelHrb: 'Registro mercantil :',
+    labelVatId: 'NIF-IVA (USt-IdNr.) :',
+    labelEori: 'Número EORI :',
   },
   cookieConsent: {
     title: 'Uso de cookies',
