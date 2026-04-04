@@ -1,0 +1,4 @@
+# Cloudflare Pages — özel yönlendirmeler buraya eklenir
+# Kök URL → varsayılan dil (HTTP yönlendirmesi; index.html’e hiç düşülmez)
+/ /de/ 302
+

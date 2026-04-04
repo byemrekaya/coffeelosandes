@@ -1,3 +1,25 @@
 ---
-return Astro.redirect('/de/', 302);
+/**
+ * Statik derlemede `Astro.redirect()` 2 sn meta refresh + "Redirecting…" HTML üretir.
+ * Anında `/de/` yönlendirmesi + Cloudflare `public/_redirects` ile HTTP 302 (üretim).
+ */
+import { site } from '../config/site';
+
+const target = '/de/';
+const canonical = `${site.canonicalOrigin}${target}`;
 ---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0;url=${target}`} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.name}</title>
+    <script is:inline>
+      location.replace('/de/');
+    </script>
+  </head>
+  <body style="margin: 0; background: #fcfbf7"></body>
+</html>

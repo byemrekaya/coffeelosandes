@@ -1,254 +1,273 @@
+export type TastingLabelKey =
+  | 'dominantNotes'
+  | 'supportingNotes'
+  | 'bodyFinish'
+  | 'character'
+  | 'sweetness'
+  | 'generalProfile'
+  | 'finish'
+  | 'body'
+  | 'acidity'
+  | 'structure'
+  | 'note'
+  | 'process'
+  | 'experience'
+  | 'acidityBody'
+  | 'fruityTouch'
+  | 'aromaticCharacter'
+  | 'usageArea';
+
 export type TastingStructuredRow = {
-  label: string;
+  labelKey: TastingLabelKey;
   value: string;
 };
 
 export const tastingStructuredBySlug: Record<string, TastingStructuredRow[]> = {
   'geisha-91-54': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Tayland Fesleğeni (+), Şampanya, Amaretto, Konyak',
     },
     {
-      label: 'Destekleyici notalar',
+      labelKey: 'supportingNotes',
       value: 'Şarabımsı, Meyve Kokteyli, Erik, Şeftali, Karamel, Şekerlemeler',
     },
     {
-      label: 'Gövde ve bitiş',
+      labelKey: 'bodyFinish',
       value:
         'Kakao, Kakao Parçacıkları (Nibs), Bitter Çikolata, Badem, Mentollü Yeşil Baharatlar',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Egzotik, Çiçeksi, Çok Kompleks ve Berrak',
     },
   ],
   'geisha-el-recreo-91-03': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Şerbetli (+), Yasemin, Beyaz Çiçekler, Kivi',
     },
     {
-      label: 'Destekleyici notalar',
+      labelKey: 'supportingNotes',
       value:
         'Orman Meyveleri (Böğürtlengiller), Çilek, Kırmızı Meyveler, Guava, Şeftali',
     },
     {
-      label: 'Gövde ve bitiş',
+      labelKey: 'bodyFinish',
       value:
         'Tereyağımsı Gövde, Kavrulmuş Fındık, Beyaz Şeker, Karamel, Çikolata, Bitter Çikolata, Kakao',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Elegant, Floral, Zitrik ve Belirgin Yapılı',
     },
   ],
   'tabi-90-38': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Süt Reçeli (Dulce de Leche), Cachapa (Mısır Krebi), Karamelize Hindistan Cevizi',
     },
     {
-      label: 'Destekleyici notalar',
+      labelKey: 'supportingNotes',
       value: 'Tatlı Kakao, Beyaz Çikolata, Şeker Kamışı, Kahveli Karamel',
     },
     {
-      label: 'Gövde ve bitiş',
+      labelKey: 'bodyFinish',
       value: 'Yumuşak Gövde, Tatlı ve Kalıcı Bitiş, Cosette',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Meyvemsi, Kakao Odaklı, Dengeli ve Kompleks',
     },
   ],
   'otra-89-83': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Bergamot, Siyah Çay, Şeftali',
     },
     {
-      label: 'Tatlılık',
+      labelKey: 'sweetness',
       value: 'Şeker Kamışı, Karamel, Süt Reçeli (Dulce de Leche)',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Narenciye, Yasemin Çiçeği, Badem',
     },
     {
-      label: 'Genel profil',
+      labelKey: 'generalProfile',
       value: 'Kompleks, Zarif, Tatlı ve Hoş Baharatlı',
     },
   ],
   'villanueva-89-05': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Kayısı, Şerbet, Mandalina Çiçeği, Tereyağlı Kurabiye',
     },
     {
-      label: 'Tatlılık',
+      labelKey: 'sweetness',
       value: 'Esmer Şeker, Karamel, Süt Reçeli (Arequipe)',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Kavrulmuş Badem, Sedir Ağacı, Çekirdekli Meyveler (Stone Fruits)',
     },
     {
-      label: 'Bitiş',
+      labelKey: 'finish',
       value: 'Kahverengi Baharatlar ve Kakao Parçacıkları (Nibs)',
     },
   ],
   'castillo-naranjal-88-83': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Bitter Çikolata (Bakers Chocolate), Karamelize Hindistan Cevizi, Kiraz',
     },
     {
-      label: 'Tatlılık',
+      labelKey: 'sweetness',
       value: 'Süt Reçeli (Dulce de Leche), Şeker Kamışı, Karamel',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Badem, Fındık, Esmer Baharatlar',
     },
     {
-      label: 'Gövde',
+      labelKey: 'body',
       value: 'Kremamsı Gövde, Kakao ve Kakao Parçacıkları (Nibs)',
     },
   ],
   'monteclaro-88-75': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Bergamot, Kırmızı Meyveler, Şeftali',
     },
     {
-      label: 'Tatlılık',
+      labelKey: 'sweetness',
       value: 'Esmer Şeker, Şeker Kamışı, Karamel, Sütlü Çikolata',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Kavrulmuş Badem, Esmer Baharatlar, İnce Otsu Notalar',
     },
     {
-      label: 'Asidite',
+      labelKey: 'acidity',
       value: 'Sitrik ve Tatlı bir bitiş',
     },
   ],
   'inia-01-88-73': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Yaban Mersini (Blueberry), Çilek, Taze Kiraz, Şeftali',
     },
     {
-      label: 'Tatlılık',
+      labelKey: 'sweetness',
       value: 'Süt Reçeli (Dulce de Leche), Esmer Şeker, Karamel',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Kakule, Frenk Kimyonu (Caraway), Tarhun, Egzotik Çiçeksi Tonlar',
     },
     {
-      label: 'Yapı',
+      labelKey: 'structure',
       value: 'Yumuşak Gövde, İnce Otsu ve Baharatlı Notalar',
     },
   ],
   'bourbon-88-52': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Orman Meyveleri, Fermente Kirazlar, Çiçeksi',
     },
     {
-      label: 'Tatlılık',
+      labelKey: 'sweetness',
       value: 'Kamış Şekeri, Karamel, Bitter Çikolata',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Kakao Parçacıkları (Nibs), Zarif ve Karmaşık Yapı',
     },
     {
-      label: 'Not',
+      labelKey: 'note',
       value:
         'Bu kahve karmaşık bir yapıya sahiptir; fincan sıcaklığı düştükçe tatların yoğunluğu değişerek farklı katmanlar sunar',
     },
   ],
   'castillo-las-mesas-84-50': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Şeftali, Karamel, İncir, Kuru Üzüm',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Hafif Çiçeksi, Macadamia Fındığı, Tatlı Aromatikler',
     },
     {
-      label: 'Deneyim',
+      labelKey: 'experience',
       value: 'Belirgin ve iyi tanımlanmış gövde yapısı',
     },
   ],
   'caturra-la-cuchilla-83-75': [
     {
-      label: 'İşlem',
+      labelKey: 'process',
       value: 'Yıkanmış (Washed)',
     },
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Akçaağaç Şurubu (Maple Syrup), Çikolata, Karamel',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Baharatlı Tonlar, Şeftali',
     },
     {
-      label: 'Deneyim',
+      labelKey: 'experience',
       value: 'Çok katmanlı ve yapılandırılmış bir içim',
     },
   ],
   'catuai-los-cedros-84': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Çekirdekli Meyveler (Stone Fruits), Vanilya, Erik',
     },
     {
-      label: 'Asidite / gövde',
+      labelKey: 'acidityBody',
       value: 'İpeksi Gövde, Ferahlatıcı Sitrik Asidite',
     },
     {
-      label: 'Bitiş',
+      labelKey: 'finish',
       value: 'Derin Limon Otu (Lemongrass) tadı bırakan kalıcı bir retrogusto',
     },
   ],
   'dunamix-blend-83-50': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Çikolata, Kavrulmuş Fındık ve Karamel',
     },
     {
-      label: 'Meyvemsi dokunuşlar',
+      labelKey: 'fruityTouch',
       value: 'Erik (Ciruela), Yeni Dünya (Níspero) ve Şeftali',
     },
     {
-      label: 'Aromatik karakter',
+      labelKey: 'aromaticCharacter',
       value: 'Yoğun Çiçeksi (Floral) tonlar ve Hafif Baharatlı (Spicy) bir yapı',
     },
     {
-      label: 'Asidite / gövde',
+      labelKey: 'acidityBody',
       value: 'Orta düzeyde asidite, espresso için ideal dengeli gövde ve pürüzsüz içim',
     },
   ],
   'mixed-series-82-50': [
     {
-      label: 'Baskın notalar',
+      labelKey: 'dominantNotes',
       value: 'Kakao ve Fındık (Nussig)',
     },
     {
-      label: 'Karakter',
+      labelKey: 'character',
       value: 'Hafif (Mild) ve Nötr',
     },
     {
-      label: 'Deneyim',
+      labelKey: 'experience',
       value: 'Pürüzsüz ve temiz içim, her fincanda tutarlı tat profili',
     },
     {
-      label: 'Kullanım alanı',
+      labelKey: 'usageArea',
       value:
         'Fiyat/performans odaklı büyük işletmeler ve harman (blend) bazları için idealdir',
     },

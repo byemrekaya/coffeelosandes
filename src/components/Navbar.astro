@@ -41,7 +41,8 @@ const linkClass =
 
 <header
   class:list={[
-    'fixed inset-x-0 top-0 z-40 max-w-full overflow-x-hidden transition-all duration-500',
+    /* overflow-x-hidden kullanma: overflow-y auto’ya zorlanır ve mobilde dil menüsü kesilir */
+    'fixed inset-x-0 top-0 z-40 max-w-full overflow-visible transition-all duration-500',
   ]}
   data-navbar
 >

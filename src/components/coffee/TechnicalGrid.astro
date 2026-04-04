@@ -1,5 +1,6 @@
 ---
 import { type CoffeeLot, lotScoreLine } from '../../data/coffeeLots';
+import { tastingLabelPath } from '../../i18n/tastingLabelPaths';
 import type { Locale } from '../../i18n/types';
 import { t } from '../../i18n/t';
 
@@ -128,7 +129,7 @@ function splitToChips(value: string): string[] {
               return (
                 <div class="rounded-xl border border-[#e7dfd3] bg-[#f9f6f0] p-4 sm:rounded-2xl sm:p-5">
                   <dt class="mb-2 text-[10px] font-semibold uppercase leading-snug tracking-[0.18em] text-[#8a847b] sm:mb-3 sm:tracking-[0.22em]">
-                    {row.label}
+                    {t(locale, tastingLabelPath(row.labelKey))}
                   </dt>
                   <dd class="min-w-0">
                     {chips.length > 0 ? (

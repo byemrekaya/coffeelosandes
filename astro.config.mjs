@@ -1,12 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
-import node from '@astrojs/node';
-
 import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  adapter: cloudflare(),
+  // Miniflare/workerd spawn hatası (macOS) → yerel dev’de platform proxy kapalı; üretim aynı kalır.
+  adapter: cloudflare({
+    platformProxy: { enabled: false },
+  }),
   integrations: [
     tailwind(),
     sitemap({
