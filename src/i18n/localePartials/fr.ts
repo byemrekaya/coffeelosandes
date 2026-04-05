@@ -60,6 +60,18 @@ export const frPartial: Dict = {
     b2bCtaBody:
       'Notre équipe à Berlin vous conseille sur volumes, échantillons et logistique pour café vert et torréfié des Andes — connexion directe à la ferme via Dunamix, origine traçable et livraison planifiable.',
     b2bCtaButton: 'Demander un devis',
+    retailPackEyebrow: 'Café torréfié',
+    retailPackBadgeA: '500 g',
+    retailPackBadgeB: 'Moulu',
+    retailPackImageAlt: 'Pack café torréfié Barista Blend — Los Andes',
+    retailPackFeatOrigin: 'Origine : Sanare, Venezuela',
+    retailPackFeatProcess: 'Traitement : Washed / Natural',
+    retailPackFeatProfile: 'Profil : Fruité, cacao, caramel',
+    retailPackCtaPrimary: 'Voir le produit',
+    retailPackCtaSecondary: 'Demande B2B',
+    retailPackStrip1: '100% Arabica',
+    retailPackStrip2: 'Torréfaction moyenne',
+    retailPackStrip3: '500 g · Moulu',
   },
   homeStory: {
     eyebrow: 'Notre histoire',
@@ -142,11 +154,11 @@ export const frPartial: Dict = {
     segmentRoastedDesc: 'Produits pour le commerce et les consommateurs.',
     retailProductTitle: 'Barista Blend',
     retailProductStory:
-      'Spécialité de haute altitude de Sanare, Venezuela, produite à Altos de Veracruz. Natural et honey — tasse équilibrée aux notes fruitées, cacao et caramel.',
+      'Spécialité de haute altitude de Sanare, Venezuela — assemblage Colombia 27 / Caturra. Traitements lavé et naturel — tasse équilibrée aux notes fruitées, cacao et caramel.',
     retailSpecLines: [
-      'Variété : Catimor',
+      'Variété : Colombia27 / Caturra',
       'Altitude : 1 600 m',
-      'Procédé : Natural / Honey',
+      'Procédé : Washed / Natural',
       'Score cupping : 82–84',
       'Torréfaction : Moyenne',
       'Acidité : Moyenne-faible',
@@ -339,6 +351,8 @@ export const frPartial: Dict = {
     techBag: 'Logistique',
     heroSpecialty: 'Lot spécialité',
     heroIntroTemplate: 'Lot de spécialité : producteur {producer}, ferme {farm}, région {region}.',
+    heroIntroRetailPack:
+      'Spécialité de hauteur de {region}, {country} — assemblage Colombia 27 / Caturra ; pack torréfié.',
     heroCupScore: 'Score cup',
     heroRank: 'Rang',
     heroRequest: 'Demander un devis grossiste',

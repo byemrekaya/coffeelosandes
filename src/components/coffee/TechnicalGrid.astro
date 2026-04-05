@@ -24,16 +24,22 @@ function resolveFermentationLabel(currentLot: CoffeeLot): string {
 }
 
 const origin = lot.region ? `${lot.country} – ${lot.region}` : lot.country;
+const isRetailPackBarista = lot.slug === 'cafe-1600-catimor';
+
 const detailRows: { labelKey: string; value: string }[] = [
   { labelKey: 'coffee.techOrigin', value: origin },
-  { labelKey: 'coffee.techFarm', value: lot.farm },
-  { labelKey: 'coffee.techProducer', value: lot.producer },
+  ...(isRetailPackBarista
+    ? []
+    : [
+        { labelKey: 'coffee.techFarm', value: lot.farm },
+        { labelKey: 'coffee.techProducer', value: lot.producer },
+      ]),
   { labelKey: 'coffee.techVariety', value: lot.variety },
   { labelKey: 'coffee.techProcess', value: lot.process },
   { labelKey: 'coffee.techFermentation', value: resolveFermentationLabel(lot) },
   { labelKey: 'coffee.techAltitude', value: lot.altitudeMeters ?? '—' },
   { labelKey: 'coffee.techScore', value: lotScoreLine(lot) },
-];
+].filter((row) => row.value.trim().length > 0);
 
 const tastingRows = lot.tastingStructured ?? [];
 

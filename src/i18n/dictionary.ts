@@ -79,6 +79,18 @@ const trDict: Dict = {
       b2bCtaBody:
         'Berlin’deki ekibimiz, Andenler’den seçilmiş yeşil çekirdek ve kavrulmuş ürünlerde hacim, numune ve lojistik konuşmak için hazır. Dunamix ile doğrudan çiftlik hattı; net menşe, lot takibi ve uzun vadeli tedarik.',
       b2bCtaButton: 'Teklif Al',
+      retailPackEyebrow: 'Kavrulmuş kahve',
+      retailPackBadgeA: '500 g',
+      retailPackBadgeB: 'Öğütülmüş',
+      retailPackImageAlt: 'Barista Blend kavrulmuş kahve paketi — Los Andes',
+      retailPackFeatOrigin: 'Menşe: Sanare, Venezuela',
+      retailPackFeatProcess: 'İşleme: Washed / Natural',
+      retailPackFeatProfile: 'Profil: Meyvemsi, kakao, karamel',
+      retailPackCtaPrimary: 'Ürünü incele',
+      retailPackCtaSecondary: 'B2B talep',
+      retailPackStrip1: '100% Arabica',
+      retailPackStrip2: 'Orta kavurma',
+      retailPackStrip3: '500 g · Öğütülmüş',
     },
     homeStory: {
       eyebrow: 'Hikâyemiz',
@@ -164,11 +176,11 @@ const trDict: Dict = {
       segmentRoastedDesc: 'Mağaza ve son kullanıcı için paketlenmiş ürünler.',
       retailProductTitle: 'Barista Blend',
       retailProductStory:
-        'Sanare, Venezuela yüksek rakım specialty kahvesi; Altos de Veracruz’ta üretilmiştir. Natural ve Honey işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
+        'Sanare, Venezuela yüksek rakım specialty kahvesi; Colombia 27 ve Caturra harmanı. Washed ve Natural işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
       retailSpecLines: [
-        'Çeşit: Catimor',
+        'Çeşit: Colombia27 / Caturra',
         'Rakım: 1600 m',
-        'İşleme: Natural / Honey',
+        'İşleme: Washed / Natural',
         'Cup skoru: 82–84',
         'Kavurma: Orta',
         'Asidite: Orta düşük',
@@ -499,6 +511,8 @@ const trDict: Dict = {
       heroSpecialty: 'Specialty Lot',
       heroIntroTemplate:
         '{producer} üreticiliği, {farm} çiftliği, {region} bölgesinden specialty lot.',
+      heroIntroRetailPack:
+        '{region} bölgesi, {country} — Colombia 27 / Caturra harmanı; kavrulmuş paket specialty.',
       heroCupScore: 'Kupa skoru',
       heroRank: 'Sıra',
       heroRequest: 'Toptan teklif iste',
@@ -656,6 +670,18 @@ const deDict: Dict = {
       b2bCtaBody:
         'Unser Team in Berlin berät Sie zu Volumen, Proben und Logistik für Rohkaffee und Röstware aus den Anden — mit direkter Farmverbindung über Dunamix, nachvollziehbarer Herkunft und planbarer Lieferung.',
       b2bCtaButton: 'Angebot',
+      retailPackEyebrow: 'Gerösteter Kaffee',
+      retailPackBadgeA: '500 g',
+      retailPackBadgeB: 'Gemahlen',
+      retailPackImageAlt: 'Barista Blend geröstete Kaffee-Packung — Los Andes',
+      retailPackFeatOrigin: 'Herkunft: Sanare, Venezuela',
+      retailPackFeatProcess: 'Aufbereitung: Washed / Natural',
+      retailPackFeatProfile: 'Geschmacksprofil: Fruchtig, Kakao, Karamell',
+      retailPackCtaPrimary: 'Zum Produkt',
+      retailPackCtaSecondary: 'B2B-Anfrage',
+      retailPackStrip1: '100% Arabica',
+      retailPackStrip2: 'Medium Roast',
+      retailPackStrip3: '500 g · Gemahlen',
     },
     homeStory: {
       eyebrow: 'Unsere Geschichte',
@@ -741,11 +767,11 @@ const deDict: Dict = {
       segmentRoastedDesc: 'Produkte für Handel und Endverbraucher.',
       retailProductTitle: 'Barista Blend',
       retailProductStory:
-        'Hochland-Specialty aus Sanare, Venezuela, produziert bei Altos de Veracruz. Natural und Honey verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
+        'Hochland-Specialty aus Sanare, Venezuela — Mischung Colombia 27 / Caturra. Washed und Natural verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
       retailSpecLines: [
-        'Sorte: Catimor',
+        'Sorte: Colombia27 / Caturra',
         'Höhe: 1600 m',
-        'Verarbeitung: Natural / Honey',
+        'Verarbeitung: Washed / Natural',
         'Cupping-Score: 82–84',
         'Röstung: Medium',
         'Säure: Mittel-niedrig',
@@ -1067,6 +1093,8 @@ const deDict: Dict = {
       heroSpecialty: 'Specialty-Lot',
       heroIntroTemplate:
         'Specialty-Lot von {producer}, Farm {farm}, Anbauregion {region}.',
+      heroIntroRetailPack:
+        'Hochland-Specialty aus {region}, {country} — Mischung Colombia 27 / Caturra; geröstete Packung.',
       heroCupScore: 'Cup-Score',
       heroRank: 'Rang',
       heroRequest: 'Großhandelsangebot anfragen',
