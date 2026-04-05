@@ -60,6 +60,18 @@ export const esPartial: Dict = {
     b2bCtaBody:
       'Nuestro equipo en Berlín le asesora sobre volumen, muestras y logística para café verde y tostado de los Andes — conexión directa con la finca vía Dunamix, origen trazable y entrega planificable.',
     b2bCtaButton: 'Solicitar presupuesto',
+    retailPackEyebrow: 'Café tostado',
+    retailPackBadgeA: '500 g',
+    retailPackBadgeB: 'Molido',
+    retailPackImageAlt: 'Pack de café tostado Barista Blend — Los Andes',
+    retailPackFeatOrigin: 'Origen: Sanare, Venezuela',
+    retailPackFeatProcess: 'Proceso: Washed / Natural',
+    retailPackFeatProfile: 'Perfil: Afrutado, cacao, caramelo',
+    retailPackCtaPrimary: 'Ver producto',
+    retailPackCtaSecondary: 'Consulta B2B',
+    retailPackStrip1: '100% Arábica',
+    retailPackStrip2: 'Tueste medio',
+    retailPackStrip3: '500 g · Molido',
   },
   homeStory: {
     eyebrow: 'Nuestra historia',
@@ -142,11 +154,11 @@ export const esPartial: Dict = {
     segmentRoastedDesc: 'Productos para comercio y consumidores.',
     retailProductTitle: 'Barista Blend',
     retailProductStory:
-      'Especialidad de altura de Sanare, Venezuela, producida en Altos de Veracruz. Natural y honey — taza equilibrada con notas frutales, cacao y caramelo.',
+      'Especialidad de altura de Sanare, Venezuela — mezcla Colombia 27 / Caturra. Procesos lavado y natural — taza equilibrada con notas frutales, cacao y caramelo.',
     retailSpecLines: [
-      'Variedad: Catimor',
+      'Variedad: Colombia27 / Caturra',
       'Altitud: 1.600 m',
-      'Proceso: Natural / Honey',
+      'Proceso: Washed / Natural',
       'Puntuación cupping: 82–84',
       'Tueste: Medio',
       'Acidez: Media-baja',

@@ -565,17 +565,17 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     score: 83,
     scoreDisplay: '82–84',
     segment: 'retail',
-    producer: 'Altos de Veracruz',
-    farm: 'Sanare highlands',
-    variety: 'Catimor',
-    process: 'Natural / Honey',
+    producer: '',
+    farm: '',
+    variety: 'Colombia27 / Caturra',
+    process: 'Washed / Natural',
     region: 'Mérida',
     country: 'Venezuela',
     flavorTags: ['Cocoa', 'Caramel', 'Fruit'],
     longTastingNotes:
       'Fruit-forward cup with cocoa and caramel depth; medium roast, medium-low acidity — ground retail format (500 g).',
     story:
-      'Highland specialty from Sanare, Venezuela, produced at Altos de Veracruz. Natural and honey processed — balanced cup with fruit, cocoa and caramel notes.',
+      'Highland specialty from Sanare, Venezuela — Colombia 27 and Caturra. Washed and natural processing — balanced cup with fruit, cocoa and caramel notes.',
     commercialSummary:
       'Roasted retail pack (500 g ground) for shelves, offices and B2B programmes that need a ready-to-sell Venezuelan specialty with a clear origin story.',
     cupProfileSummary:
@@ -583,7 +583,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     buyerUseCases: [
       'Retail shelves, delis and office coffee programmes',
       'Wholesale buyers adding a packaged Venezuelan line',
-      'Sampling Altos de Veracruz without green coffee sourcing',
+      'Sampling Venezuelan specialty in a ready-to-sell pack format',
     ],
     collectionLabel: 'Barista Blend',
     altitudeMeters: '1.600 m',

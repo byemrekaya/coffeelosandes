@@ -221,7 +221,7 @@ export const lotLocalePatches: Record<
     tr: {
       collectionLabel: 'Barista Blend',
       story:
-        'Sanare, Venezuela yüksek rakım specialty kahvesi; Altos de Veracruz’ta üretilmiştir. Natural ve Honey işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
+        'Sanare, Venezuela yüksek rakım specialty kahvesi; Colombia 27 ve Caturra harmanı. Washed ve Natural işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
       commercialSummary:
         '500 g öğütülmüş perakende paket — mağaza, ofis ve toptan hatlar için Venezuela menşe hikâyesiyle hazır satış.',
       cupProfileSummary:
@@ -235,7 +235,7 @@ export const lotLocalePatches: Record<
     de: {
       collectionLabel: 'Barista Blend',
       story:
-        'Hochland-Specialty aus Sanare, Venezuela, produziert bei Altos de Veracruz. Natural und Honey verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
+        'Hochland-Specialty aus Sanare, Venezuela — Mischung Colombia 27 / Caturra. Washed und Natural verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
       commercialSummary:
         '500 g gemahlenes Retail-Pack — für Regal, Büro und B2B mit klarer Herkunftsgeschichte.',
       cupProfileSummary:
@@ -249,7 +249,7 @@ export const lotLocalePatches: Record<
     fr: {
       collectionLabel: 'Barista Blend',
       story:
-        'Spécialité de haute altitude de Sanare, Venezuela, produite à Altos de Veracruz. Natural et honey — tasse équilibrée aux notes fruitées, cacao et caramel.',
+        'Spécialité de haute altitude de Sanare, Venezuela — assemblage Colombia 27 / Caturra. Traitements lavé et naturel — tasse équilibrée aux notes fruitées, cacao et caramel.',
       commercialSummary:
         'Format retail moulu 500 g — rayons, bureaux et B2B avec récit d’origine vénézuélien.',
       cupProfileSummary:
@@ -263,7 +263,7 @@ export const lotLocalePatches: Record<
     es: {
       collectionLabel: 'Barista Blend',
       story:
-        'Especialidad de altura de Sanare, Venezuela, producida en Altos de Veracruz. Natural y honey — taza equilibrada con notas frutales, cacao y caramelo.',
+        'Especialidad de altura de Sanare, Venezuela — mezcla Colombia 27 / Caturra. Procesos lavado y natural — taza equilibrada con notas frutales, cacao y caramelo.',
       commercialSummary:
         'Pack retail molido 500 g — estanterías, oficinas y B2B con historia de origen venezolano.',
       cupProfileSummary:

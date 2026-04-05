@@ -13,10 +13,15 @@ const { lot, locale } = Astro.props;
 const eyebrow = lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty');
 const coverSrc = getLotImageSrc(lot.slug);
 const lightboxId = `lot-lightbox-${lot.slug}`;
-const heroIntro = t(locale, 'coffee.heroIntroTemplate')
-  .replace('{producer}', lot.producer)
-  .replace('{farm}', lot.farm)
-  .replace('{region}', lot.region);
+const heroIntro =
+  lot.slug === 'cafe-1600-catimor'
+    ? t(locale, 'coffee.heroIntroRetailPack')
+        .replace('{region}', lot.region)
+        .replace('{country}', lot.country)
+    : t(locale, 'coffee.heroIntroTemplate')
+        .replace('{producer}', lot.producer)
+        .replace('{farm}', lot.farm)
+        .replace('{region}', lot.region);
 ---
 
 <section class="section-band-a relative overflow-hidden border-b border-line pb-12 pt-24 md:pb-16 md:pt-28 lg:pt-32" data-reveal>

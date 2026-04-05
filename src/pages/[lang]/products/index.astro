@@ -4,7 +4,8 @@ import { getLangStaticPaths } from '../../../i18n/staticPaths';
 import { resolveLocale } from '../../../i18n/config';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CoffeeMasterCard from '../../../components/products/CoffeeMasterCard.astro';
-import { getMasterItemsBySegment } from '../../../data/venezuelaCoffeeMaster';
+import { venezuelaCoffeeMasterWithSlug } from '../../../data/venezuelaCoffeeMaster';
+import type { Locale } from '../../../i18n/types';
 import { t } from '../../../i18n/t';
 
 export function getStaticPaths() {
@@ -14,9 +15,45 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
 
-const masterMicroLots = getMasterItemsBySegment('MICRO LOT');
-const masterSpecialty = getMasterItemsBySegment('SPECIALTY');
-const masterCommercial = getMasterItemsBySegment('COMMERCIAL');
+const productSegmentDefs = [
+  {
+    id: 'MICRO LOT' as const,
+    label: t(locale, 'products.segmentLabelMicro'),
+    title: t(locale, 'products.segmentMicroTitle'),
+    desc: t(locale, 'products.segmentMicroDesc'),
+  },
+  {
+    id: 'SPECIALTY' as const,
+    label: t(locale, 'products.segmentLabelSpecialty'),
+    title: t(locale, 'products.segmentSpecialtyTitle'),
+    desc: t(locale, 'products.segmentSpecialtyDesc'),
+  },
+  {
+    id: 'COMMERCIAL' as const,
+    label: t(locale, 'products.segmentLabelCommercial'),
+    title: t(locale, 'products.segmentCommercialTitle'),
+    desc: t(locale, 'products.segmentCommercialDesc'),
+  },
+];
+
+const defaultSegment = productSegmentDefs[0].id;
+const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
+const masterTotalCategories = productSegmentDefs.length;
+
+const lotWordByLocale: Record<Locale, string> = {
+  tr: 'lot',
+  de: 'Lots',
+  en: 'lots',
+  fr: 'lots',
+  es: 'lotes',
+};
+const categoryWordByLocale: Record<Locale, string> = {
+  tr: 'kategori',
+  de: 'Kategorien',
+  en: 'categories',
+  fr: 'catégories',
+  es: 'categorías',
+};
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
@@ -33,41 +70,203 @@ const masterCommercial = getMasterItemsBySegment('COMMERCIAL');
 
   <section id="our-products" class="section-band-b border-t border-line/60 py-16 md:py-20">
     <div class="section-shell">
-      <div class="mb-10 max-w-3xl">
-        <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">
-          {t(locale, 'products.masterSectionLabel')}
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f]">
+            {t(locale, 'products.masterSectionLabel')}
+          </p>
+          <h2 class="mt-2 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold text-heading">
+            {t(locale, 'products.masterPortfolioTitle')}
+          </h2>
+        </div>
+        <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
+          {masterTotalLots} {lotWordByLocale[locale]} · {masterTotalCategories} {categoryWordByLocale[locale]}
         </p>
-        <h2 class="mt-2 font-display text-[clamp(1.6rem,3vw,2.2rem)] font-semibold text-heading">
-          {t(locale, 'products.masterPortfolioTitle')}
-        </h2>
       </div>
 
-      <div class="mb-8 max-w-3xl">
-        <h3 class="font-display text-xl font-semibold text-heading md:text-2xl">Micro Lot</h3>
+      <div class="relative z-20 mt-10 w-full min-w-0 max-w-full overflow-hidden" data-products-filter-root>
+        <div
+          class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent md:w-16"
+          aria-hidden="true"
+        />
+        <div
+          class="w-full min-w-0 max-w-full overflow-x-auto overscroll-x-contain scroll-pl-4 scroll-pr-2 pb-2 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
+        >
+          <div
+            class="inline-flex min-w-max items-center gap-3 rounded-[28px] border border-black/5 bg-[#f5f2ed] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_28px_rgba(15,38,28,0.06)] ring-1 ring-black/[0.03]"
+          >
+            {productSegmentDefs.map((segment, i) => (
+              <button
+                type="button"
+                data-products-tab={segment.id}
+                data-active-classes="bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white border-black/15 shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45"
+                data-inactive-classes="bg-[#f0ebe4] text-[#3d3835] border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:border-black/10 hover:bg-[#f7f4ef] hover:shadow-[0_3px_14px_rgba(15,38,28,0.09)]"
+                class:list={[
+                  'home-filter-pill-btn group relative flex min-h-[46px] shrink-0 snap-start items-center gap-2 rounded-full border px-4 py-2.5 text-left text-[13px] font-semibold leading-snug tracking-tight transition-all duration-200 ease-out motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
+                  i === 0
+                    ? 'border-black/15 bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45'
+                    : 'border-black/[0.06] bg-[#f0ebe4] text-[#3d3835] shadow-[0_1px_3px_rgba(0,0,0,0.05)]',
+                ]}
+                aria-pressed={i === 0 ? 'true' : 'false'}
+              >
+                <span class="home-filter-pill-dot shrink-0" aria-hidden="true" />
+                <span class="relative z-[1]">{segment.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {masterMicroLots.map((item) => (
-          <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+
+      <div class="mt-8 space-y-4">
+        {productSegmentDefs.map((segment, i) => (
+          <div data-products-panel={segment.id} class:list={[i !== 0 && 'hidden']}>
+            <h3 class="text-[22px] font-semibold text-ink">{segment.title}</h3>
+            <p class="mt-2 max-w-3xl text-[17px] leading-[1.6] text-[#5f5b55]">{segment.desc}</p>
+          </div>
         ))}
       </div>
 
-      <div class="mt-14 mb-8 max-w-3xl">
-        <h3 class="font-display text-xl font-semibold text-heading md:text-2xl">Specialty</h3>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {masterSpecialty.map((item) => (
-          <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
-        ))}
-      </div>
-
-      <div class="mt-14 mb-8 max-w-3xl">
-        <h3 class="font-display text-xl font-semibold text-heading md:text-2xl">Commercial</h3>
-      </div>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {masterCommercial.map((item) => (
-          <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" data-products-cards>
+        {venezuelaCoffeeMasterWithSlug.map((item) => (
+          <div
+            data-products-card
+            data-products-segment={item.segment}
+            class:list={[item.segment !== defaultSegment && 'hidden']}
+          >
+            <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+          </div>
         ))}
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style is:global>
+  [data-products-filter-root] .home-filter-pill-dot {
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: linear-gradient(145deg, #c5d4b8 0%, #8fa68a 100%);
+    box-shadow:
+      0 0 0 1px rgba(77, 107, 82, 0.35),
+      0 1px 4px rgba(15, 38, 28, 0.25);
+    opacity: 0;
+    transform: scale(0.45);
+    transition:
+      opacity 0.22s ease,
+      transform 0.22s ease;
+  }
+
+  [data-products-filter-root] .home-filter-pill-btn[aria-pressed='true'] .home-filter-pill-dot {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-products-filter-root] .home-filter-pill-btn {
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function applyClasses(el: Element, list: string, add: boolean) {
+    const classes = list
+      .split(' ')
+      .map((v) => v.trim())
+      .filter(Boolean);
+    if (!classes.length) return;
+    el.classList[add ? 'add' : 'remove'](...classes);
+  }
+
+  function initProductsFilter() {
+    const root = document.querySelector('[data-products-filter-root]');
+    if (!root) return;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const buttons = Array.from(root.querySelectorAll<HTMLElement>('[data-products-tab]'));
+    const cardsRoot = document.querySelector('[data-products-cards]');
+    const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-products-panel]'));
+    const cards = cardsRoot
+      ? Array.from(cardsRoot.querySelectorAll<HTMLElement>('[data-products-card][data-products-segment]'))
+      : [];
+    if (!buttons.length || !cards.length) return;
+
+    const setActive = (segment: string, opts?: { skipClear?: boolean }) => {
+      buttons.forEach((btn) => {
+        const tab = btn.getAttribute('data-products-tab');
+        const isActive = tab === segment;
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', false);
+        applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', false);
+        if (isActive) {
+          applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', true);
+        } else {
+          applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', true);
+        }
+      });
+
+      panels.forEach((panel) => {
+        const pid = panel.getAttribute('data-products-panel');
+        panel.classList.toggle('hidden', pid !== segment);
+      });
+
+      cards.forEach((card) => {
+        const sid = card.getAttribute('data-products-segment');
+        const match = sid === segment;
+        card.classList.toggle('hidden', !match);
+        if (match && !opts?.skipClear) {
+          gsap.killTweensOf(card);
+          gsap.set(card, { clearProps: 'opacity,transform,scale' });
+        }
+      });
+
+      if (prefersReduced) {
+        cards.forEach((card) => {
+          if (card.getAttribute('data-products-segment') === segment) {
+            gsap.set(card, { opacity: 1, y: 0, scale: 1 });
+          }
+        });
+        return;
+      }
+
+      const activePanel = panels.find((p) => p.getAttribute('data-products-panel') === segment);
+      const activeCards = cards.filter((c) => c.getAttribute('data-products-segment') === segment);
+
+      if (activePanel) {
+        gsap.fromTo(
+          activePanel,
+          { opacity: 0, y: 10 },
+          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' }
+        );
+      }
+
+      if (activeCards.length) {
+        gsap.fromTo(
+          activeCards,
+          { opacity: 0, y: 18, scale: 0.985 },
+          { opacity: 1, y: 0, scale: 1, duration: 0.42, stagger: 0.05, ease: 'power2.out', overwrite: 'auto' }
+        );
+      }
+    };
+
+    const initial = buttons[0]?.getAttribute('data-products-tab');
+    if (initial) setActive(initial, { skipClear: true });
+
+    root.addEventListener('click', (e) => {
+      const t = e.target;
+      if (!(t instanceof Element)) return;
+      const btn = t.closest('[data-products-tab]');
+      if (!btn || !root.contains(btn)) return;
+      const segment = btn.getAttribute('data-products-tab');
+      if (segment) setActive(segment);
+    });
+  }
+
+  document.readyState === 'loading'
+    ? document.addEventListener('DOMContentLoaded', initProductsFilter)
+    : initProductsFilter();
+</script>

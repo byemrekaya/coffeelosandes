@@ -60,6 +60,18 @@ export const enPartial: Dict = {
     b2bCtaBody:
       'Our Berlin team advises on volume, samples and logistics for green and roasted coffee from the Andes — direct farm connection via Dunamix, traceable origin and plannable delivery.',
     b2bCtaButton: 'Request a quote',
+    retailPackEyebrow: 'Roasted coffee',
+    retailPackBadgeA: '500 g',
+    retailPackBadgeB: 'Ground',
+    retailPackImageAlt: 'Barista Blend roasted coffee pack — Los Andes',
+    retailPackFeatOrigin: 'Origin: Sanare, Venezuela',
+    retailPackFeatProcess: 'Process: Washed / Natural',
+    retailPackFeatProfile: 'Profile: Fruity, cocoa, caramel',
+    retailPackCtaPrimary: 'View product',
+    retailPackCtaSecondary: 'B2B enquiry',
+    retailPackStrip1: '100% Arabica',
+    retailPackStrip2: 'Medium roast',
+    retailPackStrip3: '500 g · Ground',
   },
   homeStory: {
     eyebrow: 'Our story',
@@ -142,11 +154,11 @@ export const enPartial: Dict = {
     segmentRoastedDesc: 'Products for trade and consumers.',
     retailProductTitle: 'Barista Blend',
     retailProductStory:
-      'Highland specialty from Sanare, Venezuela, produced at Altos de Veracruz. Natural and honey processed — balanced cup with fruit, cocoa and caramel notes.',
+      'Highland specialty from Sanare, Venezuela — Colombia 27 and Caturra blend. Washed and natural processing — balanced cup with fruit, cocoa and caramel notes.',
     retailSpecLines: [
-      'Variety: Catimor',
+      'Variety: Colombia27 / Caturra',
       'Altitude: 1,600 m',
-      'Process: Natural / Honey',
+      'Process: Washed / Natural',
       'Cupping score: 82–84',
       'Roast: Medium',
       'Acidity: Medium-low',
@@ -337,6 +349,8 @@ export const enPartial: Dict = {
     techBag: 'Logistics',
     heroSpecialty: 'Specialty lot',
     heroIntroTemplate: 'Specialty lot from {producer} at {farm} in {region}.',
+    heroIntroRetailPack:
+      'Highland specialty from {region}, {country} — Colombia 27 / Caturra blend; roasted retail pack.',
     heroCupScore: 'Cup score',
     heroRank: 'Rank',
     heroRequest: 'Request wholesale quote',
