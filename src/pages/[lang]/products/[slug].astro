@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CoffeeMasterCard from '../../../components/products/CoffeeMasterCard.astro';
+import MasterTastingSheet from '../../../components/products/MasterTastingSheet.astro';
+import { resolveMasterTastingRows } from '../../../i18n/resolveMasterTastingRows';
 import { buildLangSlugStaticPaths } from '../../../i18n/staticPaths';
 import { resolveLocale } from '../../../i18n/config';
 import { venezuelaCoffeeMasterWithSlug } from '../../../data/venezuelaCoffeeMaster';
@@ -45,6 +47,9 @@ const keyRows = [
   { key: 'variety', label: t(locale, 'products.masterDetailVarietyLabel'), value: item.cesit },
   { key: 'commercial', label: t(locale, 'products.masterDetailCommercialLabel'), value: item.ticari_segment },
 ].filter((row) => Boolean(row.value && row.value.trim()));
+
+const tastingRows = resolveMasterTastingRows(item.slug, locale);
+const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
 ---
 
 <BaseLayout locale={locale} title={title} description={description} ogImage={ogImage} ogImageAlt={ogImageAlt}>
@@ -162,7 +167,7 @@ const keyRows = [
     </div>
   </dialog>
 
-  {keyRows.length > 0 && (
+  {showDetailsBlock && (
     <section id="lot-details" class="section-band-b border-y border-line py-12 sm:py-16 md:py-24">
       <div class="section-shell">
         <div class="mb-6 flex flex-col gap-3 sm:mb-8 md:mb-10 md:flex-row md:items-end md:justify-between">
@@ -174,34 +179,39 @@ const keyRows = [
           </div>
         </div>
 
-        <article
-          class="overflow-hidden rounded-2xl border border-[#ddd4c7] bg-[#fcfbf7] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:rounded-[24px] sm:p-6 md:p-8"
-        >
-          <dl class="divide-y divide-[#e7dfd3]">
-            {keyRows.map((row) => (
-              <div
-                class="grid grid-cols-1 gap-1.5 py-4 md:grid-cols-[minmax(0,12rem)_1fr] md:items-start md:gap-x-8 md:gap-y-0 md:py-5 lg:grid-cols-[minmax(0,13rem)_1fr]"
-              >
-                <dt class="min-w-0 shrink-0 text-[10px] font-semibold uppercase leading-snug tracking-[0.18em] text-[#8a847b] md:pt-0.5 md:tracking-[0.22em]">
-                  {row.label}
-                </dt>
-                <dd class="min-w-0 text-left md:text-right">
-                  {row.key === 'score' ? (
-                    <span class="inline-flex max-w-full break-words rounded-full bg-[#1f1f1c] px-3 py-1.5 text-sm font-semibold text-white sm:px-4">
-                      {row.value}
-                    </span>
-                  ) : row.key === 'segment' ? (
-                    <span class="inline-flex max-w-full break-words rounded-full border border-[#cfd9c7] bg-[#eef4e8] px-3 py-1.5 text-sm font-semibold text-heading sm:px-4">
-                      {row.value}
-                    </span>
-                  ) : (
-                    <span class="break-words text-[16px] font-semibold leading-snug text-[#1f1f1c] sm:text-[17px] md:text-[18px]">{row.value}</span>
-                  )}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </article>
+        <div class:list={['grid gap-6 sm:gap-8', tastingRows.length > 0 && 'lg:grid-cols-2']}>
+          {keyRows.length > 0 && (
+            <article
+              class="overflow-hidden rounded-2xl border border-[#ddd4c7] bg-[#fcfbf7] p-4 shadow-[0_10px_30px_rgba(0,0,0,0.04)] sm:rounded-[24px] sm:p-6 md:p-8"
+            >
+              <dl class="divide-y divide-[#e7dfd3]">
+                {keyRows.map((row) => (
+                  <div
+                    class="grid grid-cols-1 gap-1.5 py-4 md:grid-cols-[minmax(0,12rem)_1fr] md:items-start md:gap-x-8 md:gap-y-0 md:py-5 lg:grid-cols-[minmax(0,13rem)_1fr]"
+                  >
+                    <dt class="min-w-0 shrink-0 text-[10px] font-semibold uppercase leading-snug tracking-[0.18em] text-[#8a847b] md:pt-0.5 md:tracking-[0.22em]">
+                      {row.label}
+                    </dt>
+                    <dd class="min-w-0 text-left md:text-right">
+                      {row.key === 'score' ? (
+                        <span class="inline-flex max-w-full break-words rounded-full bg-[#1f1f1c] px-3 py-1.5 text-sm font-semibold text-white sm:px-4">
+                          {row.value}
+                        </span>
+                      ) : row.key === 'segment' ? (
+                        <span class="inline-flex max-w-full break-words rounded-full border border-[#cfd9c7] bg-[#eef4e8] px-3 py-1.5 text-sm font-semibold text-heading sm:px-4">
+                          {row.value}
+                        </span>
+                      ) : (
+                        <span class="break-words text-[16px] font-semibold leading-snug text-[#1f1f1c] sm:text-[17px] md:text-[18px]">{row.value}</span>
+                      )}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </article>
+          )}
+          <MasterTastingSheet rows={tastingRows} locale={locale} />
+        </div>
       </div>
     </section>
   )}
