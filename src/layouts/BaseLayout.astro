@@ -14,6 +14,9 @@ interface Props {
   locale?: Locale;
   title?: string;
   description?: string;
+  /** Sayfa özel paylaşım görseli (köke göre yol, örn. `/lot.webp` veya tam URL). */
+  ogImage?: string;
+  ogImageAlt?: string;
   hideFooter?: boolean;
   fullpage?: boolean;
   noindex?: boolean;
@@ -23,6 +26,8 @@ const {
   locale: localeProp,
   title = site.defaultTitle,
   description = site.defaultDescription,
+  ogImage: ogImageProp,
+  ogImageAlt: ogImageAltProp,
   hideFooter = false,
   fullpage = false,
   noindex = false,
@@ -37,7 +42,13 @@ const origin = site.canonicalOrigin.replace(/\/$/, '');
 const pathname = Astro.url.pathname;
 const canonicalURL = new URL(pathname, `${origin}/`).href;
 
-const ogImageURL = new URL(site.ogImage.replace(/^\//, ''), `${origin}/`).href;
+const ogImageRaw = ogImageProp ?? site.ogImage;
+const ogImageURL = ogImageRaw.startsWith('http')
+  ? ogImageRaw
+  : new URL(ogImageRaw.replace(/^\//, ''), `${origin}/`).href;
+const ogImageAltResolved =
+  ogImageAltProp?.trim() ||
+  `${site.name} — ${description.replace(/\s+/g, ' ').trim().slice(0, 160)}`;
 const ogLocaleMap: Record<string, string> = {
   tr: 'tr_TR',
   de: 'de_DE',
@@ -100,12 +111,12 @@ const websiteSchema = {
         <meta property="og:locale" content={ogLocale} />
         {ogAlternateLocales.map((alt) => <meta property="og:locale:alternate" content={alt} />)}
         <meta property="og:image" content={ogImageURL} />
-        <meta property="og:image:alt" content={`${site.name} — ${site.defaultDescription}`} />
+        <meta property="og:image:alt" content={ogImageAltResolved} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={ogImageURL} />
-        <meta name="twitter:image:alt" content={`${site.name} — ${site.defaultDescription}`} />
+        <meta name="twitter:image:alt" content={ogImageAltResolved} />
       </>
     )}
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)}></script>

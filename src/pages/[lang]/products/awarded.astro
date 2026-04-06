@@ -23,13 +23,19 @@ const commercial = localizeCoffeeLots(getLotsBySegment('commercial'), locale);
 const retail = localizeCoffeeLots(getLotsBySegment('retail'), locale);
 ---
 
-<BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'products.awardedTitle')}
+  description={t(locale, 'products.awardedDescription')}
+  ogImage="/geisha-premium-coffee.webp"
+  ogImageAlt={t(locale, 'products.awardedTitle')}
+>
   <section class="border-b border-line pb-16 pt-32 md:pb-20 md:pt-36">
     <div class="section-shell">
       <SectionHeader
         eyebrow={t(locale, 'home.awardedSectionTitle')}
         title={t(locale, 'home.awardedSectionTitle')}
-        description={t(locale, 'products.desc')}
+        description={t(locale, 'home.awardedSectionIntro')}
         align="center"
       />
     </div>

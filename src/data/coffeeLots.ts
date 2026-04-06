@@ -131,7 +131,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Natural',
     region: 'Mérida',
     country: 'Venezuela',
-    flavorTags: ['Jasmine', 'Berries', 'Kiwi', 'Butter', 'Chocolate'],
+    flavorTags: ['Floral', 'Honey', 'Peach', 'Sweet', 'Vanilla'],
     longTastingNotes:
       'Forest berries, blackberry, kiwi, jasmine and white flowers, buttery body, balanced with bitter chocolate',
     story:
@@ -165,7 +165,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Washed / Natural',
     region: 'Trujillo',
     country: 'Venezuela',
-    flavorTags: ['Dulce de leche', 'Cocoa', 'Coconut', 'Sweet'],
+    flavorTags: ['Tropical', 'Floral', 'Honey', 'Banana', 'Sweet'],
     longTastingNotes:
       'Cachapa and dulce de leche, sweet cocoa, caramelized coconut, soft creamy body, dessert-like sweetness',
     story:
@@ -233,7 +233,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Honey',
     region: 'Trujillo',
     country: 'Venezuela',
-    flavorTags: ['Brown sugar', 'Stone fruit', 'Cedar', 'Spice'],
+    flavorTags: ['Caramel', 'Chocolate', 'Hazelnut', 'Apple', 'Honey'],
     longTastingNotes:
       'Buttery cookie, brown sugar, apricot, mandarin blossom, cedar, brown spices, cacao nibs, citrus',
     story:
@@ -267,7 +267,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Natural / Honey',
     region: 'Barinas',
     country: 'Venezuela',
-    flavorTags: ['Dark chocolate', 'Cherry', 'Hazelnut', 'Creamy'],
+    flavorTags: ['Dark chocolate', 'Caramel', 'Hazelnut', 'Orange', 'Vanilla'],
     longTastingNotes:
       'Cherry, hazelnut, baker’s chocolate, brown spice, cocoa, caramelized coconut, creamy body',
     story:
@@ -301,7 +301,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Washed',
     region: 'Táchira',
     country: 'Venezuela',
-    flavorTags: ['Bergamot', 'Brown sugar', 'Red fruit', 'Herbal'],
+    flavorTags: ['Caramel', 'Chocolate', 'Almond', 'Fig', 'Vanilla'],
     longTastingNotes:
       'Bergamot, brown sugar, red fruits, milk chocolate, subtle herbal notes, clean citric brightness',
     story:
@@ -335,7 +335,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Washed',
     region: 'Yaracuy',
     country: 'Venezuela',
-    flavorTags: ['Wild berries', 'Spice', 'Cherry', 'Sweet'],
+    flavorTags: ['Caramel', 'Chocolate', 'Almond', 'Apricot', 'Vanilla'],
     longTastingNotes:
       'Wild berries, brown sugar, caramel, cardamom, cherry, soft body, sweet dulce de leche',
     story:
@@ -538,7 +538,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     process: 'Natural / Washed',
     region: 'Venezuela',
     country: 'Venezuela',
-    flavorTags: ['Cocoa', 'Hazelnut', 'Balanced'],
+    flavorTags: ['Chocolate', 'Caramel', 'Hazelnut', 'Honey', 'Balanced'],
     longTastingNotes:
       'Cocoa and hazelnut profile, balanced body, economical commodity-grade option within quality controls',
     story:

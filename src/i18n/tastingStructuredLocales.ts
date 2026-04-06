@@ -27,38 +27,37 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'geisha-el-recreo-91-03': [
       {
         labelKey: 'dominantNotes',
-        value: 'Syrupy (+), jasmine, white flowers, kiwi',
+        value: 'Fruit tea (+), white flowers, honey, yellow peach',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Berries (Rubus), strawberry, red fruits, guava, peach',
+        value: 'Lemon blossom, muscat grape, light vanilla, lily',
       },
       {
         labelKey: 'bodyFinish',
-        value:
-          'Buttery body, roasted hazelnut, white sugar, caramel, chocolate, dark chocolate, cocoa',
+        value: 'Light-medium body, silky texture, long floral finish, bright acidity',
       },
       {
         labelKey: 'character',
-        value: 'Elegant, floral, citrus-forward and structured',
+        value: 'Delicate, floral and fruity, elegant',
       },
     ],
     'tabi-90-38': [
       {
         labelKey: 'dominantNotes',
-        value: 'Dulce de leche, cachapa (corn pancake), caramelized coconut',
+        value: 'Tropical fruits, floral aromas, honey, banana',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Sweet cocoa, white chocolate, cane sugar, coffee caramel',
+        value: 'Intense sweetness, vanilla, caramel, light chocolate',
       },
       {
         labelKey: 'bodyFinish',
-        value: 'Soft body, sweet and long finish, Cosette',
+        value: 'Medium-full body, satiny texture, long finish, balanced acidity',
       },
       {
         labelKey: 'character',
-        value: 'Fruity, cocoa-driven, balanced and complex',
+        value: 'Complex, sweet and floral, stable',
       },
     ],
     'otra-89-83': [
@@ -82,73 +81,73 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'villanueva-89-05': [
       {
         labelKey: 'dominantNotes',
-        value: 'Apricot, syrup, orange blossom, shortbread',
+        value: 'Caramel, chocolate, hazelnut, apple',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Brown sugar, caramel, dulce de leche (arequipe)',
+        labelKey: 'supportingNotes',
+        value: 'Fruity acidity, vanilla, almond, honey',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Medium body, smooth texture, sweet finish, balanced acidity',
       },
       {
         labelKey: 'character',
-        value: 'Roasted almond, cedar, stone fruits',
-      },
-      {
-        labelKey: 'finish',
-        value: 'Brown spices and cocoa nibs',
+        value: 'Balanced, soft and round, stable',
       },
     ],
     'castillo-naranjal-88-83': [
       {
         labelKey: 'dominantNotes',
-        value: "Baker's chocolate, caramelized coconut, cherry",
+        value: 'Dark chocolate, caramel, hazelnut, orange',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de leche, cane sugar, caramel',
+        labelKey: 'supportingNotes',
+        value: 'Fruity acidity, vanilla, molasses, light orange',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Medium–full body, creamy texture, cocoa finish, balanced acidity',
       },
       {
         labelKey: 'character',
-        value: 'Almond, hazelnut, brown spices',
-      },
-      {
-        labelKey: 'body',
-        value: 'Creamy body, cocoa and cocoa nibs',
+        value: 'Balanced, complex, stable',
       },
     ],
     'monteclaro-88-75': [
       {
         labelKey: 'dominantNotes',
-        value: 'Bergamot, red fruits, peach',
+        value: 'Caramel (+), milk chocolate, almond, dried fig',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Brown sugar, cane sugar, caramel, milk chocolate',
+        labelKey: 'supportingNotes',
+        value: 'Apple, grape, vanilla, light orange',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Medium body, creamy texture, cocoa finish, balanced acidity',
       },
       {
         labelKey: 'character',
-        value: 'Roasted almond, brown spices, delicate herbal notes',
-      },
-      {
-        labelKey: 'acidity',
-        value: 'Citric acidity with a sweet finish',
+        value: 'Classic, balanced and round, sweet–bitter harmony',
       },
     ],
     'inia-01-88-73': [
       {
         labelKey: 'dominantNotes',
-        value: 'Blueberry, strawberry, fresh cherry, peach',
+        value: 'Caramel (+), milk chocolate, almond, dried apricot',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de leche, brown sugar, caramel',
+        labelKey: 'supportingNotes',
+        value: 'Apple, vanilla, light orange, muscovado sugar',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Medium body, creamy texture, cocoa finish, balanced acidity',
       },
       {
         labelKey: 'character',
-        value: 'Cardamom, caraway, tarragon, exotic floral tones',
-      },
-      {
-        labelKey: 'structure',
-        value: 'Soft body, delicate herbal and spicy notes',
+        value: 'Balanced, round and sweet, stable',
       },
     ],
     'bourbon-88-52': [
@@ -219,37 +218,55 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'dunamix-blend-83-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Chocolate, roasted hazelnut and caramel',
+        value: 'Caramel, chocolate, honey, sour cherry',
       },
       {
-        labelKey: 'fruityTouch',
-        value: 'Plum (ciruela), loquat (níspero) and peach',
+        labelKey: 'supportingNotes',
+        value: 'Fruit acidity, vanilla, hazelnut, orange',
       },
       {
-        labelKey: 'aromaticCharacter',
-        value: 'Intense floral tones and a lightly spicy structure',
+        labelKey: 'bodyFinish',
+        value: 'Medium-full body, creamy texture, sweet finish, balanced acidity',
       },
       {
-        labelKey: 'acidityBody',
-        value: 'Medium acidity, balanced body for espresso, smooth mouthfeel',
+        labelKey: 'character',
+        value: 'Balanced, complex, stable',
       },
     ],
     'mixed-series-82-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Cocoa and nutty',
+        value: 'Chocolate, caramel, hazelnut, general coffee character',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Light fruity, vanilla, almond, honey',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Light-medium body, flat texture, short finish, low acidity',
       },
       {
         labelKey: 'character',
-        value: 'Mild and neutral',
+        value: 'Simple, flat, everyday drinking',
+      },
+    ],
+    'cafe-1600-catimor': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Honey, caramel, green apple, floral aromas',
       },
       {
-        labelKey: 'experience',
-        value: 'Smooth, clean cup; consistent profile cup after cup',
+        labelKey: 'supportingNotes',
+        value: 'Fruit acidity, vanilla, almond, light spice',
       },
       {
-        labelKey: 'usageArea',
-        value: 'Ideal for value-focused operations and blend bases',
+        labelKey: 'bodyFinish',
+        value: 'Medium body, smooth texture, sweet finish, lively acidity',
+      },
+      {
+        labelKey: 'character',
+        value: 'Balanced, fresh and lively, stable',
       },
     ],
   },
@@ -275,38 +292,38 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'geisha-el-recreo-91-03': [
       {
         labelKey: 'dominantNotes',
-        value: 'Sirupartig (+), Jasmin, weiße Blüten, Kiwi',
+        value: 'Früchtetee (+), weiße Blüten, Honig, gelber Pfirsich',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Waldbeeren (Rubus), Erdbeere, rote Früchte, Guave, Pfirsich',
+        value: 'Zitronenblüte, Muskattraube, leichte Vanille, Lilie',
       },
       {
         labelKey: 'bodyFinish',
         value:
-          'Buttriger Körper, geröstete Haselnuss, weißer Zucker, Karamel, Schokolade, bittere Schokolade, Kakao',
+          'Leicht bis mittlerer Körper, seidige Textur, langer floraler Abgang, lebendige Säure',
       },
       {
         labelKey: 'character',
-        value: 'Elegant, blumig, zitrusbetont und strukturiert',
+        value: 'Zart, blumig und fruchtig, elegant',
       },
     ],
     'tabi-90-38': [
       {
         labelKey: 'dominantNotes',
-        value: 'Dulce de Leche, Cachapa (Mais-Pfannkuchen), karamellisierte Kokosnuss',
+        value: 'Tropische Früchte, florale Aromen, Honig, Banane',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Süßer Kakao, weiße Schokolade, Rohrzucker, Kaffeekaramel',
+        value: 'Intensive Süße, Vanille, Karamel, leichte Schokolade',
       },
       {
         labelKey: 'bodyFinish',
-        value: 'Weicher Körper, süßer und langer Abgang, Cosette',
+        value: 'Mittel bis voller Körper, satinierte Textur, langer Abgang, ausgewogene Säure',
       },
       {
         labelKey: 'character',
-        value: 'Fruchtig, kakaobetont, ausgewogen und komplex',
+        value: 'Komplex, süß und blumig, stabil',
       },
     ],
     'otra-89-83': [
@@ -330,73 +347,73 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'villanueva-89-05': [
       {
         labelKey: 'dominantNotes',
-        value: 'Aprikose, Sirup, Orangenblüte, Buttergebäck',
+        value: 'Karamel, Schokolade, Haselnuss, Apfel',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Brauner Zucker, Karamel, Dulce de Leche (Arequipe)',
+        labelKey: 'supportingNotes',
+        value: 'Fruchtige Säure, Vanille, Mandel, Honig',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Mittlerer Körper, geschmeidige Textur, süßer Abgang, ausgewogene Säure',
       },
       {
         labelKey: 'character',
-        value: 'Geröstete Mandel, Zeder, Steinobst',
-      },
-      {
-        labelKey: 'finish',
-        value: 'Braune Gewürze und Kakaonibs',
+        value: 'Ausgewogen, weich und rund, stabil',
       },
     ],
     'castillo-naranjal-88-83': [
       {
         labelKey: 'dominantNotes',
-        value: 'Backkakao-Schokolade, karamellisierte Kokosnuss, Kirsche',
+        value: 'Dunkle Schokolade, Karamel, Haselnuss, Orange',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de Leche, Rohrzucker, Karamel',
+        labelKey: 'supportingNotes',
+        value: 'Fruchtige Säure, Vanille, Melasse, leichte Orange',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Mittlerer bis voller Körper, cremige Textur, Kakao-Abgang, ausgewogene Säure',
       },
       {
         labelKey: 'character',
-        value: 'Mandel, Haselnuss, braune Gewürze',
-      },
-      {
-        labelKey: 'body',
-        value: 'Cremiger Körper, Kakao und Kakaonibs',
+        value: 'Ausgewogen, komplex, stabil',
       },
     ],
     'monteclaro-88-75': [
       {
         labelKey: 'dominantNotes',
-        value: 'Bergamotte, rote Früchte, Pfirsich',
+        value: 'Karamel (+), Milchschokolade, Mandel, getrocknete Feige',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Brauner Zucker, Rohrzucker, Karamel, Milchschokolade',
+        labelKey: 'supportingNotes',
+        value: 'Apfel, Traube, Vanille, leichte Orange',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Mittlerer Körper, cremige Textur, Kakao-Abgang, ausgewogene Säure',
       },
       {
         labelKey: 'character',
-        value: 'Geröstete Mandel, braune Gewürze, feine herbale Noten',
-      },
-      {
-        labelKey: 'acidity',
-        value: 'Zitronige Säure mit süßem Abgang',
+        value: 'Klassisch, ausgewogen und rund, süß-bitteres Gleichgewicht',
       },
     ],
     'inia-01-88-73': [
       {
         labelKey: 'dominantNotes',
-        value: 'Heidelbeere, Erdbeere, frische Kirsche, Pfirsich',
+        value: 'Karamel (+), Milchschokolade, Mandel, getrocknete Aprikose',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de Leche, brauner Zucker, Karamel',
+        labelKey: 'supportingNotes',
+        value: 'Apfel, Vanille, leichte Orange, Muscovado-Zucker',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Mittlerer Körper, cremige Textur, Kakao-Abgang, ausgewogene Säure',
       },
       {
         labelKey: 'character',
-        value: 'Kardamom, Kümmel, Estragon, exotische florale Töne',
-      },
-      {
-        labelKey: 'structure',
-        value: 'Weicher Körper, feine herbale und würzige Noten',
+        value: 'Ausgewogen, rund und süß, stabil',
       },
     ],
     'bourbon-88-52': [
@@ -467,37 +484,55 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'dunamix-blend-83-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Schokolade, geröstete Haselnuss und Karamel',
+        value: 'Karamel, Schokolade, Honig, Sauerkirsche',
       },
       {
-        labelKey: 'fruityTouch',
-        value: 'Pflaume (Ciruela), Mispel (Níspero) und Pfirsich',
+        labelKey: 'supportingNotes',
+        value: 'Fruchtsäure, Vanille, Haselnuss, Orange',
       },
       {
-        labelKey: 'aromaticCharacter',
-        value: 'Intensive florale Töne und leicht würzige Struktur',
+        labelKey: 'bodyFinish',
+        value: 'Mittel bis voller Körper, cremige Textur, süßer Abgang, ausgewogene Säure',
       },
       {
-        labelKey: 'acidityBody',
-        value: 'Mittlere Säure, ausgewogener Körper für Espresso, samige Textur',
+        labelKey: 'character',
+        value: 'Ausgewogen, komplex, stabil',
       },
     ],
     'mixed-series-82-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Kakao und nussig',
+        value: 'Schokolade, Karamel, Haselnuss, allgemeiner Kaffecharakter',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Leicht fruchtig, Vanille, Mandel, Honig',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Leicht bis mittlerer Körper, flache Textur, kurzer Abgang, niedrige Säure',
       },
       {
         labelKey: 'character',
-        value: 'Mild und neutral',
+        value: 'Einfach, flach, Alltagsgenuss',
+      },
+    ],
+    'cafe-1600-catimor': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Honig, Karamel, grüner Apfel, florale Aromen',
       },
       {
-        labelKey: 'experience',
-        value: 'Sanfte, klare Tasse; konsistent von Tasse zu Tasse',
+        labelKey: 'supportingNotes',
+        value: 'Fruchtsäure, Vanille, Mandel, leichte Würze',
       },
       {
-        labelKey: 'usageArea',
-        value: 'Ideal für preisbewusste Betriebe und Blend-Basen',
+        labelKey: 'bodyFinish',
+        value: 'Mittlerer Körper, geschmeidige Textur, süßer Abgang, lebendige Säure',
+      },
+      {
+        labelKey: 'character',
+        value: 'Ausgewogen, frisch und lebendig, stabil',
       },
     ],
   },
@@ -523,38 +558,38 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'geisha-el-recreo-91-03': [
       {
         labelKey: 'dominantNotes',
-        value: 'Sirupeux (+), jasmin, fleurs blanches, kiwi',
+        value: 'Thé aux fruits (+), fleurs blanches, miel, pêche jaune',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Baies (Rubus), fraise, fruits rouges, goyave, pêche',
+        value: 'Fleur de citronnier, raisin muscat, vanille légère, lys',
       },
       {
         labelKey: 'bodyFinish',
         value:
-          'Corps beurré, noisette grillée, sucre blanc, caramel, chocolat, chocolat noir, cacao',
+          'Corps léger à moyen, texture soyeuse, longue finale florale, acidité vive',
       },
       {
         labelKey: 'character',
-        value: 'Élégant, floral, axé agrumes et structuré',
+        value: 'Délicat, floral et fruité, élégant',
       },
     ],
     'tabi-90-38': [
       {
         labelKey: 'dominantNotes',
-        value: 'Dulce de leche, cachapa (galette de maïs), noix de coco caramélisée',
+        value: 'Fruits tropicaux, arômes floraux, miel, banane',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Cacao doux, chocolat blanc, sucre de canne, caramel café',
+        value: 'Douceur intense, vanille, caramel, chocolat léger',
       },
       {
         labelKey: 'bodyFinish',
-        value: 'Corps souple, finale douce et longue, Cosette',
+        value: 'Corps moyen à plein, texture satinée, longue finale, acidité équilibrée',
       },
       {
         labelKey: 'character',
-        value: 'Fruité, centré cacao, équilibré et complexe',
+        value: 'Complexe, doux et floral, stable',
       },
     ],
     'otra-89-83': [
@@ -578,73 +613,73 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'villanueva-89-05': [
       {
         labelKey: 'dominantNotes',
-        value: 'Abricot, sirop, fleur d’oranger, sablé',
+        value: 'Caramel, chocolat, noisette, pomme',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Sucre roux, caramel, dulce de leche (arequipe)',
+        labelKey: 'supportingNotes',
+        value: 'Acidité fruitée, vanille, amande, miel',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen, texture lisse, finale douce, acidité équilibrée',
       },
       {
         labelKey: 'character',
-        value: 'Amande grillée, cèdre, fruits à noyau',
-      },
-      {
-        labelKey: 'finish',
-        value: 'Épices brunes et éclats de cacao',
+        value: 'Équilibré, doux et rond, stable',
       },
     ],
     'castillo-naranjal-88-83': [
       {
         labelKey: 'dominantNotes',
-        value: 'Chocolat de boulanger, noix de coco caramélisée, cerise',
+        value: 'Chocolat noir, caramel, noisette, orange',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de leche, sucre de canne, caramel',
+        labelKey: 'supportingNotes',
+        value: 'Acidité fruitée, vanille, mélasse, orange légère',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen à plein, texture crémeuse, finale cacao, acidité équilibrée',
       },
       {
         labelKey: 'character',
-        value: 'Amande, noisette, épices brunes',
-      },
-      {
-        labelKey: 'body',
-        value: 'Corps crémeux, cacao et éclats de cacao',
+        value: 'Équilibré, complexe, stable',
       },
     ],
     'monteclaro-88-75': [
       {
         labelKey: 'dominantNotes',
-        value: 'Bergamote, fruits rouges, pêche',
+        value: 'Caramel (+), chocolat au lait, amande, figue sèche',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Sucre roux, sucre de canne, caramel, chocolat au lait',
+        labelKey: 'supportingNotes',
+        value: 'Pomme, raisin, vanille, orange légère',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen, texture crémeuse, finale cacao, acidité équilibrée',
       },
       {
         labelKey: 'character',
-        value: 'Amande grillée, épices brunes, notes herbacées fines',
-      },
-      {
-        labelKey: 'acidity',
-        value: 'Acidité citrique avec une finale douce',
+        value: 'Classique, équilibré et rond, harmonie sucrée-amère',
       },
     ],
     'inia-01-88-73': [
       {
         labelKey: 'dominantNotes',
-        value: 'Myrtille, fraise, cerise fraîche, pêche',
+        value: 'Caramel (+), chocolat au lait, amande, abricot sec',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de leche, sucre roux, caramel',
+        labelKey: 'supportingNotes',
+        value: 'Pomme, vanille, orange légère, sucre muscovado',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen, texture crémeuse, finale cacao, acidité équilibrée',
       },
       {
         labelKey: 'character',
-        value: 'Cardamome, carvi, estragon, tons floraux exotiques',
-      },
-      {
-        labelKey: 'structure',
-        value: 'Corps souple, notes herbacées et épicées fines',
+        value: 'Équilibré, rond et doux, stable',
       },
     ],
     'bourbon-88-52': [
@@ -715,37 +750,55 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'dunamix-blend-83-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Chocolat, noisette grillée et caramel',
+        value: 'Caramel, chocolat, miel, griotte',
       },
       {
-        labelKey: 'fruityTouch',
-        value: 'Prune (ciruela), nèfle du Japon (níspero) et pêche',
+        labelKey: 'supportingNotes',
+        value: 'Acidité fruitée, vanille, noisette, orange',
       },
       {
-        labelKey: 'aromaticCharacter',
-        value: 'Floral intense et structure légèrement épicée',
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen à plein, texture crémeuse, finale douce, acidité équilibrée',
       },
       {
-        labelKey: 'acidityBody',
-        value: 'Acidité moyenne, corps équilibré pour espresso, texture souple',
+        labelKey: 'character',
+        value: 'Équilibré, complexe, stable',
       },
     ],
     'mixed-series-82-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Cacao et noisette',
+        value: 'Chocolat, caramel, noisette, caractère café général',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Légèrement fruité, vanille, amande, miel',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Corps léger à moyen, texture plate, finale courte, acidité faible',
       },
       {
         labelKey: 'character',
-        value: 'Doux et neutre',
+        value: 'Simple, plat, consommation quotidienne',
+      },
+    ],
+    'cafe-1600-catimor': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Miel, caramel, pomme verte, arômes floraux',
       },
       {
-        labelKey: 'experience',
-        value: 'Tasse propre et fluide, profil stable à chaque dégustation',
+        labelKey: 'supportingNotes',
+        value: 'Acidité fruitée, vanille, amande, épice légère',
       },
       {
-        labelKey: 'usageArea',
-        value: 'Idéal pour les volumes et les bases de blend',
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen, texture lisse, finale douce, acidité vive',
+      },
+      {
+        labelKey: 'character',
+        value: 'Équilibré, frais et vif, stable',
       },
     ],
   },
@@ -771,38 +824,38 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'geisha-el-recreo-91-03': [
       {
         labelKey: 'dominantNotes',
-        value: 'Siroposo (+), jazmín, flores blancas, kiwi',
+        value: 'Té de frutas (+), flores blancas, miel, melocotón amarillo',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Frutos del bosque (Rubus), fresa, frutos rojos, guayaba, melocotón',
+        value: 'Flor de limonero, uva moscatel, vainilla ligera, lirio',
       },
       {
         labelKey: 'bodyFinish',
         value:
-          'Cuerpo mantecoso, avellana tostada, azúcar blanco, caramelo, chocolate, chocolate negro, cacao',
+          'Cuerpo ligero-medio, textura sedosa, final largo floral, acidez brillante',
       },
       {
         labelKey: 'character',
-        value: 'Elegante, floral, cítrico y con estructura',
+        value: 'Delicado, floral y afrutado, elegante',
       },
     ],
     'tabi-90-38': [
       {
         labelKey: 'dominantNotes',
-        value: 'Dulce de leche, cachapa (tortilla de maíz), coco caramelizado',
+        value: 'Frutas tropicales, aromas florales, miel, plátano',
       },
       {
         labelKey: 'supportingNotes',
-        value: 'Cacao dulce, chocolate blanco, azúcar de caña, caramelo a café',
+        value: 'Dulzor intenso, vainilla, caramelo, chocolate ligero',
       },
       {
         labelKey: 'bodyFinish',
-        value: 'Cuerpo suave, final dulce y persistente, Cosette',
+        value: 'Cuerpo medio-lleno, textura satinada, final largo, acidez equilibrada',
       },
       {
         labelKey: 'character',
-        value: 'Afrutado, centrado en cacao, equilibrado y complejo',
+        value: 'Complejo, dulce y floral, estable',
       },
     ],
     'otra-89-83': [
@@ -826,73 +879,73 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'villanueva-89-05': [
       {
         labelKey: 'dominantNotes',
-        value: 'Albaricoque, jarabe, azahar, galleta de mantequilla',
+        value: 'Caramelo, chocolate, avellana, manzana',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Azúcar moreno, caramelo, dulce de leche (arequipe)',
+        labelKey: 'supportingNotes',
+        value: 'Acidez afrutada, vainilla, almendra, miel',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio, textura suave, final dulce, acidez equilibrada',
       },
       {
         labelKey: 'character',
-        value: 'Almendra tostada, cedro, frutas de hueso',
-      },
-      {
-        labelKey: 'finish',
-        value: 'Especias marrones y nibs de cacao',
+        value: 'Equilibrado, suave y redondo, estable',
       },
     ],
     'castillo-naranjal-88-83': [
       {
         labelKey: 'dominantNotes',
-        value: 'Chocolate de panadería, coco caramelizado, cereza',
+        value: 'Chocolate negro, caramelo, avellana, naranja',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de leche, azúcar de caña, caramelo',
+        labelKey: 'supportingNotes',
+        value: 'Acidez afrutada, vainilla, melaza, naranja ligera',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio-lleno, textura cremosa, final a cacao, acidez equilibrada',
       },
       {
         labelKey: 'character',
-        value: 'Almendra, avellana, especias marrones',
-      },
-      {
-        labelKey: 'body',
-        value: 'Cuerpo cremoso, cacao y nibs de cacao',
+        value: 'Equilibrado, complejo, estable',
       },
     ],
     'monteclaro-88-75': [
       {
         labelKey: 'dominantNotes',
-        value: 'Bergamota, frutos rojos, melocotón',
+        value: 'Caramelo (+), chocolate con leche, almendra, higo seco',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Azúcar moreno, azúcar de caña, caramelo, chocolate con leche',
+        labelKey: 'supportingNotes',
+        value: 'Manzana, uva, vainilla, naranja ligera',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio, textura cremosa, final a cacao, acidez equilibrada',
       },
       {
         labelKey: 'character',
-        value: 'Almendra tostada, especias marrones, notas herbales finas',
-      },
-      {
-        labelKey: 'acidity',
-        value: 'Acidez cítrica con final dulce',
+        value: 'Clásico, equilibrado y redondo, armonía dulce-amarga',
       },
     ],
     'inia-01-88-73': [
       {
         labelKey: 'dominantNotes',
-        value: 'Arándano, fresa, cereza fresca, melocotón',
+        value: 'Caramelo (+), chocolate con leche, almendra, albaricoque seco',
       },
       {
-        labelKey: 'sweetness',
-        value: 'Dulce de leche, azúcar moreno, caramelo',
+        labelKey: 'supportingNotes',
+        value: 'Manzana, vainilla, naranja ligera, azúcar muscovado',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio, textura cremosa, final a cacao, acidez equilibrada',
       },
       {
         labelKey: 'character',
-        value: 'Cardamomo, alcaravea, estragón, tonos florales exóticos',
-      },
-      {
-        labelKey: 'structure',
-        value: 'Cuerpo suave, notas herbales y especiadas finas',
+        value: 'Equilibrado, redondo y dulce, estable',
       },
     ],
     'bourbon-88-52': [
@@ -963,37 +1016,55 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
     'dunamix-blend-83-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Chocolate, avellana tostada y caramelo',
+        value: 'Caramelo, chocolate, miel, guinda',
       },
       {
-        labelKey: 'fruityTouch',
-        value: 'Ciruela (ciruela), níspero y melocotón',
+        labelKey: 'supportingNotes',
+        value: 'Acidez afrutada, vainilla, avellana, naranja',
       },
       {
-        labelKey: 'aromaticCharacter',
-        value: 'Floral intenso y estructura ligeramente especiada',
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio-lleno, textura cremosa, final dulce, acidez equilibrada',
       },
       {
-        labelKey: 'acidityBody',
-        value: 'Acidez media, cuerpo equilibrado para espresso, sensación sedosa',
+        labelKey: 'character',
+        value: 'Equilibrado, complejo, estable',
       },
     ],
     'mixed-series-82-50': [
       {
         labelKey: 'dominantNotes',
-        value: 'Cacao y nuez',
+        value: 'Chocolate, caramelo, avellana, carácter general de café',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Ligero afrutado, vainilla, almendra, miel',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo ligero-medio, textura plana, final corto, acidez baja',
       },
       {
         labelKey: 'character',
-        value: 'Suave y neutro',
+        value: 'Simple, plano, consumo cotidiano',
+      },
+    ],
+    'cafe-1600-catimor': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Miel, caramelo, manzana verde, aromas florales',
       },
       {
-        labelKey: 'experience',
-        value: 'Taza limpia y fluida; perfil estable en cada taza',
+        labelKey: 'supportingNotes',
+        value: 'Acidez afrutada, vainilla, almendra, especia ligera',
       },
       {
-        labelKey: 'usageArea',
-        value: 'Ideal para operaciones por volumen y bases de blend',
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio, textura suave, final dulce, acidez viva',
+      },
+      {
+        labelKey: 'character',
+        value: 'Equilibrado, fresco y vivo, estable',
       },
     ],
   },

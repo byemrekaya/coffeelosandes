@@ -56,7 +56,13 @@ const categoryWordByLocale: Record<Locale, string> = {
 };
 ---
 
-<BaseLayout locale={locale} title={t(locale, 'products.title')} description={t(locale, 'products.description')}>
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'products.title')}
+  description={t(locale, 'products.description')}
+  ogImage="/coffee-beans-closeup.webp"
+  ogImageAlt={t(locale, 'products.title')}
+>
   <section class="border-b border-line pb-16 pt-32 md:pb-20 md:pt-36">
     <div class="section-shell">
       <SectionHeader
@@ -65,6 +71,9 @@ const categoryWordByLocale: Record<Locale, string> = {
         description={t(locale, 'products.desc')}
         align="center"
       />
+      <p class="mx-auto mt-8 max-w-3xl text-center text-[15px] leading-relaxed text-ink-muted md:text-[16px]">
+        {t(locale, 'products.portfolioExplainer')}
+      </p>
     </div>
   </section>
 

@@ -1,4 +1,5 @@
 import { deepMergeDict } from './mergeDict';
+import { deMasterTastingBySlug } from './localePartials/de-masterTasting';
 import { enPartial } from './localePartials/en';
 import { frPartial } from './localePartials/fr';
 import { esPartial } from './localePartials/es';
@@ -47,7 +48,7 @@ const trDict: Dict = {
       lotDetail: 'Lot detayı',
       coffeesSectionTitle: 'Kahvelerimiz',
       coffeesSectionIntro:
-        'Altı vitrin: Competition lot, premium mikro lot, Specialty kahve, harman serisi, ticari seri ve kavrulmuş paket ürün.',
+        'Yeşil çekirdek lotları: cup skoru, işleme ve menşe detayları /coffees/… altındaki lot sayfalarında. Bu vitrinde tüm segmentleri filtreleyebilirsiniz.',
       coffeesCtaAll: 'Tüm kahveleri gör',
       awardedSectionTitle: 'Ödüllü Ürünler',
       awardedSectionIntro:
@@ -55,7 +56,7 @@ const trDict: Dict = {
       awardedCtaAll: 'Tüm ödüllü ürünleri gör',
       productsSectionTitle: 'Ürünlerimiz',
       productsSectionIntro:
-        'Güncel tedarik portföyümüzü aynı yapı ile keşfedin: Micro Lot, Specialty ve Commercial segmentlerinde sürekli güncellenen ürünler.',
+        'Venezuela Coffee Master B2B portföyü: segment bazlı ürün kartları ve toptan konumlandırma — tam liste /products sayfasında.',
       productsCtaAll: 'Tüm ürünleri gör',
       retailTeaserTitle: 'Perakende kahve (paket)',
       retailTeaserBody:
@@ -212,6 +213,11 @@ const trDict: Dict = {
       masterDetailImageCloseAria: 'Görseli kapat',
       masterDetailSelectionSuffix: 'SEÇİM',
       masterDetailZoomHint: 'Yakınlaştır',
+      portfolioExplainer:
+        'Buradaki “Ürünler” Venezuela Coffee Master toptan portföyüdür (segment kartları). Tek tek yeşil çekirdek lot sayfaları için ana sayfadaki Kahvelerimiz veya /coffees/ rotasını kullanın.',
+      awardedTitle: 'Ödüllü ve seçkin lotlar · Coffee Los Andes',
+      awardedDescription:
+        'Competition, premium mikro lot, specialty ve harmanlar dahil öne çıkan lotlar; her kart ilgili lot detayına gider.',
     },
     contact: {
       title: 'İletişim – B2B Toptan Talep | Coffee Los Andes',
@@ -638,7 +644,7 @@ const deDict: Dict = {
       lotDetail: 'Lot-Details',
       coffeesSectionTitle: 'Unsere Kaffees',
       coffeesSectionIntro:
-        'Sechs Bereiche: Competition Lot, Premium Micro Lot, Specialty Coffee, Signatur Blends, Commercial Line und geröstete Packungen.',
+        'Grüne Kaffee-Lots: Cup-Score, Verarbeitung und Herkunft auf den Lot-Seiten unter /coffees/…. Hier filtern Sie alle Segmente.',
       coffeesCtaAll: 'Alle Kaffees ansehen',
       awardedSectionTitle: 'Awarded Lots',
       awardedSectionIntro:
@@ -646,7 +652,7 @@ const deDict: Dict = {
       awardedCtaAll: 'Alle Awarded Lots ansehen',
       productsSectionTitle: 'Unsere Produkte',
       productsSectionIntro:
-        'Entdecken Sie unser aktuelles Portfolio im gleichen Aufbau: laufend aktualisierte Produkte in den Segmenten Micro Lot, Specialty und Commercial.',
+        'Venezuela Coffee Master B2B-Portfolio: segmentbasierte Produktkarten und Großhandelspositionierung — die vollständige Übersicht unter /products.',
       productsCtaAll: 'Alle Produkte ansehen',
       retailTeaserTitle: 'Retail-Kaffee (Packungen)',
       retailTeaserBody:
@@ -803,6 +809,12 @@ const deDict: Dict = {
       masterDetailImageCloseAria: 'Bild schließen',
       masterDetailSelectionSuffix: 'AUSWAHL',
       masterDetailZoomHint: 'Zoom',
+      portfolioExplainer:
+        '„Produkte“ hier ist das Venezuela Coffee Master Großhandelsportfolio (Segmentkarten). Für einzelne Rohkaffee-Lot-Seiten nutzen Sie „Unsere Kaffees“ auf der Startseite oder /coffees/.',
+      awardedTitle: 'Ausgezeichnete Lots · Coffee Los Andes',
+      awardedDescription:
+        'Hervorgehobene Lots von Competition über Premium Micro Lot bis Specialty und Blends — jede Karte führt zur Lot-Detailseite.',
+      masterTastingBySlug: deMasterTastingBySlug,
     },
     contact: {
       title: 'Kontakt – B2B-Großhandelsanfrage | Coffee Los Andes',
