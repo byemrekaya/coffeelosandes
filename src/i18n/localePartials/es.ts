@@ -1,5 +1,6 @@
 import type { Dict } from './types';
 import { esAbout } from './es-about';
+import { esMasterTastingBySlug } from './es-masterTasting';
 
 export const esPartial: Dict = {
   htmlLang: 'es',
@@ -198,6 +199,7 @@ export const esPartial: Dict = {
     awardedTitle: 'Lotes premiados y destacados · Coffee Los Andes',
     awardedDescription:
       'Lotes destacados: competition, micro lotes premium, especialidad y blends; cada tarjeta enlaza al detalle del lote.',
+    masterTastingBySlug: esMasterTastingBySlug,
   },
   contact: {
     title: 'Contacto – consulta mayorista B2B | Coffee Los Andes',

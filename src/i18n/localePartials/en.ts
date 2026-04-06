@@ -1,5 +1,6 @@
 import type { Dict } from './types';
 import { enAbout } from './en-about';
+import { enMasterTastingBySlug } from './en-masterTasting';
 
 export const enPartial: Dict = {
   htmlLang: 'en',
@@ -198,6 +199,7 @@ export const enPartial: Dict = {
     awardedTitle: 'Awarded & featured lots · Coffee Los Andes',
     awardedDescription:
       'Highlighted lots from competition and premium micro lots to specialty and blends — each card links to the lot detail page.',
+    masterTastingBySlug: enMasterTastingBySlug,
   },
   contact: {
     title: 'Contact – B2B wholesale enquiry | Coffee Los Andes',

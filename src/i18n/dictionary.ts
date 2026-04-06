@@ -1,4 +1,5 @@
 import { deepMergeDict } from './mergeDict';
+import { deMasterTastingBySlug } from './localePartials/de-masterTasting';
 import { enPartial } from './localePartials/en';
 import { frPartial } from './localePartials/fr';
 import { esPartial } from './localePartials/es';
@@ -813,6 +814,7 @@ const deDict: Dict = {
       awardedTitle: 'Ausgezeichnete Lots · Coffee Los Andes',
       awardedDescription:
         'Hervorgehobene Lots von Competition über Premium Micro Lot bis Specialty und Blends — jede Karte führt zur Lot-Detailseite.',
+      masterTastingBySlug: deMasterTastingBySlug,
     },
     contact: {
       title: 'Kontakt – B2B-Großhandelsanfrage | Coffee Los Andes',
