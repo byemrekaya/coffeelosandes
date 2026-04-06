@@ -1,7 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import CoffeeLotArticle from '../../../components/coffee/CoffeeLotArticle.astro';
-import { coffeeLots, getRelatedLots, lotScoreLine } from '../../../data/coffeeLots';
+import {
+  coffeeLots,
+  getLotImageAlt,
+  getLotImageSrc,
+  getRelatedLots,
+  lotScoreLine,
+} from '../../../data/coffeeLots';
 import { buildLangSlugStaticPaths } from '../../../i18n/staticPaths';
 import { localizeCoffeeLot, localizeCoffeeLots } from '../../../i18n/localizeLot';
 import { resolveLocale } from '../../../i18n/config';
@@ -24,8 +30,10 @@ const related = localizeCoffeeLots(getRelatedLots(lot.slug, 3), locale);
 
 const title = `${lot.name} · ${lotScoreLine(lot)} · ${t(locale, 'meta.lotSuffix')}`;
 const description = `${lot.story.slice(0, 155)}…`;
+const ogImage = getLotImageSrc(baseLot.slug);
+const ogImageAlt = getLotImageAlt(baseLot.slug, lot.name);
 ---
 
-<BaseLayout locale={locale} title={title} description={description}>
+<BaseLayout locale={locale} title={title} description={description} ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <CoffeeLotArticle lot={lot} relatedLots={related} locale={locale} />
 </BaseLayout>

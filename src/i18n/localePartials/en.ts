@@ -43,6 +43,9 @@ export const enPartial: Dict = {
     bannerVideoAria: 'Background video: coffee farm and Coffee Los Andes landscape',
     heroLogoAlt: 'Coffee Los Andes logo',
     lotDetail: 'Lot details',
+    coffeesSectionTitle: 'Our coffees',
+    coffeesSectionIntro:
+      'Green coffee lots: cup score, process and origin on each lot page under /coffees/…. Filter all segments here.',
     coffeesCtaAll: 'View all coffees',
     awardedSectionTitle: 'Awarded lots',
     awardedSectionIntro:
@@ -50,7 +53,7 @@ export const enPartial: Dict = {
     awardedCtaAll: 'View all awarded lots',
     productsSectionTitle: 'Our products',
     productsSectionIntro:
-      'Explore our current portfolio in the same structure: continuously updated products across micro lot, specialty and commercial segments.',
+      'Venezuela Coffee Master B2B portfolio: segment-based product cards and wholesale positioning — full range on /products.',
     productsCtaAll: 'View all products',
     qualitySectionTitle: 'Quality & certificates',
     qualitySectionIntro:
@@ -190,6 +193,11 @@ export const enPartial: Dict = {
     masterDetailImageCloseAria: 'Close image',
     masterDetailSelectionSuffix: 'SELECTION',
     masterDetailZoomHint: 'Zoom',
+    portfolioExplainer:
+      '“Products” here is the Venezuela Coffee Master wholesale portfolio (segment cards). For individual green lot pages, use Our coffees on the home page or /coffees/.',
+    awardedTitle: 'Awarded & featured lots · Coffee Los Andes',
+    awardedDescription:
+      'Highlighted lots from competition and premium micro lots to specialty and blends — each card links to the lot detail page.',
   },
   contact: {
     title: 'Contact – B2B wholesale enquiry | Coffee Los Andes',

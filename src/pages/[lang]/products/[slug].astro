@@ -30,6 +30,8 @@ const related = venezuelaCoffeeMasterWithSlug
 
 const title = `${item.cesit} · ${item.bolge} · ${item.cupping_score} · Coffee Los Andes`;
 const description = `${item.cesit} ${t(locale, 'products.masterDetailMetaSuffix')}`;
+const ogImage = '/roasted-coffee-beans.webp';
+const ogImageAlt = `${item.cesit} · ${item.bolge} · Coffee Los Andes`;
 const heroLabel = `${item.segment} ${t(locale, 'products.masterDetailSelectionSuffix')}`;
 const heroSubtitle = [item.bolge, item.ciftlik].filter(Boolean).join(' • ');
 const heroBody = `${t(locale, 'products.masterDetailProducerLabel')}: ${item.uretici}${item.ticari_segment ? ` · ${t(locale, 'products.masterDetailCommercialLabel')}: ${item.ticari_segment}` : ''}`;
@@ -45,7 +47,7 @@ const keyRows = [
 ].filter((row) => Boolean(row.value && row.value.trim()));
 ---
 
-<BaseLayout locale={locale} title={title} description={description}>
+<BaseLayout locale={locale} title={title} description={description} ogImage={ogImage} ogImageAlt={ogImageAlt}>
   <section class="section-band-a relative overflow-hidden border-b border-line pb-10 pt-20 sm:pb-12 sm:pt-24 md:pb-16 md:pt-28 lg:pt-32">
     <div class="section-shell">
       <div class="grid gap-8 sm:gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">

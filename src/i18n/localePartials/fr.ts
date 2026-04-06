@@ -43,6 +43,9 @@ export const frPartial: Dict = {
     bannerVideoAria: 'Vidéo de fond : ferme caféière et paysage Coffee Los Andes',
     heroLogoAlt: 'Logo Coffee Los Andes',
     lotDetail: 'Détails du lot',
+    coffeesSectionTitle: 'Nos cafés',
+    coffeesSectionIntro:
+      'Lots café vert : score cup, traitement et origine sur chaque page sous /coffees/…. Filtrez tous les segments ici.',
     coffeesCtaAll: 'Voir tous les cafés',
     awardedSectionTitle: 'Lots primés',
     awardedSectionIntro:
@@ -50,7 +53,7 @@ export const frPartial: Dict = {
     awardedCtaAll: 'Voir tous les lots primés',
     productsSectionTitle: 'Nos produits',
     productsSectionIntro:
-      'Découvrez notre portefeuille actuel sur la même structure : produits mis à jour en continu (micro lot, spécialité, commercial).',
+      'Portefeuille B2B Venezuela Coffee Master : fiches par segment et positionnement grossiste — vue complète sur /products.',
     productsCtaAll: 'Voir tous les produits',
     qualitySectionTitle: 'Qualité & certifications',
     qualitySectionIntro:
@@ -190,6 +193,11 @@ export const frPartial: Dict = {
     masterDetailImageCloseAria: 'Fermer l’image',
     masterDetailSelectionSuffix: 'SÉLECTION',
     masterDetailZoomHint: 'Zoom',
+    portfolioExplainer:
+      'Ici « Produits » désigne le portefeuille grossiste Venezuela Coffee Master (cartes par segment). Pour les pages lot vert détaillées, utilisez « Nos cafés » sur l’accueil ou /coffees/.',
+    awardedTitle: 'Lots primés et sélectionnés · Coffee Los Andes',
+    awardedDescription:
+      'Lots mis en avant : competition, micro-lots premium, spécialité et blends — chaque carte mène au détail du lot.',
   },
   contact: {
     title: 'Contact – demande B2B grossiste | Coffee Los Andes',

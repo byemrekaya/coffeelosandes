@@ -43,6 +43,9 @@ export const esPartial: Dict = {
     bannerVideoAria: 'Vídeo de fondo: finca cafetera y paisaje Coffee Los Andes',
     heroLogoAlt: 'Logo Coffee Los Andes',
     lotDetail: 'Detalle del lote',
+    coffeesSectionTitle: 'Nuestros cafés',
+    coffeesSectionIntro:
+      'Lotes de café verde: puntuación, proceso y origen en cada página bajo /coffees/…. Filtre todos los segmentos aquí.',
     coffeesCtaAll: 'Ver todos los cafés',
     awardedSectionTitle: 'Lotes premiados',
     awardedSectionIntro:
@@ -50,7 +53,7 @@ export const esPartial: Dict = {
     awardedCtaAll: 'Ver todos los lotes premiados',
     productsSectionTitle: 'Nuestros productos',
     productsSectionIntro:
-      'Explore nuestro portafolio actual con la misma estructura: productos actualizados de forma continua (micro lote, especialidad, comercial).',
+      'Portafolio B2B Venezuela Coffee Master: fichas por segmento y posicionamiento mayorista — el listado completo en /products.',
     productsCtaAll: 'Ver todos los productos',
     qualitySectionTitle: 'Calidad y certificados',
     qualitySectionIntro:
@@ -190,6 +193,11 @@ export const esPartial: Dict = {
     masterDetailImageCloseAria: 'Cerrar imagen',
     masterDetailSelectionSuffix: 'SELECCIÓN',
     masterDetailZoomHint: 'Zoom',
+    portfolioExplainer:
+      'Aquí « Productos » es el portafolio mayorista Venezuela Coffee Master (tarjetas por segmento). Para páginas de lote verde individuales use « Nuestros cafés » en inicio o /coffees/.',
+    awardedTitle: 'Lotes premiados y destacados · Coffee Los Andes',
+    awardedDescription:
+      'Lotes destacados: competition, micro lotes premium, especialidad y blends; cada tarjeta enlaza al detalle del lote.',
   },
   contact: {
     title: 'Contacto – consulta mayorista B2B | Coffee Los Andes',
