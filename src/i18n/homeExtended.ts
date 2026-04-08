@@ -121,7 +121,7 @@ const tr: HomeExtendedShape = {
     'roasted-coffee': 'Hazır ürün',
   },
   portfolioTopSegmentRibbon: 'Üst segment',
-  portfolioMixedRibbon: 'Çoklu profil · proje',
+  portfolioMixedRibbon: 'Çoklu profil',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition Lot',
@@ -259,7 +259,7 @@ const de: HomeExtendedShape = {
     'roasted-coffee': 'Fertigprodukt',
   },
   portfolioTopSegmentRibbon: 'Oberes Segment',
-  portfolioMixedRibbon: 'Multi-Profil · Projekt',
+  portfolioMixedRibbon: 'Multi-Profil',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition Lot',
@@ -397,7 +397,7 @@ const en: HomeExtendedShape = {
     'roasted-coffee': 'Shelf-ready',
   },
   portfolioTopSegmentRibbon: 'Top tier',
-  portfolioMixedRibbon: 'Multi-profile · projects',
+  portfolioMixedRibbon: 'Multi-Profile',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition lot',
@@ -535,7 +535,7 @@ const fr: HomeExtendedShape = {
     'roasted-coffee': 'Produit fini',
   },
   portfolioTopSegmentRibbon: 'Segment haut',
-  portfolioMixedRibbon: 'Multi-profils · projets',
+  portfolioMixedRibbon: 'Multi-profils',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition lot',
@@ -673,7 +673,7 @@ const es: HomeExtendedShape = {
     'roasted-coffee': 'Producto listo',
   },
   portfolioTopSegmentRibbon: 'Segmento superior',
-  portfolioMixedRibbon: 'Multi-perfil · proyectos',
+  portfolioMixedRibbon: 'Multi-perfil',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition lot',

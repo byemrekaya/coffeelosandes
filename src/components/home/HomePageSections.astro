@@ -252,9 +252,7 @@ const hx = dict.homeExtended as HomeExtendedShape;
         const isMixed = catId === 'mixed';
         const cardSurface = isTopSegment
           ? 'bg-[linear-gradient(168deg,#fff8f2_0%,#fffdfb_36%,#ede8df_100%)] shadow-[0_1px_0_rgba(255,255,255,0.93)_inset,0_14px_42px_rgba(40,96,63,0.1),0_3px_10px_rgba(60,45,30,0.05)] ring-heading/20'
-          : isMixed
-            ? 'bg-[linear-gradient(168deg,#f4faf6_0%,#ffffff_42%,#e8f2ec_100%)] shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_12px_38px_rgba(22,48,38,0.08),0_2px_8px_rgba(22,48,38,0.04)] ring-2 ring-dashed ring-heading/32'
-            : 'bg-[linear-gradient(165deg,#fffefb_0%,#ffffff_42%,#f3f1ed_100%)] shadow-[0_1px_0_rgba(255,255,255,0.88)_inset,0_12px_36px_rgba(22,48,38,0.07),0_2px_8px_rgba(22,48,38,0.04)] ring-stone-300/40';
+          : 'bg-[linear-gradient(165deg,#fffefb_0%,#ffffff_42%,#f3f1ed_100%)] shadow-[0_1px_0_rgba(255,255,255,0.88)_inset,0_12px_36px_rgba(22,48,38,0.07),0_2px_8px_rgba(22,48,38,0.04)] ring-stone-300/40';
         return (
           <a
             href={withLang(`/portfolio/${catId}`, locale)}
@@ -262,8 +260,7 @@ const hx = dict.homeExtended as HomeExtendedShape;
               'portfolio-nav-card group relative flex h-full min-h-[308px] cursor-pointer flex-col overflow-hidden rounded-[20px] p-7 text-left ring-1 transition-[transform,box-shadow,ring-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:hover:-translate-y-[8px] motion-safe:active:scale-[0.992] motion-safe:hover:shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_28px_56px_rgba(22,48,38,0.16),0_10px_24px_rgba(22,48,38,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 md:min-h-[316px] md:p-8',
               cardSurface,
               isTopSegment && 'motion-safe:hover:ring-heading/28',
-              isMixed && 'motion-safe:hover:ring-heading/45',
-              !isTopSegment && !isMixed && 'motion-safe:hover:ring-stone-300/55',
+              !isTopSegment && 'motion-safe:hover:ring-stone-300/55',
             ]}
           >
             <div
@@ -278,28 +275,30 @@ const hx = dict.homeExtended as HomeExtendedShape;
               aria-hidden="true"
             />
             <div class="relative z-10 flex flex-1 flex-col">
-              {isTopSegment ? (
-                <span class="mb-3 inline-flex w-fit rounded-full border border-amber-900/15 bg-gradient-to-r from-amber-50/90 to-[#fff8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5c4a38] shadow-sm ring-1 ring-amber-900/10">
-                  {hx.portfolioTopSegmentRibbon}
-                </span>
-              ) : isMixed ? (
-                <span class="mb-3 inline-flex w-fit rounded-full border border-heading/25 bg-heading/[0.1] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-heading shadow-sm ring-1 ring-heading/15">
-                  {hx.portfolioMixedRibbon}
-                </span>
-              ) : null}
               <h3 class="font-display text-[1.22rem] font-semibold leading-snug tracking-tight text-heading md:text-[1.3rem]">{cat.title}</h3>
-              <span
-                class:list={[
-                  'mt-2.5 inline-flex w-fit rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]',
-                  isTopSegment
-                    ? 'border-amber-900/18 bg-amber-50/50 text-[#4a3d30]'
-                    : isMixed
-                      ? 'border-heading/30 bg-heading/[0.12] text-heading'
-                      : 'border-heading/15 bg-heading/[0.06] text-heading/90',
-                ]}
-              >
-                {tierName}
-              </span>
+              <div class="mt-2.5 flex flex-row flex-wrap items-center gap-2">
+                <span
+                  class:list={[
+                    'inline-flex w-fit rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]',
+                    isTopSegment
+                      ? 'border-amber-900/18 bg-amber-50/50 text-[#4a3d30]'
+                      : isMixed
+                        ? 'border-heading/30 bg-heading/[0.12] text-heading'
+                        : 'border-heading/15 bg-heading/[0.06] text-heading/90',
+                  ]}
+                >
+                  {tierName}
+                </span>
+                {isTopSegment ? (
+                  <span class="inline-flex w-fit rounded-full border border-amber-900/15 bg-gradient-to-r from-amber-50/90 to-[#fff8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5c4a38] shadow-sm ring-1 ring-amber-900/10">
+                    {hx.portfolioTopSegmentRibbon}
+                  </span>
+                ) : isMixed ? (
+                  <span class="inline-flex w-fit rounded-full border border-heading/25 bg-heading/[0.1] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-heading shadow-sm ring-1 ring-heading/15">
+                    {hx.portfolioMixedRibbon}
+                  </span>
+                ) : null}
+              </div>
               <p class="mt-3 flex-1 text-[15px] leading-[1.65] text-[#5a564e]">{cat.desc}</p>
               {cat.scoreLine != null && barPct != null ? (
                 <div class="mt-7">

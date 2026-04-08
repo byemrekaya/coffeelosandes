@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import type { Locale } from '../../i18n/types';
 import { venezuelaStoryByLocale } from '../../i18n/venezuelaStoryPage';
 
@@ -109,11 +110,23 @@ const bandTop = 'border-t border-line/60';
   <div class:list={[bandTop]}>
     <div class:list={[bandShell, sectionBandClass('cream')]}>
       <section id="vs-intro" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0" data-reveal>
-        <div class="flex justify-center">
-          <div class="max-w-3xl border-l-2 border-heading/20 pl-6 text-center md:border-l-[3px] md:pl-7 lg:max-w-[40rem]">
-            <p class="font-display text-[clamp(1.15rem,2.2vw,1.35rem)] font-medium leading-[1.55] text-[#3d3a36]">
-              {vs.intro}
-            </p>
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-14">
+          <div class="flex justify-center lg:justify-start">
+            <div class="max-w-3xl border-l-2 border-heading/20 pl-6 text-center md:border-l-[3px] md:pl-7 lg:max-w-none lg:text-left">
+              <p class="font-display text-[clamp(1.15rem,2.2vw,1.35rem)] font-medium leading-[1.55] text-[#3d3a36]">
+                {vs.intro}
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center lg:justify-end">
+            <Image
+              src="/venezuela-story.webp"
+              alt={vs.heroImageAlt}
+              width={960}
+              height={720}
+              class="aspect-[4/3] h-auto w-full max-w-[min(100%,420px)] rounded-[24px] object-cover shadow-[0_20px_50px_rgba(40,96,63,0.12)] ring-1 ring-heading/[0.08] lg:max-w-md xl:max-w-lg"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
