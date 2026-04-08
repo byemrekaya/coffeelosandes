@@ -1,10 +1,12 @@
 import type { Dict } from './types';
+import { homeExtendedByLocale } from '../homeExtended';
 import { frAbout } from './fr-about';
 import { frMasterTastingBySlug } from './fr-masterTasting';
 
 export const frPartial: Dict = {
   htmlLang: 'fr',
   lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
+  homeExtended: homeExtendedByLocale.fr,
   nav: {
     home: 'Accueil',
     awardedProducts: 'Lots primés',
@@ -12,6 +14,9 @@ export const frPartial: Dict = {
     about: 'À propos',
     venezuela: 'Venezuela',
     story: 'Notre histoire',
+    regions: 'Nos régions',
+    qualityMenu: 'Qualité',
+    mission: 'Notre mission',
     coffees: 'Nos cafés',
     qualityDocs: 'Rapports',
     wholesale: 'Vente en gros',
@@ -76,6 +81,7 @@ export const frPartial: Dict = {
     retailPackStrip1: '100% Arabica',
     retailPackStrip2: 'Torréfaction moyenne',
     retailPackStrip3: '500 g · Moulu',
+    portfolioPanelProductsTitle: 'Produits de cette catégorie',
   },
   homeStory: {
     eyebrow: 'Notre histoire',
@@ -89,6 +95,15 @@ export const frPartial: Dict = {
     knowMore: 'En savoir plus',
     imageAlt: 'Récolte de cerises de café',
     badgeSince: 'Depuis 1990',
+  },
+  portfolioCategoryPage: {
+    breadcrumbHome: 'Accueil',
+    breadcrumbPortfolio: 'Notre portefeuille produits',
+    backToPortfolio: 'Retour au portefeuille produits',
+    heroViewLots: 'Voir les lots',
+    microBrewRatio: 'Ratio',
+    microBrewTemp: 'Température',
+    microBrewGrind: 'Mouture',
   },
   qualityPage: {
     title: 'Normes de qualité – Coffee Los Andes',

@@ -1,10 +1,12 @@
 import type { Dict } from './types';
+import { homeExtendedByLocale } from '../homeExtended';
 import { esAbout } from './es-about';
 import { esMasterTastingBySlug } from './es-masterTasting';
 
 export const esPartial: Dict = {
   htmlLang: 'es',
   lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
+  homeExtended: homeExtendedByLocale.es,
   nav: {
     home: 'Inicio',
     awardedProducts: 'Lotes premiados',
@@ -12,6 +14,9 @@ export const esPartial: Dict = {
     about: 'Sobre nosotros',
     venezuela: 'Venezuela',
     story: 'Nuestra historia',
+    regions: 'Nuestras regiones',
+    qualityMenu: 'Calidad',
+    mission: 'Nuestra misión',
     coffees: 'Nuestros cafés',
     qualityDocs: 'Informes',
     wholesale: 'Mayorista',
@@ -76,6 +81,7 @@ export const esPartial: Dict = {
     retailPackStrip1: '100% Arábica',
     retailPackStrip2: 'Tueste medio',
     retailPackStrip3: '500 g · Molido',
+    portfolioPanelProductsTitle: 'Productos de esta categoría',
   },
   homeStory: {
     eyebrow: 'Nuestra historia',
@@ -89,6 +95,15 @@ export const esPartial: Dict = {
     knowMore: 'Saber más',
     imageAlt: 'Cosecha de cerezas de café',
     badgeSince: 'Desde 1990',
+  },
+  portfolioCategoryPage: {
+    breadcrumbHome: 'Inicio',
+    breadcrumbPortfolio: 'Nuestro portafolio de productos',
+    backToPortfolio: 'Volver al portafolio de productos',
+    heroViewLots: 'Ver lotes',
+    microBrewRatio: 'Ratio',
+    microBrewTemp: 'Temperatura',
+    microBrewGrind: 'Molienda',
   },
   qualityPage: {
     title: 'Estándares de calidad – Coffee Los Andes',

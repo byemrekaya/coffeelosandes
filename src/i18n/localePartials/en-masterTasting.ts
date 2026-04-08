@@ -1,6 +1,5 @@
 import type { Dict } from './types';
 
-/** Venezuela Coffee Master tadım metinleri (İngilizce). `en.ts` içinde `products.masterTastingBySlug` olarak kullanılır. */
 export const enMasterTastingBySlug: Dict = {
   'araguaney-merida-12': {
     dominantNotes: 'Milk chocolate (+), caramel, dried apricot, almond',
@@ -153,6 +152,12 @@ export const enMasterTastingBySlug: Dict = {
     character: 'Balanced, fresh and lively, stable',
   },
   'colombia-y-castilla-lara-14': {
+    dominantNotes: 'Caramel, chocolate, honey, sour cherry',
+    supportingNotes: 'Fruity acidity, vanilla, hazelnut, orange',
+    bodyFinish: 'Medium-full body, creamy texture, sweet finish, balanced acidity',
+    character: 'Balanced, complex, stable',
+  },
+  'colombia-y-castilla-specialty-blend-lara-52': {
     dominantNotes: 'Caramel, chocolate, honey, sour cherry',
     supportingNotes: 'Fruity acidity, vanilla, hazelnut, orange',
     bodyFinish: 'Medium-full body, creamy texture, sweet finish, balanced acidity',

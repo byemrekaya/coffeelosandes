@@ -80,6 +80,24 @@ export const tastingStructuredBySlug: Record<string, TastingStructuredRow[]> = {
       value: 'Meyvemsi, Kakao Odaklı, Dengeli ve Kompleks',
     },
   ],
+  'geisha-90-30': [
+    {
+      labelKey: 'dominantNotes',
+      value: 'Kayısı (+), Erik, Şeftali, Orman meyveleri',
+    },
+    {
+      labelKey: 'supportingNotes',
+      value: 'Esmer şeker, Brandy, Konyak, Kakao Nibs, Karamelize şeker',
+    },
+    {
+      labelKey: 'bodyFinish',
+      value: 'Kremamsı, İpeksi gövde, Çikolata, Kakao, Tatlı ve kalıcı bitiş',
+    },
+    {
+      labelKey: 'character',
+      value: 'Meyvemsi, Şarapmsı (avinato), Kahverengi baharatlar, Egzotik ve kompleks',
+    },
+  ],
   'otra-89-83': [
     {
       labelKey: 'dominantNotes',

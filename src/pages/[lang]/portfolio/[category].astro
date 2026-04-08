@@ -1,0 +1,762 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import CoffeeMasterCard from '../../../components/products/CoffeeMasterCard.astro';
+import CoffeeLotCard from '../../../components/coffee/CoffeeLotCard.astro';
+import { locales } from '../../../i18n/types';
+import { resolveLocale } from '../../../i18n/config';
+import { getLocalizedDictionary } from '../../../i18n/localizedDictionary';
+import type { HomeExtendedShape } from '../../../i18n/homeExtended';
+import {
+  HOME_PORTFOLIO_CATEGORY_ORDER,
+  HOME_PORTFOLIO_CUPPING_BAR_PCT,
+  homePortfolioSlugsByCategory,
+  PORTFOLIO_CATEGORY_HERO_IMAGE,
+  type HomePortfolioCategoryId,
+} from '../../../data/homePortfolioByCategory';
+import {
+  venezuelaCoffeeMasterWithSlug,
+  type VenezuelaCoffeeMasterItemWithSlug,
+} from '../../../data/venezuelaCoffeeMaster';
+import { coffeeLots } from '../../../data/coffeeLots';
+import { t } from '../../../i18n/t';
+import { homeSection, withLang } from '../../../i18n/paths';
+import { site } from '../../../config/site';
+import type { PortfolioCategorySection } from '../../../i18n/portfolioCategoryDetail';
+import MicroTableRowIcon from '../../../components/portfolio/MicroTableRowIcon.astro';
+import MicroAudienceIcon from '../../../components/portfolio/MicroAudienceIcon.astro';
+
+function portfolioSectionBandClass(tone: PortfolioCategorySection['sectionTone'] | undefined): string {
+  switch (tone) {
+    case 'cream':
+      return 'bg-gradient-to-b from-[#e8e2d8] via-[#f2ede4] to-paper';
+    case 'muted':
+      return 'bg-gradient-to-b from-[#e9e6e0] via-[#f0ede8] to-paper';
+    case 'brew':
+      return 'bg-gradient-to-b from-heading/[0.06] via-heading/[0.025] to-paper';
+    case 'dark-moss':
+      return 'bg-gradient-to-b from-[#dce5df] via-[#e8eee9] to-paper';
+    default:
+      return 'bg-paper';
+  }
+}
+
+const portfolioToneCycle: NonNullable<PortfolioCategorySection['sectionTone']>[] = ['cream', 'muted', 'brew'];
+
+function resolvePortfolioSectionTone(sec: PortfolioCategorySection, secIndex: number): PortfolioCategorySection['sectionTone'] {
+  if (sec.sectionTone) return sec.sectionTone;
+  return portfolioToneCycle[secIndex % portfolioToneCycle.length];
+}
+
+function portfolioBandTopClass(secIndex: number): string {
+  return secIndex > 0 ? 'border-t border-line/45' : '';
+}
+
+export function getStaticPaths() {
+  const paths: { params: { lang: string; category: string } }[] = [];
+  for (const lang of locales) {
+    for (const category of HOME_PORTFOLIO_CATEGORY_ORDER) {
+      paths.push({ params: { lang, category } });
+    }
+  }
+  return paths;
+}
+
+const { lang, category } = Astro.params;
+const locale = resolveLocale(lang);
+
+function isPortfolioCategory(id: string): id is HomePortfolioCategoryId {
+  return (HOME_PORTFOLIO_CATEGORY_ORDER as readonly string[]).includes(id);
+}
+
+if (!category || !isPortfolioCategory(category)) {
+  return Astro.redirect(withLang('/', locale));
+}
+
+const categoryId = category;
+const dict = getLocalizedDictionary(locale);
+const hx = dict.homeExtended as HomeExtendedShape;
+const masterBySlug = Object.fromEntries(venezuelaCoffeeMasterWithSlug.map((item) => [item.slug, item]));
+const slugs = homePortfolioSlugsByCategory[categoryId];
+function parseCuppingScoreMax(value: string): number {
+  const cleaned = value.trim();
+  if (cleaned.endsWith('+')) {
+    const n = Number(cleaned.slice(0, -1));
+    return Number.isFinite(n) ? n : 0;
+  }
+  const parts = cleaned.split('-').map((p) => Number(p.trim()));
+  const nums = parts.filter((n) => Number.isFinite(n));
+  if (!nums.length) return 0;
+  return Math.max(...nums);
+}
+
+const items = slugs
+  .map((slug) => masterBySlug[slug])
+  .filter((item): item is VenezuelaCoffeeMasterItemWithSlug => item != null);
+const itemsSorted = [...items].sort((a, b) => {
+  const sa = parseCuppingScoreMax(a.cupping_score);
+  const sb = parseCuppingScoreMax(b.cupping_score);
+  if (sb !== sa) return sb - sa;
+  return a.slug.localeCompare(b.slug);
+});
+const COMPETITION_LOT_SLUGS = ['geisha-91-54', 'geisha-el-recreo-91-03', 'tabi-90-38', 'geisha-90-30'] as const;
+const competitionLots =
+  categoryId === 'competition-lot'
+    ? COMPETITION_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null)
+    : [];
+const ROASTED_COFFEE_LOT_SLUGS = ['cafe-1600-catimor'] as const;
+const roastedLots =
+  categoryId === 'roasted-coffee'
+    ? ROASTED_COFFEE_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null)
+    : [];
+const detail = hx.portfolioDetail[categoryId];
+const catCopy = hx.portfolioCategories[categoryId];
+const tierName = hx.portfolioQualityTierName[categoryId];
+const heroImageSrc = PORTFOLIO_CATEGORY_HERO_IMAGE;
+const cuppingBarPct = HOME_PORTFOLIO_CUPPING_BAR_PCT[categoryId];
+const showCuppingHero = catCopy.scoreLine != null && cuppingBarPct != null;
+const pageTitle = `${catCopy.title} — ${site.name}`;
+const pageDesc = `${detail.lead} ${catCopy.desc}`.replace(/\s+/g, ' ').trim().slice(0, 160);
+const portfolioHub = homeSection(locale, 'urun-portfoy');
+
+const origin = site.canonicalOrigin.replace(/\/$/, '');
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: t(locale, 'portfolioCategoryPage.breadcrumbHome'),
+      item: new URL(withLang('/', locale), origin).href,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: t(locale, 'portfolioCategoryPage.breadcrumbPortfolio'),
+      item: new URL(portfolioHub, origin).href,
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      name: catCopy.title,
+      item: new URL(withLang(`/portfolio/${categoryId}`, locale), origin).href,
+    },
+  ],
+} as const;
+---
+
+<BaseLayout locale={locale} title={pageTitle} description={pageDesc}>
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(breadcrumbSchema)}></script>
+
+  <section
+    id="portfolio-category-hero"
+    class="relative min-h-[min(58vh,560px)] overflow-hidden text-nav-cream"
+  >
+    <div class="absolute inset-0" aria-hidden="true">
+      <img
+        src={heroImageSrc}
+        alt=""
+        class="h-full w-full object-cover object-center scale-105"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-[#050c09] via-[#0d2218]/92 to-[#06140e]/88"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#050c09]/97 via-[#0a1812]/75 to-transparent sm:via-[#0a1812]/55" />
+      <div
+        class="absolute inset-0 opacity-[0.12]"
+        style="background-image: radial-gradient(ellipse 90% 70% at 70% 20%, rgba(232,212,184,0.45) 0%, transparent 55%), radial-gradient(circle at 15% 85%, rgba(52,120,90,0.35) 0%, transparent 45%);"
+      />
+      <div
+        class="absolute inset-0 mix-blend-soft-light opacity-30"
+        style="background-image: linear-gradient(165deg, transparent 40%, rgba(0,0,0,0.5) 100%);"
+      />
+    </div>
+
+    <div class="section-shell relative z-10 flex min-h-[min(58vh,560px)] flex-col justify-end pb-14 pt-28 md:pb-20 md:pt-32">
+      <div class="grid items-end gap-12 lg:grid-cols-12 lg:gap-10 xl:gap-14">
+        <div class="lg:col-span-7 xl:col-span-6">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#d4c4a8]/90">
+            {detail.badge ?? t(locale, 'products.eyebrow')}
+          </p>
+          <h1
+            class="mt-5 font-display text-[clamp(2.1rem,5.2vw,3.35rem)] font-semibold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.35)]"
+          >
+            {catCopy.title}
+          </h1>
+          {detail.heroSubtitle ? (
+            <p class="mt-4 max-w-xl text-[13px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-white/65">
+              {detail.heroSubtitle}
+            </p>
+          ) : null}
+          <p class="mt-6 max-w-[34rem] text-[17px] font-medium leading-[1.55] text-white/88 md:text-lg md:leading-relaxed">
+            {detail.lead}
+          </p>
+          <div class="mt-9 flex flex-wrap items-center gap-4">
+            <a
+              href="#kategori-urunler"
+              class="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 text-[14px] font-semibold tracking-wide text-[#0f261c] shadow-[0_12px_40px_rgba(0,0,0,0.25)] ring-1 ring-white/40 transition hover:bg-[#faf8f3] hover:ring-white/60"
+            >
+              {t(locale, 'portfolioCategoryPage.heroViewLots')}
+            </a>
+            <a
+              href={portfolioHub}
+              class="text-[13px] font-semibold uppercase tracking-[0.14em] text-white/55 underline-offset-4 transition hover:text-white/90 hover:underline"
+            >
+              {t(locale, 'portfolioCategoryPage.breadcrumbPortfolio')}
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-6 lg:col-span-5 xl:col-span-6 lg:items-end lg:pl-4">
+          {showCuppingHero ? (
+            <div
+              class="w-full max-w-md rounded-2xl border border-amber-200/25 bg-gradient-to-br from-white/[0.14] to-white/[0.05] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.4),0_0_0_1px_rgba(255,255,255,0.06)_inset] backdrop-blur-md ring-1 ring-amber-100/10 lg:max-w-sm"
+            >
+              <p class="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#e8d4b8]/95">Cupping</p>
+              <p class="mt-3 font-display text-[clamp(1.85rem,4.2vw,2.5rem)] font-semibold leading-none tracking-tight text-white">
+                {catCopy.scoreLine}
+              </p>
+              <div
+                class="mt-5 rounded-full bg-black/30 p-[3px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.35)] ring-1 ring-white/10"
+                aria-hidden="true"
+              >
+                <div class="h-3 overflow-hidden rounded-full bg-black/40">
+                  <div
+                    class="portfolio-category-cupping-fill h-full rounded-full bg-gradient-to-r from-[#b8860b] via-[#e8d4b8] to-[#fff8e8]"
+                    style={`--cup-pct: ${cuppingBarPct}`}
+                  />
+                </div>
+              </div>
+              <p class="mt-3 text-[11px] font-medium uppercase tracking-[0.16em] text-white/45">80 — 100</p>
+            </div>
+          ) : (
+            <div
+              class="w-full max-w-md rounded-2xl border border-white/15 bg-white/[0.07] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-md ring-1 ring-white/10 lg:max-w-sm"
+            >
+              <p class="font-display text-lg font-semibold leading-snug text-white">{tierName}</p>
+              <p class="mt-3 text-[14px] leading-relaxed text-white/72">{catCopy.desc}</p>
+            </div>
+          )}
+          {detail.heroStats && detail.heroStats.length ? (
+            <div class="flex w-full max-w-md flex-wrap gap-x-10 gap-y-5 border-t border-white/10 pt-6 lg:max-w-sm">
+              {detail.heroStats.map((s) => (
+                <div class="min-w-[5rem] flex-1">
+                  <p class="font-display text-xl font-semibold tabular-nums text-white md:text-2xl">{s.value}</p>
+                  <p class="mt-1 text-[9px] font-semibold uppercase leading-tight tracking-[0.12em] text-white/50">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-band-a w-full py-16 md:py-24">
+    <div class="section-shell">
+      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-20">
+        <div class="lg:col-span-5 xl:col-span-4">
+          {detail.paragraphs[0] ? (
+            <p class="font-display text-[clamp(1.15rem,2.2vw,1.35rem)] font-medium leading-[1.55] text-[#3d3a36]">
+              {detail.paragraphs[0]}
+            </p>
+          ) : null}
+          {detail.paragraphs.length > 1 ? (
+            <ul class="mt-8 space-y-3 border-t border-heading/10 pt-8">
+              {detail.paragraphs.slice(1).map((para) => (
+                <li class="flex gap-3 text-[15px] leading-[1.65] text-[#6b655c]">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading/45" aria-hidden="true" />
+                  <span>{para}</span>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+        <div class="lg:col-span-7 xl:col-span-8 lg:border-l lg:border-line/50 lg:pl-12 xl:pl-16">
+          {detail.quote ? (
+            <blockquote class="relative pl-6 before:absolute before:left-0 before:top-1 before:h-[calc(100%-0.25rem)] before:w-px before:bg-gradient-to-b before:from-heading/50 before:to-heading/10">
+              <p class="text-[17px] font-medium leading-[1.65] text-heading/95 md:text-lg md:leading-relaxed">
+                {detail.quote.text}
+              </p>
+              {detail.quote.attribution ? (
+                <footer class="mt-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6f7f5f]">
+                  — {detail.quote.attribution}
+                </footer>
+              ) : null}
+            </blockquote>
+          ) : null}
+          <div class:list={['border-t border-line/60 pt-10', detail.quote ? 'mt-12' : 'mt-0']}>
+            <ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+              {detail.highlights.map((h) => (
+                <li class="flex gap-3.5">
+                  <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-heading/70" aria-hidden="true">
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
+                    </svg>
+                  </span>
+                  <div class="min-w-0">
+                    <h2 class="text-[14px] font-semibold leading-snug text-heading">{h.title}</h2>
+                    <p class="mt-1.5 text-[13px] leading-relaxed text-[#6b655c]">{h.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {detail.sections && detail.sections.length ? (
+    <section class="w-full min-w-0 max-w-full overflow-x-hidden border-t border-line/60 bg-paper pb-16 pt-0 md:pb-24">
+      <div class="section-shell max-w-6xl space-y-0">
+        {detail.sections.map((sec, secIndex) => {
+          const isMicroComp =
+            categoryId === 'micro-lot' && sec.microLayout === 'comparison-table' && sec.table != null;
+          const isMicroAud = categoryId === 'micro-lot' && sec.microLayout === 'audience-cards';
+          const isMicroBrew = categoryId === 'micro-lot' && sec.microLayout === 'brewing-cards';
+          const isCardGrid =
+            sec.cards && sec.cards.length > 0 && !isMicroComp && !isMicroAud && !isMicroBrew;
+          const isWhatIs =
+            !isCardGrid &&
+            !isMicroComp &&
+            !isMicroAud &&
+            !isMicroBrew &&
+            (sec.aside != null || sec.introHeading != null);
+          const bandTop = portfolioBandTopClass(secIndex);
+          return (
+            <div id={sec.anchor} class="scroll-mt-28 anchor-target">
+              {isMicroComp ? (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',
+                    portfolioSectionBandClass(sec.sectionTone),
+                    bandTop,
+                  ]}
+                >
+                  <article class="section-shell mx-auto max-w-6xl px-0" data-reveal>
+                    <header class="max-w-3xl">
+                      <h2 class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading">
+                        {sec.title}
+                      </h2>
+                    </header>
+                    <div class="mt-10 overflow-x-auto">
+                      <table class="w-full min-w-[min(100%,680px)] border-collapse text-left text-[13px] md:text-[14px]">
+                        <thead>
+                          <tr class="border-b border-heading/25 bg-heading/[0.14]">
+                            {sec.table!.columns.map((col, ci) => (
+                              <th
+                                class:list={[
+                                  'py-3.5 pr-6 font-display text-[11px] font-semibold uppercase tracking-[0.18em] text-heading last:pr-0 md:pr-8',
+                                  ci === 0 ? 'md:min-w-[9rem]' : '',
+                                ]}
+                              >
+                                {col}
+                              </th>
+                            ))}
+                          </tr>
+                        </thead>
+                        <tbody class="divide-y divide-line/35">
+                          {sec.table!.rows.map((row, ri) => {
+                            const icon = sec.tableRowIcons?.[ri];
+                            const isPrice = icon === 'price';
+                            return (
+                              <tr>
+                                <td class="py-4 pr-6 align-middle font-medium text-[#3d3a36] md:pr-8">
+                                  <div class="flex items-center gap-3">
+                                    {icon ? <MicroTableRowIcon name={icon} /> : null}
+                                    <span>{row[0]}</span>
+                                  </div>
+                                </td>
+                                <td class="py-4 pr-6 align-middle font-medium text-[#3d3a36] md:pr-8">
+                                  {isPrice ? (
+                                    <span class="inline-flex rounded-full bg-gradient-to-r from-amber-50/95 to-[#fff8eb] px-3 py-1 text-[12px] font-semibold uppercase tracking-wide text-[#5c4a30] ring-1 ring-amber-900/10">
+                                      {row[1]}
+                                    </span>
+                                  ) : (
+                                    row[1]
+                                  )}
+                                </td>
+                                <td class="py-4 align-middle text-[#6b655c]">
+                                  {isPrice ? (
+                                    <span class="inline-flex rounded-full bg-stone-100/95 px-3 py-1 text-[12px] font-semibold uppercase tracking-wide text-stone-600 ring-1 ring-stone-200/80">
+                                      {row[2]}
+                                    </span>
+                                  ) : (
+                                    row[2]
+                                  )}
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </article>
+                </div>
+              ) : isMicroAud ? (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',
+                    portfolioSectionBandClass(sec.sectionTone),
+                    bandTop,
+                  ]}
+                >
+                  <article class="section-shell mx-auto max-w-6xl px-0" data-reveal>
+                    <header class="max-w-3xl">
+                      <h2 class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading">
+                        {sec.title}
+                      </h2>
+                    </header>
+                    {sec.paragraphs && sec.paragraphs.length ? (
+                      <div class="mt-5 max-w-3xl text-[16px] leading-relaxed text-[#8a847a] md:text-[17px]">
+                        {sec.paragraphs.map((p) => (
+                          <p>{p}</p>
+                        ))}
+                      </div>
+                    ) : null}
+                    <div class="mt-12 grid gap-x-10 gap-y-12 sm:grid-cols-2">
+                      {(sec.audienceCards ?? []).map((c, ai) => (
+                        <div class="group flex gap-4">
+                          <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-heading/[0.07] text-heading transition group-hover:bg-heading/[0.11]">
+                            <MicroAudienceIcon variant={ai} />
+                          </div>
+                          <div class="min-w-0 border-b border-line/25 pb-10 sm:border-0 sm:pb-0">
+                            <h3 class="font-display text-[1.05rem] font-semibold leading-snug text-heading">{c.title}</h3>
+                            <p class="mt-2.5 text-[14px] leading-relaxed text-[#6b655c]">{c.body}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                </div>
+              ) : isMicroBrew ? (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',
+                    portfolioSectionBandClass(sec.sectionTone),
+                    bandTop,
+                  ]}
+                >
+                  <article class="section-shell mx-auto max-w-6xl px-0" data-reveal>
+                    <header class="max-w-3xl">
+                      <h2 class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading">
+                        {sec.title}
+                      </h2>
+                    </header>
+                    {sec.paragraphs && sec.paragraphs.length ? (
+                      <div class="mt-5 max-w-3xl text-[16px] leading-relaxed text-[#8a847a] md:text-[17px]">
+                        {sec.paragraphs.map((p) => (
+                          <p>{p}</p>
+                        ))}
+                      </div>
+                    ) : null}
+                    <div class="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-12">
+                      {(sec.brewingCards ?? []).map((b) => (
+                        <div class="border-l-2 border-heading/20 pl-6 md:pl-7">
+                          <h3 class="font-display text-lg font-semibold tracking-tight text-heading md:text-xl">{b.method}</h3>
+                          <dl class="mt-5 space-y-3.5">
+                          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                            <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a948a]">
+                              {t(locale, 'portfolioCategoryPage.microBrewRatio')}
+                            </dt>
+                            <dd class="text-[14px] font-semibold text-heading sm:text-right">{b.ratio}</dd>
+                          </div>
+                          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                            <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a948a]">
+                              {t(locale, 'portfolioCategoryPage.microBrewTemp')}
+                            </dt>
+                            <dd class="text-[14px] font-semibold tabular-nums text-heading sm:text-right">{b.temp}</dd>
+                          </div>
+                          <div class="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
+                            <dt class="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#9a948a]">
+                              {t(locale, 'portfolioCategoryPage.microBrewGrind')}
+                            </dt>
+                            <dd class="text-[14px] font-medium leading-snug text-[#4a4540] sm:max-w-[14rem] sm:text-right">
+                              {b.grind}
+                            </dd>
+                          </div>
+                        </dl>
+                        </div>
+                      ))}
+                    </div>
+                  </article>
+                </div>
+              ) : isCardGrid ? (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',
+                    portfolioSectionBandClass(resolvePortfolioSectionTone(sec, secIndex)),
+                    bandTop,
+                  ]}
+                >
+                  <div class="section-shell mx-auto max-w-6xl px-0" data-reveal>
+                    <header class="max-w-3xl">
+                      <h2 class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading">
+                        {sec.title}
+                      </h2>
+                      {sec.subtitle ? (
+                        <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{sec.subtitle}</p>
+                      ) : null}
+                    </header>
+                    <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-12 lg:gap-y-12">
+                      {sec.cards!.map((c) => (
+                        <div class="group border-t border-heading/15 pt-6">
+                          <h3 class="font-display text-[15px] font-semibold leading-snug text-heading transition group-hover:text-heading/90">
+                            {c.title}
+                          </h3>
+                          <p class="mt-3 text-[14px] leading-relaxed text-[#5f5b55]">{c.body}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : isWhatIs ? (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',
+                    portfolioSectionBandClass(resolvePortfolioSectionTone(sec, secIndex)),
+                    bandTop,
+                  ]}
+                >
+                  <div class="section-shell mx-auto max-w-6xl px-0" data-reveal>
+                    <header class="mb-10 max-w-3xl lg:mb-12">
+                      <h2 class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading">
+                        {sec.title}
+                      </h2>
+                      {sec.subtitle ? (
+                        <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{sec.subtitle}</p>
+                      ) : null}
+                    </header>
+                    <div class="grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
+                      <div class="lg:col-span-7">
+                        {sec.introHeading ? (
+                          <h3 class="font-display text-lg font-semibold text-heading md:text-xl">{sec.introHeading}</h3>
+                        ) : null}
+                        {sec.paragraphs && sec.paragraphs.length ? (
+                          <div
+                            class:list={[
+                              'space-y-4 text-[15px] leading-[1.72] text-[#5f5b55] md:text-[16px]',
+                              sec.introHeading ? 'mt-4' : '',
+                            ]}
+                          >
+                            {sec.paragraphs.map((p) => (
+                              <p>{p}</p>
+                            ))}
+                          </div>
+                        ) : null}
+                        {sec.bullets && sec.bullets.length ? (
+                          <ul class="mt-8 space-y-5 border-t border-line/50 pt-8">
+                            {sec.bullets.map((b) => {
+                              const colon = b.indexOf(':');
+                              const strong = colon > 0 ? b.slice(0, colon).trim() : '';
+                              const rest = colon > 0 ? b.slice(colon + 1).trim() : b;
+                              return (
+                                <li class="flex gap-3.5">
+                                  <span
+                                    class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-heading/[0.08] text-heading"
+                                    aria-hidden="true"
+                                  >
+                                    <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+                                  </span>
+                                  <span class="text-[14px] leading-relaxed text-[#4a4540]">
+                                    {strong ? (
+                                      <>
+                                        <strong class="font-semibold text-heading">{strong}</strong>
+                                        {rest ? ` ${rest}` : ''}
+                                      </>
+                                    ) : (
+                                      b
+                                    )}
+                                  </span>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        ) : null}
+                      </div>
+                      {sec.aside ? (
+                        <div class="lg:col-span-5 lg:pl-4">
+                          <div class="flex flex-col items-center justify-center rounded-2xl border border-heading/10 bg-white/45 px-8 py-10 text-center ring-1 ring-heading/[0.06]">
+                            <span class="text-amber-800/40" aria-hidden="true">
+                              <svg class="mx-auto h-12 w-12" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                  fill-rule="evenodd"
+                                  d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005z"
+                                  clip-rule="evenodd"
+                                />
+                              </svg>
+                            </span>
+                            <p class="mt-5 font-display text-2xl font-semibold tracking-tight text-heading md:text-[1.65rem]">
+                              {sec.aside.line1}
+                            </p>
+                            <p class="mt-1 font-display text-4xl font-semibold tabular-nums text-heading md:text-5xl">
+                              {sec.aside.line2}
+                            </p>
+                            <p class="mt-3 text-[13px] font-medium text-[#6b655c]">{sec.aside.line3}</p>
+                          </div>
+                        </div>
+                      ) : null}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',
+                    portfolioSectionBandClass(resolvePortfolioSectionTone(sec, secIndex)),
+                    bandTop,
+                  ]}
+                >
+                  <div class="section-shell mx-auto max-w-6xl px-0" data-reveal>
+                    <header class="mb-6 max-w-3xl md:mb-8">
+                      <h2 class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading">
+                        {sec.title}
+                      </h2>
+                      {sec.subtitle ? (
+                        <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{sec.subtitle}</p>
+                      ) : null}
+                    </header>
+
+                    {sec.paragraphs && sec.paragraphs.length ? (
+                      <div class="max-w-3xl space-y-4 text-[15px] leading-[1.72] text-[#5f5b55] md:text-[16px]">
+                        {sec.paragraphs.map((p) => (
+                          <p>{p}</p>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    {sec.bullets && sec.bullets.length ? (
+                      <ul class="mt-8 max-w-3xl space-y-4 border-t border-line/50 pt-8">
+                        {sec.bullets.map((b) => (
+                          <li class="flex gap-3.5">
+                            <span
+                              class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-heading/[0.08] text-heading"
+                              aria-hidden="true"
+                            >
+                              <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                              </svg>
+                            </span>
+                            <span class="text-[14px] leading-relaxed text-[#4a4540]">{b}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+
+                    {sec.table ? (
+                      <div class="mt-10 overflow-x-auto">
+                        <table class="w-full min-w-[min(100%,680px)] border-collapse text-left text-[13px] md:text-[14px]">
+                          <thead>
+                            <tr class="border-b border-heading/25 bg-heading/[0.14]">
+                              {sec.table.columns.map((col, ci) => (
+                                <th
+                                  class:list={[
+                                    'py-3.5 pr-6 font-display text-[11px] font-semibold uppercase tracking-[0.18em] text-heading last:pr-0 md:pr-8',
+                                    ci === 0 ? 'md:min-w-[9rem]' : '',
+                                  ]}
+                                >
+                                  {col}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-line/35">
+                            {sec.table.rows.map((row) => (
+                              <tr>
+                                {row.map((cell, ci) => (
+                                  <td
+                                    class:list={[
+                                      'py-4 align-middle',
+                                      ci < 2 ? 'pr-6 md:pr-8' : '',
+                                      ci === 0 || ci === 1 ? 'font-medium text-[#3d3a36]' : 'text-[#6b655c]',
+                                    ]}
+                                  >
+                                    {cell}
+                                  </td>
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    ) : null}
+                  </div>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  ) : null}
+
+  <section class="section-band-b w-full border-t border-line/60 py-14 md:py-20" id="kategori-urunler">
+    <div class="section-shell">
+      <h2 class="font-display text-xl font-semibold text-heading md:text-2xl">{t(locale, 'home.portfolioPanelProductsTitle')}</h2>
+      {categoryId === 'competition-lot' ? (
+        competitionLots.length === 0 ? (
+          <p class="mt-8 rounded-2xl border border-dashed border-heading/25 bg-[#faf8f3] px-6 py-10 text-center text-[15px] text-[#6b655c]">
+            {hx.portfolioEmpty}
+          </p>
+        ) : (
+          <div class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {competitionLots.map((lot) => (
+              <CoffeeLotCard lot={lot} locale={locale} />
+            ))}
+          </div>
+        )
+      ) : categoryId === 'roasted-coffee' ? (
+        roastedLots.length === 0 ? (
+          <p class="mt-8 rounded-2xl border border-dashed border-heading/25 bg-[#faf8f3] px-6 py-10 text-center text-[15px] text-[#6b655c]">
+            {hx.portfolioEmpty}
+          </p>
+        ) : (
+          <div class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+            {roastedLots.map((lot) => (
+              <CoffeeLotCard lot={lot} locale={locale} />
+            ))}
+          </div>
+        )
+      ) : items.length === 0 ? (
+        <p class="mt-8 rounded-2xl border border-dashed border-heading/25 bg-[#faf8f3] px-6 py-10 text-center text-[15px] text-[#6b655c]">
+          {hx.portfolioEmpty}
+        </p>
+      ) : (
+        <div class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {itemsSorted.map((item) => (
+            <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section-band-a w-full border-t border-line/60 py-10 md:py-12">
+    <div class="section-shell flex flex-wrap items-center justify-between gap-4">
+      <a
+        href={portfolioHub}
+        class="inline-flex items-center gap-2 text-[15px] font-semibold text-heading underline-offset-4 hover:underline"
+      >
+        ← {t(locale, 'portfolioCategoryPage.backToPortfolio')}
+      </a>
+    </div>
+  </section>
+
+  <style is:global>
+    #portfolio-category-hero .portfolio-category-cupping-fill {
+      width: max(6%, calc(var(--cup-pct) * 1%));
+      box-shadow: 0 0 24px rgba(232, 212, 184, 0.22);
+    }
+  </style>
+</BaseLayout>

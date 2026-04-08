@@ -1,16 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import SectionHeader from '../SectionHeader.astro';
 import type { Locale } from '../../i18n/types';
+import type { HomeExtendedShape } from '../../i18n/homeExtended';
 import { resolveLocale } from '../../i18n/config';
 import { getLocalizedDictionary } from '../../i18n/localizedDictionary';
 import { t } from '../../i18n/t';
 import { withLang } from '../../i18n/paths';
-import { coffeeLots } from '../../data/coffeeLots';
-import { venezuelaCoffeeMasterWithSlug } from '../../data/venezuelaCoffeeMaster';
-import { localizeCoffeeLots } from '../../i18n/localizeLot';
-import CoffeeLotCard from '../coffee/CoffeeLotCard.astro';
-import CoffeeMasterCard from '../products/CoffeeMasterCard.astro';
+import { HOME_PORTFOLIO_CATEGORY_ORDER, HOME_PORTFOLIO_CUPPING_BAR_PCT } from '../../data/homePortfolioByCategory';
 
 interface Props {
   locale: Locale;
@@ -19,393 +15,342 @@ interface Props {
 const { locale: localeProp } = Astro.props;
 const locale = resolveLocale(localeProp as string | undefined);
 const dict = getLocalizedDictionary(locale);
-
-const homeStory = dict.homeStory as {
-  eyebrow: string;
-  tagline: string;
-  title: string;
-  paragraphs: string[];
-  knowMore: string;
-  imageAlt: string;
-  badgeSince: string;
-};
-const localizedLots = localizeCoffeeLots(coffeeLots, locale);
-const totalLots = localizedLots.length;
-
-const segmentDefs = [
-  {
-    id: 'competition-lots',
-    label: t(locale, 'products.segmentLabelCompetition'),
-    title: t(locale, 'products.segmentCompetitionTitle'),
-    desc: t(locale, 'products.segmentCompetitionDesc'),
-  },
-  {
-    id: 'premium-microlot',
-    label: t(locale, 'products.segmentLabelMicro'),
-    title: t(locale, 'products.segmentMicroTitle'),
-    desc: t(locale, 'products.segmentMicroDesc'),
-  },
-  {
-    id: 'specialty-series',
-    label: t(locale, 'products.segmentLabelSpecialty'),
-    title: t(locale, 'products.segmentSpecialtyTitle'),
-    desc: t(locale, 'products.segmentSpecialtyDesc'),
-  },
-  {
-    id: 'barista-blend',
-    label: t(locale, 'products.segmentLabelBarista'),
-    title: t(locale, 'products.segmentBaristaTitle'),
-    desc: t(locale, 'products.segmentBaristaDesc'),
-  },
-  {
-    id: 'commercial',
-    label: t(locale, 'products.segmentLabelCommercial'),
-    title: t(locale, 'products.segmentCommercialTitle'),
-    desc: t(locale, 'products.segmentCommercialDesc'),
-  },
-  {
-    id: 'retail',
-    label: t(locale, 'products.segmentLabelRetail'),
-    title: t(locale, 'products.segmentRoastedTitle'),
-    desc: t(locale, 'products.segmentRoastedDesc'),
-  },
-] as const;
-
-const defaultSegment = segmentDefs[0].id;
-const totalCategories = segmentDefs.length;
-const masterSegmentDefs = [
-  { id: 'MICRO LOT', label: t(locale, 'products.segmentLabelMicro') },
-  { id: 'SPECIALTY', label: t(locale, 'products.segmentLabelSpecialty') },
-  { id: 'COMMERCIAL', label: t(locale, 'products.segmentLabelCommercial') },
-] as const;
-const masterDefaultSegment = masterSegmentDefs[0].id;
-const masterTotalCategories = masterSegmentDefs.length;
-const masterTotalLots = venezuelaCoffeeMasterWithSlug.length;
-const lotWordByLocale: Record<Locale, string> = {
-  tr: 'lot',
-  de: 'Lots',
-  en: 'lots',
-  fr: 'lots',
-  es: 'lotes',
-};
-const categoryWordByLocale: Record<Locale, string> = {
-  tr: 'kategori',
-  de: 'Kategorien',
-  en: 'categories',
-  fr: 'categories',
-  es: 'categorias',
-};
+const hx = dict.homeExtended as HomeExtendedShape;
 
 ---
 
 <section id="hikayemiz" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
   <div class="section-shell">
-    <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
-      <div class="order-2 flex min-w-0 flex-col justify-center lg:order-1">
-        <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f] md:text-xs">
-          {homeStory.tagline}
-        </p>
-        <h2 class="mt-4 font-display text-[clamp(2rem,4.2vw,3.2rem)] font-semibold leading-[1.1] tracking-tight text-heading">
-          {homeStory.title}
-        </h2>
-        <div class="mt-6 space-y-4 text-[17px] leading-[1.72] text-[#5f5b55]">
-          {homeStory.paragraphs.slice(0, 2).map((p) => (
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f]">{hx.storyEyebrow}</p>
+      <h2 class="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight text-heading">
+        {hx.storySectionTitle}
+      </h2>
+      <p class="mt-3 text-[17px] font-medium text-[#4a4540] md:text-lg">{hx.storyLead}</p>
+    </div>
+
+    <div class="mt-14 grid gap-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-start">
+      <div class="min-w-0 lg:pr-2">
+        <div class="max-w-prose space-y-6 text-[16px] font-medium leading-[1.85] text-[#5a564f]">
+          {hx.storyParagraphs.map((p) => (
             <p>{p}</p>
           ))}
         </div>
-        <a
-          href={withLang('/about', locale)}
-          class="mt-9 inline-flex w-fit items-center justify-center rounded-full bg-heading px-8 py-3.5 text-[13px] font-semibold text-white shadow-sm transition hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/50 focus-visible:ring-offset-2"
-        >
-          {homeStory.knowMore}
-        </a>
-      </div>
-      <div class="relative order-1 min-w-0 lg:order-2">
-        <div class="absolute -left-3 -top-4 z-10 rounded-full bg-white px-5 py-3 text-sm font-semibold text-heading shadow-[0_10px_30px_rgba(0,0,0,0.14)] md:-left-5 md:-top-5 md:px-6 md:py-4">
-          {homeStory.badgeSince}
+
+        <ul class="mt-8 space-y-3 text-[14px] font-semibold text-[#4a4540]">
+          {hx.storyHighlights.map((b) => (
+            <li class="flex gap-3">
+              <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-heading/55" aria-hidden="true" />
+              <span>{b}</span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-9 rounded-2xl border border-heading/10 bg-heading/[0.04] p-6">
+          <p class="text-[11px] font-semibold uppercase tracking-[0.22em] text-heading/75">{hx.storyNote.title}</p>
+          <p class="mt-3 text-[15px] leading-relaxed text-heading/90">
+            <span class="font-semibold">“</span>
+            {hx.storyNote.body}
+            <span class="font-semibold">”</span>
+          </p>
         </div>
-        <div class="group relative overflow-hidden rounded-[30px]">
+      </div>
+      <div class="min-w-0">
+        <div class="flex justify-center lg:justify-end">
           <Image
             src="/coffee-farm-about.webp"
-            alt={homeStory.imageAlt}
-            width="960"
-            height="1200"
-            class="h-full w-full object-cover object-[52%_46%] transition-transform duration-700 group-hover:scale-[1.03]"
+            alt={hx.storyImageAlt}
+            width="1100"
+            height="1400"
+            class="h-auto max-h-[min(460px,70vw)] w-auto max-w-[min(100%,520px)] object-contain object-center lg:max-h-[520px] lg:max-w-[520px]"
             loading="lazy"
           />
-          <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/12 to-transparent"></div>
         </div>
       </div>
+    </div>
+
+    <div class="mt-12 grid grid-cols-2 gap-4 sm:mt-14 lg:grid-cols-4 lg:gap-5">
+      {hx.stats.map((s) => (
+        <div class="rounded-[22px] border border-[#e7dfd3] bg-[#fbfaf7] px-6 py-6 text-left shadow-[0_14px_40px_rgba(40,96,63,0.04)] transition-transform duration-300 hover:-translate-y-[1px]">
+          <p class="font-display text-[2.05rem] font-semibold leading-none text-heading">{s.value}</p>
+          <div class="mt-3 h-px w-12 bg-heading/12" aria-hidden="true"></div>
+          <p class="mt-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#6f7f5f]">{s.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:mt-12 sm:flex-row sm:flex-wrap sm:gap-4">
+      <a
+        href={withLang('/about#biz-kimiz', locale)}
+        class="inline-flex w-full max-w-sm items-center justify-center rounded-full border border-heading/18 bg-heading px-7 py-3.5 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-nav-cream shadow-[0_10px_32px_rgba(40,96,63,0.12)] transition hover:bg-heading/92 sm:w-auto sm:max-w-none"
+      >
+        {hx.storyWhoWeAreCtaLabel}
+      </a>
+      <a
+        href={withLang('/about#venezuela-hikaye', locale)}
+        class="inline-flex w-full max-w-sm items-center justify-center rounded-full border border-heading/18 bg-white px-7 py-3.5 text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-heading shadow-[0_10px_32px_rgba(40,96,63,0.06)] transition hover:border-heading/32 hover:bg-[#fbfaf7] sm:w-auto sm:max-w-none"
+      >
+        {hx.storyAboutCtaLabel}
+      </a>
     </div>
   </div>
 </section>
 
-<section
-  id="barista-blend-paket"
-  class="section-band-a anchor-target scroll-mt-28 border-t border-line/60 py-16 md:py-24"
-  data-reveal
->
+<section id="bolgelerimiz" class="section-band-a anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
   <div class="section-shell">
-    <div
-      class="grid items-center gap-10 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.1fr)] lg:items-center lg:gap-12 xl:gap-16"
-    >
-      <div class="order-2 flex min-w-0 flex-col justify-center lg:order-1">
-        <p
-          class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#6f7f5f] sm:text-[11px] md:tracking-[0.26em]"
-        >
-          {t(locale, 'home.retailPackEyebrow')}
-        </p>
-        <h2
-          class="mt-3 max-w-[min(22ch,100%)] font-display text-[clamp(1.85rem,3.8vw,3rem)] font-semibold leading-[1.08] tracking-tight text-heading"
-        >
-          {t(locale, 'products.retailProductTitle')}
-        </h2>
-        <p class="mt-5 max-w-md text-[16px] leading-[1.68] text-[#5f5b55] md:text-[17px] md:leading-[1.7]">
-          {t(locale, 'products.retailProductStory')}
-        </p>
-        <ul class="mt-6 max-w-md space-y-2.5 border-l border-[#c4b8a8]/55 pl-4 text-[14px] leading-snug text-[#4a4540] md:text-[15px]">
-          <li>{t(locale, 'home.retailPackFeatOrigin')}</li>
-          <li>{t(locale, 'home.retailPackFeatProcess')}</li>
-          <li>{t(locale, 'home.retailPackFeatProfile')}</li>
-        </ul>
-        <p class="mt-5 max-w-md text-[11px] leading-relaxed tracking-tight text-[#8a847a] sm:text-[12px]">
-          {t(locale, 'home.retailPackStrip1')} · {t(locale, 'home.retailPackStrip2')} ·{' '}
-          {t(locale, 'home.retailPackStrip3')}
-        </p>
-        <div class="mt-8 flex flex-row flex-wrap items-center gap-2 sm:mt-9 sm:gap-3 md:gap-4">
-          <a
-            href={withLang('/coffees/cafe-1600-catimor', locale)}
-            class="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-full bg-heading px-4 py-2.5 text-center text-[12px] font-semibold leading-tight text-white shadow-[0_8px_24px_rgba(30,35,28,0.18)] transition hover:opacity-92 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/45 focus-visible:ring-offset-2 sm:min-h-0 sm:flex-initial sm:px-7 sm:py-3.5 sm:text-[13px]"
-          >
-            {t(locale, 'home.retailPackCtaPrimary')}
-          </a>
-          <a
-            href={withLang('/contact', locale)}
-            class="inline-flex min-h-[44px] flex-1 items-center justify-center rounded-full border border-heading/18 bg-transparent px-4 py-2.5 text-center text-[12px] font-semibold leading-tight text-heading transition hover:border-heading/35 hover:bg-heading/[0.04] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/30 focus-visible:ring-offset-2 sm:min-h-0 sm:flex-initial sm:px-6 sm:py-3 sm:text-[13px]"
-          >
-            {t(locale, 'home.retailPackCtaSecondary')}
-          </a>
-        </div>
-      </div>
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight text-heading">{hx.regionsTitle}</h2>
+      <p class="mt-3 text-[17px] text-[#5f5b55] md:text-lg">{hx.regionsSubtitle}</p>
+    </div>
+    <div class="mt-14 grid gap-8 lg:grid-cols-3">
+      {hx.regions.map((region, idx) => {
+        const [titleMain, titleSubRaw] = region.title.split('—');
+        const titleSub = titleSubRaw?.trim();
+        const cardImageSrc =
+          idx === 0 ? '/venezuela-sales.webp' : idx === 1 ? '/europe-sales.webp' : '/middle-east-sales.webp';
 
-      <div
-        class="relative order-1 flex min-w-0 justify-center overflow-visible lg:order-2 lg:justify-end lg:overflow-visible"
-      >
-        <div
-          class="relative flex w-full max-w-[min(100%,400px)] flex-col items-center justify-center py-4 sm:py-6 lg:max-w-[min(100%,480px)] lg:items-end lg:pr-2"
-        >
-          <div class="pointer-events-none absolute left-1/2 top-[42%] z-0 h-[min(120%,420px)] w-[min(140%,520px)] -translate-x-1/2 -translate-y-1/2 md:top-[44%]" aria-hidden="true">
-            <div
-              class="absolute inset-0 bg-[radial-gradient(circle_at_50%_42%,rgba(243,239,233,0.92)_0%,rgba(234,228,219,0.55)_52%,transparent_72%)]"
-            ></div>
-            <div
-              class="absolute left-1/2 top-1/2 h-[75%] w-[85%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(190,165,130,0.14),transparent_68%)] blur-3xl"
-            ></div>
-          </div>
-          <div
-            class="pointer-events-none absolute bottom-[12%] left-1/2 z-0 h-14 w-[68%] max-w-[252px] -translate-x-1/2 rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(35,28,22,0.14),transparent_72%)] blur-xl sm:bottom-[14%]"
-            aria-hidden="true"
-          ></div>
-
-          <div class="relative z-10 w-full lg:translate-x-2 xl:translate-x-3">
-            <div class="group relative mx-auto w-fit max-w-[min(100%,216px)] sm:max-w-[min(100%,234px)] md:max-w-[min(100%,252px)] lg:mx-0 lg:ml-auto">
-              <div
-                class="pointer-events-none absolute left-1/2 top-[48%] z-0 h-[88%] w-[118%] max-w-none -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(120,95,72,0.2),transparent_70%)] blur-2xl"
-                aria-hidden="true"
-              ></div>
+        return (
+          <article class="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-[#e7dfd3] bg-[#fbfaf7] shadow-[0_14px_50px_rgba(40,96,63,0.05)] transition-transform duration-300 hover:-translate-y-1">
+            <div class="relative flex h-44 items-center justify-center overflow-hidden bg-white sm:h-48">
               <Image
-                src="/losandes-coffee-package.webp"
-                alt={t(locale, 'home.retailPackImageAlt')}
-                width="800"
-                height="1000"
-                class="relative z-[1] mx-auto block h-auto w-full max-w-full rounded-xl object-contain object-center drop-shadow-[0_32px_48px_rgba(18,14,10,0.2)] transition duration-500 ease-out will-change-transform group-hover:scale-[1.02] group-hover:drop-shadow-[0_40px_56px_rgba(18,14,10,0.16)] sm:rounded-2xl"
+                src={cardImageSrc}
+                alt={region.title}
+                width="1200"
+                height="700"
+                class="h-full w-full max-h-full max-w-full object-contain object-center transition-transform duration-500 group-hover:scale-[1.02]"
                 loading="lazy"
               />
+              <div
+                class="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,rgba(15,38,28,0.12),transparent_55%)]"
+                aria-hidden="true"
+              />
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="kahvelerimiz" class="section-band-a anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
-  <div class="section-shell">
-    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-      <div class="max-w-3xl">
-        <span class="mb-3 block text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f]">
-          {t(locale, 'products.eyebrow')}
-        </span>
-        <h2 class="font-display text-[clamp(2.35rem,4.6vw,3.8rem)] font-semibold tracking-tight text-heading">
-          {t(locale, 'home.coffeesSectionTitle')}
-        </h2>
-        <p class="mt-4 text-[18px] leading-[1.65] text-[#5f5b55]">
-          {t(locale, 'home.coffeesSectionIntro')}
-        </p>
-      </div>
-      <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
-        {totalLots} {lotWordByLocale[locale]} · {totalCategories} {categoryWordByLocale[locale]}
-      </p>
-    </div>
+            <div class="flex flex-1 flex-col p-8">
+              <header>
+                <h3 class="font-display text-[1.3rem] font-semibold tracking-tight text-heading">{titleMain.trim()}</h3>
+                {titleSub ? (
+                  <p class="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#6f7f5f]">{titleSub}</p>
+                ) : null}
+              </header>
 
-    <div class="relative z-20 mt-10 w-full min-w-0 max-w-full overflow-hidden" data-category-filter-root>
-      <div
-        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-paper to-transparent md:w-16"
-        aria-hidden="true"
-      />
-      <div
-        class="w-full min-w-0 max-w-full overflow-x-auto overscroll-x-contain scroll-pl-4 scroll-pr-2 pb-2 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
-      >
-        <div
-          class="inline-flex min-w-max items-center gap-3 rounded-[28px] border border-black/5 bg-[#f5f2ed] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.75),0_10px_28px_rgba(15,38,28,0.06)] ring-1 ring-black/[0.03]"
-        >
-          {segmentDefs.map((segment, i) => (
-            <button
-              type="button"
-              data-category-tab={segment.id}
-              data-active-classes="bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white border-black/15 shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45"
-              data-inactive-classes="bg-[#f0ebe4] text-[#3d3835] border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:border-black/10 hover:bg-[#f7f4ef] hover:shadow-[0_3px_14px_rgba(15,38,28,0.09)]"
-              class:list={[
-                'home-filter-pill-btn group relative flex min-h-[46px] shrink-0 snap-start items-center gap-2 rounded-full border px-4 py-2.5 text-left text-[13px] font-semibold leading-snug tracking-tight transition-all duration-200 ease-out motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 focus-visible:ring-offset-paper',
-                i === 0
-                  ? 'border-black/15 bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45'
-                  : 'border-black/[0.06] bg-[#f0ebe4] text-[#3d3835] shadow-[0_1px_3px_rgba(0,0,0,0.05)]',
-              ]}
-              aria-pressed={i === 0 ? 'true' : 'false'}
-            >
-              <span class="home-filter-pill-dot shrink-0" aria-hidden="true" />
-              <span class="relative z-[1]">{segment.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
+              <p class="mt-4 text-[15px] leading-relaxed text-[#5a564f]">{region.body}</p>
 
-    <div class="mt-8 space-y-4">
-      {segmentDefs.map((segment, i) => (
-        <div data-segment-panel={segment.id} class:list={[i !== 0 && 'hidden']}>
-          <h3 class="text-[22px] font-semibold text-ink">{segment.title}</h3>
-          <p class="mt-2 max-w-3xl text-[17px] leading-[1.6] text-[#5f5b55]">{segment.desc}</p>
-        </div>
-      ))}
-    </div>
-
-    <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3" data-category-cards>
-      {localizedLots.map((lot) => (
-        <div
-          data-category-card
-          data-segment={lot.segment}
-          class:list={[lot.segment !== defaultSegment && 'hidden']}
-        >
-          <CoffeeLotCard lot={lot} locale={locale} />
-        </div>
-      ))}
-    </div>
-
-    <div class="mt-12 flex justify-center" data-category-cta>
-      <a href={withLang('/products/awarded', locale)} class="btn-primary inline-flex justify-center px-8">
-        {t(locale, 'home.awardedCtaAll')}
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="urunlerimiz" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
-  <div class="section-shell">
-    <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-      <div class="max-w-3xl">
-        <span class="mb-3 block text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f]">
-          {t(locale, 'products.eyebrow')}
-        </span>
-        <h2 class="font-display text-[clamp(2.35rem,4.6vw,3.8rem)] font-semibold tracking-tight text-heading">
-          {t(locale, 'home.productsSectionTitle')}
-        </h2>
-        <p class="mt-4 text-[18px] leading-[1.65] text-[#5f5b55]">
-          {t(locale, 'home.productsSectionIntro')}
-        </p>
-      </div>
-      <p class="text-[13px] font-medium uppercase tracking-[0.16em] text-[#7b756d]">
-        {masterTotalLots} {lotWordByLocale[locale]} · {masterTotalCategories} {categoryWordByLocale[locale]}
-      </p>
-    </div>
-
-    <div class="relative z-20 mt-10 w-full min-w-0 max-w-full overflow-hidden" data-master-filter-root>
-      <div
-        class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-surface to-transparent md:w-16"
-        aria-hidden="true"
-      />
-      <div
-        class="w-full min-w-0 max-w-full overflow-x-auto overscroll-x-contain scroll-pl-4 scroll-pr-2 pb-2 pt-0.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory"
-      >
-        <div
-          class="inline-flex min-w-max items-center gap-3 rounded-[28px] border border-black/5 bg-[#f7f5f1] px-4 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),0_10px_28px_rgba(15,38,28,0.05)] ring-1 ring-black/[0.03]"
-        >
-          {masterSegmentDefs.map((segment, i) => (
-            <button
-              type="button"
-              data-master-tab={segment.id}
-              data-active-classes="bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white border-black/15 shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45"
-              data-inactive-classes="bg-[#f2efe9] text-[#3d3835] border-black/[0.06] shadow-[0_1px_3px_rgba(0,0,0,0.05)] hover:border-black/10 hover:bg-[#faf8f3] hover:shadow-[0_3px_14px_rgba(15,38,28,0.09)]"
-              class:list={[
-                'home-filter-pill-btn group relative flex min-h-[46px] shrink-0 snap-start items-center gap-2 rounded-full border px-4 py-2.5 text-left text-[13px] font-semibold leading-snug tracking-tight transition-all duration-200 ease-out motion-safe:hover:scale-[0.99] motion-safe:active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 focus-visible:ring-offset-surface',
-                i === 0
-                  ? 'border-black/15 bg-gradient-to-b from-[#1a1b19] to-[#2d322b] text-white shadow-[0_4px_20px_rgba(15,38,28,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] ring-1 ring-[#4d6b52]/45'
-                  : 'border-black/[0.06] bg-[#f2efe9] text-[#3d3835] shadow-[0_1px_3px_rgba(0,0,0,0.05)]',
-              ]}
-              aria-pressed={i === 0 ? 'true' : 'false'}
-            >
-              <span class="home-filter-pill-dot shrink-0" aria-hidden="true" />
-              <span class="relative z-[1]">{segment.label}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <div class="mt-8 space-y-4">
-      {masterSegmentDefs.map((segment, i) => (
-        <div data-master-panel={segment.id} class:list={[i !== 0 && 'hidden']}>
-          <h3 class="text-[22px] font-semibold text-ink">{segment.label}</h3>
-        </div>
-      ))}
-    </div>
-
-    <div class="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3" data-master-cards>
-      {venezuelaCoffeeMasterWithSlug.map((item) => (
-        <div data-master-card data-master-segment={item.segment} class:list={[item.segment !== masterDefaultSegment && 'hidden']}>
-          <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
-        </div>
-      ))}
-    </div>
-
-    <div class="mt-12 flex justify-center" data-master-cta>
-      <a href={withLang('/products', locale)} class="btn-primary inline-flex justify-center px-8">
-        {t(locale, 'home.productsCtaAll')}
-      </a>
+              <ul class="mt-6 space-y-2.5 text-[14px] font-medium text-[#4a4540]">
+                {region.bullets.slice(0, 4).map((b) => (
+                  <li class="flex gap-2.5">
+                    <span class="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-heading/55" aria-hidden="true" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        );
+      })}
     </div>
   </div>
 </section>
 
 <section id="kalite" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
   <div class="section-shell">
-    <SectionHeader
-      title={t(locale, 'home.qualitySectionTitle')}
-      description={t(locale, 'home.qualitySectionIntro')}
-      align="center"
-    />
-    <div class="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
-      <article class="border-l-[3px] border-heading/30 pl-6">
-        <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'qualityPage.sgsTitle')}</h3>
-        <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'qualityPage.sgsBody')}</p>
-      </article>
-      <article class="border-l-[3px] border-heading/30 pl-6">
-        <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'qualityPage.qTitle')}</h3>
-        <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'qualityPage.qBody')}</p>
-      </article>
-      <article class="border-l-[3px] border-heading/30 pl-6">
-        <h3 class="text-sm font-semibold uppercase tracking-[0.16em] text-ink">{t(locale, 'qualityPage.insaiTitle')}</h3>
-        <p class="mt-3 text-sm leading-relaxed text-ink-muted">{t(locale, 'qualityPage.insaiBody')}</p>
-      </article>
+    <div class="mx-auto max-w-3xl text-center">
+      <h2 class="font-display text-[clamp(2rem,4vw,2.75rem)] font-semibold tracking-tight text-heading">{hx.qualityProcessTitle}</h2>
+      <p class="mt-3 text-[17px] text-[#5f5b55] md:text-lg">{hx.qualityProcessSubtitle}</p>
+    </div>
+
+    <div class="relative mt-14">
+      {/* Horizontal flow (desktop) */}
+      <div
+        class="pointer-events-none absolute left-10 right-10 top-[22px] hidden h-px bg-heading/25 lg:block"
+        aria-hidden="true"
+      />
+      <div
+        class="pointer-events-none absolute left-10 right-10 top-[22px] hidden h-px bg-[repeating-linear-gradient(to_right,rgba(40,96,63,0.22)_0,rgba(40,96,63,0.22)_10px,transparent_10px,transparent_22px)] lg:block"
+        aria-hidden="true"
+      />
+
+      {/* Vertical flow (mobile/tablet) */}
+      <div class="pointer-events-none absolute left-6 top-6 hidden h-[calc(100%-3rem)] w-px bg-heading/12 sm:block lg:hidden" aria-hidden="true" />
+
+      <ol class="grid gap-6 sm:gap-7 lg:grid-cols-4 lg:items-stretch lg:gap-7">
+        {hx.processSteps.map((step, i) => {
+          const n = i + 1;
+
+          return (
+            <li class="relative flex h-full flex-col">
+              {/* Flow marker */}
+              <div class="absolute left-0 top-0 flex h-11 w-11 items-center justify-center sm:left-0 lg:left-1/2 lg:-translate-x-1/2">
+                <div class="flex h-11 w-11 items-center justify-center rounded-full bg-heading shadow-[0_14px_40px_rgba(40,96,63,0.14)] ring-1 ring-white/15">
+                  <span class="font-display text-[15px] font-semibold text-white">{n}</span>
+                </div>
+              </div>
+
+              <article class="group flex h-full min-h-[260px] flex-col rounded-[24px] border border-[#e7dfd3] bg-[linear-gradient(180deg,#fbfaf7_0%,#ffffff_100%)] px-6 pb-6 pt-16 shadow-[0_14px_45px_rgba(40,96,63,0.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_22px_60px_rgba(40,96,63,0.085)] lg:min-h-[300px]">
+                <h3 class="font-display text-[1.05rem] font-semibold leading-snug tracking-tight text-heading md:text-lg">
+                  {step.title}
+                </h3>
+                <p class="mt-4 flex-1 text-[14px] leading-[1.7] text-[#5f5b55]">{step.desc}</p>
+              </article>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+
+    {/* Trust bar */}
+    <div class="mx-auto mt-10 max-w-5xl">
+      <div class="rounded-[24px] bg-heading px-5 py-5 text-white shadow-[0_18px_60px_rgba(40,96,63,0.18)]">
+        <div class="flex flex-wrap items-center justify-center gap-3 text-center">
+          <span class="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/85">{t(locale, 'home.qualitySectionTitle')}</span>
+          <span class="hidden h-4 w-px bg-white/20 sm:inline-block" aria-hidden="true" />
+          <span class="rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 ring-1 ring-white/15">
+            SGS
+          </span>
+          <span class="rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 ring-1 ring-white/15">
+            Q Grader
+          </span>
+          <span class="rounded-full bg-white/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-white/90 ring-1 ring-white/15">
+            INSAI
+          </span>
+          <a
+            href={withLang('/quality', locale)}
+            class="ml-1 inline-flex items-center justify-center rounded-full bg-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-heading shadow-[0_12px_28px_rgba(0,0,0,0.12)] transition hover:-translate-y-[1px] hover:bg-[#fffdf7]"
+          >
+            {t(locale, 'home.qualitySectionTitle')}
+          </a>
+        </div>
+      </div>
+      <p class="mx-auto mt-3 max-w-4xl text-center text-[13px] leading-relaxed text-[#7b756d]">
+        {t(locale, 'home.qualitySectionIntro')}
+      </p>
+    </div>
+  </div>
+</section>
+
+<section
+  id="urun-portfoy"
+  class="section-band-a anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-32 revealed"
+  data-reveal
+>
+  <div class="section-shell">
+    <div class="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-2xl lg:text-left">
+      <span class="mb-3 block text-[11px] font-semibold uppercase tracking-[0.28em] text-[#6f7f5f]">{t(locale, 'products.eyebrow')}</span>
+      <h2 class="font-display text-[clamp(2.35rem,4.6vw,3.35rem)] font-semibold tracking-tight text-heading">{hx.portfolioSectionTitle}</h2>
+      <p class="mt-5 text-[17px] leading-[1.7] text-[#5f5b55] md:text-lg">{hx.portfolioSectionSubtitle}</p>
+    </div>
+
+    <div
+      class="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:mt-16 lg:grid-cols-3 lg:gap-8"
+      aria-label={hx.portfolioSectionTitle}
+    >
+      {HOME_PORTFOLIO_CATEGORY_ORDER.map((catId) => {
+        const cat = hx.portfolioCategories[catId];
+        const barPct = HOME_PORTFOLIO_CUPPING_BAR_PCT[catId];
+        const tierName = hx.portfolioQualityTierName[catId];
+        const isTopSegment = catId === 'competition-lot' || catId === 'micro-lot';
+        const isMixed = catId === 'mixed';
+        const cardSurface = isTopSegment
+          ? 'bg-[linear-gradient(168deg,#fff8f2_0%,#fffdfb_36%,#ede8df_100%)] shadow-[0_1px_0_rgba(255,255,255,0.93)_inset,0_14px_42px_rgba(40,96,63,0.1),0_3px_10px_rgba(60,45,30,0.05)] ring-heading/20'
+          : isMixed
+            ? 'bg-[linear-gradient(168deg,#f4faf6_0%,#ffffff_42%,#e8f2ec_100%)] shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_12px_38px_rgba(22,48,38,0.08),0_2px_8px_rgba(22,48,38,0.04)] ring-2 ring-dashed ring-heading/32'
+            : 'bg-[linear-gradient(165deg,#fffefb_0%,#ffffff_42%,#f3f1ed_100%)] shadow-[0_1px_0_rgba(255,255,255,0.88)_inset,0_12px_36px_rgba(22,48,38,0.07),0_2px_8px_rgba(22,48,38,0.04)] ring-stone-300/40';
+        return (
+          <a
+            href={withLang(`/portfolio/${catId}`, locale)}
+            class:list={[
+              'portfolio-nav-card group relative flex h-full min-h-[308px] cursor-pointer flex-col overflow-hidden rounded-[20px] p-7 text-left ring-1 transition-[transform,box-shadow,ring-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-safe:hover:-translate-y-[8px] motion-safe:active:scale-[0.992] motion-safe:hover:shadow-[0_1px_0_rgba(255,255,255,0.95)_inset,0_28px_56px_rgba(22,48,38,0.16),0_10px_24px_rgba(22,48,38,0.08)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-heading/35 focus-visible:ring-offset-2 md:min-h-[316px] md:p-8',
+              cardSurface,
+              isTopSegment && 'motion-safe:hover:ring-heading/28',
+              isMixed && 'motion-safe:hover:ring-heading/45',
+              !isTopSegment && !isMixed && 'motion-safe:hover:ring-stone-300/55',
+            ]}
+          >
+            <div
+              class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-heading/25 to-transparent"
+              aria-hidden="true"
+            />
+            <div
+              class:list={[
+                'pointer-events-none absolute rounded-full blur-2xl',
+                isTopSegment ? '-right-14 -top-24 h-44 w-44 bg-amber-900/[0.06]' : '-right-16 -top-20 h-40 w-40 bg-heading/[0.045]',
+              ]}
+              aria-hidden="true"
+            />
+            <div class="relative z-10 flex flex-1 flex-col">
+              {isTopSegment ? (
+                <span class="mb-3 inline-flex w-fit rounded-full border border-amber-900/15 bg-gradient-to-r from-amber-50/90 to-[#fff8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5c4a38] shadow-sm ring-1 ring-amber-900/10">
+                  {hx.portfolioTopSegmentRibbon}
+                </span>
+              ) : isMixed ? (
+                <span class="mb-3 inline-flex w-fit rounded-full border border-heading/25 bg-heading/[0.1] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-heading shadow-sm ring-1 ring-heading/15">
+                  {hx.portfolioMixedRibbon}
+                </span>
+              ) : null}
+              <h3 class="font-display text-[1.22rem] font-semibold leading-snug tracking-tight text-heading md:text-[1.3rem]">{cat.title}</h3>
+              <span
+                class:list={[
+                  'mt-2.5 inline-flex w-fit rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]',
+                  isTopSegment
+                    ? 'border-amber-900/18 bg-amber-50/50 text-[#4a3d30]'
+                    : isMixed
+                      ? 'border-heading/30 bg-heading/[0.12] text-heading'
+                      : 'border-heading/15 bg-heading/[0.06] text-heading/90',
+                ]}
+              >
+                {tierName}
+              </span>
+              <p class="mt-3 flex-1 text-[15px] leading-[1.65] text-[#5a564e]">{cat.desc}</p>
+              {cat.scoreLine != null && barPct != null ? (
+                <div class="mt-7">
+                  <div
+                    class="rounded-full bg-[linear-gradient(180deg,rgba(0,0,0,0.04)_0%,transparent_100%)] p-[3px] shadow-[inset_0_1px_2px_rgba(0,0,0,0.06)] ring-1 ring-stone-200/60"
+                    aria-hidden="true"
+                  >
+                    <div class="h-2 overflow-hidden rounded-full bg-stone-100/95">
+                      <div
+                        class="portfolio-cupping-fill h-full rounded-full bg-gradient-to-r from-[#2a4f3e] via-heading to-[#4d8f6f]"
+                        style={`--cup-pct: ${barPct}`}
+                      />
+                    </div>
+                  </div>
+                  <p class="mt-3 text-[14px] font-semibold leading-snug text-heading">{cat.scoreLine}</p>
+                  {cat.qualityBandCaption != null ? (
+                    <p class="mt-2 text-[11px] leading-relaxed text-stone-500">{cat.qualityBandCaption}</p>
+                  ) : null}
+                </div>
+              ) : (
+                <div class="mt-7 rounded-xl border border-stone-200/60 bg-stone-50/40 px-3 py-3 ring-1 ring-stone-100/80">
+                  <p class="text-[12px] leading-relaxed text-stone-600">{hx.portfolioQualityFallbackNote}</p>
+                </div>
+              )}
+              <div class="relative mt-8 border-t border-stone-200/40 pt-6">
+                <span class="portfolio-explore-cta text-[15px] font-semibold tracking-wide text-heading transition-all duration-300 ease-out max-sm:opacity-100 sm:text-heading/45 sm:group-hover:text-heading sm:group-hover:translate-x-0.5">
+                  <span class="relative inline-block pb-0.5 after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:rounded-full after:bg-heading/70 after:transition-all after:duration-300 group-hover:after:w-full">
+                    {hx.portfolioExploreCta}
+                  </span>
+                </span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>
+
+<section id="misyonumuz" class="section-band-b anchor-target scroll-mt-28 border-t border-line/60 py-20 md:py-28" data-reveal>
+  <div class="section-shell">
+    <div class="w-full text-center">
+      <h2 class="font-display text-[clamp(1.85rem,3.5vw,2.75rem)] font-semibold tracking-tight text-heading">{hx.missionTitle}</h2>
+      <p class="mx-auto mt-6 max-w-4xl text-[17px] leading-[1.72] text-[#5f5b55] md:max-w-5xl md:text-lg">{hx.missionBody}</p>
+      <div class="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-5 md:mt-14">
+        {hx.missionPillars.map((p) => (
+          <span class="rounded-full border border-heading/25 bg-paper/90 px-5 py-2 text-[12px] font-semibold uppercase tracking-[0.14em] text-heading shadow-sm">
+            {p}
+          </span>
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -443,331 +388,40 @@ const categoryWordByLocale: Record<Locale, string> = {
 </section>
 
 <style is:global>
-  [data-category-filter-root] .home-filter-pill-dot,
-  [data-master-filter-root] .home-filter-pill-dot {
-    display: block;
-    width: 6px;
-    height: 6px;
-    border-radius: 9999px;
-    background: linear-gradient(145deg, #c5d4b8 0%, #8fa68a 100%);
-    box-shadow:
-      0 0 0 1px rgba(77, 107, 82, 0.35),
-      0 1px 4px rgba(15, 38, 28, 0.25);
-    opacity: 0;
-    transform: scale(0.45);
+  #urun-portfoy .portfolio-cupping-fill {
+    width: max(0%, calc(var(--cup-pct) * 1% - 4%));
+    box-shadow: 0 0 0 rgba(52, 120, 90, 0);
     transition:
-      opacity 0.22s ease,
-      transform 0.22s ease;
+      width 0.7s cubic-bezier(0.33, 1, 0.68, 1),
+      box-shadow 0.45s ease,
+      filter 0.35s ease;
   }
 
-  [data-category-filter-root] .home-filter-pill-btn[aria-pressed='true'] .home-filter-pill-dot,
-  [data-master-filter-root] .home-filter-pill-btn[aria-pressed='true'] .home-filter-pill-dot {
-    opacity: 1;
-    transform: scale(1);
+  @media (hover: hover) and (pointer: fine) {
+    #urun-portfoy .portfolio-nav-card:hover .portfolio-cupping-fill {
+      width: calc(var(--cup-pct) * 1%);
+      box-shadow: 0 0 16px rgba(52, 120, 90, 0.32);
+      filter: brightness(1.07);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    [data-category-filter-root] .home-filter-pill-btn,
-    [data-master-filter-root] .home-filter-pill-btn {
-      transform: none !important;
+    #urun-portfoy .portfolio-nav-card {
+      transition: none;
     }
-  }
-</style>
-
-<script>
-  import { gsap } from 'gsap';
-
-  function applyClasses(el: Element, list: string, add: boolean) {
-    const classes = list.split(' ').map((v) => v.trim()).filter(Boolean);
-    if (!classes.length) return;
-    el.classList[add ? 'add' : 'remove'](...classes);
-  }
-
-  function initCategoryFilter() {
-    const root = document.querySelector('[data-category-filter-root]');
-    if (!root) return;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const buttons = Array.from(root.querySelectorAll<HTMLElement>('[data-category-tab]'));
-    const cardsRoot = document.querySelector('[data-category-cards]');
-    const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-segment-panel]'));
-    const cards = cardsRoot
-      ? Array.from(cardsRoot.querySelectorAll<HTMLElement>('[data-category-card][data-segment]'))
-      : [];
-    if (!buttons.length || !cards.length) return;
-
-    const setActive = (segment: string, opts?: { skipClear?: boolean }) => {
-      buttons.forEach((btn) => {
-        const tab = btn.getAttribute('data-category-tab');
-        const isActive = tab === segment;
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', false);
-        applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', false);
-        if (isActive) {
-          applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', true);
-        } else {
-          applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', true);
-        }
-      });
-
-      panels.forEach((panel) => {
-        const pid = panel.getAttribute('data-segment-panel');
-        panel.classList.toggle('hidden', pid !== segment);
-      });
-
-      cards.forEach((card) => {
-        const sid = card.getAttribute('data-segment');
-        const match = sid === segment;
-        card.classList.toggle('hidden', !match);
-        if (match && !opts?.skipClear) {
-          gsap.killTweensOf(card);
-          gsap.set(card, { clearProps: 'opacity,transform,scale' });
-        }
-      });
-
-      if (prefersReduced) {
-        cards.forEach((card) => {
-          if (card.getAttribute('data-segment') === segment) {
-            gsap.set(card, { opacity: 1, y: 0, scale: 1 });
-          }
-        });
-        return;
-      }
-
-      const activePanel = panels.find((p) => p.getAttribute('data-segment-panel') === segment);
-      const activeCards = cards.filter((c) => c.getAttribute('data-segment') === segment);
-
-      if (activePanel) {
-        gsap.fromTo(
-          activePanel,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' }
-        );
-      }
-
-      if (activeCards.length) {
-        gsap.fromTo(
-          activeCards,
-          { opacity: 0, y: 18, scale: 0.985 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.42, stagger: 0.06, ease: 'power2.out', overwrite: 'auto' }
-        );
-      }
-    };
-
-    const initial = buttons[0]?.getAttribute('data-category-tab');
-    if (initial) setActive(initial, { skipClear: true });
-
-    root.addEventListener('click', (e) => {
-      const t = e.target;
-      if (!(t instanceof Element)) return;
-      const btn = t.closest('[data-category-tab]');
-      if (!btn || !root.contains(btn)) return;
-      const segment = btn.getAttribute('data-category-tab');
-      if (segment) setActive(segment);
-    });
-  }
-
-  function initCategoryCardsAnimation() {
-    if (typeof document === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const root = document.querySelector('[data-category-cards]');
-    if (!root) return;
-
-    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-category-card]')).filter(
-      (el) => !el.classList.contains('hidden')
-    );
-    const cta = document.querySelector<HTMLElement>('[data-category-cta]');
-    if (!cards.length) return;
-
-    gsap.set(cards, { opacity: 0, y: 48, scale: 0.94, transformOrigin: 'center bottom' });
-    if (cta) gsap.set(cta, { opacity: 0, y: 20 });
-
-    let played = false;
-    let obs: IntersectionObserver;
-    const runReveal = () => {
-      if (played) return;
-      played = true;
-      obs.disconnect();
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.to(cards, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.75,
-        stagger: 0.06,
-        force3D: true,
-      }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
-    };
-
-    obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) runReveal();
-        });
-      },
-      { threshold: 0, rootMargin: '0px 0px 24% 0px' }
-    );
-    obs.observe(root);
-
-    const tryRevealIfVisible = () => {
-      const rect = root.getBoundingClientRect();
-      const vh = window.innerHeight;
-      if (rect.top < vh && rect.bottom > 0) runReveal();
-    };
-    requestAnimationFrame(tryRevealIfVisible);
-    setTimeout(tryRevealIfVisible, 350);
-  }
-
-  function initMasterFilter() {
-    const root = document.querySelector('[data-master-filter-root]');
-    if (!root) return;
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    const buttons = Array.from(root.querySelectorAll<HTMLElement>('[data-master-tab]'));
-    const cardsRoot = document.querySelector('[data-master-cards]');
-    const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-master-panel]'));
-    const cards = cardsRoot
-      ? Array.from(cardsRoot.querySelectorAll<HTMLElement>('[data-master-card][data-master-segment]'))
-      : [];
-    if (!buttons.length || !cards.length) return;
-
-    const setActive = (segment: string, opts?: { skipClear?: boolean }) => {
-      buttons.forEach((btn) => {
-        const tab = btn.getAttribute('data-master-tab');
-        const isActive = tab === segment;
-        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-        applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', false);
-        applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', false);
-        if (isActive) {
-          applyClasses(btn, btn.getAttribute('data-active-classes') ?? '', true);
-        } else {
-          applyClasses(btn, btn.getAttribute('data-inactive-classes') ?? '', true);
-        }
-      });
-
-      panels.forEach((panel) => {
-        const pid = panel.getAttribute('data-master-panel');
-        panel.classList.toggle('hidden', pid !== segment);
-      });
-
-      cards.forEach((card) => {
-        const sid = card.getAttribute('data-master-segment');
-        const match = sid === segment;
-        card.classList.toggle('hidden', !match);
-        if (match && !opts?.skipClear) {
-          gsap.killTweensOf(card);
-          gsap.set(card, { clearProps: 'opacity,transform,scale' });
-        }
-      });
-
-      if (prefersReduced) {
-        cards.forEach((card) => {
-          if (card.getAttribute('data-master-segment') === segment) {
-            gsap.set(card, { opacity: 1, y: 0, scale: 1 });
-          }
-        });
-        return;
-      }
-
-      const activePanel = panels.find((p) => p.getAttribute('data-master-panel') === segment);
-      const activeCards = cards.filter((c) => c.getAttribute('data-master-segment') === segment);
-
-      if (activePanel) {
-        gsap.fromTo(
-          activePanel,
-          { opacity: 0, y: 10 },
-          { opacity: 1, y: 0, duration: 0.3, ease: 'power2.out', overwrite: 'auto' }
-        );
-      }
-
-      if (activeCards.length) {
-        gsap.fromTo(
-          activeCards,
-          { opacity: 0, y: 18, scale: 0.985 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.42, stagger: 0.06, ease: 'power2.out', overwrite: 'auto' }
-        );
-      }
-    };
-
-    const initial = buttons[0]?.getAttribute('data-master-tab');
-    if (initial) setActive(initial, { skipClear: true });
-
-    root.addEventListener('click', (e) => {
-      const t = e.target;
-      if (!(t instanceof Element)) return;
-      const btn = t.closest('[data-master-tab]');
-      if (!btn || !root.contains(btn)) return;
-      const segment = btn.getAttribute('data-master-tab');
-      if (segment) setActive(segment);
-    });
-  }
-
-  function initMasterCardsAnimation() {
-    if (typeof document === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-    const root = document.querySelector('[data-master-cards]');
-    if (!root) return;
-
-    const cards = Array.from(root.querySelectorAll<HTMLElement>('[data-master-card]')).filter(
-      (el) => !el.classList.contains('hidden')
-    );
-    const cta = document.querySelector<HTMLElement>('[data-master-cta]');
-    if (!cards.length) return;
-
-    gsap.set(cards, { opacity: 0, y: 48, scale: 0.94, transformOrigin: 'center bottom' });
-    if (cta) gsap.set(cta, { opacity: 0, y: 20 });
-
-    let played = false;
-    let obs: IntersectionObserver;
-    const runReveal = () => {
-      if (played) return;
-      played = true;
-      obs.disconnect();
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.to(cards, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        duration: 0.75,
-        stagger: 0.06,
-        force3D: true,
-      }).to(cta, { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' }, '-=0.35');
-    };
-
-    obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) runReveal();
-        });
-      },
-      { threshold: 0, rootMargin: '0px 0px 24% 0px' }
-    );
-    obs.observe(root);
-
-    const tryRevealIfVisible = () => {
-      const rect = root.getBoundingClientRect();
-      const vh = window.innerHeight;
-      if (rect.top < vh && rect.bottom > 0) runReveal();
-    };
-    requestAnimationFrame(tryRevealIfVisible);
-    setTimeout(tryRevealIfVisible, 350);
-  }
-
-  function run() {
-    initCategoryFilter();
-    initCategoryCardsAnimation();
-    initMasterFilter();
-    initMasterCardsAnimation();
-  }
-
-  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', run) : run();
-</script>
-
-<style>
-  .retail-pack-grain {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' opacity='0.45'/%3E%3C/svg%3E");
-    background-size: 180px 180px;
+    #urun-portfoy .portfolio-nav-card:hover,
+    #urun-portfoy .portfolio-nav-card:active {
+      transform: none;
+    }
+    #urun-portfoy .portfolio-cupping-fill {
+      width: calc(var(--cup-pct) * 1%) !important;
+      transition: none !important;
+      box-shadow: none !important;
+      filter: none !important;
+    }
+    #urun-portfoy .portfolio-explore-cta span::after {
+      width: 100% !important;
+      transition: none !important;
+    }
   }
 </style>

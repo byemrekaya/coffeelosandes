@@ -49,9 +49,10 @@ export function lotScoreLine(lot: Pick<CoffeeLot, 'score' | 'scoreDisplay'>): st
 }
 
 const LOT_IMAGE_FILES: Record<string, string> = {
-  'geisha-91-54': 'geisha-coffee-beans.webp',
+  'geisha-91-54': 'geisha-premium-coffee.webp',
   'geisha-el-recreo-91-03': 'geisha-specialty-coffee.webp',
   'tabi-90-38': 'tabi-coffee-beans.webp',
+  'geisha-90-30': 'geisha-coffee-beans.webp',
   'otra-89-83': 'otra-coffee-beans.webp',
   'villanueva-89-05': 'villanueva-coffee-beans.webp',
   'castillo-naranjal-88-83': 'castillo-coffee-beans.webp',
@@ -64,7 +65,8 @@ const LOT_IMAGE_FILES: Record<string, string> = {
 const LOT_IMAGE_ALTS: Record<string, string> = {
   'geisha-91-54': 'Premium Geisha coffee beans from Venezuela',
   'geisha-el-recreo-91-03': 'Geisha specialty coffee beans from Venezuela',
-  'tabi-90-38': 'Tabi coffee beans for specialty roasting',
+  'tabi-90-38': 'EICEV 2025 Tabi lot poster',
+  'geisha-90-30': 'EICEV 2025 Geisha lot poster (90.30)',
   'otra-89-83': 'Otra coffee beans from Venezuelan highlands',
   'villanueva-89-05': 'Villanueva coffee beans for wholesale supply',
   'castillo-naranjal-88-83': 'Castillo specialty coffee beans wholesale',
@@ -76,7 +78,7 @@ const LOT_IMAGE_ALTS: Record<string, string> = {
 
 export function getLotImageSrc(slug: string): string {
   const file = LOT_IMAGE_FILES[slug];
-  if (!file) return '/coffee-beans-closeup.webp';
+  if (!file) return '/losandeseurope.webp';
   return encodeURI(`/${file}`);
 }
 
@@ -188,9 +190,44 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     farmMapQuery: 'The Roros Coffee, Trujillo, Venezuela',
   },
   {
+    slug: 'geisha-90-30',
+    name: 'Geisha',
+    rank: 4,
+    score: 90.3,
+    scoreDisplay: '90.30',
+    segment: 'competition-lots',
+    producer: 'Eloína de los Ángeles Useche',
+    farm: 'Estancia Aires de Campo',
+    variety: 'Geisha',
+    process: 'Natural',
+    region: 'Mérida',
+    country: 'Venezuela',
+    flavorTags: ['Floral', 'Exotic', 'Sweet', 'Cocoa', 'Peach'],
+    longTastingNotes:
+      'Elegant florals, ripe stone fruit sweetness, cocoa and caramel tones — a refined, competition-style Geisha profile.',
+    story:
+      'A second high-scoring natural Geisha from Estancia Aires de Campo, awarded 90.30 points — built for premium menus and competitive storytelling.',
+    commercialSummary:
+      'Competition-level Geisha for roasters who want a 90+ lot with strong farm narrative and a clean, elegant cup profile.',
+    cupProfileSummary:
+      'Floral lift with sweet stone fruit and cocoa; clean structure and a refined finish designed for showcase brewing.',
+    buyerUseCases: [
+      'Premium filter offerings and tasting flights',
+      'Limited releases for wholesale clients',
+      'Competition-inspired menus needing 90+ credibility',
+    ],
+    collectionLabel: 'Competition Lot',
+    altitudeMeters: DEFAULT_ALT,
+    moisturePct: DEFAULT_MOIST,
+    screenSize: DEFAULT_SCREEN,
+    bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Hochlandfarmen',
+    farmMapQuery: 'Estancia Aires de Campo, Mérida, Venezuela',
+  },
+  {
     slug: 'otra-89-83',
     name: 'Experimental Lot',
-    rank: 4,
+    rank: 5,
     score: 89.83,
     segment: 'premium-microlot',
     producer: 'Jenny T. Escalona Rodríguez and Alberto Gil',

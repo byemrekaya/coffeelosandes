@@ -1,6 +1,5 @@
 import type { Dict } from './types';
 
-/** Venezuela Coffee Master — Español. Generado: scripts/emit-master-tasting-de-fr-es.mjs */
 export const esMasterTastingBySlug: Dict = {
   'araguaney-merida-12': {
     dominantNotes: 'Chocolate con leche (+), caramelo, albaricoque seco, almendra',
@@ -153,6 +152,12 @@ export const esMasterTastingBySlug: Dict = {
     character: 'Equilibrado, fresco y vivo, estable',
   },
   'colombia-y-castilla-lara-14': {
+    dominantNotes: 'Caramelo, chocolate, miel, guinda',
+    supportingNotes: 'Acidez afrutada, vainilla, avellana, naranja',
+    bodyFinish: 'Cuerpo medio-pleno, textura cremosa, final dulce, acidez equilibrada',
+    character: 'Equilibrado, complejo, estable',
+  },
+  'colombia-y-castilla-specialty-blend-lara-52': {
     dominantNotes: 'Caramelo, chocolate, miel, guinda',
     supportingNotes: 'Acidez afrutada, vainilla, avellana, naranja',
     bodyFinish: 'Cuerpo medio-pleno, textura cremosa, final dulce, acidez equilibrada',

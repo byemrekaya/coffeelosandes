@@ -1,10 +1,12 @@
 import type { Dict } from './types';
+import { homeExtendedByLocale } from '../homeExtended';
 import { enAbout } from './en-about';
 import { enMasterTastingBySlug } from './en-masterTasting';
 
 export const enPartial: Dict = {
   htmlLang: 'en',
   lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
+  homeExtended: homeExtendedByLocale.en,
   nav: {
     home: 'Home',
     awardedProducts: 'Awarded lots',
@@ -12,6 +14,9 @@ export const enPartial: Dict = {
     about: 'About us',
     venezuela: 'Venezuela',
     story: 'Our story',
+    regions: 'Our regions',
+    qualityMenu: 'Quality',
+    mission: 'Our mission',
     coffees: 'Our coffees',
     qualityDocs: 'Reports',
     wholesale: 'Wholesale',
@@ -76,6 +81,7 @@ export const enPartial: Dict = {
     retailPackStrip1: '100% Arabica',
     retailPackStrip2: 'Medium roast',
     retailPackStrip3: '500 g · Ground',
+    portfolioPanelProductsTitle: 'Products in this category',
   },
   homeStory: {
     eyebrow: 'Our story',
@@ -89,6 +95,15 @@ export const enPartial: Dict = {
     knowMore: 'Learn more',
     imageAlt: 'Coffee cherry harvest',
     badgeSince: 'Since 1990',
+  },
+  portfolioCategoryPage: {
+    breadcrumbHome: 'Home',
+    breadcrumbPortfolio: 'Our product portfolio',
+    backToPortfolio: 'Back to product portfolio',
+    heroViewLots: 'Explore lots',
+    microBrewRatio: 'Ratio',
+    microBrewTemp: 'Temperature',
+    microBrewGrind: 'Grind',
   },
   qualityPage: {
     title: 'Quality standards – Coffee Los Andes',

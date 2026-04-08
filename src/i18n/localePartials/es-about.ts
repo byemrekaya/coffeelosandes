@@ -6,6 +6,8 @@ export const esAbout = {
   heroTitle: 'LOS ANDES – origen, experiencia y confianza',
   heroDesc:
     'Asociaciones a largo plazo con productores, control de calidad en origen y suministro estructurado para Alemania y Europa.',
+  heroImageAlt:
+    'Fincas cafetaleras y paisaje montañoso de los Andes; Coffee Los Andes — origen, experiencia y confianza',
   losAndesTitle: 'LOS ANDES – origen, experiencia y confianza',
   losAndesLead: [
     'Durante casi 20 años mantenemos relaciones comerciales directas en Sudamérica con experiencia profunda y conocimiento regional — especialmente en café.',

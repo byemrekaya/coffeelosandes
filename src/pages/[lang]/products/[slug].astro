@@ -32,7 +32,7 @@ const related = venezuelaCoffeeMasterWithSlug
 
 const title = `${item.cesit} · ${item.bolge} · ${item.cupping_score} · Coffee Los Andes`;
 const description = `${item.cesit} ${t(locale, 'products.masterDetailMetaSuffix')}`;
-const ogImage = '/roasted-coffee-beans.webp';
+const ogImage = '/losandeseurope.webp';
 const ogImageAlt = `${item.cesit} · ${item.bolge} · Coffee Los Andes`;
 const heroLabel = `${item.segment} ${t(locale, 'products.masterDetailSelectionSuffix')}`;
 const heroSubtitle = [item.bolge, item.ciftlik].filter(Boolean).join(' • ');
@@ -101,7 +101,7 @@ const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
               aria-controls={lightboxId}
             >
               <Image
-                src="/roasted-coffee-beans.webp"
+                src="/losandeseurope.webp"
                 alt={`Premium ${item.cesit} coffee beans from Venezuela`}
                 class="aspect-[4/3] w-full min-h-[200px] object-cover object-[center_38%] transition duration-[1.1s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/photo:scale-[1.04] sm:min-h-[280px] lg:h-[360px] lg:min-h-[360px]"
                 loading="eager"
@@ -157,7 +157,7 @@ const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
         </svg>
       </button>
       <Image
-        src="/roasted-coffee-beans.webp"
+        src="/losandeseurope.webp"
         alt={`Premium ${item.cesit} coffee beans from Venezuela`}
         class="h-auto max-h-[min(88dvh,900px)] w-auto max-w-full cursor-default rounded-md object-contain shadow-[0_25px_80px_rgba(0,0,0,0.55)] ring-1 ring-white/12 contrast-[1.02] saturate-[1.03] sm:max-w-[min(100%,1200px)]"
         loading="eager"
