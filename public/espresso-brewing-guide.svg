@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 320">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0ebe3"/>
+      <stop offset="55%" style="stop-color:#e4ddd2"/>
+      <stop offset="100%" style="stop-color:#d8d2c8"/>
+    </linearGradient>
+    <linearGradient id="strokePrime" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4a32"/>
+      <stop offset="100%" style="stop-color:#4d8a6a"/>
+    </linearGradient>
+    <linearGradient id="pfFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#347555"/>
+      <stop offset="100%" style="stop-color:#1f4a32"/>
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0f261c" flood-opacity="0.14"/>
+    </filter>
+    <filter id="cupGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#28603f" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <style><![CDATA[
+    @keyframes steamPulse {
+      0%, 100% { opacity: 0.32; }
+      50% { opacity: 0.82; }
+    }
+    .steam-a { animation: steamPulse 2.5s ease-in-out infinite; }
+    .steam-b { animation: steamPulse 2.5s ease-in-out infinite 0.42s; }
+    .steam-c { animation: steamPulse 2.5s ease-in-out infinite 0.84s; }
+    @media (prefers-reduced-motion: reduce) {
+      .steam-a, .steam-b, .steam-c { animation: none; opacity: 0.48; }
+    }
+  ]]></style>
+  <rect width="400" height="320" rx="28" fill="url(#bg)"/>
+  <!-- ambient vignette -->
+  <rect width="400" height="320" rx="28" fill="url(#bg)" opacity="0"/>
+  <ellipse cx="200" cy="248" rx="140" ry="18" fill="#0f261c" opacity="0.07"/>
+  <!-- saucer -->
+  <ellipse cx="200" cy="218" rx="88" ry="10" fill="#cfc8bc" opacity="0.5"/>
+  <!-- cup -->
+  <g filter="url(#cupGlow)">
+    <path d="M118 128h104v10c0 42-24 68-52 68s-52-26-52-68v-10z" fill="#fffcf7" stroke="url(#strokePrime)" stroke-width="3.2" stroke-linejoin="round"/>
+    <path d="M222 138h32c20 0 36 16 36 36s-16 36-36 36h-32" fill="none" stroke="url(#strokePrime)" stroke-width="3.2" stroke-linecap="round"/>
+    <ellipse cx="170" cy="132" rx="52" ry="11" fill="#4d8a6a" opacity="0.28"/>
+    <ellipse cx="170" cy="132" rx="48" ry="8" fill="#28603f" opacity="0.2"/>
+  </g>
+  <!-- portafilter -->
+  <g filter="url(#softShadow)">
+    <rect x="148" y="44" width="104" height="26" rx="8" fill="url(#pfFill)" stroke="url(#strokePrime)" stroke-width="2.8"/>
+    <rect x="162" y="34" width="76" height="16" rx="5" fill="#143828" stroke="url(#strokePrime)" stroke-width="2"/>
+    <path d="M172 70v36c0 10 16 18 28 18s28-8 28-18V70" fill="none" stroke="url(#strokePrime)" stroke-width="3.2" stroke-linecap="round"/>
+  </g>
+  <!-- steam -->
+  <g stroke="url(#strokePrime)" stroke-width="2.6" stroke-linecap="round" fill="none" opacity="0.55">
+    <path class="steam-a" d="M184 28c6-10 6-22 0-32"/>
+    <path class="steam-b" d="M200 30c7-12 7-26 0-38"/>
+    <path class="steam-c" d="M216 28c6-10 6-22 0-32"/>
+  </g>
+</svg>

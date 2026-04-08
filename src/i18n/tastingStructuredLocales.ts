@@ -268,7 +268,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Simple, flat, everyday drinking',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Honey, caramel, green apple, floral aromas',
@@ -552,7 +552,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Einfach, flach, Alltagsgenuss',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Honig, Karamel, grüner Apfel, florale Aromen',
@@ -836,7 +836,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Simple, plat, consommation quotidienne',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Miel, caramel, pomme verte, arômes floraux',
@@ -1120,7 +1120,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Simple, plano, consumo cotidiano',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Miel, caramelo, manzana verde, aromas florales',

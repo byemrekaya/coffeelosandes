@@ -59,7 +59,7 @@ const LOT_IMAGE_FILES: Record<string, string> = {
   'monteclaro-88-75': 'monteclaro-coffee-beans.webp',
   'inia-01-88-73': 'inia-coffee-beans.webp',
   'bourbon-88-52': 'bourbon-coffee-beans.webp',
-  'cafe-1600-catimor': 'losandes-coffee-package.webp',
+  'espresso-crema': 'losandes-coffee-package.webp',
 };
 
 const LOT_IMAGE_ALTS: Record<string, string> = {
@@ -73,7 +73,7 @@ const LOT_IMAGE_ALTS: Record<string, string> = {
   'monteclaro-88-75': 'Monteclaro coffee beans from Venezuela',
   'inia-01-88-73': 'Inia coffee beans for professional roasting',
   'bourbon-88-52': 'Bourbon coffee beans from Venezuela',
-  'cafe-1600-catimor': 'Barista Blend roasted coffee pack',
+  'espresso-crema': 'Blend Selection roasted coffee pack',
 };
 
 export function getLotImageSrc(slug: string): string {
@@ -596,8 +596,8 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     bagSizeKg: DEFAULT_BAG,
   },
   {
-    slug: 'cafe-1600-catimor',
-    name: 'Barista Blend',
+    slug: 'espresso-crema',
+    name: 'Blend Selection',
     rank: 15,
     score: 83,
     scoreDisplay: '82–84',
@@ -612,7 +612,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     longTastingNotes:
       'Fruit-forward cup with cocoa and caramel depth; medium roast, medium-low acidity — ground retail format (500 g).',
     story:
-      'Highland specialty from Sanare, Venezuela — Colombia 27 and Caturra. Washed and natural processing — balanced cup with fruit, cocoa and caramel notes.',
+      'Los Andes Espresso Crema is a premium espresso blend crafted from carefully selected Arabica beans. Rich crema, balanced acidity and a long finish deliver an exceptional espresso experience.',
     commercialSummary:
       'Roasted retail pack (500 g ground) for shelves, offices and B2B programmes that need a ready-to-sell Venezuelan specialty with a clear origin story.',
     cupProfileSummary:
@@ -622,7 +622,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
       'Wholesale buyers adding a packaged Venezuelan line',
       'Sampling Venezuelan specialty in a ready-to-sell pack format',
     ],
-    collectionLabel: 'Barista Blend',
+    collectionLabel: 'Blend Selection',
     altitudeMeters: '1.600 m',
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,

@@ -217,11 +217,11 @@ export const lotLocalePatches: Record<
       buyerUseCases: ['Ketten und Volumen', 'Rohbasis für Blends', 'preissensibles QC-Programm'],
     },
   },
-  'cafe-1600-catimor': {
+  'espresso-crema': {
     tr: {
-      collectionLabel: 'Barista Blend',
+      collectionLabel: 'Blend Selection',
       story:
-        'Sanare, Venezuela yüksek rakım specialty kahvesi; Colombia 27 ve Caturra harmanı. Washed ve Natural işleme ile dengeli fincan; meyvemsi, kakao ve karamel notaları.',
+        'Los Andes Espresso Crema, dikkatle seçilmiş Arabica çekirdeklerinin harmanlanmasıyla oluşturulmuş premium bir espresso karışımıdır. Yoğun kreması, dengeli asitliği ve uzun bitişiyle mükemmel bir espresso deneyimi sunar.',
       commercialSummary:
         '500 g öğütülmüş perakende paket — mağaza, ofis ve toptan hatlar için Venezuela menşe hikâyesiyle hazır satış.',
       cupProfileSummary:
@@ -233,9 +233,9 @@ export const lotLocalePatches: Record<
       ],
     },
     de: {
-      collectionLabel: 'Barista Blend',
+      collectionLabel: 'Blend Selection',
       story:
-        'Hochland-Specialty aus Sanare, Venezuela — Mischung Colombia 27 / Caturra. Washed und Natural verarbeitet — ausgewogene Tasse mit fruchtigen, Kakao- und Karamellnoten.',
+        'Los Andes Espresso Crema ist ein Premium-Espresso aus sorgfältig ausgewählten Arabica-Bohnen. Kräftige Crema, ausgewogene Säure und ein langer Abgang sorgen für ein hervorragendes Espresso-Erlebnis.',
       commercialSummary:
         '500 g gemahlenes Retail-Pack — für Regal, Büro und B2B mit klarer Herkunftsgeschichte.',
       cupProfileSummary:
@@ -247,9 +247,9 @@ export const lotLocalePatches: Record<
       ],
     },
     fr: {
-      collectionLabel: 'Barista Blend',
+      collectionLabel: 'Blend Selection',
       story:
-        'Spécialité de haute altitude de Sanare, Venezuela — assemblage Colombia 27 / Caturra. Traitements lavé et naturel — tasse équilibrée aux notes fruitées, cacao et caramel.',
+        'Los Andes Espresso Crema est un espresso premium composé d’Arabica soigneusement sélectionnés. Crema généreuse, acidité équilibrée et longue finale pour une expérience espresso remarquable.',
       commercialSummary:
         'Format retail moulu 500 g — rayons, bureaux et B2B avec récit d’origine vénézuélien.',
       cupProfileSummary:
@@ -261,9 +261,9 @@ export const lotLocalePatches: Record<
       ],
     },
     es: {
-      collectionLabel: 'Barista Blend',
+      collectionLabel: 'Blend Selection',
       story:
-        'Especialidad de altura de Sanare, Venezuela — mezcla Colombia 27 / Caturra. Procesos lavado y natural — taza equilibrada con notas frutales, cacao y caramelo.',
+        'Los Andes Espresso Crema es un espresso premium elaborado con granos arábica cuidadosamente seleccionados. Crema intensa, acidez equilibrada y retrogusto largo para una experiencia espresso excepcional.',
       commercialSummary:
         'Pack retail molido 500 g — estanterías, oficinas y B2B con historia de origen venezolano.',
       cupProfileSummary:

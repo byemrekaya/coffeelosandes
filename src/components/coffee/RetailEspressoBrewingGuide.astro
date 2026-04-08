@@ -1,0 +1,153 @@
+---
+import type { Locale } from '../../i18n/types';
+import { retailEspressoGuideByLocale } from '../../i18n/retailEspressoGuide';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const copy = retailEspressoGuideByLocale[locale];
+
+/** Öğütme, basınç, süre — vurgulu adımlar; sıcaklık / basınç değer tonları */
+const STEP_LAYOUT = [
+  { critical: true, valueTone: 'primary' as const },
+  { critical: false, valueTone: 'primary' as const },
+  { critical: false, valueTone: 'warm' as const },
+  { critical: true, valueTone: 'cool' as const },
+  { critical: true, valueTone: 'primary' as const },
+  { critical: false, valueTone: 'primary' as const },
+];
+
+function valueToneClass(tone: (typeof STEP_LAYOUT)[number]['valueTone'], critical: boolean) {
+  const size = critical
+    ? 'px-5 py-3 text-xl font-bold tabular-nums tracking-tight md:px-6 md:py-3.5 md:text-2xl'
+    : 'px-4 py-2.5 text-lg font-bold tabular-nums tracking-tight md:text-xl';
+  if (tone === 'warm') {
+    return `${size} rounded-xl bg-[#faf5f1] text-[#8b3a1a] shadow-[0_3px_14px_rgba(139,58,26,0.1)] ring-1 ring-[#e8d0c4]/80`;
+  }
+  if (tone === 'cool') {
+    return `${size} rounded-xl bg-[#f0f4f8] text-[#3d5366] shadow-[0_3px_14px_rgba(61,83,102,0.1)] ring-1 ring-slate-200/90`;
+  }
+  return `${size} rounded-xl bg-heading text-white shadow-[0_4px_18px_rgba(40,96,63,0.38)] ring-1 ring-black/5`;
+}
+
+function iconWrapClass(critical: boolean) {
+  if (critical) {
+    return 'bg-[#4d6b52]/[0.11] ring-1 ring-[#4d6b52]/25 text-[1.35rem] md:text-[1.5rem] md:h-[3.75rem] md:w-[3.75rem]';
+  }
+  return 'bg-heading/[0.06] ring-1 ring-black/[0.04] text-xl md:text-2xl md:h-14 md:w-14';
+}
+
+function articleClass(critical: boolean) {
+  const base =
+    'group relative flex gap-5 rounded-2xl bg-white shadow-[0_4px_20px_rgba(0,0,0,0.05)] ring-1 ring-black/[0.035] transition-all duration-300 ease-out md:gap-6';
+  const hover =
+    'hover:-translate-y-1 hover:shadow-[0_14px_44px_rgba(0,0,0,0.09),0_4px_16px_rgba(0,0,0,0.04)]';
+  const pad = critical ? 'p-6 md:p-7' : 'p-5 md:p-6';
+  const emphasis = critical
+    ? 'border-l-[3px] border-heading/50 bg-gradient-to-br from-white via-white to-heading/[0.04]'
+    : '';
+  return [base, hover, pad, emphasis].join(' ');
+}
+---
+
+<section
+  class="relative w-full overflow-hidden border-t border-line bg-paper-deep py-20 md:py-[5.75rem]"
+  data-reveal
+  aria-labelledby="retail-espresso-guide-title"
+>
+  <div class="pointer-events-none absolute inset-0 texture-overlay opacity-[0.45]" aria-hidden="true"></div>
+  <div class="section-shell relative">
+    <header class="mx-auto max-w-3xl text-center">
+      <p class="stage-eyebrow mb-4 text-heading">{copy.eyebrow}</p>
+      <h2
+        id="retail-espresso-guide-title"
+        class="font-display text-display-md font-semibold tracking-tight-display text-heading"
+      >
+        {copy.title}
+      </h2>
+      <p class="mt-4 text-[15px] leading-relaxed text-ink-muted md:text-[17px]">{copy.subtitle}</p>
+    </header>
+
+    <div class="mx-auto mt-14 grid max-w-6xl gap-12 lg:grid-cols-12 lg:items-center lg:gap-14">
+      <div class="lg:col-span-5">
+        <div
+          class="relative mx-auto w-full max-w-md overflow-hidden rounded-[1.35rem] shadow-[0_4px_20px_rgba(0,0,0,0.05),0_22px_56px_rgba(15,38,28,0.11)] ring-1 ring-black/[0.05] lg:mx-0 lg:max-w-none"
+        >
+          <div class="relative aspect-[5/6] w-full bg-[#e0dcd4]">
+            <img
+              src={copy.imageSrc}
+              alt={copy.imageAlt}
+              width="800"
+              height="960"
+              loading="lazy"
+              decoding="async"
+              class="h-full w-full object-cover object-center [transform:translateZ(0)] scale-[1.03]"
+            />
+            <div
+              class="grain-overlay pointer-events-none absolute inset-0 rounded-[1.35rem]"
+              aria-hidden="true"
+            ></div>
+            <div
+              class="pointer-events-none absolute inset-0 rounded-[1.35rem] bg-gradient-to-t from-[#0f261c]/[0.14] via-transparent to-white/[0.2]"
+              aria-hidden="true"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col lg:col-span-7">
+        <p
+          class="mb-6 border-b border-heading/10 pb-4 font-display text-[13px] font-semibold uppercase tracking-[0.2em] text-heading md:text-sm"
+        >
+          {copy.recipeIntro}
+        </p>
+
+        <ol class="list-none space-y-5 p-0 md:space-y-6">
+          {
+            copy.steps.map((step, i) => {
+              const layout = STEP_LAYOUT[i] ?? {
+                critical: false,
+                valueTone: 'primary' as const,
+              };
+              return (
+                <li>
+                  <article class={articleClass(layout.critical)}>
+                    <span
+                      class:list={[
+                        'flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition-transform duration-300 ease-out will-change-transform group-hover:scale-105',
+                        iconWrapClass(layout.critical),
+                      ]}
+                      aria-hidden="true"
+                    >
+                      {step.icon}
+                    </span>
+                    <div class="flex min-w-0 flex-1 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
+                      <div class="min-w-0 sm:max-w-[58%]">
+                        <h3 class="m-0 text-[16px] font-semibold leading-snug text-ink md:text-[17px]">
+                          {step.title}
+                        </h3>
+                        <p class="mt-2 m-0 text-[14px] leading-relaxed text-ink/72 md:text-[15px]">
+                          {step.desc}
+                        </p>
+                      </div>
+                      <div
+                        class:list={[
+                          'shrink-0 self-start sm:self-center sm:text-right',
+                          valueToneClass(layout.valueTone, layout.critical),
+                        ]}
+                      >
+                        {step.value}
+                      </div>
+                    </div>
+                  </article>
+                </li>
+              );
+            })
+          }
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>

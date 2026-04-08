@@ -1,5 +1,6 @@
 ---
 import CoffeeHero from './Hero.astro';
+import RetailEspressoBrewingGuide from './RetailEspressoBrewingGuide.astro';
 import TechnicalGrid from './TechnicalGrid.astro';
 import FarmMap from './FarmMap.astro';
 import BuyerUseCases from './BuyerUseCases.astro';
@@ -20,6 +21,7 @@ const { lot, relatedLots, locale } = Astro.props;
 <article class="coffee-lot-page">
   <CoffeeHero lot={lot} locale={locale} />
   <TechnicalGrid lot={lot} locale={locale} />
+  {lot.slug === 'espresso-crema' && <RetailEspressoBrewingGuide locale={locale} />}
   <BuyerUseCases lot={lot} locale={locale} />
   {lot.farmMapQuery && <FarmMap lot={lot} locale={locale} />}
   <CoffeeCTA lotName={lot.name} locale={locale} />

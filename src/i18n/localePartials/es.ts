@@ -375,6 +375,8 @@ export const esPartial: Dict = {
     techBag: 'Logística',
     heroSpecialty: 'Lote de especialidad',
     heroIntroTemplate: 'Lote de especialidad: productor {producer}, finca {farm}, región {region}.',
+    heroIntroRetailPack:
+      'Los Andes Espresso Crema es un espresso premium elaborado con granos arábica cuidadosamente seleccionados. Crema intensa, acidez equilibrada y retrogusto largo para una experiencia espresso excepcional.',
     heroCupScore: 'Puntuación cup',
     heroRank: 'Rango',
     heroRequest: 'Solicitar presupuesto mayorista',

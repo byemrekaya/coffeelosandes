@@ -2,3 +2,15 @@
 # Kök URL → varsayılan dil (HTTP yönlendirmesi; index.html’e hiç düşülmez)
 / /de/ 302
 
+# Eski kahve lot URL’leri → yeni slug (301)
+/de/coffees/cafe-1600-catimor /de/coffees/espresso-crema 301
+/de/coffees/cafe-1600-catimor/ /de/coffees/espresso-crema/ 301
+/en/coffees/cafe-1600-catimor /en/coffees/espresso-crema 301
+/en/coffees/cafe-1600-catimor/ /en/coffees/espresso-crema/ 301
+/es/coffees/cafe-1600-catimor /es/coffees/espresso-crema 301
+/es/coffees/cafe-1600-catimor/ /es/coffees/espresso-crema/ 301
+/fr/coffees/cafe-1600-catimor /fr/coffees/espresso-crema 301
+/fr/coffees/cafe-1600-catimor/ /fr/coffees/espresso-crema/ 301
+/tr/coffees/cafe-1600-catimor /tr/coffees/espresso-crema 301
+/tr/coffees/cafe-1600-catimor/ /tr/coffees/espresso-crema/ 301
+

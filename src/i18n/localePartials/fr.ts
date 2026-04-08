@@ -377,7 +377,7 @@ export const frPartial: Dict = {
     heroSpecialty: 'Lot spécialité',
     heroIntroTemplate: 'Lot de spécialité : producteur {producer}, ferme {farm}, région {region}.',
     heroIntroRetailPack:
-      'Spécialité de hauteur de {region}, {country} — assemblage Colombia 27 / Caturra ; pack torréfié.',
+      'Los Andes Espresso Crema est un espresso premium composé d’Arabica soigneusement sélectionnés. Crema généreuse, acidité équilibrée et longue finale pour une expérience espresso remarquable.',
     heroCupScore: 'Score cup',
     heroRank: 'Rang',
     heroRequest: 'Demander un devis grossiste',

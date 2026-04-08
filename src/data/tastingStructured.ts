@@ -290,4 +290,22 @@ export const tastingStructuredBySlug: Record<string, TastingStructuredRow[]> = {
         'Fiyat/performans odaklı büyük işletmeler ve harman (blend) bazları için idealdir',
     },
   ],
+  'espresso-crema': [
+    {
+      labelKey: 'dominantNotes',
+      value: 'Bal, karamel, yeşil elma, çiçeksi aromalar',
+    },
+    {
+      labelKey: 'supportingNotes',
+      value: 'Meyvemsi asidite, vanilya, badem, hafif baharat',
+    },
+    {
+      labelKey: 'bodyFinish',
+      value: 'Orta gövde, pürüzsüz doku, tatlı bitiş, canlı asidite',
+    },
+    {
+      labelKey: 'character',
+      value: 'Dengeli, taze ve canlı, stabil',
+    },
+  ],
 };

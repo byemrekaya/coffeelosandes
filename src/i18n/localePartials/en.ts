@@ -375,7 +375,7 @@ export const enPartial: Dict = {
     heroSpecialty: 'Specialty lot',
     heroIntroTemplate: 'Specialty lot from {producer} at {farm} in {region}.',
     heroIntroRetailPack:
-      'Highland specialty from {region}, {country} — Colombia 27 / Caturra blend; roasted retail pack.',
+      'Los Andes Espresso Crema is a premium espresso blend crafted from carefully selected Arabica beans. Rich crema, balanced acidity and a long finish deliver an exceptional espresso experience.',
     heroCupScore: 'Cup score',
     heroRank: 'Rank',
     heroRequest: 'Request wholesale quote',

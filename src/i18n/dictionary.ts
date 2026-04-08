@@ -535,7 +535,7 @@ const trDict: Dict = {
       heroIntroTemplate:
         '{producer} üreticiliği, {farm} çiftliği, {region} bölgesinden specialty lot.',
       heroIntroRetailPack:
-        '{region} bölgesi, {country} — Colombia 27 / Caturra harmanı; kavrulmuş paket specialty.',
+        'Los Andes Espresso Crema, dikkatle seçilmiş Arabica çekirdeklerinin harmanlanmasıyla oluşturulmuş premium bir espresso karışımıdır. Yoğun kreması, dengeli asitliği ve uzun bitişiyle mükemmel bir espresso deneyimi sunar.',
       heroCupScore: 'Kupa skoru',
       heroRank: 'Sıra',
       heroRequest: 'Toptan teklif iste',
@@ -1139,7 +1139,7 @@ const deDict: Dict = {
       heroIntroTemplate:
         'Specialty-Lot von {producer}, Farm {farm}, Anbauregion {region}.',
       heroIntroRetailPack:
-        'Hochland-Specialty aus {region}, {country} — Mischung Colombia 27 / Caturra; geröstete Packung.',
+        'Los Andes Espresso Crema ist ein Premium-Espresso aus sorgfältig ausgewählten Arabica-Bohnen. Kräftige Crema, ausgewogene Säure und ein langer Abgang sorgen für ein hervorragendes Espresso-Erlebnis.',
       heroCupScore: 'Cup-Score',
       heroRank: 'Rang',
       heroRequest: 'Großhandelsangebot anfragen',

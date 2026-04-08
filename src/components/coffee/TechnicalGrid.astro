@@ -24,7 +24,7 @@ function resolveFermentationLabel(currentLot: CoffeeLot): string {
 }
 
 const origin = lot.region ? `${lot.country} – ${lot.region}` : lot.country;
-const isRetailPackBarista = lot.slug === 'cafe-1600-catimor';
+const isRetailPackBarista = lot.slug === 'espresso-crema';
 
 const detailRows: { labelKey: string; value: string }[] = [
   { labelKey: 'coffee.techOrigin', value: origin },
