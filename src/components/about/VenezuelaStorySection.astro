@@ -1,0 +1,340 @@
+---
+import { Image } from 'astro:assets';
+import type { Locale } from '../../i18n/types';
+import { venezuelaStoryByLocale } from '../../i18n/venezuelaStoryPage';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const vs = venezuelaStoryByLocale[locale];
+
+function sectionBandClass(tone: 'cream' | 'muted' | 'brew' | 'dark-moss' | 'paper'): string {
+  switch (tone) {
+    case 'cream':
+      return 'bg-gradient-to-b from-[#e8e2d8] via-[#f2ede4] to-paper';
+    case 'muted':
+      return 'bg-gradient-to-b from-[#e9e6e0] via-[#f0ede8] to-paper';
+    case 'brew':
+      return 'bg-gradient-to-b from-heading/[0.06] via-heading/[0.025] to-paper';
+    case 'dark-moss':
+      return 'bg-gradient-to-b from-[#dce5df] via-[#e8eee9] to-paper';
+    default:
+      return 'bg-paper';
+  }
+}
+
+const bandShell =
+  'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8';
+const bandTop = 'border-t border-line/60';
+---
+
+<div id="venezuela-hikaye" class="scroll-mt-28">
+  <div id="venezuela-herkunft" class="scroll-mt-28" aria-hidden="true"></div>
+
+  <section
+    class="relative min-h-[min(52vh,480px)] w-full overflow-hidden border-t border-line/45 text-nav-cream"
+    aria-labelledby="venezuela-story-hero-title"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/banner.webp"
+        alt={vs.heroImageAlt}
+        class="h-full w-full scale-105 object-cover object-center"
+        loading="lazy"
+      />
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#050c09] via-[#0d2218]/92 to-[#06140e]/88"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[#050c09]/97 via-[#0a1812]/75 to-transparent sm:via-[#0a1812]/55"
+        />
+        <div
+          class="absolute inset-0 opacity-[0.12]"
+          style="background-image: radial-gradient(ellipse 90% 70% at 70% 20%, rgba(232,212,184,0.45) 0%, transparent 55%), radial-gradient(circle at 15% 85%, rgba(52,120,90,0.35) 0%, transparent 45%);"
+        />
+        <div
+          class="absolute inset-0 mix-blend-soft-light opacity-30"
+          style="background-image: linear-gradient(165deg, transparent 40%, rgba(0,0,0,0.5) 100%);"
+        />
+      </div>
+    </div>
+
+    <div
+      class="section-shell relative z-10 flex min-h-[min(52vh,480px)] flex-col justify-end pb-14 pt-28 md:pb-20 md:pt-32"
+    >
+      <div class="mx-auto max-w-3xl text-center lg:mx-0 lg:max-w-none lg:text-left">
+        <p class="text-[11px] font-semibold uppercase tracking-[0.32em] text-[#d4c4a8]/90">{vs.hero.badge}</p>
+        <h2
+          id="venezuela-story-hero-title"
+          class="mt-5 font-display text-[clamp(2.1rem,5.2vw,3.35rem)] font-semibold leading-[1.08] tracking-tight text-white drop-shadow-[0_2px_28px_rgba(0,0,0,0.35)]"
+        >
+          {vs.hero.titleBefore}<span class="text-[#d4c4a8]">{vs.hero.titleAccent}</span>
+        </h2>
+        <p class="mt-4 max-w-xl text-[13px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-white/65 lg:mx-0">
+          {vs.hero.subtitle}
+        </p>
+        <p
+          class="mx-auto mt-6 max-w-[34rem] text-[17px] font-medium leading-[1.55] text-white/88 md:text-lg md:leading-relaxed lg:mx-0"
+        >
+          {vs.hero.lead}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <nav
+    class="sticky top-28 z-20 w-full border-b border-line/50 bg-paper/95 shadow-[0_1px_0_rgba(0,0,0,0.03)] backdrop-blur-md"
+    aria-label={vs.navAriaLabel}
+  >
+    <div class="section-shell py-3">
+      <ul
+        class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#6f7f5f] md:gap-x-6 md:text-[11px]"
+      >
+        {vs.nav.map((item) => (
+          <li>
+            <a
+              href={`#${item.id}`}
+              class="whitespace-nowrap text-heading/70 transition-colors hover:text-heading"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+  <div class:list={[bandTop]}>
+    <div class:list={[bandShell, sectionBandClass('cream')]}>
+      <section id="vs-intro" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0" data-reveal>
+        <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-14">
+          <div class="flex justify-center lg:justify-start">
+            <div class="max-w-3xl border-l-2 border-heading/20 pl-6 text-center md:border-l-[3px] md:pl-7 lg:max-w-none lg:text-left">
+              <p class="font-display text-[clamp(1.15rem,2.2vw,1.35rem)] font-medium leading-[1.55] text-[#3d3a36]">
+                {vs.intro}
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center lg:justify-end">
+            <Image
+              src="/venezuela-story.webp"
+              alt={vs.heroImageAlt}
+              width={960}
+              height={720}
+              class="aspect-[4/3] h-auto w-full max-w-[min(100%,420px)] rounded-[24px] object-cover shadow-[0_20px_50px_rgba(40,96,63,0.12)] ring-1 ring-heading/[0.08] lg:max-w-md xl:max-w-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class:list={[bandTop]}>
+    <div class:list={[bandShell, sectionBandClass('muted')]}>
+      <section id="vs-bolgeler" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0" data-reveal>
+        <header class="mx-auto max-w-3xl text-center">
+          <h3
+            class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading"
+          >
+            {vs.regions.title}
+          </h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{vs.regions.subtitle}</p>
+        </header>
+        <div class="mt-12 grid gap-8 lg:grid-cols-2">
+          {vs.regions.items.map((r) => (
+            <article class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-[#e7dfd3] bg-[#fbfaf7] shadow-[0_14px_50px_rgba(40,96,63,0.05)] transition-transform duration-300 hover:-translate-y-0.5">
+              <div class="relative aspect-[16/10] min-h-[200px] w-full overflow-hidden rounded-t-[28px] bg-[#e5e2dc]">
+                <iframe
+                  title={`${r.name} — Google Maps`}
+                  src={r.mapEmbedUrl}
+                  class="absolute inset-0 z-0 h-full w-full border-0"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  allowfullscreen
+                />
+                <div
+                  class="pointer-events-none absolute inset-x-0 top-0 z-[1] bg-gradient-to-b from-[#050c09]/78 via-[#050c09]/35 to-transparent px-4 pb-12 pt-3"
+                  aria-hidden="true"
+                />
+                <p class="pointer-events-none absolute left-4 top-3 z-[1] max-w-[65%] font-display text-base font-semibold leading-tight text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.85)] sm:text-lg">
+                  {r.name}
+                </p>
+                <span class="pointer-events-none absolute right-3 top-3 z-[1] rounded-full bg-[#050c09]/88 px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-[#d4c4a8] sm:px-3 sm:text-[10px]">
+                  {r.elevation}
+                </span>
+                <a
+                  href={r.mapOpenUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="absolute bottom-3 right-3 z-10 inline-flex max-w-[calc(100%-1.5rem)] items-center justify-center rounded-full bg-white/95 px-4 py-2 text-center text-[9px] font-semibold uppercase leading-tight tracking-[0.12em] text-heading shadow-[0_8px_24px_rgba(0,0,0,0.18)] ring-1 ring-heading/12 transition hover:bg-paper sm:text-[10px] sm:tracking-[0.14em]"
+                >
+                  {vs.regions.mapLinkLabel}
+                </a>
+              </div>
+              <div class="flex flex-1 flex-col p-8">
+                <p class="text-[15px] leading-relaxed text-[#5f5b55]">{r.body}</p>
+                <div class="mt-5 flex flex-wrap gap-2">
+                  {r.tags.map((tag) => (
+                    <span class="rounded-full bg-paper px-3 py-1 text-[11px] font-semibold text-heading/85 ring-1 ring-heading/10">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class:list={[bandTop]}>
+    <div class:list={[bandShell, sectionBandClass('brew')]}>
+      <section id="vs-kosullar" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0" data-reveal>
+        <header class="mx-auto max-w-3xl text-center">
+          <h3
+            class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading"
+          >
+            {vs.conditions.title}
+          </h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{vs.conditions.subtitle}</p>
+        </header>
+        <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-10">
+          {vs.conditions.items.map((c) => (
+            <div class="group border-t border-heading/15 pt-6">
+              <div class="flex items-start gap-3.5">
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-heading/[0.08] text-heading transition group-hover:bg-heading/[0.11]"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                </span>
+                <div class="min-w-0">
+                  <h4 class="font-display text-[15px] font-semibold leading-snug text-heading">{c.title}</h4>
+                  <p class="mt-2.5 text-[14px] leading-relaxed text-[#6b655c]">{c.body}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class:list={[bandTop]}>
+    <div class:list={[bandShell, sectionBandClass('dark-moss')]}>
+      <section id="vs-isleme" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0" data-reveal>
+        <header class="mx-auto max-w-3xl text-center">
+          <h3
+            class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading"
+          >
+            {vs.processing.title}
+          </h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{vs.processing.subtitle}</p>
+        </header>
+        <div class="mt-10 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-10">
+          {vs.processing.items.map((p, index) => (
+            <div class="group border-t border-heading/15 pt-6">
+              <div class="flex items-start gap-3.5">
+                <span
+                  class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-heading/[0.08] font-display text-[11px] font-semibold tabular-nums text-heading transition group-hover:bg-heading/[0.11]"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div class="min-w-0">
+                  <h4 class="font-display text-[15px] font-semibold leading-snug text-heading">{p.title}</h4>
+                  <p class="mt-2.5 text-[14px] leading-relaxed text-[#6b655c]">{p.body}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class:list={[bandTop]}>
+    <div class:list={[bandShell, sectionBandClass('cream')]}>
+      <section id="vs-lezzet" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0" data-reveal>
+        <header class="mx-auto max-w-3xl text-center">
+          <h3
+            class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading"
+          >
+            {vs.flavors.title}
+          </h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{vs.flavors.subtitle}</p>
+        </header>
+        <div class="mt-10 grid gap-10 md:grid-cols-3 md:gap-x-12">
+          {vs.flavors.items.map((f) => (
+            <div class="group border-t border-heading/15 pt-6">
+              <h4 class="font-display text-[15px] font-semibold leading-snug text-heading transition group-hover:text-heading/90">
+                {f.title}
+              </h4>
+              <div class="mt-3 flex flex-wrap gap-2">
+                {f.notes.map((n) => (
+                  <span class="inline-flex rounded-full bg-gradient-to-r from-amber-50/95 to-[#fff8eb] px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-[#5c4a30] ring-1 ring-amber-900/10">
+                    {n}
+                  </span>
+                ))}
+              </div>
+              <p class="mt-3 text-[14px] leading-relaxed text-[#5f5b55]">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class:list={[bandTop]}>
+    <div class:list={[bandShell, sectionBandClass('brew')]}>
+      <section id="vs-kavurma" class="section-shell mx-auto max-w-6xl scroll-mt-36 px-0 pb-4 md:pb-8" data-reveal>
+        <header class="mx-auto max-w-3xl text-center">
+          <h3
+            class="font-display text-[clamp(1.5rem,3.2vw,2.15rem)] font-semibold tracking-tight text-heading"
+          >
+            {vs.roasting.title}
+          </h3>
+          <p class="mt-3 text-[15px] leading-relaxed text-[#6b655c] md:text-base">{vs.roasting.subtitle}</p>
+        </header>
+
+        <div class="mt-12 grid items-start gap-12 lg:grid-cols-12 lg:gap-14">
+          <div class="lg:col-span-6">
+            <h4 class="font-display text-lg font-semibold text-heading md:text-xl">{vs.roasting.columnTitle}</h4>
+            <div class="mt-5 space-y-4 text-[15px] leading-[1.72] text-[#5f5b55] md:text-[16px]">
+              <p>{vs.roasting.paragraphs[0]}</p>
+              <p>{vs.roasting.paragraphs[1]}</p>
+            </div>
+            <ul class="mt-8 space-y-3 border-t border-line/50 pt-8">
+              {vs.roasting.bullets.map((b) => (
+                <li class="flex gap-3 text-[14px] leading-relaxed text-[#4a4540]">
+                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading/45" aria-hidden="true" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="lg:col-span-6 lg:border-l lg:border-line/50 lg:pl-12">
+            <div
+              class="rounded-2xl border border-heading/10 bg-white/45 px-8 py-10 ring-1 ring-heading/[0.06] lg:py-12"
+            >
+              <blockquote
+                class="relative pl-6 before:absolute before:left-0 before:top-1 before:h-[calc(100%-0.25rem)] before:w-px before:bg-gradient-to-b before:from-heading/50 before:to-heading/10"
+              >
+                <p class="text-[17px] font-medium leading-[1.65] text-heading/95 md:text-lg md:leading-relaxed">
+                  {vs.roasting.quote}
+                </p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

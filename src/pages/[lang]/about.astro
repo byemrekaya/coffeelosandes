@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getLangStaticPaths } from '../../i18n/staticPaths';
 import SectionHeader from '../../components/SectionHeader.astro';
 import CTASection from '../../components/CTASection.astro';
+import VenezuelaStorySection from '../../components/about/VenezuelaStorySection.astro';
 import { getLocalizedDictionary } from '../../i18n/localizedDictionary';
 import { resolveLocale } from '../../i18n/config';
 import { t } from '../../i18n/t';
@@ -23,23 +24,46 @@ const { lang } = Astro.params;
 const locale = resolveLocale(lang);
 const dict = getLocalizedDictionary(locale);
 
-const brandValues = (dict.brandValues ?? []) as { title: string; body: string }[];
 const aboutRaw = (dict.about ?? {}) as Record<string, unknown>;
 const losAndesLead = (aboutRaw.losAndesLead as string[] | undefined) ?? [];
 const losAndesSections = (aboutRaw.losAndesSections as AboutSectionBlock[] | undefined) ?? [];
-const venezuelaParagraphs = (aboutRaw.venezuelaParagraphs as string[] | undefined) ?? [];
 const losAndesTitle = (aboutRaw.losAndesTitle as string) ?? '';
-const venezuelaTitle = (aboutRaw.venezuelaTitle as string) ?? '';
 ---
 
 <BaseLayout locale={locale} title={t(locale, 'about.title')} description={t(locale, 'about.description')}>
-  <section class="section-band-a w-full scroll-mt-28 pt-36 pb-16 md:pb-20">
-    <div class="section-shell">
+  <section
+    id="biz-kimiz"
+    class="relative w-full overflow-hidden scroll-mt-28 border-b border-line/35 text-nav-cream"
+  >
+    <div class="absolute inset-0">
+      <img
+        src="/banner.webp"
+        alt={t(locale, 'about.heroImageAlt')}
+        class="h-full min-h-[280px] w-full scale-105 object-cover object-center sm:min-h-[320px]"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div
+          class="absolute inset-0 bg-gradient-to-br from-[#050c09] via-[#0d2218]/92 to-[#06140e]/88"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-[#050c09]/97 via-[#0a1812]/75 to-transparent sm:via-[#0a1812]/55"
+        />
+        <div
+          class="absolute inset-0 opacity-[0.12]"
+          style="background-image: radial-gradient(ellipse 90% 70% at 70% 20%, rgba(232,212,184,0.45) 0%, transparent 55%), radial-gradient(circle at 15% 85%, rgba(52,120,90,0.35) 0%, transparent 45%);"
+        />
+      </div>
+    </div>
+
+    <div class="section-shell relative z-10 pb-16 pt-32 md:pb-20 md:pt-36">
       <SectionHeader
         eyebrow={t(locale, 'about.heroEyebrow')}
         title={t(locale, 'about.heroTitle')}
         description={t(locale, 'about.heroDesc')}
         align="center"
+        variant="onDark"
       />
     </div>
   </section>
@@ -76,41 +100,7 @@ const venezuelaTitle = (aboutRaw.venezuelaTitle as string) ?? '';
     </div>
   </section>
 
-  <section id="venezuela-herkunft" class="section-band-a w-full scroll-mt-28 py-16 md:py-20">
-    <div class="section-shell max-w-3xl">
-      <h2 class="stage-heading text-2xl md:text-3xl">{venezuelaTitle}</h2>
-      <div class="mt-8 space-y-5 text-sm leading-relaxed text-ink-muted md:text-[15px]">
-        {venezuelaParagraphs.map((para) => (
-          <p>{para}</p>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section-band-b w-full py-16 md:py-20">
-    <div class="section-shell">
-      <SectionHeader
-        eyebrow={t(locale, 'about.valuesEyebrow')}
-        title={t(locale, 'about.valuesTitle')}
-        description={t(locale, 'about.valuesDesc')}
-      />
-      <div class="mt-12 max-w-2xl">
-        {brandValues.map((value) => (
-          <article class="border-l-[3px] border-heading/35 pl-6">
-            <h3 class="text-sm font-semibold uppercase tracking-[0.2em] text-heading">{value.title}</h3>
-            <p class="mt-4 text-sm leading-relaxed text-ink-muted">{value.body}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="section-band-a w-full py-16 md:py-24">
-    <div class="section-shell max-w-3xl">
-      <h2 class="stage-heading text-2xl md:text-3xl">{t(locale, 'about.roastTitle')}</h2>
-      <p class="stage-copy mt-8">{t(locale, 'about.roastBody')}</p>
-    </div>
-  </section>
+  <VenezuelaStorySection locale={locale} />
 
   <CTASection
     eyebrow={t(locale, 'cta.eyebrow')}

@@ -80,6 +80,24 @@ export const tastingStructuredBySlug: Record<string, TastingStructuredRow[]> = {
       value: 'Meyvemsi, Kakao Odaklı, Dengeli ve Kompleks',
     },
   ],
+  'geisha-90-30': [
+    {
+      labelKey: 'dominantNotes',
+      value: 'Kayısı (+), Erik, Şeftali, Orman meyveleri',
+    },
+    {
+      labelKey: 'supportingNotes',
+      value: 'Esmer şeker, Brandy, Konyak, Kakao Nibs, Karamelize şeker',
+    },
+    {
+      labelKey: 'bodyFinish',
+      value: 'Kremamsı, İpeksi gövde, Çikolata, Kakao, Tatlı ve kalıcı bitiş',
+    },
+    {
+      labelKey: 'character',
+      value: 'Meyvemsi, Şarapmsı (avinato), Kahverengi baharatlar, Egzotik ve kompleks',
+    },
+  ],
   'otra-89-83': [
     {
       labelKey: 'dominantNotes',
@@ -270,6 +288,24 @@ export const tastingStructuredBySlug: Record<string, TastingStructuredRow[]> = {
       labelKey: 'usageArea',
       value:
         'Fiyat/performans odaklı büyük işletmeler ve harman (blend) bazları için idealdir',
+    },
+  ],
+  'espresso-crema': [
+    {
+      labelKey: 'dominantNotes',
+      value: 'Bal, karamel, yeşil elma, çiçeksi aromalar',
+    },
+    {
+      labelKey: 'supportingNotes',
+      value: 'Meyvemsi asidite, vanilya, badem, hafif baharat',
+    },
+    {
+      labelKey: 'bodyFinish',
+      value: 'Orta gövde, pürüzsüz doku, tatlı bitiş, canlı asidite',
+    },
+    {
+      labelKey: 'character',
+      value: 'Dengeli, taze ve canlı, stabil',
     },
   ],
 };

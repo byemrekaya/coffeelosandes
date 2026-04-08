@@ -1,6 +1,5 @@
 import type { TastingStructuredRow } from './tastingStructured';
 
-/** Venezuela master ürün tadım satırları (slug → TR metin). htmlfeedback + script ile güncellenir. */
 export const masterTastingBySlug: Record<string, TastingStructuredRow[]> = {
   'araguaney-merida-12': [
     { labelKey: 'dominantNotes', value: 'Sütlü çikolata (+), Karamel, Kuru kayısı, Badem' },
@@ -153,6 +152,12 @@ export const masterTastingBySlug: Record<string, TastingStructuredRow[]> = {
     { labelKey: 'character', value: 'Dengeli, Taze ve canlı, Stabil' },
   ],
   'colombia-y-castilla-lara-14': [
+    { labelKey: 'dominantNotes', value: 'Karamel, Çikolata, Bal, Vişne' },
+    { labelKey: 'supportingNotes', value: 'Meyveli asitlik, Vanilya, Fındık, Portakal' },
+    { labelKey: 'bodyFinish', value: 'Orta-tam vücut, Kremamsı doku, Tatlı finish, Dengeli asitlik' },
+    { labelKey: 'character', value: 'Dengeli, Kompleks, Stabil' },
+  ],
+  'colombia-y-castilla-specialty-blend-lara-52': [
     { labelKey: 'dominantNotes', value: 'Karamel, Çikolata, Bal, Vişne' },
     { labelKey: 'supportingNotes', value: 'Meyveli asitlik, Vanilya, Fındık, Portakal' },
     { labelKey: 'bodyFinish', value: 'Orta-tam vücut, Kremamsı doku, Tatlı finish, Dengeli asitlik' },

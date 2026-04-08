@@ -13,15 +13,15 @@ const { lot, locale } = Astro.props;
 const eyebrow = lot.collectionLabel ?? t(locale, 'coffee.heroSpecialty');
 const coverSrc = getLotImageSrc(lot.slug);
 const lightboxId = `lot-lightbox-${lot.slug}`;
-const heroIntro =
-  lot.slug === 'cafe-1600-catimor'
-    ? t(locale, 'coffee.heroIntroRetailPack')
-        .replace('{region}', lot.region)
-        .replace('{country}', lot.country)
-    : t(locale, 'coffee.heroIntroTemplate')
-        .replace('{producer}', lot.producer)
-        .replace('{farm}', lot.farm)
-        .replace('{region}', lot.region);
+const isRetailPackHero = lot.slug === 'espresso-crema';
+const heroIntro = isRetailPackHero
+  ? t(locale, 'coffee.heroIntroRetailPack')
+      .replace('{region}', lot.region)
+      .replace('{country}', lot.country)
+  : t(locale, 'coffee.heroIntroTemplate')
+      .replace('{producer}', lot.producer)
+      .replace('{farm}', lot.farm)
+      .replace('{region}', lot.region);
 ---
 
 <section class="section-band-a relative overflow-hidden border-b border-line pb-12 pt-24 md:pb-16 md:pt-28 lg:pt-32" data-reveal>
@@ -70,9 +70,20 @@ const heroIntro =
         <p class="mt-4 text-[12px] text-ink/45">{t(locale, 'coffee.heroSheetsNote')}</p>
       </div>
 
-      <div class="lg:col-span-7 transition-all duration-700 ease-out will-change-transform lg:justify-self-end" data-coffee-hero-enter="right">
+      <div
+        class:list={[
+          'lg:col-span-7 transition-all duration-700 ease-out will-change-transform',
+          isRetailPackHero ? 'lg:justify-self-center' : 'lg:justify-self-end',
+        ]}
+        data-coffee-hero-enter="right"
+      >
         <div
-          class="lot-photo-frame group/frame relative w-full max-w-none transition-[box-shadow,transform] duration-500 ease-out will-change-transform hover:-translate-y-1 lg:max-w-[min(100%,820px)] xl:max-w-[min(100%,920px)]"
+          class:list={[
+            'lot-photo-frame group/frame relative w-full max-w-none transition-[box-shadow,transform] duration-500 ease-out will-change-transform hover:-translate-y-1',
+            isRetailPackHero
+              ? 'lg:max-w-[min(100%,520px)] xl:max-w-[min(100%,560px)]'
+              : 'lg:max-w-[min(100%,820px)] xl:max-w-[min(100%,920px)]',
+          ]}
         >
           <div class="lot-photo-frame-inner w-full overflow-hidden">
             <button
@@ -86,7 +97,12 @@ const heroIntro =
               <img
                 src={coverSrc}
                 alt=""
-                class="aspect-[4/3] w-full object-cover object-[center_38%] contrast-[1.03] saturate-[1.04] transition duration-[1.15s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/photo:scale-[1.05] min-h-[260px] sm:min-h-[340px] lg:aspect-auto lg:h-[min(72vh,760px)] lg:min-h-[520px]"
+                class:list={[
+                  'aspect-[4/3] w-full object-cover contrast-[1.03] saturate-[1.04] transition duration-[1.15s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover/photo:scale-[1.05] lg:aspect-auto',
+                  isRetailPackHero
+                    ? 'object-center min-h-[220px] sm:min-h-[280px] lg:h-[min(46vh,480px)] lg:min-h-[300px]'
+                    : 'object-[center_38%] min-h-[260px] sm:min-h-[340px] lg:h-[min(72vh,760px)] lg:min-h-[520px]',
+                ]}
                 loading="eager"
                 decoding="async"
                 width="800"

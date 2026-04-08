@@ -3,7 +3,6 @@ import type { TastingStructuredRow } from '../data/tastingStructured';
 import type { Locale } from './types';
 import { t } from './t';
 
-/** TR: veri dosyası; diğer diller: dictionary `products.masterTastingBySlug.<slug>.<labelKey>` (şimdilik en). Eksik çeviride TR metin. */
 export function resolveMasterTastingRows(slug: string, locale: Locale): TastingStructuredRow[] {
   const rows = masterTastingBySlug[slug];
   if (!rows?.length) return [];

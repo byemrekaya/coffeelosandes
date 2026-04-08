@@ -49,34 +49,36 @@ export function lotScoreLine(lot: Pick<CoffeeLot, 'score' | 'scoreDisplay'>): st
 }
 
 const LOT_IMAGE_FILES: Record<string, string> = {
-  'geisha-91-54': 'geisha-coffee-beans.webp',
+  'geisha-91-54': 'geisha-premium-coffee.webp',
   'geisha-el-recreo-91-03': 'geisha-specialty-coffee.webp',
   'tabi-90-38': 'tabi-coffee-beans.webp',
+  'geisha-90-30': 'geisha-coffee-beans.webp',
   'otra-89-83': 'otra-coffee-beans.webp',
   'villanueva-89-05': 'villanueva-coffee-beans.webp',
   'castillo-naranjal-88-83': 'castillo-coffee-beans.webp',
   'monteclaro-88-75': 'monteclaro-coffee-beans.webp',
   'inia-01-88-73': 'inia-coffee-beans.webp',
   'bourbon-88-52': 'bourbon-coffee-beans.webp',
-  'cafe-1600-catimor': 'losandes-coffee-package.webp',
+  'espresso-crema': 'losandes-coffee-package.webp',
 };
 
 const LOT_IMAGE_ALTS: Record<string, string> = {
   'geisha-91-54': 'Premium Geisha coffee beans from Venezuela',
   'geisha-el-recreo-91-03': 'Geisha specialty coffee beans from Venezuela',
-  'tabi-90-38': 'Tabi coffee beans for specialty roasting',
+  'tabi-90-38': 'EICEV 2025 Tabi lot poster',
+  'geisha-90-30': 'EICEV 2025 Geisha lot poster (90.30)',
   'otra-89-83': 'Otra coffee beans from Venezuelan highlands',
   'villanueva-89-05': 'Villanueva coffee beans for wholesale supply',
   'castillo-naranjal-88-83': 'Castillo specialty coffee beans wholesale',
   'monteclaro-88-75': 'Monteclaro coffee beans from Venezuela',
   'inia-01-88-73': 'Inia coffee beans for professional roasting',
   'bourbon-88-52': 'Bourbon coffee beans from Venezuela',
-  'cafe-1600-catimor': 'Barista Blend roasted coffee pack',
+  'espresso-crema': 'Blend Selection roasted coffee pack',
 };
 
 export function getLotImageSrc(slug: string): string {
   const file = LOT_IMAGE_FILES[slug];
-  if (!file) return '/coffee-beans-closeup.webp';
+  if (!file) return '/losandeseurope.webp';
   return encodeURI(`/${file}`);
 }
 
@@ -188,9 +190,44 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     farmMapQuery: 'The Roros Coffee, Trujillo, Venezuela',
   },
   {
+    slug: 'geisha-90-30',
+    name: 'Geisha',
+    rank: 4,
+    score: 90.3,
+    scoreDisplay: '90.30',
+    segment: 'competition-lots',
+    producer: 'Eloína de los Ángeles Useche',
+    farm: 'Estancia Aires de Campo',
+    variety: 'Geisha',
+    process: 'Natural',
+    region: 'Mérida',
+    country: 'Venezuela',
+    flavorTags: ['Floral', 'Exotic', 'Sweet', 'Cocoa', 'Peach'],
+    longTastingNotes:
+      'Elegant florals, ripe stone fruit sweetness, cocoa and caramel tones — a refined, competition-style Geisha profile.',
+    story:
+      'A second high-scoring natural Geisha from Estancia Aires de Campo, awarded 90.30 points — built for premium menus and competitive storytelling.',
+    commercialSummary:
+      'Competition-level Geisha for roasters who want a 90+ lot with strong farm narrative and a clean, elegant cup profile.',
+    cupProfileSummary:
+      'Floral lift with sweet stone fruit and cocoa; clean structure and a refined finish designed for showcase brewing.',
+    buyerUseCases: [
+      'Premium filter offerings and tasting flights',
+      'Limited releases for wholesale clients',
+      'Competition-inspired menus needing 90+ credibility',
+    ],
+    collectionLabel: 'Competition Lot',
+    altitudeMeters: DEFAULT_ALT,
+    moisturePct: DEFAULT_MOIST,
+    screenSize: DEFAULT_SCREEN,
+    bagSizeKg: DEFAULT_BAG,
+    farmCategory: 'Selektierte Hochlandfarmen',
+    farmMapQuery: 'Estancia Aires de Campo, Mérida, Venezuela',
+  },
+  {
     slug: 'otra-89-83',
     name: 'Experimental Lot',
-    rank: 4,
+    rank: 5,
     score: 89.83,
     segment: 'premium-microlot',
     producer: 'Jenny T. Escalona Rodríguez and Alberto Gil',
@@ -559,8 +596,8 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     bagSizeKg: DEFAULT_BAG,
   },
   {
-    slug: 'cafe-1600-catimor',
-    name: 'Barista Blend',
+    slug: 'espresso-crema',
+    name: 'Blend Selection',
     rank: 15,
     score: 83,
     scoreDisplay: '82–84',
@@ -575,7 +612,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     longTastingNotes:
       'Fruit-forward cup with cocoa and caramel depth; medium roast, medium-low acidity — ground retail format (500 g).',
     story:
-      'Highland specialty from Sanare, Venezuela — Colombia 27 and Caturra. Washed and natural processing — balanced cup with fruit, cocoa and caramel notes.',
+      'Los Andes Espresso Crema is a premium espresso blend crafted from carefully selected Arabica beans. Rich crema, balanced acidity and a long finish deliver an exceptional espresso experience.',
     commercialSummary:
       'Roasted retail pack (500 g ground) for shelves, offices and B2B programmes that need a ready-to-sell Venezuelan specialty with a clear origin story.',
     cupProfileSummary:
@@ -585,7 +622,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
       'Wholesale buyers adding a packaged Venezuelan line',
       'Sampling Venezuelan specialty in a ready-to-sell pack format',
     ],
-    collectionLabel: 'Barista Blend',
+    collectionLabel: 'Blend Selection',
     altitudeMeters: '1.600 m',
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,

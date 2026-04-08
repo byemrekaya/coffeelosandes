@@ -17,11 +17,11 @@ type NavItem =
 
 const navLinks: NavItem[] = [
   { kind: 'section', hash: 'hero', key: 'nav.home' },
-  { kind: 'page', path: '/products/awarded', key: 'nav.awardedProducts' },
-  { kind: 'page', path: '/products', key: 'nav.products' },
-  { kind: 'page', path: '/quality', key: 'nav.qualityDocs' },
-  { kind: 'page', path: '/about#los-andes', key: 'nav.about' },
-  { kind: 'page', path: '/about#venezuela-herkunft', key: 'nav.venezuela' },
+  { kind: 'section', hash: 'hikayemiz', key: 'nav.story' },
+  { kind: 'section', hash: 'bolgelerimiz', key: 'nav.regions' },
+  { kind: 'section', hash: 'kalite', key: 'nav.qualityMenu' },
+  { kind: 'section', hash: 'urun-portfoy', key: 'nav.products' },
+  { kind: 'section', hash: 'misyonumuz', key: 'nav.mission' },
 ];
 
 const navLeft = navLinks.slice(0, 3);

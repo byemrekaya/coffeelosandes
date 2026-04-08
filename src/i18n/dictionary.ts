@@ -1,4 +1,5 @@
 import { deepMergeDict } from './mergeDict';
+import { homeExtendedByLocale } from './homeExtended';
 import { deMasterTastingBySlug } from './localePartials/de-masterTasting';
 import { enPartial } from './localePartials/en';
 import { frPartial } from './localePartials/fr';
@@ -14,7 +15,10 @@ const trDict: Dict = {
       products: 'Ürünler',
       about: 'Hakkımızda',
       venezuela: 'Venezuela',
-      story: 'Hikâyemiz',
+      story: 'Hikayemiz',
+      regions: 'Bölgelerimiz',
+      qualityMenu: 'Kalite',
+      mission: 'Misyonumuz',
       coffees: 'Kahvelerimiz',
       qualityDocs: 'Raporlar',
       wholesale: 'Toptan',
@@ -25,6 +29,7 @@ const trDict: Dict = {
       menuClose: 'Menüyü kapat',
       drawerHeading: 'Menü',
     },
+    homeExtended: homeExtendedByLocale.tr,
     lang: { tr: 'TR', de: 'DE' },
     home: {
       title: 'Coffee Los Andes – Andların yükseklerinden lezzet | Venezuela',
@@ -92,6 +97,7 @@ const trDict: Dict = {
       retailPackStrip1: '100% Arabica',
       retailPackStrip2: 'Orta kavurma',
       retailPackStrip3: '500 g · Öğütülmüş',
+      portfolioPanelProductsTitle: 'Bu kategorideki ürünler',
     },
     homeStory: {
       eyebrow: 'Hikâyemiz',
@@ -107,6 +113,15 @@ const trDict: Dict = {
       knowMore: 'Daha fazlasını öğrenin',
       imageAlt: 'Kahve kirazı hasadı',
       badgeSince: "1990'dan beri",
+    },
+    portfolioCategoryPage: {
+      breadcrumbHome: 'Anasayfa',
+      breadcrumbPortfolio: 'Ürün portföyümüz',
+      backToPortfolio: 'Ürün portföyüne dön',
+      heroViewLots: 'Lotları incele',
+      microBrewRatio: 'Oran',
+      microBrewTemp: 'Sıcaklık',
+      microBrewGrind: 'Öğütme',
     },
     qualityPage: {
       title: 'Kalite standartları – Coffee Los Andes',
@@ -293,6 +308,8 @@ const trDict: Dict = {
       heroTitle: 'LOS ANDES – Köken, deneyim ve güven',
       heroDesc:
         'Uzun soluklu üretici ortaklıkları, kaynakta kalite kontrolü ve Almanya ile Avrupa’ya yapılandırılmış tedarik.',
+      heroImageAlt:
+        'Andlar’da kahve tarlaları ve dağ manzarası; Coffee Los Andes — köken, deneyim ve güven',
       losAndesTitle: 'LOS ANDES – Köken, deneyim ve güven',
       losAndesLead: [
         'Yaklaşık 20 yıldır Güney Amerika’da doğrudan ticari ilişkiler yürütüyor; derin bölgesel bilgi ve sağlam deneyime sahibiz — özellikle kahve sektöründe.',
@@ -518,7 +535,7 @@ const trDict: Dict = {
       heroIntroTemplate:
         '{producer} üreticiliği, {farm} çiftliği, {region} bölgesinden specialty lot.',
       heroIntroRetailPack:
-        '{region} bölgesi, {country} — Colombia 27 / Caturra harmanı; kavrulmuş paket specialty.',
+        'Los Andes Espresso Crema, dikkatle seçilmiş Arabica çekirdeklerinin harmanlanmasıyla oluşturulmuş premium bir espresso karışımıdır. Yoğun kreması, dengeli asitliği ve uzun bitişiyle mükemmel bir espresso deneyimi sunar.',
       heroCupScore: 'Kupa skoru',
       heroRank: 'Sıra',
       heroRequest: 'Toptan teklif iste',
@@ -607,10 +624,13 @@ const deDict: Dict = {
     nav: {
       home: 'Startseite',
       awardedProducts: 'Awarded Lots',
-      products: 'Products',
+      products: 'Produkte',
       about: 'Über uns',
       venezuela: 'Venezuela',
       story: 'Unsere Geschichte',
+      regions: 'Unsere Regionen',
+      qualityMenu: 'Qualität',
+      mission: 'Unsere Mission',
       coffees: 'Unsere Kaffees',
       qualityDocs: 'Berichte',
       wholesale: 'Großhandel',
@@ -621,6 +641,7 @@ const deDict: Dict = {
       menuClose: 'Menü schließen',
       drawerHeading: 'Menü',
     },
+    homeExtended: homeExtendedByLocale.de,
     lang: { tr: 'TR', de: 'DE' },
     home: {
       title: 'Coffee Los Andes – Geschmack aus den Höhen der Anden | Venezuela',
@@ -688,6 +709,7 @@ const deDict: Dict = {
       retailPackStrip1: '100% Arabica',
       retailPackStrip2: 'Medium Roast',
       retailPackStrip3: '500 g · Gemahlen',
+      portfolioPanelProductsTitle: 'Produkte in dieser Kategorie',
     },
     homeStory: {
       eyebrow: 'Unsere Geschichte',
@@ -703,6 +725,15 @@ const deDict: Dict = {
       knowMore: 'Mehr erfahren',
       imageAlt: 'Ernte von Kaffeekirschen',
       badgeSince: 'Seit 1990',
+    },
+    portfolioCategoryPage: {
+      breadcrumbHome: 'Startseite',
+      breadcrumbPortfolio: 'Unser Produktportfolio',
+      backToPortfolio: 'Zurück zum Produktportfolio',
+      heroViewLots: 'Lots entdecken',
+      microBrewRatio: 'Verhältnis',
+      microBrewTemp: 'Temperatur',
+      microBrewGrind: 'Mahlgrad',
     },
     qualityPage: {
       title: 'Qualitätsstandards – Coffee Los Andes',
@@ -891,6 +922,8 @@ const deDict: Dict = {
       heroTitle: 'LOS ANDES – Ursprung, Erfahrung und Vertrauen',
       heroDesc:
         'Langfristige Partnerschaften mit Produzenten, Qualitätskontrolle an der Quelle und strukturierte Belieferung für Deutschland und Europa.',
+      heroImageAlt:
+        'Kaffeeplantagen und Berglandschaft in den Anden; Coffee Los Andes — Ursprung, Erfahrung und Vertrauen',
       losAndesTitle: 'LOS ANDES – Ursprung, Erfahrung und Vertrauen',
       losAndesLead: [
         'Seit nahezu 20 Jahren pflegen wir direkte Handelsbeziehungen in Südamerika und verfügen über fundierte Erfahrung sowie tiefgehendes regionales Know-how – insbesondere im Kaffeesektor.',
@@ -1106,7 +1139,7 @@ const deDict: Dict = {
       heroIntroTemplate:
         'Specialty-Lot von {producer}, Farm {farm}, Anbauregion {region}.',
       heroIntroRetailPack:
-        'Hochland-Specialty aus {region}, {country} — Mischung Colombia 27 / Caturra; geröstete Packung.',
+        'Los Andes Espresso Crema ist ein Premium-Espresso aus sorgfältig ausgewählten Arabica-Bohnen. Kräftige Crema, ausgewogene Säure und ein langer Abgang sorgen für ein hervorragendes Espresso-Erlebnis.',
       heroCupScore: 'Cup-Score',
       heroRank: 'Rang',
       heroRequest: 'Großhandelsangebot anfragen',

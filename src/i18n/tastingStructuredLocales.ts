@@ -3,7 +3,6 @@ import type { Locale } from './types';
 
 type NonTr = Exclude<Locale, 'tr'>;
 
-/** Tadım tablosu satırları — TR kaynağı dışındaki diller (değer metinleri). */
 export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStructuredRow[]>> = {
   en: {
     'geisha-91-54': [
@@ -58,6 +57,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
       {
         labelKey: 'character',
         value: 'Complex, sweet and floral, stable',
+      },
+    ],
+    'geisha-90-30': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Apricot (+), plum, peach, wild berries',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Brown sugar, brandy, cognac, cocoa nibs, caramelized sugar',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Creamy, silky body, chocolate, cocoa, sweet lingering finish',
+      },
+      {
+        labelKey: 'character',
+        value: 'Fruity, winey, brown spices, exotic and complex',
       },
     ],
     'otra-89-83': [
@@ -251,7 +268,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Simple, flat, everyday drinking',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Honey, caramel, green apple, floral aromas',
@@ -324,6 +341,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
       {
         labelKey: 'character',
         value: 'Komplex, süß und blumig, stabil',
+      },
+    ],
+    'geisha-90-30': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Aprikose (+), Pflaume, Pfirsich, Waldbeeren',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Brauner Zucker, Brandy, Cognac, Kakaonibs, karamellisierter Zucker',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cremig, seidiger Körper, Schokolade, Kakao, süßer langer Abgang',
+      },
+      {
+        labelKey: 'character',
+        value: 'Fruchtig, weinige Noten, braune Gewürze, exotisch und komplex',
       },
     ],
     'otra-89-83': [
@@ -517,7 +552,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Einfach, flach, Alltagsgenuss',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Honig, Karamel, grüner Apfel, florale Aromen',
@@ -590,6 +625,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
       {
         labelKey: 'character',
         value: 'Complexe, doux et floral, stable',
+      },
+    ],
+    'geisha-90-30': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Abricot (+), prune, pêche, baies sauvages',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Sucre brun, brandy, cognac, éclats de cacao, sucre caramélisé',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Crémeux, corps soyeux, chocolat, cacao, finale douce et persistante',
+      },
+      {
+        labelKey: 'character',
+        value: 'Fruité, vinifié, épices brunes, exotique et complexe',
       },
     ],
     'otra-89-83': [
@@ -783,7 +836,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Simple, plat, consommation quotidienne',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Miel, caramel, pomme verte, arômes floraux',
@@ -856,6 +909,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
       {
         labelKey: 'character',
         value: 'Complejo, dulce y floral, estable',
+      },
+    ],
+    'geisha-90-30': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Albaricoque (+), ciruela, melocotón, bayas silvestres',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Azúcar moreno, brandy, coñac, nibs de cacao, azúcar caramelizado',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cremoso, cuerpo sedoso, chocolate, cacao, final dulce y persistente',
+      },
+      {
+        labelKey: 'character',
+        value: 'Afrutado, vinoso, especias marrones, exótico y complejo',
       },
     ],
     'otra-89-83': [
@@ -1049,7 +1120,7 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Simple, plano, consumo cotidiano',
       },
     ],
-    'cafe-1600-catimor': [
+    'espresso-crema': [
       {
         labelKey: 'dominantNotes',
         value: 'Miel, caramelo, manzana verde, aromas florales',

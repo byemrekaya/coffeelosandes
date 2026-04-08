@@ -78,6 +78,7 @@ export const venezuelaCoffeeMaster: VenezuelaCoffeeMasterItem[] = [
   { segment: 'MICRO LOT', uretici: 'Ana Magnolia Mora V.', ciftlik: 'El Cabullal', bolge: 'Mérida', cesit: 'Monteclaro', cupping_score: '85-87', ticari_segment: 'Yüksek Segment' },
   { segment: 'SPECIALTY', uretici: 'Andrés Román García', ciftlik: 'Santa María', bolge: 'Trujillo', cesit: 'Villanueva', cupping_score: '84-86', ticari_segment: 'Stabil Premium' },
   { segment: 'SPECIALTY', uretici: 'Angelimar Barillas', ciftlik: 'La Loma de Ovejo', bolge: 'Mérida', cesit: 'Villanueva', cupping_score: '84-86', ticari_segment: 'Stabil Premium' },
+  { segment: 'SPECIALTY', uretici: 'Miguel Á. Manzano M.', ciftlik: 'Mis Tres Hijos', bolge: 'Lara', cesit: 'Colombia y Castilla Specialty Blend', cupping_score: '84-86', ticari_segment: 'Stabil Premium' },
 ];
 
 export const venezuelaCoffeeMasterWithSlug: VenezuelaCoffeeMasterItemWithSlug[] = venezuelaCoffeeMaster.map((item, index) => ({
