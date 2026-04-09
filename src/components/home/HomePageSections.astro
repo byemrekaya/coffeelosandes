@@ -249,7 +249,6 @@ const hx = dict.homeExtended as HomeExtendedShape;
         const barPct = HOME_PORTFOLIO_CUPPING_BAR_PCT[catId];
         const tierName = hx.portfolioQualityTierName[catId];
         const isTopSegment = catId === 'competition-lot' || catId === 'micro-lot';
-        const isMixed = catId === 'mixed';
         const cardSurface = isTopSegment
           ? 'bg-[linear-gradient(168deg,#fff8f2_0%,#fffdfb_36%,#ede8df_100%)] shadow-[0_1px_0_rgba(255,255,255,0.93)_inset,0_14px_42px_rgba(40,96,63,0.1),0_3px_10px_rgba(60,45,30,0.05)] ring-heading/20'
           : 'bg-[linear-gradient(165deg,#fffefb_0%,#ffffff_42%,#f3f1ed_100%)] shadow-[0_1px_0_rgba(255,255,255,0.88)_inset,0_12px_36px_rgba(22,48,38,0.07),0_2px_8px_rgba(22,48,38,0.04)] ring-stone-300/40';
@@ -282,9 +281,7 @@ const hx = dict.homeExtended as HomeExtendedShape;
                     'inline-flex w-fit rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]',
                     isTopSegment
                       ? 'border-amber-900/18 bg-amber-50/50 text-[#4a3d30]'
-                      : isMixed
-                        ? 'border-heading/30 bg-heading/[0.12] text-heading'
-                        : 'border-heading/15 bg-heading/[0.06] text-heading/90',
+                      : 'border-heading/15 bg-heading/[0.06] text-heading/90',
                   ]}
                 >
                   {tierName}
@@ -292,10 +289,6 @@ const hx = dict.homeExtended as HomeExtendedShape;
                 {isTopSegment ? (
                   <span class="inline-flex w-fit rounded-full border border-amber-900/15 bg-gradient-to-r from-amber-50/90 to-[#fff8f0] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#5c4a38] shadow-sm ring-1 ring-amber-900/10">
                     {hx.portfolioTopSegmentRibbon}
-                  </span>
-                ) : isMixed ? (
-                  <span class="inline-flex w-fit rounded-full border border-heading/25 bg-heading/[0.1] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-heading shadow-sm ring-1 ring-heading/15">
-                    {hx.portfolioMixedRibbon}
                   </span>
                 ) : null}
               </div>

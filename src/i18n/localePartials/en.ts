@@ -166,7 +166,7 @@ export const enPartial: Dict = {
     segmentBaristaTitle: 'Signature blends',
     segmentBaristaDesc: 'Balanced blend for stable espresso performance — barista blend.',
     segmentCommercialTitle: 'Commercial line',
-    segmentCommercialDesc: 'Price-optimised Arabica mixed for high volume; cupping band 78–82.',
+    segmentCommercialDesc: 'Price-optimised Arabica for high volume; cupping band 70–79.',
     segmentRetailTitle: 'Retail coffee',
     segmentRetailDesc: 'Roasted packs — ground and whole bean to follow.',
     segmentRoastedTitle: 'Roasted coffee (packs)',
