@@ -202,20 +202,39 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     sections: [
       {
         anchor: 'micro-karsilastirma',
-        title: 'Micro Lot vs Commercial',
+        title: 'Micro Lot vs Specialty',
         microLayout: 'comparison-table',
         sectionTone: 'cream',
-        tableRowIcons: ['origin', 'cupping', 'volume', 'trace', 'harvest', 'process', 'price'],
+        tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Özellik', 'Micro Lot', 'Commercial'],
+          columns: ['Özellik', 'Micro Lot (84–89)', 'Specialty (80–83)'],
           rows: [
-            ['Köken', 'Tek çiftlik, tek bölge', 'Birden fazla kaynak karışımı'],
-            ['Cupping Skoru', '84-90+', '80-84'],
-            ['Üretim Miktarı', '10-100 kg', '1000+ kg'],
-            ['İzlenebilirlik', 'Çiftlik, üretici, koordinat', 'Ülke veya bölge düzeyi'],
-            ['Hasat', 'Elle seçme (selective picking)', 'Makine hasadı'],
-            ['İşleme', 'Özel yöntemler (Washed/Natural/Honey)', 'Standart yıkama'],
-            ['Fiyat', 'Premium', 'Ekonomik'],
+            ['Cupping Skoru', '84 – 89 puan', '80 – 83 puan'],
+            ['Kalite Seviyesi', 'Yüksek kalite', 'İyi kalite'],
+            ['Üretim Miktarı', 'Çok sınırlı (50–200 kg)', 'Sınırlı (500 kg – 2 ton)'],
+            ['Screen Boyutu', 'Tek tip, kontrollü', 'Uniform, seçilmiş'],
+            ['Fiyat Segmenti', 'Premium', 'Orta-üst'],
+            ['Hedef Müşteri', 'Koleksiyonerler, özel kafeler', 'Kafeler, restoranlar, oteller'],
+            ['Kullanım Alanı', 'Filtre kahve, cupping, yarışma', 'Espresso, filtre, blend'],
+            ['Tadım Profili', 'Karmaşık, benzersiz notalar', 'Dengeli, klasik profil'],
+            ['İzlenebilirlik', 'Tam (çiftlik seviyesi)', 'Bölge seviyesi'],
+            ['İşleme Yöntemi', 'Özel / deneysel', 'Standart (Washed / Natural)'],
+          ],
+        },
+      },
+      {
+        anchor: 'micro-fark-ozet',
+        title: 'Özet karşılaştırma',
+        microLayout: 'comparison-table',
+        sectionTone: 'muted',
+        tableRowIcons: ['cupping', 'volume', 'price', 'cupping'],
+        table: {
+          columns: ['Özellik', 'Micro Lot', 'Specialty'],
+          rows: [
+            ['Skor Farkı', '4–6 puan daha yüksek', 'Daha düşük skor'],
+            ['Nadirlik', 'Daha nadir, sınırlı üretim', 'Daha yaygın'],
+            ['Fiyat', '%30–50 daha pahalı', 'Daha ekonomik'],
+            ['Tat', 'Daha kompleks, özgün', 'Daha dengeli, standart'],
           ],
         },
       },
@@ -283,11 +302,11 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     badge: 'Premium Kalite',
     heroSubtitle:
       'Dünya çapında kabul görmüş kalite standartlarına sahip, en üst düzey kahve deneyimi.',
-    heroStats: [{ value: '80+', label: 'Cupping Score (SCA minimum)' }],
+    heroStats: [{ value: '80–83', label: 'Cupping bandı' }],
     lead: 'SCA çerçevesinde premium Arabica',
     paragraphs: [
       'Specialty Coffee, Specialty Coffee Association (SCA) tarafından tanımlanan uluslararası standartlara göre cupping skoru 80 ve üzeri olan kahveleri ifade eder. Çekirdekten fincana her aşamada kusurlar minimumda tutulur; tutarlı, yüksek kaliteli bir fincan hedeflenir.',
-      'Venezuela, Honduras ve Kolombiya’nın verimli bölgelerinden seçilmiş specialty hatlarımız; washed, natural ve honey işlemeleriyle farklı tadım profilleri sunar.',
+      'Los Andes ürün portföyünde “Specialty” kartındaki yeşil çekirdekler cupping bandı 80–83 aralığında konumlandırılır. Venezuela, Honduras ve Kolombiya hatlarımız washed, natural ve honey işlemeleriyle farklı tadım profilleri sunar.',
     ],
     quote: {
       text: 'Specialty Coffee, çiftlikten fincana kadar herkesin adil bir şekilde kazandığı, kalitenin ön planda olduğu bir kahve kültürüdür.',
@@ -353,7 +372,7 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         table: {
           columns: ['Özellik', 'Specialty Coffee', 'Commercial Coffee'],
           rows: [
-            ['Cupping Skoru', '80-100', '70-79'],
+            ['Cupping Skoru', '80–83', '70–79'],
             ['Defect Oranı', '0-5 defect / 350g', '6+ defect / 350g'],
             ['Köken Bilgisi', 'Bölge, çiftlik, üretici', 'Genellikle sadece ülke'],
             ['Hasat', 'Elle seçme', 'Makine hasadı'],
@@ -373,10 +392,10 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       {
         title: 'Tadım Profilleri',
         bullets: [
-          '80-84: Dengeli, temel kahve karakteri; çikolata, karamel, fındık.',
-          '85-87: Kompleks; meyveli asitlik, çiçeksi notalar, belirgin köken.',
-          '88-90: Son derece kompleks; egzotik meyveler, çiçekler, benzersiz profil.',
-          '90+: Olağanüstü ve nadir; Cup of Excellence seviyesi, koleksiyonluk.',
+          '70–79: Ticari segment; dengeli, operasyonel profil; Los Andes portföyünde bu banda özel lotlar ayrı listelenir.',
+          '80–83: Specialty coffee bandı; dengeli Arabica karakteri, SCA specialty çerçevesi.',
+          '84–89: Micro lot bandı; köken ve işleme karakteri belirgin, kompleks fincan.',
+          '90+: Competition ve üst segment; koleksiyon ve yarışma düzeyi.',
         ],
       },
     ],
@@ -452,7 +471,7 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Yüksek hacim ve öngörülebilir kalite',
     paragraphs: [
-      'Commercial segment, kafeler, zincirler ve endüstriyel kullanım için ekonomik ve tutarlı kahve ihtiyacını karşılar. Cupping bandı genellikle specialty ile micro lotun altındaki veya ona komşu bir aralıkta hedeflenir; Los Andes portföyünde bu hat 80–82 cupping bandıyla konumlandırılır.',
+      'Commercial segment, kafeler, zincirler ve endüstriyel kullanım için ekonomik ve tutarlı kahve ihtiyacını karşılar. Los Andes ürün taksonomisinde bu hat 70–79 cupping bandıyla tanımlanır; şu an portföyde bu banda atanmış yeşil çekirdek lotu bulunmuyorsa liste boş görünebilir.',
       'Önceliğimiz partiler arası minimum varyasyon, kesintisiz tedarik ve operasyonel maliyetleri kontrol altında tutmaktır.',
     ],
     highlights: [
@@ -471,68 +490,6 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       {
         title: 'Maliyet verimliliği',
         desc: 'Günlük tüketim için optimize edilmiş çözüm.',
-      },
-    ],
-  },
-  mixed: {
-    badge: 'En Çok Satan',
-    heroSubtitle: 'Ticari Kahve Çözümleri',
-    heroStats: [
-      { value: '80-82', label: 'Cupping Skoru' },
-      { value: '%100', label: 'Arabica' },
-      { value: '1000g', label: 'Paket' },
-      { value: 'B2B', label: 'Ticari Satış' },
-    ],
-    lead: 'Ticari işletmeler için %100 Arabica çözüm',
-    paragraphs: [
-      'MIXED serisi; kafeler, restoranlar, oteller ve geniş tüketim noktaları için geliştirilmiş ekonomik ve dengeli bir hatır. Karışık screen ve kontrollü profille her fincanda tutarlı kalite hedeflenir.',
-      'B2B satış ve stoklu tedarik ile hızlı sevkiyat ve kesintisiz operasyon desteği sunarız.',
-    ],
-    highlights: [
-      {
-        title: 'Ekonomik yapı',
-        desc: 'Ticari ölçekte uygun maliyetli, kaliteli Arabica.',
-      },
-      {
-        title: 'Tutarlı kalite',
-        desc: 'Partiler arası aynı tadım hedefi.',
-      },
-      {
-        title: 'Yüksek hacim',
-        desc: 'Toplu paket ve düzenli arz ile uyumlu.',
-      },
-      {
-        title: 'Hızlı tedarik',
-        desc: 'Stok ve lojistik ile kesintisiz işletme ihtiyacı.',
-      },
-      {
-        title: 'Kafeler',
-        desc: 'Günlük yüksek demleme hacmine uygun espresso çözümü.',
-      },
-      {
-        title: 'Restoran & otel',
-        desc: 'Servis sonrası kahve ve kahvaltı hatları için dengeli içim.',
-      },
-    ],
-    sections: [
-      {
-        title: 'Neden MIXED Serisi?',
-        subtitle: 'Ticari işletmeler için avantajlar',
-        bullets: [
-          'Ekonomik fiyat: Screen kontrolü yapılmadan üretildiği için daha uygun fiyat.',
-          'Tutarlı kalite: Her partide aynı hedef tad profili.',
-          "Yüksek hacim: 1000g'lık ekonomik paketlerle toplu tüketim.",
-          'Hızlı tedarik: Stoklu ürünlerle hızlı teslimat ve kesintisiz operasyon.',
-        ],
-      },
-      {
-        title: 'Kimler İçin?',
-        subtitle: 'Hedef kitle',
-        bullets: [
-          'Kafeler: Yüksek tüketim için ekonomik ve kaliteli espresso çözümü.',
-          'Restoranlar: Yemek sonrası servis için dengeli, yumuşak içim.',
-          'Oteller: Kahvaltı servisleri ve oda kahvesi için uygun maliyetli çözüm.',
-        ],
       },
     ],
   },
@@ -688,20 +645,39 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     sections: [
       {
         anchor: 'micro-karsilastirma',
-        title: 'Micro Lot vs. Commercial',
+        title: 'Micro Lot vs. Specialty',
         microLayout: 'comparison-table',
         sectionTone: 'cream',
-        tableRowIcons: ['origin', 'cupping', 'volume', 'trace', 'harvest', 'process', 'price'],
+        tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Merkmal', 'Micro Lot', 'Commercial'],
+          columns: ['Merkmal', 'Micro Lot (84–89)', 'Specialty (80–83)'],
           rows: [
-            ['Herkunft', 'Eine Farm, eine Parzelle', 'Mischung mehrerer Quellen'],
-            ['Cupping-Score', '84–90+', '80–84'],
-            ['Menge', '10–100 kg', '1000+ kg'],
-            ['Rückverfolgbarkeit', 'Farm, Produzent, Koordinaten', 'Land oder Region'],
-            ['Ernte', 'Selektives Picken', 'Maschinenernte'],
-            ['Verarbeitung', 'Speziell (Washed/Natural/Honey)', 'Standard-Wäsche'],
-            ['Preis', 'Premium', 'Wirtschaftlich'],
+            ['Cupping-Score', '84 – 89 Punkte', '80 – 83 Punkte'],
+            ['Qualitätsstufe', 'Hohe Qualität', 'Gute Qualität'],
+            ['Produktionsmenge', 'Sehr begrenzt (50–200 kg)', 'Begrenzt (500 kg – 2 t)'],
+            ['Screen-Größe', 'Einheitlich, kontrolliert', 'Uniform, selektiert'],
+            ['Preissegment', 'Premium', 'Mittel-Oberklasse'],
+            ['Zielkunde', 'Sammler, besondere Cafés', 'Cafés, Restaurants, Hotels'],
+            ['Einsatzbereich', 'Filterkaffee, Cupping, Wettbewerb', 'Espresso, Filter, Blend'],
+            ['Geschmacksprofil', 'Komplex, unverwechselbare Noten', 'Ausgewogen, klassisches Profil'],
+            ['Rückverfolgbarkeit', 'Vollständig (auf Farm-Ebene)', 'Regional'],
+            ['Verarbeitung', 'Speziell / experimentell', 'Standard (Washed / Natural)'],
+          ],
+        },
+      },
+      {
+        anchor: 'micro-fark-ozet',
+        title: 'Kurzvergleich',
+        microLayout: 'comparison-table',
+        sectionTone: 'muted',
+        tableRowIcons: ['cupping', 'volume', 'price', 'cupping'],
+        table: {
+          columns: ['Merkmal', 'Micro Lot', 'Specialty'],
+          rows: [
+            ['Score-Unterschied', '4–6 Punkte höher', 'Niedrigere Punktzahl'],
+            ['Seltenheit', 'Seltener, limitierte Produktion', 'Verbreiteter'],
+            ['Preis', '30–50 % teurer', 'Wirtschaftlicher'],
+            ['Geschmack', 'Komplexer, charaktervoller', 'Ausgewogener, standardisierter'],
           ],
         },
       },
@@ -773,7 +749,7 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Premium Arabica im SCA-Rahmen',
     paragraphs: [
       'Specialty Coffee bezeichnet nach SCA-Definition Kaffees ab Cupping-Score 80+. Vom Rohkaffee bis zur Tasse werden Defekte minimiert und Qualität konsistent gehalten.',
-      'Unsere Linien aus Venezuela, Honduras und Kolumbien decken Washed-, Natural- und Honey-Profile ab.',
+      'Im Los-Andes-Portfolio sind die hier gelisteten Rohkaffee-Lots im Cupping-Band 80–83 eingeordnet. Unsere Linien aus Venezuela, Honduras und Kolumbien decken Washed-, Natural- und Honey-Profile ab.',
     ],
     quote: {
       text: 'Specialty Coffee ist eine Kultur, in der Qualität zählt und alle in der Kette fair partizipieren.',
@@ -808,7 +784,7 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Hohes Volumen, planbare Qualität',
     paragraphs: [
-      'Die Commercial-Linie bedient hohen Bedarf in Cafés, Ketten und Gastronomie mit wirtschaftlichem, gleichbleibendem Profil. Im Portfolio von Los Andes liegt diese Kategorie im Cupping-Band 80–82.',
+      'Die Commercial-Linie bedient hohen Bedarf in Cafés, Ketten und Gastronomie mit wirtschaftlichem, gleichbleibendem Profil. In der Los-Andes-Taxonomie ist dieses Segment als Cupping-Band 70–79 definiert; ohne zugeordnete Rohkaffee-Lots in diesem Band kann die Liste leer erscheinen.',
       'Fokus: geringe Schwankung zwischen Partien, zuverlässige Lieferung und operative Kostenkontrolle.',
     ],
     highlights: [
@@ -816,21 +792,6 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       { title: 'Skalierung', desc: 'Planung für große Abnahmemengen.' },
       { title: 'Betrieb', desc: 'Geeignet für Espresso-Automaten und hohen Durchsatz.' },
       { title: 'Effizienz', desc: 'Optimiert für täglichen Großverbrauch.' },
-    ],
-  },
-  mixed: {
-    lead: '100 % Arabica für das Gastgewerbe',
-    paragraphs: [
-      'Die MIXED-Serie richtet sich an Cafés, Restaurants, Hotels und hohe Verbrauchspunkte: wirtschaftlich, ausgewogen und mit kontrolliertem Profil.',
-      'B2B-Verkauf und Lagerware ermöglichen schnelle Lieferung und unterbrechungsfreien Betrieb.',
-    ],
-    highlights: [
-      { title: 'Preis', desc: 'Wirtschaftliche Arabica für große Mengen.' },
-      { title: 'Konstanz', desc: 'Gleiches Zielprofil von Partie zu Partie.' },
-      { title: 'Volumen', desc: 'Großpackung und regelmäßige Verfügbarkeit.' },
-      { title: 'Lieferung', desc: 'Schnelle Logistik aus Bestand.' },
-      { title: 'Cafés', desc: 'Für hohen Espresso-Umsatz.' },
-      { title: 'Restaurant & Hotel', desc: 'Sanfter, ausgewogener Abschluss nach dem Essen.' },
     ],
   },
   'roasted-coffee': {
@@ -973,20 +934,39 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     sections: [
       {
         anchor: 'micro-karsilastirma',
-        title: 'Micro lot vs commercial',
+        title: 'Micro lot vs specialty',
         microLayout: 'comparison-table',
         sectionTone: 'cream',
-        tableRowIcons: ['origin', 'cupping', 'volume', 'trace', 'harvest', 'process', 'price'],
+        tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Attribute', 'Micro lot', 'Commercial'],
+          columns: ['Feature', 'Micro lot (84–89)', 'Specialty (80–83)'],
           rows: [
-            ['Origin', 'Single farm, single section', 'Blend of multiple sources'],
-            ['Cupping score', '84–90+', '80–84'],
-            ['Volume', '10–100 kg', '1000+ kg'],
-            ['Traceability', 'Farm, producer, coordinates', 'Country or region only'],
-            ['Harvest', 'Selective picking', 'Mechanical harvest'],
-            ['Processing', 'Specialty methods (washed/natural/honey)', 'Standard wash'],
-            ['Price', 'Premium', 'Economy'],
+            ['Cupping score', '84 – 89 points', '80 – 83 points'],
+            ['Quality tier', 'High quality', 'Good quality'],
+            ['Production volume', 'Very limited (50–200 kg)', 'Limited (500 kg – 2 tonnes)'],
+            ['Screen size', 'Single grade, tightly controlled', 'Uniform, selected'],
+            ['Price segment', 'Premium', 'Upper mid-range'],
+            ['Target customer', 'Collectors, speciality cafés', 'Cafés, restaurants, hotels'],
+            ['Usage', 'Filter coffee, cupping, competition', 'Espresso, filter, blends'],
+            ['Cup profile', 'Complex, unique notes', 'Balanced, classic profile'],
+            ['Traceability', 'Full (farm-level)', 'Regional level'],
+            ['Processing', 'Special / experimental', 'Standard (washed / natural)'],
+          ],
+        },
+      },
+      {
+        anchor: 'micro-fark-ozet',
+        title: 'At a glance',
+        microLayout: 'comparison-table',
+        sectionTone: 'muted',
+        tableRowIcons: ['cupping', 'volume', 'price', 'cupping'],
+        table: {
+          columns: ['Feature', 'Micro lot', 'Specialty'],
+          rows: [
+            ['Score gap', '4–6 points higher', 'Lower score'],
+            ['Rarity', 'Rarer, limited production', 'More common'],
+            ['Price', '30–50% more expensive', 'More economical'],
+            ['Taste', 'More complex, distinctive', 'More balanced, standard'],
           ],
         },
       },
@@ -1058,7 +1038,7 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Premium Arabica within SCA standards',
     paragraphs: [
       'Specialty coffee is defined by the SCA as scoring 80+ on the cupping table. From green bean to cup, defects are kept low and quality consistent.',
-      'Our lines from Venezuela, Honduras and Colombia span washed, natural and honey profiles.',
+      'In the Los Andes portfolio, green lots on this category page are mapped to the 80–83 cupping band. Our lines from Venezuela, Honduras and Colombia span washed, natural and honey profiles.',
     ],
     quote: {
       text: 'Specialty coffee is a culture where quality comes first and everyone in the chain earns fairly.',
@@ -1093,7 +1073,7 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'High volume, predictable quality',
     paragraphs: [
-      'The commercial segment serves cafés, chains and foodservice with economical, steady coffee. In the Los Andes portfolio this line sits in the 80–82 cupping band.',
+      'The commercial segment serves cafés, chains and foodservice with economical, steady coffee. In the Los Andes taxonomy this line is defined as the 70–79 cupping band; if no green lots are mapped here yet, the list may appear empty.',
       'We prioritise low batch-to-batch variance, reliable supply and operational cost control.',
     ],
     highlights: [
@@ -1101,21 +1081,6 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       { title: 'Scalable supply', desc: 'Planning for large recurring volumes.' },
       { title: 'Operations-friendly', desc: 'Works with espresso automation and high throughput.' },
       { title: 'Cost efficiency', desc: 'Optimised for everyday high consumption.' },
-    ],
-  },
-  mixed: {
-    lead: '100% Arabica solutions for hospitality',
-    paragraphs: [
-      'The MIXED series targets cafés, restaurants, hotels and high-traffic sites: affordable, balanced and built for consistent cups at scale.',
-      'B2B stocking and logistics support fast delivery and uninterrupted operations.',
-    ],
-    highlights: [
-      { title: 'Economics', desc: 'Quality Arabica at a commercial-friendly price point.' },
-      { title: 'Consistency', desc: 'Same target profile from batch to batch.' },
-      { title: 'Volume', desc: 'Bulk packs and steady availability.' },
-      { title: 'Fast supply', desc: 'Warehouse-led fulfilment.' },
-      { title: 'Cafés', desc: 'High daily espresso throughput.' },
-      { title: 'Restaurants & hotels', desc: 'Smooth after-meal and breakfast service coffees.' },
     ],
   },
   'roasted-coffee': {
@@ -1258,20 +1223,39 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     sections: [
       {
         anchor: 'micro-karsilastirma',
-        title: 'Micro lot vs commercial',
+        title: 'Micro lot vs specialty',
         microLayout: 'comparison-table',
         sectionTone: 'cream',
-        tableRowIcons: ['origin', 'cupping', 'volume', 'trace', 'harvest', 'process', 'price'],
+        tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Critère', 'Micro lot', 'Commercial'],
+          columns: ['Critère', 'Micro lot (84–89)', 'Specialty (80–83)'],
           rows: [
-            ['Origine', 'Une ferme, une parcelle', 'Mélange de plusieurs sources'],
-            ['Score cupping', '84–90+', '80–84'],
-            ['Volume', '10–100 kg', '1000+ kg'],
-            ['Traçabilité', 'Ferme, producteur, coordonnées', 'Pays ou région'],
-            ['Récolte', 'Cueillette sélective', 'Récolte mécanique'],
-            ['Traitement', 'Méthodes spéciales (lavé/naturel/honey)', 'Lavage standard'],
-            ['Prix', 'Premium', 'Économique'],
+            ['Score cupping', '84 – 89 points', '80 – 83 points'],
+            ['Niveau qualité', 'Haute qualité', 'Bonne qualité'],
+            ['Volume de production', 'Très limité (50–200 kg)', 'Limité (500 kg – 2 t)'],
+            ['Calibre (screen)', 'Homogène, contrôlé', 'Uniforme, sélectionné'],
+            ['Segment prix', 'Premium', 'Milieu-haut de gamme'],
+            ['Client cible', 'Collectionneurs, cafés d’exception', 'Cafés, restaurants, hôtels'],
+            ['Usage', 'Café filtre, cupping, compétition', 'Espresso, filtre, blend'],
+            ['Profil en tasse', 'Complexe, notes uniques', 'Équilibré, profil classique'],
+            ['Traçabilité', 'Complète (niveau ferme)', 'Niveau région'],
+            ['Traitement', 'Spécial / expérimental', 'Standard (lavé / naturel)'],
+          ],
+        },
+      },
+      {
+        anchor: 'micro-fark-ozet',
+        title: 'En bref',
+        microLayout: 'comparison-table',
+        sectionTone: 'muted',
+        tableRowIcons: ['cupping', 'volume', 'price', 'cupping'],
+        table: {
+          columns: ['Critère', 'Micro lot', 'Specialty'],
+          rows: [
+            ['Écart de score', '4–6 points plus haut', 'Score plus bas'],
+            ['Rareté', 'Plus rare, production limitée', 'Plus répandu'],
+            ['Prix', '30–50 % plus cher', 'Plus économique'],
+            ['Goût', 'Plus complexe, distinctif', 'Plus équilibré, standard'],
           ],
         },
       },
@@ -1343,7 +1327,7 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Arabica premium selon le cadre SCA',
     paragraphs: [
       'Le specialty coffee désigne les cafés notés 80+ selon la SCA. Des défauts minimisés et une qualité stable de la cerise à la tasse.',
-      'Nos lignes au Venezuela, au Honduras et en Colombie couvrent lavé, naturel et honey.',
+      'Dans le portefeuille Los Andes, les lots verts de cette page sont positionnés sur la bande cupping 80–83. Nos lignes au Venezuela, au Honduras et en Colombie couvrent lavé, naturel et honey.',
     ],
     quote: {
       text: 'Le specialty est une culture où la qualité prime et la chaîne est équitable.',
@@ -1378,7 +1362,7 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Grand volume, qualité prévisible',
     paragraphs: [
-      'Segment destiné aux cafés, chaînes et restauration : profil économique et régulier. Dans notre portefeuille, cette ligne vise la bande cupping 80–82.',
+      'Segment destiné aux cafés, chaînes et restauration : profil économique et régulier. Dans la taxonomie Los Andes, cette ligne correspond à la bande cupping 70–79 ; sans lots verts associés, la liste peut rester vide.',
       'Priorité : faible variance entre lots, approvisionnement fiable et maîtrise des coûts.',
     ],
     highlights: [
@@ -1386,21 +1370,6 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       { title: 'Échelle', desc: 'Volumes récurrents planifiables.' },
       { title: 'Exploitation', desc: 'Adapté aux débits élevés et automatisation.' },
       { title: 'Efficacité', desc: 'Optimisé pour la consommation quotidienne.' },
-    ],
-  },
-  mixed: {
-    lead: '100 % Arabica pour la restauration',
-    paragraphs: [
-      'La série MIXED cible cafés, restaurants, hôtels et gros flux : solution économique au profil contrôlé.',
-      'Stock B2B et logistique pour livraisons rapides et continuité de service.',
-    ],
-    highlights: [
-      { title: 'Économique', desc: 'Arabica de qualité à coût maîtrisé.' },
-      { title: 'Cohérence', desc: 'Même cible sensorielle d’un lot à l’autre.' },
-      { title: 'Volume', desc: 'Gros formats et disponibilité régulière.' },
-      { title: 'Réactivité', desc: 'Expédition depuis stock.' },
-      { title: 'Cafés', desc: 'Fort débit espresso quotidien.' },
-      { title: 'Hôtels & restos', desc: 'Café doux après repas et petit-déjeuner.' },
     ],
   },
   'roasted-coffee': {
@@ -1543,20 +1512,39 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     sections: [
       {
         anchor: 'micro-karsilastirma',
-        title: 'Micro lote vs comercial',
+        title: 'Micro lote vs specialty',
         microLayout: 'comparison-table',
         sectionTone: 'cream',
-        tableRowIcons: ['origin', 'cupping', 'volume', 'trace', 'harvest', 'process', 'price'],
+        tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Criterio', 'Micro lote', 'Comercial'],
+          columns: ['Criterio', 'Micro lote (84–89)', 'Specialty (80–83)'],
           rows: [
-            ['Origen', 'Una finca, una parcela', 'Mezcla de varias fuentes'],
-            ['Puntuación cupping', '84–90+', '80–84'],
-            ['Volumen', '10–100 kg', '1000+ kg'],
-            ['Trazabilidad', 'Finca, productor, coordenadas', 'País o región'],
-            ['Cosecha', 'Recolección selectiva', 'Cosecha mecánica'],
-            ['Proceso', 'Métodos especiales (lavado/natural/honey)', 'Lavado estándar'],
-            ['Precio', 'Premium', 'Económico'],
+            ['Puntuación cupping', '84 – 89 puntos', '80 – 83 puntos'],
+            ['Nivel de calidad', 'Alta calidad', 'Buena calidad'],
+            ['Volumen de producción', 'Muy limitado (50–200 kg)', 'Limitado (500 kg – 2 t)'],
+            ['Tamaño de screen', 'Uniforme, controlado', 'Uniforme, seleccionado'],
+            ['Segmento de precio', 'Premium', 'Medio-alto'],
+            ['Cliente objetivo', 'Coleccionistas, cafés especiales', 'Cafés, restaurantes, hoteles'],
+            ['Uso', 'Café filtro, cupping, competición', 'Espresso, filtro, blend'],
+            ['Perfil de taza', 'Complejo, notas únicas', 'Equilibrado, perfil clásico'],
+            ['Trazabilidad', 'Total (nivel finca)', 'Nivel regional'],
+            ['Proceso', 'Especial / experimental', 'Estándar (lavado / natural)'],
+          ],
+        },
+      },
+      {
+        anchor: 'micro-fark-ozet',
+        title: 'En resumen',
+        microLayout: 'comparison-table',
+        sectionTone: 'muted',
+        tableRowIcons: ['cupping', 'volume', 'price', 'cupping'],
+        table: {
+          columns: ['Criterio', 'Micro lote', 'Specialty'],
+          rows: [
+            ['Diferencia de puntuación', '4–6 puntos más alta', 'Puntuación más baja'],
+            ['Rareza', 'Más raro, producción limitada', 'Más común'],
+            ['Precio', '30–50 % más caro', 'Más económico'],
+            ['Sabor', 'Más complejo, distintivo', 'Más equilibrado, estándar'],
           ],
         },
       },
@@ -1628,7 +1616,7 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Arabica premium bajo estándares SCA',
     paragraphs: [
       'El specialty coffee se define con puntuación 80+ según la SCA. Defectos minimizados y calidad estable de la cereza a la taza.',
-      'Nuestras líneas en Venezuela, Honduras y Colombia cubren lavado, natural y honey.',
+      'En el portafolio Los Andes, los lotes verdes de esta categoría se sitúan en la banda de cata 80–83. Nuestras líneas en Venezuela, Honduras y Colombia cubren lavado, natural y honey.',
     ],
     quote: {
       text: 'El specialty es una cultura donde la calidad manda y la cadena es justa.',
@@ -1663,7 +1651,7 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Alto volumen, calidad predecible',
     paragraphs: [
-      'Segmento para cafeterías, cadenas y restauración: perfil económico y estable. En nuestro portafolio esta línea se sitúa en la banda 80–82 de cata.',
+      'Segmento para cafeterías, cadenas y restauración: perfil económico y estable. En la taxonomía de Los Andes esta línea se define como banda de cata 70–79; si aún no hay lotes verdes asignados, la lista puede aparecer vacía.',
       'Prioridad: poca variación entre lotes, suministro fiable y control de coste operativo.',
     ],
     highlights: [
@@ -1671,21 +1659,6 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       { title: 'Escala', desc: 'Volúmenes recurrentes planificables.' },
       { title: 'Operación', desc: 'Apto para alto caudal y automatización.' },
       { title: 'Eficiencia', desc: 'Optimizado para consumo diario alto.' },
-    ],
-  },
-  mixed: {
-    lead: '100 % Arabica para hostelería',
-    paragraphs: [
-      'La serie MIXED va a cafés, restaurantes, hoteles y alto tráfico: solución económica con perfil controlado.',
-      'Stock B2B y logística para entrega rápida y operación sin interrupciones.',
-    ],
-    highlights: [
-      { title: 'Economía', desc: 'Arabica de calidad a precio comercial.' },
-      { title: 'Consistencia', desc: 'Mismo objetivo sensorial de lote a lote.' },
-      { title: 'Volumen', desc: 'Formatos grandes y disponibilidad regular.' },
-      { title: 'Rapidez', desc: 'Envío desde almacén.' },
-      { title: 'Cafés', desc: 'Alto volumen diario de espresso.' },
-      { title: 'Restaurantes y hoteles', desc: 'Café suave post-comida y desayunos.' },
     ],
   },
   'roasted-coffee': {

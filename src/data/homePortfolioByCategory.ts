@@ -4,7 +4,6 @@ export const HOME_PORTFOLIO_CATEGORY_ORDER = [
   'specialty',
   'specialty-blend',
   'commercial-lot',
-  'mixed',
   'roasted-coffee',
 ] as const;
 
@@ -12,11 +11,10 @@ export type HomePortfolioCategoryId = (typeof HOME_PORTFOLIO_CATEGORY_ORDER)[num
 
 export const HOME_PORTFOLIO_CUPPING_BAR_PCT: Record<HomePortfolioCategoryId, number | null> = {
   'competition-lot': 92,
-  'micro-lot': 72,
-  specialty: 52,
-  'specialty-blend': 52,
-  'commercial-lot': 30,
-  mixed: null,
+  'micro-lot': 87,
+  specialty: 82,
+  'specialty-blend': 86,
+  'commercial-lot': 75,
   'roasted-coffee': null,
 };
 
@@ -26,7 +24,6 @@ export const PORTFOLIO_CATEGORY_EMOJI: Record<HomePortfolioCategoryId, string> =
   specialty: '⭐',
   'specialty-blend': '⚗️',
   'commercial-lot': '🏭',
-  mixed: '🔀',
   'roasted-coffee': '☕',
 };
 
@@ -48,8 +45,6 @@ export const homePortfolioSlugsByCategory: Record<HomePortfolioCategoryId, strin
     'monteclaro-merida-42',
     'monteclaro-trujillo-44',
     'monteclaro-merida-49',
-  ],
-  specialty: [
     'caturra-trujillo-2',
     'colombia-27-trujillo-5',
     'castillo-trujillo-7',
@@ -73,6 +68,7 @@ export const homePortfolioSlugsByCategory: Record<HomePortfolioCategoryId, strin
     'villanueva-trujillo-50',
     'villanueva-merida-51',
   ],
+  specialty: ['desconocido-lara-23', 'desconocido-lara-24', 'desconocido-portuguesa-38', 'desconocido-lara-48'],
   'specialty-blend': [
     'castillo-colombia-yaracuy-13',
     'colombia-y-castilla-lara-14',
@@ -81,12 +77,6 @@ export const homePortfolioSlugsByCategory: Record<HomePortfolioCategoryId, strin
     'caturra-amarillo-merida-25',
     'caturra-roja-merida-46',
   ],
-  'commercial-lot': [
-    'desconocido-lara-24',
-    'desconocido-lara-48',
-    'desconocido-lara-23',
-    'desconocido-portuguesa-38',
-  ],
-  mixed: [],
+  'commercial-lot': [],
   'roasted-coffee': [],
 };

@@ -26,7 +26,6 @@ export type HomeExtendedShape = {
   portfolioExploreCta: string;
   portfolioQualityTierName: Record<HomePortfolioCategoryId, string>;
   portfolioTopSegmentRibbon: string;
-  portfolioMixedRibbon: string;
   portfolioCategories: Record<
     HomePortfolioCategoryId,
     { title: string; desc: string; scoreLine: string | null; qualityBandCaption: string | null }
@@ -117,11 +116,9 @@ const tr: HomeExtendedShape = {
     specialty: 'Yüksek kalite',
     'specialty-blend': 'Yüksek kalite',
     'commercial-lot': 'Standart ticari',
-    mixed: 'Esnek profil',
     'roasted-coffee': 'Hazır ürün',
   },
   portfolioTopSegmentRibbon: 'Üst segment',
-  portfolioMixedRibbon: 'Çoklu profil',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition Lot',
@@ -133,36 +130,30 @@ const tr: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro Lot',
       desc: 'Seçilmiş mikro parsellerden, sınırlı üretim kahveler.',
-      scoreLine: '85–90 arası',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'Çubuk 80–100 ölçeğinde orta–üst bandı işaret eder. Tipik cupping aralığı 85–90’dır.',
+        'Çubuk 80–100 ölçeğinde üst-orta bandı işaret eder. Micro lot tipik cupping aralığı 84–89’dur.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Özenle seçilmiş, yüksek kalite Arabica serileri.',
-      scoreLine: '82–85 arası',
+      scoreLine: 'Cupping 80–83',
       qualityBandCaption:
-        'Çubuk 80–100 ölçeğinde orta banda yakındır. Tipik skor aralığı 82–85’tir.',
+        'Çubuk 80–100 ölçeğinde specialty coffee için orta bandı yansıtır. Tipik skor aralığı 80–83’tür.',
     },
     'specialty-blend': {
       title: 'Specialty Blend',
       desc: 'Dengeli profiller için uzman harmanlar.',
-      scoreLine: '82–85',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'Çubuk 80–100 ölçeğinde specialty harmanlar için orta bandı yansıtır. Tipik aralık 82–85’tir.',
+        'Harmon lotlarımız genelde micro bandında cupping görür. Çubuk 80–100 ölçeğinde tipik aralık 84–89’dur.',
     },
     'commercial-lot': {
       title: 'Commercial Lot',
       desc: 'Yüksek hacim ve tutarlı kalite için ticari hat.',
-      scoreLine: 'Ürünler 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
-        'Çubuk 80–100 ölçeğinde alt–orta bandı gösterir. Ticari hat ürünleri için tipik cupping bandı 80–82’dir.',
-    },
-    mixed: {
-      title: 'Mixed',
-      desc: 'Özel projeler ve esnek tedarik için harmanlı çözümler.',
-      scoreLine: null,
-      qualityBandCaption: null,
+        'Çubuk 80–100 ölçeğinde ticari segment bandını gösterir. Tipik cupping aralığı 70–79’dur.',
     },
     'roasted-coffee': {
       title: 'Roasted Coffee',
@@ -255,11 +246,9 @@ const de: HomeExtendedShape = {
     specialty: 'Hohe Qualität',
     'specialty-blend': 'Hohe Qualität',
     'commercial-lot': 'Standard Handel',
-    mixed: 'Flexibel',
     'roasted-coffee': 'Fertigprodukt',
   },
   portfolioTopSegmentRibbon: 'Oberes Segment',
-  portfolioMixedRibbon: 'Multi-Profil',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition Lot',
@@ -271,36 +260,30 @@ const de: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro Lot',
       desc: 'Kaffees aus ausgewählten Mikroparzellen in limitierten Mengen.',
-      scoreLine: 'Cupping 85–90',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'Der Balken markiert den oberen Mittelbereich der 80–100er Skala. Typische Cupping-Bandbreite: 85–90.',
+        'Der Balken markiert das obere Mittelfeld der 80–100er Skala. Typische Cupping-Bandbreite für Micro Lots: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Sorgfältig ausgewählte Premium-Arabica-Serien.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 80–83',
       qualityBandCaption:
-        'Der Balken zeigt die mittlere Lage auf der 80–100er Skala. Typisch für dieses Segment: 82–85.',
+        'Der Balken zeigt das Specialty-Coffee-Band auf der 80–100er Skala. Typisch: 80–83.',
     },
     'specialty-blend': {
       title: 'Specialty Blend',
       desc: 'Experten-Blends für ausgewogene Profile.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'Der Balken entspricht dem mittleren Band der 80–100er Skala für Specialty-Blends. Typisch: 82–85.',
+        'Unsere Blends cuppen meist im Micro-Band. Auf der 80–100er Skala typischerweise 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial Lot',
       desc: 'Handelslinie für Volumen und konsistente Qualität.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
-        'Der Balken liegt im unteren Mittelbereich der 80–100er Skala. Handelslots liegen typischerweise bei 80–82.',
-    },
-    mixed: {
-      title: 'Mixed',
-      desc: 'Flexible und gemischte Lösungen für Projekte und Sonderbedarf.',
-      scoreLine: null,
-      qualityBandCaption: null,
+        'Der Balken steht für das Commercial-Segment auf der 80–100er Skala. Typische Bandbreite: 70–79.',
     },
     'roasted-coffee': {
       title: 'Roasted Coffee',
@@ -393,11 +376,9 @@ const en: HomeExtendedShape = {
     specialty: 'High',
     'specialty-blend': 'High',
     'commercial-lot': 'Standard',
-    mixed: 'Flexible',
     'roasted-coffee': 'Shelf-ready',
   },
   portfolioTopSegmentRibbon: 'Top tier',
-  portfolioMixedRibbon: 'Multi-Profile',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition lot',
@@ -409,36 +390,30 @@ const en: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro lot',
       desc: 'Limited coffees from selected micro-parcels.',
-      scoreLine: 'Cupping 85–90',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'The bar reflects the upper-mid band on the 80–100 scale. Typical cupping range: 85–90.',
+        'The bar reflects the upper-mid band on the 80–100 scale. Typical micro-lot cupping range: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Curated premium Arabica lines.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 80–83',
       qualityBandCaption:
-        'The bar sits around the middle of the 80–100 scale. Typical scores for this segment: 82–85.',
+        'The bar shows the specialty coffee band on the 80–100 scale. Typical range: 80–83.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Expert blends for balanced profiles.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'The bar shows the mid band on the 80–100 scale for specialty blends. Typical range: 82–85.',
+        'Our blends usually cup in the micro band. On the 80–100 scale, typical range: 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Commercial line for volume and consistent quality.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
-        'The bar sits in the lower-mid band on the 80–100 scale. Commercial lots typically cup at 80–82.',
-    },
-    mixed: {
-      title: 'Mixed',
-      desc: 'Flexible blended solutions for projects and special requirements.',
-      scoreLine: null,
-      qualityBandCaption: null,
+        'The bar represents the commercial segment on the 80–100 scale. Typical cupping band: 70–79.',
     },
     'roasted-coffee': {
       title: 'Roasted coffee',
@@ -531,11 +506,9 @@ const fr: HomeExtendedShape = {
     specialty: 'Haute qualité',
     'specialty-blend': 'Haute qualité',
     'commercial-lot': 'Standard',
-    mixed: 'Flexible',
     'roasted-coffee': 'Produit fini',
   },
   portfolioTopSegmentRibbon: 'Segment haut',
-  portfolioMixedRibbon: 'Multi-profils',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition lot',
@@ -547,36 +520,30 @@ const fr: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro lot',
       desc: 'Cafés limités issus de micro-parcelles sélectionnées.',
-      scoreLine: 'Cupping 85–90',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'La barre reflète la zone haute-médiane de l’échelle 80–100. Fourchette cupping typique : 85–90.',
+        'La barre reflète la zone haute-médiane de l’échelle 80–100. Plage typique micro lot : 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Séries Arabica premium sélectionnées.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 80–83',
       qualityBandCaption:
-        'La barre se place vers le milieu de l’échelle 80–100. Scores typiques : 82–85.',
+        'La barre indique le bandeau specialty coffee sur l’échelle 80–100. Plage typique : 80–83.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Assemblages experts pour des profils équilibrés.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'La barre correspond au segment médian 80–100 pour les blends specialty. Plage typique : 82–85.',
+        'Nos blends cuppent en général dans le bandeau micro. Sur l’échelle 80–100, plage typique : 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Ligne commerciale pour volume et constance.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
-        'La barre se situe dans la zone basse-médiane de l’échelle 80–100. Les lots commerciaux cuppent souvent entre 80 et 82.',
-    },
-    mixed: {
-      title: 'Mixed',
-      desc: 'Solutions mixtes flexibles pour projets spécifiques.',
-      scoreLine: null,
-      qualityBandCaption: null,
+        'La barre représente le segment commercial sur l’échelle 80–100. Bande cupping typique : 70–79.',
     },
     'roasted-coffee': {
       title: 'Roasted coffee',
@@ -669,11 +636,9 @@ const es: HomeExtendedShape = {
     specialty: 'Alta calidad',
     'specialty-blend': 'Alta calidad',
     'commercial-lot': 'Estándar',
-    mixed: 'Flexible',
     'roasted-coffee': 'Producto listo',
   },
   portfolioTopSegmentRibbon: 'Segmento superior',
-  portfolioMixedRibbon: 'Multi-perfil',
   portfolioCategories: {
     'competition-lot': {
       title: 'Competition lot',
@@ -685,36 +650,30 @@ const es: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro lot',
       desc: 'Cafés limitados de microlotes seleccionados.',
-      scoreLine: 'Cupping 85–90',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'La barra refleja la zona alta-media de la escala 80–100. Rango cupping típico: 85–90.',
+        'La barra refleja la zona alta-media de la escala 80–100. Rango típico de micro lote: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Líneas Arabica premium seleccionadas.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 80–83',
       qualityBandCaption:
-        'La barra se sitúa hacia el centro de la escala 80–100. Puntuaciones típicas: 82–85.',
+        'La barra muestra la banda de specialty coffee en la escala 80–100. Rango típico: 80–83.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Mezclas expertas para perfiles equilibrados.',
-      scoreLine: 'Cupping 82–85',
+      scoreLine: 'Cupping 84–89',
       qualityBandCaption:
-        'La barra corresponde al segmento medio de la escala 80–100 para blends specialty. Rango típico: 82–85.',
+        'Nuestras mezclas suelen cuppear en la banda micro. En la escala 80–100, rango típico: 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Línea comercial para volumen y constancia.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
-        'La barra queda en la zona baja-media de la escala 80–100. Los lotes comerciales suelen cuppear entre 80 y 82.',
-    },
-    mixed: {
-      title: 'Mixed',
-      desc: 'Soluciones mixtas flexibles para proyectos especiales.',
-      scoreLine: null,
-      qualityBandCaption: null,
+        'La barra representa el segmento comercial en la escala 80–100. Banda cupping típica: 70–79.',
     },
     'roasted-coffee': {
       title: 'Roasted coffee',

@@ -14,3 +14,15 @@
 /tr/coffees/cafe-1600-catimor /tr/coffees/espresso-crema 301
 /tr/coffees/cafe-1600-catimor/ /tr/coffees/espresso-crema/ 301
 
+# Eski Mixed portföy URL’leri → Specialty (301)
+/de/portfolio/mixed /de/portfolio/specialty 301
+/de/portfolio/mixed/ /de/portfolio/specialty/ 301
+/en/portfolio/mixed /en/portfolio/specialty 301
+/en/portfolio/mixed/ /en/portfolio/specialty/ 301
+/es/portfolio/mixed /es/portfolio/specialty 301
+/es/portfolio/mixed/ /es/portfolio/specialty/ 301
+/fr/portfolio/mixed /fr/portfolio/specialty 301
+/fr/portfolio/mixed/ /fr/portfolio/specialty/ 301
+/tr/portfolio/mixed /tr/portfolio/specialty 301
+/tr/portfolio/mixed/ /tr/portfolio/specialty/ 301
+
