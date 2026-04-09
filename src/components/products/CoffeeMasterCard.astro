@@ -11,9 +11,12 @@ interface Props {
   item: VenezuelaCoffeeMasterItem;
   locale: Locale;
   slug: string;
+  /** Verilirse kart rozetinde `item.cupping_score` yerine bu metin (ör. portföy kategori bandı). */
+  cuppingBadge?: string | null;
 }
 
-const { item, locale, slug } = Astro.props;
+const { item, locale, slug, cuppingBadge } = Astro.props;
+const scoreBadge = cuppingBadge != null && cuppingBadge !== '' ? cuppingBadge : item.cupping_score;
 const dominantTasting = resolveMasterTastingRows(slug, locale).find((r) => r.labelKey === 'dominantNotes');
 const labelByLocale: Record<Locale, { producer: string; farm: string; imageAlt: string }> = {
   tr: { producer: 'Üretici', farm: 'Çiftlik', imageAlt: 'Venezuela premium kahve çekirdekleri' },
@@ -45,7 +48,7 @@ const labelByLocale: Record<Locale, { producer: string; farm: string; imageAlt: 
     <span class="rounded-full border border-heading/30 bg-heading/8 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-heading">
       {item.segment}
     </span>
-    <span class="rounded-full bg-[#1f1f1c] px-3 py-1 text-[11px] font-semibold text-white">{item.cupping_score}</span>
+    <span class="rounded-full bg-[#1f1f1c] px-3 py-1 text-[11px] font-semibold text-white">{scoreBadge}</span>
   </div>
 
   <h3 class="font-display text-[1.15rem] font-semibold leading-snug text-heading">

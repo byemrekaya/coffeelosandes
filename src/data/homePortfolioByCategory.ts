@@ -29,6 +29,16 @@ export const PORTFOLIO_CATEGORY_EMOJI: Record<HomePortfolioCategoryId, string> =
 
 export const PORTFOLIO_CATEGORY_HERO_IMAGE = '/banner.webp';
 
+/** Portföy kategori sayfasındaki master kartlarda gösterilen cupping bandı (liste anasayfa bandıyla aynı). */
+export const PORTFOLIO_CARD_CUPPING_BADGE: Record<HomePortfolioCategoryId, string | null> = {
+  'competition-lot': null,
+  'micro-lot': '84–89',
+  specialty: '80–83',
+  'specialty-blend': '84–89',
+  'commercial-lot': '70–79',
+  'roasted-coffee': null,
+};
+
 export const homePortfolioSlugsByCategory: Record<HomePortfolioCategoryId, string[]> = {
   'competition-lot': [],
   'micro-lot': [
@@ -80,3 +90,20 @@ export const homePortfolioSlugsByCategory: Record<HomePortfolioCategoryId, strin
   'commercial-lot': [],
   'roasted-coffee': [],
 };
+
+/** Master ürün slug’ının hangi portföy kategorisinde listelendiği (yoksa null). */
+export function getPortfolioCategoryIdForMasterSlug(slug: string): HomePortfolioCategoryId | null {
+  for (const categoryId of HOME_PORTFOLIO_CATEGORY_ORDER) {
+    if (homePortfolioSlugsByCategory[categoryId].includes(slug)) {
+      return categoryId;
+    }
+  }
+  return null;
+}
+
+/** Kart / detay için portföy bandı rozeti; kategori yoksa veya rozet tanımsızsa null. */
+export function getPortfolioCuppingBadgeForMasterSlug(slug: string): string | null {
+  const categoryId = getPortfolioCategoryIdForMasterSlug(slug);
+  if (categoryId == null) return null;
+  return PORTFOLIO_CARD_CUPPING_BADGE[categoryId];
+}

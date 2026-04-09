@@ -7,6 +7,7 @@ import { resolveMasterTastingRows } from '../../../i18n/resolveMasterTastingRows
 import { buildLangSlugStaticPaths } from '../../../i18n/staticPaths';
 import { resolveLocale } from '../../../i18n/config';
 import { venezuelaCoffeeMasterWithSlug } from '../../../data/venezuelaCoffeeMaster';
+import { getPortfolioCuppingBadgeForMasterSlug } from '../../../data/homePortfolioByCategory';
 import { withLang } from '../../../i18n/paths';
 import { t } from '../../../i18n/t';
 
@@ -26,11 +27,14 @@ const { item } = Astro.props;
 const { lang } = Astro.params;
 const locale = resolveLocale(lang);
 
+const displayCuppingScore =
+  getPortfolioCuppingBadgeForMasterSlug(item.slug) ?? item.cupping_score;
+
 const related = venezuelaCoffeeMasterWithSlug
   .filter((candidate) => candidate.segment === item.segment && candidate.slug !== item.slug)
   .slice(0, 3);
 
-const title = `${item.cesit} · ${item.bolge} · ${item.cupping_score} · Coffee Los Andes`;
+const title = `${item.cesit} · ${item.bolge} · ${displayCuppingScore} · Coffee Los Andes`;
 const description = `${item.cesit} ${t(locale, 'products.masterDetailMetaSuffix')}`;
 const ogImage = '/losandeseurope.webp';
 const ogImageAlt = `${item.cesit} · ${item.bolge} · Coffee Los Andes`;
@@ -39,7 +43,7 @@ const heroSubtitle = [item.bolge, item.ciftlik].filter(Boolean).join(' • ');
 const heroBody = `${t(locale, 'products.masterDetailProducerLabel')}: ${item.uretici}${item.ticari_segment ? ` · ${t(locale, 'products.masterDetailCommercialLabel')}: ${item.ticari_segment}` : ''}`;
 const lightboxId = `master-lot-lightbox-${item.slug}`;
 const keyRows = [
-  { key: 'score', label: t(locale, 'products.masterDetailCuppingScoreLabel'), value: item.cupping_score },
+  { key: 'score', label: t(locale, 'products.masterDetailCuppingScoreLabel'), value: displayCuppingScore },
   { key: 'segment', label: t(locale, 'products.masterDetailSegmentLabel'), value: item.segment },
   { key: 'region', label: t(locale, 'products.masterDetailRegionLabel'), value: item.bolge },
   { key: 'farm', label: t(locale, 'products.masterDetailFarmLabel'), value: item.ciftlik },
@@ -117,7 +121,7 @@ const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
               <p class="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/80 sm:text-[10px] sm:tracking-[0.2em]">
                 {t(locale, 'products.masterDetailCuppingScoreLabel')}
               </p>
-              <p class="mt-0.5 text-[22px] font-semibold leading-none text-white sm:mt-1 sm:text-[28px]">{item.cupping_score}</p>
+              <p class="mt-0.5 text-[22px] font-semibold leading-none text-white sm:mt-1 sm:text-[28px]">{displayCuppingScore}</p>
             </div>
             <span class="pointer-events-none absolute bottom-3 right-3 max-w-[min(42vw,11rem)] rounded-full border border-white/35 bg-black/50 px-2 py-1.5 text-center text-[9px] font-semibold uppercase leading-snug tracking-[0.1em] text-white/95 backdrop-blur-md sm:bottom-4 sm:right-4 sm:max-w-none sm:px-3 sm:text-[10px] sm:leading-tight sm:tracking-[0.14em]">
               {t(locale, 'products.masterDetailZoomHint')}
@@ -227,7 +231,12 @@ const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
         </p>
         <div class="mt-8 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {related.map((relatedItem) => (
-            <CoffeeMasterCard item={relatedItem} locale={locale} slug={relatedItem.slug} />
+            <CoffeeMasterCard
+              item={relatedItem}
+              locale={locale}
+              slug={relatedItem.slug}
+              cuppingBadge={getPortfolioCuppingBadgeForMasterSlug(relatedItem.slug)}
+            />
           ))}
         </div>
       </div>

@@ -5,6 +5,7 @@ import { resolveLocale } from '../../../i18n/config';
 import SectionHeader from '../../../components/SectionHeader.astro';
 import CoffeeMasterCard from '../../../components/products/CoffeeMasterCard.astro';
 import { venezuelaCoffeeMasterWithSlug } from '../../../data/venezuelaCoffeeMaster';
+import { getPortfolioCuppingBadgeForMasterSlug } from '../../../data/homePortfolioByCategory';
 import type { Locale } from '../../../i18n/types';
 import { t } from '../../../i18n/t';
 
@@ -142,7 +143,12 @@ const categoryWordByLocale: Record<Locale, string> = {
             data-products-segment={item.segment}
             class:list={[item.segment !== defaultSegment && 'hidden']}
           >
-            <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+            <CoffeeMasterCard
+              item={item}
+              locale={locale}
+              slug={item.slug}
+              cuppingBadge={getPortfolioCuppingBadgeForMasterSlug(item.slug)}
+            />
           </div>
         ))}
       </div>

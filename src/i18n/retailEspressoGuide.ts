@@ -11,15 +11,12 @@ export type RetailEspressoGuideCopy = {
   eyebrow: string;
   title: string;
   subtitle: string;
-  /** Mini section line above the recipe steps (right column) */
   recipeIntro: string;
   imageAlt: string;
-  /** Public path; replace with a photo (e.g. .webp) when available */
   imageSrc: string;
   steps: RetailEspressoGuideStep[];
 };
 
-/** İçerik kaynağı: src/htmlfeedback/los_andes_espresso_crema_professional (1).html — Espresso Hazırlama Rehberi */
 export const retailEspressoGuideByLocale: Record<Locale, RetailEspressoGuideCopy> = {
   tr: {
     eyebrow: 'Espresso',
