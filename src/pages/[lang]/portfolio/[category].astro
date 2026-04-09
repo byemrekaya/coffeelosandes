@@ -10,6 +10,7 @@ import {
   HOME_PORTFOLIO_CATEGORY_ORDER,
   HOME_PORTFOLIO_CUPPING_BAR_PCT,
   homePortfolioSlugsByCategory,
+  PORTFOLIO_CARD_CUPPING_BADGE,
   PORTFOLIO_CATEGORY_HERO_IMAGE,
   type HomePortfolioCategoryId,
 } from '../../../data/homePortfolioByCategory';
@@ -117,6 +118,7 @@ const showCuppingHero = catCopy.scoreLine != null && cuppingBarPct != null;
 const pageTitle = `${catCopy.title} — ${site.name}`;
 const pageDesc = `${detail.lead} ${catCopy.desc}`.replace(/\s+/g, ' ').trim().slice(0, 160);
 const portfolioHub = homeSection(locale, 'urun-portfoy');
+const portfolioCuppingBadge = PORTFOLIO_CARD_CUPPING_BADGE[categoryId];
 
 const origin = site.canonicalOrigin.replace(/\/$/, '');
 const breadcrumbSchema = {
@@ -735,7 +737,12 @@ const breadcrumbSchema = {
       ) : (
         <div class="mt-10 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {itemsSorted.map((item) => (
-            <CoffeeMasterCard item={item} locale={locale} slug={item.slug} />
+            <CoffeeMasterCard
+              item={item}
+              locale={locale}
+              slug={item.slug}
+              cuppingBadge={portfolioCuppingBadge}
+            />
           ))}
         </div>
       )}
