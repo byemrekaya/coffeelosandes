@@ -54,6 +54,10 @@ const ogLocaleMap: Record<string, string> = {
   en: 'en_US',
   fr: 'fr_FR',
   es: 'es_ES',
+  nl: 'nl_NL',
+  pl: 'pl_PL',
+  cs: 'cs_CZ',
+  it: 'it_IT',
 };
 const ogLocale = ogLocaleMap[htmlLang] ?? 'de_DE';
 const ogAlternateLocales = Object.values(ogLocaleMap).filter((loc) => loc !== ogLocale);

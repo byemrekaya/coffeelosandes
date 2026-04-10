@@ -207,7 +207,7 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         sectionTone: 'cream',
         tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Özellik', 'Micro Lot (84–89)', 'Specialty (80–83)'],
+          columns: ['Özellik', 'Micro Lot (84–89)', 'Specialty (84–86)'],
           rows: [
             ['Cupping Skoru', '84 – 89 puan', '80 – 83 puan'],
             ['Kalite Seviyesi', 'Yüksek kalite', 'İyi kalite'],
@@ -302,11 +302,11 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     badge: 'Premium Kalite',
     heroSubtitle:
       'Dünya çapında kabul görmüş kalite standartlarına sahip, en üst düzey kahve deneyimi.',
-    heroStats: [{ value: '80–83', label: 'Cupping bandı' }],
+    heroStats: [{ value: '84–86', label: 'Cupping bandı' }],
     lead: 'SCA çerçevesinde premium Arabica',
     paragraphs: [
       'Specialty Coffee, Specialty Coffee Association (SCA) tarafından tanımlanan uluslararası standartlara göre cupping skoru 80 ve üzeri olan kahveleri ifade eder. Çekirdekten fincana her aşamada kusurlar minimumda tutulur; tutarlı, yüksek kaliteli bir fincan hedeflenir.',
-      'Los Andes ürün portföyünde “Specialty” kartındaki yeşil çekirdekler cupping bandı 80–83 aralığında konumlandırılır. Venezuela, Honduras ve Kolombiya hatlarımız washed, natural ve honey işlemeleriyle farklı tadım profilleri sunar.',
+      'Los Andes ürün portföyünde bu Specialty sayfasındaki yeşil çekirdekler, katalogdaki “SPECIALTY” segmentindeki tek köken lotları listeler; tipik cupping bandı 84–86’dır. Harman ve özel blend satırları ayrı “Specialty blend” kategorisindedir.',
     ],
     quote: {
       text: 'Specialty Coffee, çiftlikten fincana kadar herkesin adil bir şekilde kazandığı, kalitenin ön planda olduğu bir kahve kültürüdür.',
@@ -372,7 +372,7 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         table: {
           columns: ['Özellik', 'Specialty Coffee', 'Commercial Coffee'],
           rows: [
-            ['Cupping Skoru', '80–83', '70–79'],
+            ['Cupping Skoru', '84–86', '80–82'],
             ['Defect Oranı', '0-5 defect / 350g', '6+ defect / 350g'],
             ['Köken Bilgisi', 'Bölge, çiftlik, üretici', 'Genellikle sadece ülke'],
             ['Hasat', 'Elle seçme', 'Makine hasadı'],
@@ -392,8 +392,8 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
       {
         title: 'Tadım Profilleri',
         bullets: [
-          '70–79: Ticari segment; dengeli, operasyonel profil; Los Andes portföyünde bu banda özel lotlar ayrı listelenir.',
-          '80–83: Specialty coffee bandı; dengeli Arabica karakteri, SCA specialty çerçevesi.',
+          '80–82: Ticari yeşil çekirdek giriş bandı; Los Andes portföyünde “Commercial lot” sayfasında listelenir.',
+          '84–86: Stabil premium specialty tek köken lotları; bu Specialty sayfasında listelenir.',
           '84–89: Micro lot bandı; köken ve işleme karakteri belirgin, kompleks fincan.',
           '90+: Competition ve üst segment; koleksiyon ve yarışma düzeyi.',
         ],
@@ -471,7 +471,7 @@ const tr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Yüksek hacim ve öngörülebilir kalite',
     paragraphs: [
-      'Commercial segment, kafeler, zincirler ve endüstriyel kullanım için ekonomik ve tutarlı kahve ihtiyacını karşılar. Los Andes ürün taksonomisinde bu hat 70–79 cupping bandıyla tanımlanır; şu an portföyde bu banda atanmış yeşil çekirdek lotu bulunmuyorsa liste boş görünebilir.',
+      'Commercial segment, kafeler, zincirler ve endüstriyel kullanım için ekonomik ve tutarlı kahve ihtiyacını karşılar. Los Andes kataloğunda bu sayfadaki lotlar 80–82 cupping bandındadır (segment: COMMERCIAL).',
       'Önceliğimiz partiler arası minimum varyasyon, kesintisiz tedarik ve operasyonel maliyetleri kontrol altında tutmaktır.',
     ],
     highlights: [
@@ -650,7 +650,7 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         sectionTone: 'cream',
         tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Merkmal', 'Micro Lot (84–89)', 'Specialty (80–83)'],
+          columns: ['Merkmal', 'Micro Lot (84–89)', 'Specialty (84–86)'],
           rows: [
             ['Cupping-Score', '84 – 89 Punkte', '80 – 83 Punkte'],
             ['Qualitätsstufe', 'Hohe Qualität', 'Gute Qualität'],
@@ -749,7 +749,7 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Premium Arabica im SCA-Rahmen',
     paragraphs: [
       'Specialty Coffee bezeichnet nach SCA-Definition Kaffees ab Cupping-Score 80+. Vom Rohkaffee bis zur Tasse werden Defekte minimiert und Qualität konsistent gehalten.',
-      'Im Los-Andes-Portfolio sind die hier gelisteten Rohkaffee-Lots im Cupping-Band 80–83 eingeordnet. Unsere Linien aus Venezuela, Honduras und Kolumbien decken Washed-, Natural- und Honey-Profile ab.',
+      'Im Los-Andes-Portfolio listet diese Specialty-Seite Einzelursprungs-Lots mit Segment „SPECIALTY“; typisches Cupping-Band 84–86. Bewusste Blends finden Sie unter „Specialty blend“.',
     ],
     quote: {
       text: 'Specialty Coffee ist eine Kultur, in der Qualität zählt und alle in der Kette fair partizipieren.',
@@ -784,7 +784,7 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Hohes Volumen, planbare Qualität',
     paragraphs: [
-      'Die Commercial-Linie bedient hohen Bedarf in Cafés, Ketten und Gastronomie mit wirtschaftlichem, gleichbleibendem Profil. In der Los-Andes-Taxonomie ist dieses Segment als Cupping-Band 70–79 definiert; ohne zugeordnete Rohkaffee-Lots in diesem Band kann die Liste leer erscheinen.',
+      'Die Commercial-Linie bedient hohen Bedarf in Cafés, Ketten und Gastronomie mit wirtschaftlichem, gleichbleibendem Profil. Die hier gelisteten Lots entsprechen im Katalog dem Segment COMMERCIAL mit typischem Cupping-Band 80–82.',
       'Fokus: geringe Schwankung zwischen Partien, zuverlässige Lieferung und operative Kostenkontrolle.',
     ],
     highlights: [
@@ -939,7 +939,7 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         sectionTone: 'cream',
         tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Feature', 'Micro lot (84–89)', 'Specialty (80–83)'],
+          columns: ['Feature', 'Micro lot (84–89)', 'Specialty (84–86)'],
           rows: [
             ['Cupping score', '84 – 89 points', '80 – 83 points'],
             ['Quality tier', 'High quality', 'Good quality'],
@@ -1038,7 +1038,7 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Premium Arabica within SCA standards',
     paragraphs: [
       'Specialty coffee is defined by the SCA as scoring 80+ on the cupping table. From green bean to cup, defects are kept low and quality consistent.',
-      'In the Los Andes portfolio, green lots on this category page are mapped to the 80–83 cupping band. Our lines from Venezuela, Honduras and Colombia span washed, natural and honey profiles.',
+      'On this Specialty page we list green lots tagged SPECIALTY in the master catalogue (typical cupping band 84–86). Intentional blends live under Specialty blend.',
     ],
     quote: {
       text: 'Specialty coffee is a culture where quality comes first and everyone in the chain earns fairly.',
@@ -1073,7 +1073,7 @@ const en: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'High volume, predictable quality',
     paragraphs: [
-      'The commercial segment serves cafés, chains and foodservice with economical, steady coffee. In the Los Andes taxonomy this line is defined as the 70–79 cupping band; if no green lots are mapped here yet, the list may appear empty.',
+      'The commercial segment serves cafés, chains and foodservice with economical, steady coffee. Lots on this page are COMMERCIAL rows in our catalogue, typically cupping 80–82.',
       'We prioritise low batch-to-batch variance, reliable supply and operational cost control.',
     ],
     highlights: [
@@ -1228,7 +1228,7 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         sectionTone: 'cream',
         tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Critère', 'Micro lot (84–89)', 'Specialty (80–83)'],
+          columns: ['Critère', 'Micro lot (84–89)', 'Specialty (84–86)'],
           rows: [
             ['Score cupping', '84 – 89 points', '80 – 83 points'],
             ['Niveau qualité', 'Haute qualité', 'Bonne qualité'],
@@ -1327,7 +1327,7 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Arabica premium selon le cadre SCA',
     paragraphs: [
       'Le specialty coffee désigne les cafés notés 80+ selon la SCA. Des défauts minimisés et une qualité stable de la cerise à la tasse.',
-      'Dans le portefeuille Los Andes, les lots verts de cette page sont positionnés sur la bande cupping 80–83. Nos lignes au Venezuela, au Honduras et en Colombie couvrent lavé, naturel et honey.',
+      'Sur cette page Specialty figurent les lots verts segment SPECIALTY du catalogue (bande cupping typique 84–86). Les blends dédiés sont sous Specialty blend.',
     ],
     quote: {
       text: 'Le specialty est une culture où la qualité prime et la chaîne est équitable.',
@@ -1362,7 +1362,7 @@ const fr: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Grand volume, qualité prévisible',
     paragraphs: [
-      'Segment destiné aux cafés, chaînes et restauration : profil économique et régulier. Dans la taxonomie Los Andes, cette ligne correspond à la bande cupping 70–79 ; sans lots verts associés, la liste peut rester vide.',
+      'Segment destiné aux cafés, chaînes et restauration : profil économique et régulier. Les lots de cette page sont des lignes COMMERCIAL du catalogue, typiquement 80–82 en cupping.',
       'Priorité : faible variance entre lots, approvisionnement fiable et maîtrise des coûts.',
     ],
     highlights: [
@@ -1517,7 +1517,7 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
         sectionTone: 'cream',
         tableRowIcons: ['cupping', 'harvest', 'volume', 'process', 'price', 'origin', 'process', 'cupping', 'trace', 'process'],
         table: {
-          columns: ['Criterio', 'Micro lote (84–89)', 'Specialty (80–83)'],
+          columns: ['Criterio', 'Micro lote (84–89)', 'Specialty (84–86)'],
           rows: [
             ['Puntuación cupping', '84 – 89 puntos', '80 – 83 puntos'],
             ['Nivel de calidad', 'Alta calidad', 'Buena calidad'],
@@ -1616,7 +1616,7 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     lead: 'Arabica premium bajo estándares SCA',
     paragraphs: [
       'El specialty coffee se define con puntuación 80+ según la SCA. Defectos minimizados y calidad estable de la cereza a la taza.',
-      'En el portafolio Los Andes, los lotes verdes de esta categoría se sitúan en la banda de cata 80–83. Nuestras líneas en Venezuela, Honduras y Colombia cubren lavado, natural y honey.',
+      'En esta página Specialty se listan los lotes verdes con segmento SPECIALTY del catálogo (banda típica de cata 84–86). Las mezclas intencionadas están en Specialty blend.',
     ],
     quote: {
       text: 'El specialty es una cultura donde la calidad manda y la cadena es justa.',
@@ -1651,7 +1651,7 @@ const es: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
   'commercial-lot': {
     lead: 'Alto volumen, calidad predecible',
     paragraphs: [
-      'Segmento para cafeterías, cadenas y restauración: perfil económico y estable. En la taxonomía de Los Andes esta línea se define como banda de cata 70–79; si aún no hay lotes verdes asignados, la lista puede aparecer vacía.',
+      'Segmento para cafeterías, cadenas y restauración: perfil económico y estable. Los lotes de esta página son filas COMMERCIAL del catálogo, típicamente 80–82 en cata.',
       'Prioridad: poca variación entre lotes, suministro fiable y control de coste operativo.',
     ],
     highlights: [
@@ -1682,4 +1682,8 @@ export const portfolioDetailByLocale: Record<Locale, Record<HomePortfolioCategor
   en,
   fr,
   es,
+  nl: en,
+  pl: en,
+  cs: en,
+  it: en,
 };

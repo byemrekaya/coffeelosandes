@@ -137,9 +137,9 @@ const tr: HomeExtendedShape = {
     specialty: {
       title: 'Specialty',
       desc: 'Özenle seçilmiş, yüksek kalite Arabica serileri.',
-      scoreLine: 'Cupping 80–83',
+      scoreLine: 'Cupping 84–86',
       qualityBandCaption:
-        'Çubuk 80–100 ölçeğinde specialty coffee için orta bandı yansıtır. Tipik skor aralığı 80–83’tür.',
+        'Çubuk 80–100 ölçeğinde stabil premium specialty hattını yansıtır. Bu kategorideki lotların tipik cupping aralığı 84–86’dır.',
     },
     'specialty-blend': {
       title: 'Specialty Blend',
@@ -151,9 +151,9 @@ const tr: HomeExtendedShape = {
     'commercial-lot': {
       title: 'Commercial Lot',
       desc: 'Yüksek hacim ve tutarlı kalite için ticari hat.',
-      scoreLine: 'Cupping 70–79',
+      scoreLine: 'Cupping 80–82',
       qualityBandCaption:
-        'Çubuk 80–100 ölçeğinde ticari segment bandını gösterir. Tipik cupping aralığı 70–79’dur.',
+        'Çubuk 80–100 ölçeğinde giriş seviyesi ticari yeşil çekirdek bandını gösterir. Tipik cupping aralığı 80–82’dir.',
     },
     'roasted-coffee': {
       title: 'Roasted Coffee',
@@ -267,9 +267,9 @@ const de: HomeExtendedShape = {
     specialty: {
       title: 'Specialty',
       desc: 'Sorgfältig ausgewählte Premium-Arabica-Serien.',
-      scoreLine: 'Cupping 80–83',
+      scoreLine: 'Cupping 84–86',
       qualityBandCaption:
-        'Der Balken zeigt das Specialty-Coffee-Band auf der 80–100er Skala. Typisch: 80–83.',
+        'Der Balken zeigt die Stabil-Premium-Specialty-Linie auf der 80–100er Skala. Typische Cupping-Bandbreite auf dieser Seite: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty Blend',
@@ -281,9 +281,9 @@ const de: HomeExtendedShape = {
     'commercial-lot': {
       title: 'Commercial Lot',
       desc: 'Handelslinie für Volumen und konsistente Qualität.',
-      scoreLine: 'Cupping 70–79',
+      scoreLine: 'Cupping 80–82',
       qualityBandCaption:
-        'Der Balken steht für das Commercial-Segment auf der 80–100er Skala. Typische Bandbreite: 70–79.',
+        'Der Balken steht für die Einstiegs-Commercial-Rohkaffee-Linie auf der 80–100er Skala. Typische Bandbreite: 80–82.',
     },
     'roasted-coffee': {
       title: 'Roasted Coffee',
@@ -397,9 +397,9 @@ const en: HomeExtendedShape = {
     specialty: {
       title: 'Specialty',
       desc: 'Curated premium Arabica lines.',
-      scoreLine: 'Cupping 80–83',
+      scoreLine: 'Cupping 84–86',
       qualityBandCaption:
-        'The bar shows the specialty coffee band on the 80–100 scale. Typical range: 80–83.',
+        'The bar reflects the stabil-premium specialty tier on the 80–100 scale. Typical cupping band for lots on this page: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
@@ -411,9 +411,9 @@ const en: HomeExtendedShape = {
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Commercial line for volume and consistent quality.',
-      scoreLine: 'Cupping 70–79',
+      scoreLine: 'Cupping 80–82',
       qualityBandCaption:
-        'The bar represents the commercial segment on the 80–100 scale. Typical cupping band: 70–79.',
+        'The bar represents the entry commercial green-coffee tier on the 80–100 scale. Typical cupping band: 80–82.',
     },
     'roasted-coffee': {
       title: 'Roasted coffee',
@@ -428,6 +428,563 @@ const en: HomeExtendedShape = {
   missionBody:
     'Our mission is to bring South America’s coffee heritage to professional buyers through transparent sourcing and measurable quality. We build long-term partnerships with producers and uphold trust, sustainability and respect at every step.',
   missionPillars: ['Passion', 'Quality', 'Trust', 'Sustainability'],
+};
+
+const nl: HomeExtendedShape = {
+  storyEyebrow: '20+ jaar',
+  storySectionTitle: 'Ons verhaal',
+  storyLead: 'Traditie, herkomst en kwaliteit — van bron tot Europa.',
+  storyParagraphs: [
+    'Los Andes Europe GmbH verbindt herkomst en markt via directe relaties met producenten, transparante sourcing en compromisloze kwaliteit. Onze wortels liggen in Zuid-Amerika — onze levercapaciteit in Europa.',
+    'Vandaag leveren we planbare, consistente partijen voor professionals met sourcing in Venezuela, regionale commerciële operaties en logistiek in heel Europa.',
+  ],
+  storyHighlights: [
+    'Directe ervaring in de volledige toeleveringsketen',
+    'Sterke wortels in Zuid-Amerika',
+    'Betrouwbare handels- en logistieke structuur in Europa',
+  ],
+  storyNote: {
+    title: 'Merknotitie',
+    body: 'Voor ons is koffie niet alleen een product — het is erfgoed, passie en een levensstijl.',
+  },
+  storyImageAlt: 'Koffieplantage en oogst',
+  storyAboutCtaLabel: 'Lees het volledige Venezuela-herkomstverhaal',
+  storyWhoWeAreCtaLabel: 'Wie zijn wij',
+  stats: [
+    { value: '20+', label: 'Jaar ervaring' },
+    { value: '3', label: 'Kernregio’s' },
+    { value: '50+', label: 'Producentpartners' },
+    { value: 'EU', label: 'Logistiek netwerk' },
+  ],
+  regionsTitle: 'Onze regio’s',
+  regionsSubtitle: 'Wereldwijde aanwezigheid, lokale expertise',
+  regions: [
+    {
+      title: 'Venezuela — productie & sourcing',
+      body: 'Geografie en klimaat in Venezuela maken uitzonderlijke koffie mogelijk. We werken direct met producentengezinnen.',
+      bullets: [
+        'Directe handelsrelaties',
+        'Duurzame praktijken',
+        'Gemeenschapssteun',
+        'Microlot-traceerbaarheid',
+      ],
+    },
+    {
+      title: 'Europa — logistiek & service',
+      body: 'Ons Europese hub en distributienetwerk zorgen voor betrouwbare levering op het hele continent.',
+      bullets: ['Centrale logistiek', 'Paneuropese distributie', 'Professionele ondersteuning', 'Kwaliteitsborging'],
+    },
+    {
+      title: 'Turkije, Midden-Oosten & Golf — commercieel',
+      body: 'Onze kantoren in deze strategische regio bieden maatwerk en snelle respons op klantbehoeften.',
+      bullets: [
+        'Regionale marktexpertise',
+        'Op maat gemaakte oplossingen',
+        'Snelle logistiek',
+        'Lokale klantenservice',
+      ],
+    },
+  ],
+  qualityProcessTitle: 'Ons kwaliteitsproces',
+  qualityProcessSubtitle: 'Uitmuntendheid in elke stap',
+  processSteps: [
+    {
+      title: 'Perceelselectie',
+      desc: 'Voor de oogst bezoekt ons team boerderijen om de beste percelen te kiezen — microklimaat, bodem en historie worden beoordeeld.',
+    },
+    {
+      title: 'Fermentatie',
+      desc: 'Fermentatie geeft de koffie karakter. We monitoren elke partij voor optimale smaakprofielen.',
+    },
+    {
+      title: 'Drogen',
+      desc: 'Gecontroleerd drogen met traditionele methoden helpt ideale vochtigheid te bereiken en off-flavours te vermijden.',
+    },
+    {
+      title: 'Sorteren',
+      desc: 'In de laatste fase worden bonen zorgvuldig met de hand gesorteerd zodat alleen de hoogste standaard uw kop bereikt.',
+    },
+  ],
+  portfolioSectionTitle: 'Ons productportfolio',
+  portfolioSectionSubtitle: 'Oplossingen voor elke behoefte',
+  portfolioQualityFallbackNote:
+    'Dit segment heeft geen vaste cuppingband op de homekaart; het aanbod hangt af van project of categorie.',
+  portfolioExploreCta: 'Ontdek →',
+  portfolioQualityTierName: {
+    'competition-lot': 'Premium',
+    'micro-lot': 'Premium',
+    specialty: 'Hoog',
+    'specialty-blend': 'Hoog',
+    'commercial-lot': 'Standaard',
+    'roasted-coffee': 'Winkelklaar',
+  },
+  portfolioTopSegmentRibbon: 'Topsegment',
+  portfolioCategories: {
+    'competition-lot': {
+      title: 'Competitiepartij',
+      desc: 'Toppartijen met hoge cup-scores en collectiewaarde.',
+      scoreLine: 'Cupping 90+',
+      qualityBandCaption:
+        'Op de cuppingschaal 80–100 ligt de lat bovenaan. Typische scores voor dit segment: 90+.',
+    },
+    'micro-lot': {
+      title: 'Microlot',
+      desc: 'Beperkte koffies van geselecteerde micropercelen.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'De balk weerspiegelt het boven-middenbereik van de schaal 80–100. Typisch microlot-bereik: 84–89.',
+    },
+    specialty: {
+      title: 'Specialty',
+      desc: 'Geselecteerde premium Arabica-lijnen.',
+      scoreLine: 'Cupping 84–86',
+      qualityBandCaption:
+        'De balk weerspiegelt het stabiele specialty-segment op de schaal 80–100. Typisch cupping-bereik op deze pagina: 84–86.',
+    },
+    'specialty-blend': {
+      title: 'Specialty-blend',
+      desc: 'Expertblends voor evenwichtige profielen.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'Onze blends cuppen meestal in het microlot-bereik. Op de schaal 80–100 typisch bereik: 84–89.',
+    },
+    'commercial-lot': {
+      title: 'Commerciële partij',
+      desc: 'Commerciële lijn voor volume en consistente kwaliteit.',
+      scoreLine: 'Cupping 80–82',
+      qualityBandCaption:
+        'De balk vertegenwoordigt het instap-commerciële groene-koffiesegment op de schaal 80–100. Typisch cupping-bereik: 80–82.',
+    },
+    'roasted-coffee': {
+      title: 'Gebrande koffie',
+      desc: 'Kant-en-klare producten met professionele brandprofielen.',
+      scoreLine: null,
+      qualityBandCaption: null,
+    },
+  },
+  portfolioDetail: portfolioDetailByLocale.nl,
+  portfolioEmpty: 'Er zijn nog geen producten aan deze categorie gekoppeld. De lijst wordt binnenkort bijgewerkt.',
+  missionTitle: 'Onze missie',
+  missionBody:
+    'Onze missie is het Zuid-Amerikaanse koffie-erfenis naar professionele kopers te brengen via transparante sourcing en meetbare kwaliteit. We bouwen langetermijnpartnerschappen met producenten en plaatsen vertrouwen, duurzaamheid en respect voorop.',
+  missionPillars: ['Passie', 'Kwaliteit', 'Vertrouwen', 'Duurzaamheid'],
+};
+const pl: HomeExtendedShape = {
+  storyEyebrow: 'Ponad 20 lat',
+  storySectionTitle: 'Nasza historia',
+  storyLead: 'Tradycja, pochodzenie i jakość — od źródła do Europy.',
+  storyParagraphs: [
+    'Los Andes Europe GmbH łączy pochodzenie z rynkiem dzięki bezpośrednim relacjom z producentami, przejrzystemu pozyskiwaniu i bezkompromisowej jakości. Nasze korzenie są w Ameryce Południowej — nasza zdolność dostawcza jest w Europie.',
+    'Dziś dostarczamy przewidywalne, spójne partie dla profesjonalistów z pozyskiwaniem w Wenezueli, regionalnymi operacjami handlowymi i logistyką w całej Europie.',
+  ],
+  storyHighlights: [
+    'Bezpośrednie doświadczenie w całym łańcuchu dostaw',
+    'Silne korzenie w Ameryce Południowej',
+    'Niezawodna struktura handlowa i logistyczna w Europie',
+  ],
+  storyNote: {
+    title: 'Nota marki',
+    body: 'Dla nas kawa to nie tylko produkt — to dziedzictwo, pasja i styl życia.',
+  },
+  storyImageAlt: 'Plantacja i zbiór kawy',
+  storyAboutCtaLabel: 'Przeczytaj pełną historię pochodzenia z Wenezueli',
+  storyWhoWeAreCtaLabel: 'Kim jesteśmy',
+  stats: [
+    { value: '20+', label: 'Lat doświadczenia' },
+    { value: '3', label: 'Kluczowe regiony' },
+    { value: '50+', label: 'Partnerów producentów' },
+    { value: 'UE', label: 'Sieć logistyczna' },
+  ],
+  regionsTitle: 'Nasze regiony',
+  regionsSubtitle: 'Obecność globalna, ekspertyza lokalna',
+  regions: [
+    {
+      title: 'Wenezuela — produkcja i pozyskiwanie',
+      body: 'Geografia i klimat Wenezueli sprzyjają wyjątkowej kawie. Pracujemy bezpośrednio z rodzinami producentów.',
+      bullets: [
+        'Bezpośrednie relacje handlowe',
+        'Praktyki zrównoważone',
+        'Wsparcie społeczności',
+        'Śledzenie mikrolotów',
+      ],
+    },
+    {
+      title: 'Europa — logistyka i serwis',
+      body: 'Nasze centrum i sieć dystrybucji w Europie zapewniają niezawodne dostawy na całym kontynencie.',
+      bullets: ['Centralna logistyka', 'Dystrybucja w całej Europie', 'Wsparcie profesjonalne', 'Gwarancja jakości'],
+    },
+    {
+      title: 'Turcja, Bliski Wschód i Zatoka — handel',
+      body: 'Biura w tym strategicznym regionie oferują rozwiązania szyte na miarę i szybką reakcję na potrzeby klientów.',
+      bullets: [
+        'Ekspertyza rynku regionalnego',
+        'Rozwiązania dopasowane',
+        'Szybka logistyka',
+        'Lokalna obsługa klienta',
+      ],
+    },
+  ],
+  qualityProcessTitle: 'Nasz proces jakości',
+  qualityProcessSubtitle: 'Doskonałość na każdym etapie',
+  processSteps: [
+    {
+      title: 'Selekcja działek',
+      desc: 'Przed zbiorami nasz zespół odwiedza farmy, by wybrać najlepsze działki — ocenia mikroklimat, glebę i historię.',
+    },
+    {
+      title: 'Fermentacja',
+      desc: 'Fermentacja kształtuje charakter kawy. Monitorujemy każdą partię pod kątem optymalnych profili smakowych.',
+    },
+    {
+      title: 'Suszenie',
+      desc: 'Kontrolowane suszenie tradycyjnymi metodami pomaga osiągnąć idealną wilgotność i uniknąć off-flavorów.',
+    },
+    {
+      title: 'Sortowanie',
+      desc: 'Na końcu ziarna są starannie sortowane ręcznie, by do filiżanki trafił tylko najwyższy standard.',
+    },
+  ],
+  portfolioSectionTitle: 'Nasze portfolio produktów',
+  portfolioSectionSubtitle: 'Rozwiązania na każdą potrzebę',
+  portfolioQualityFallbackNote:
+    'Ten segment nie ma stałej bandy cuppingu na karcie strony głównej; oferta zależy od projektu lub kategorii.',
+  portfolioExploreCta: 'Odkryj →',
+  portfolioQualityTierName: {
+    'competition-lot': 'Premium',
+    'micro-lot': 'Premium',
+    specialty: 'Wysoka',
+    'specialty-blend': 'Wysoka',
+    'commercial-lot': 'Standard',
+    'roasted-coffee': 'Gotowy do półki',
+  },
+  portfolioTopSegmentRibbon: 'Segment top',
+  portfolioCategories: {
+    'competition-lot': {
+      title: 'Partia konkursowa',
+      desc: 'Partie top z wysokim scoringiem cuppingu i walorem kolekcjonerskim.',
+      scoreLine: 'Cupping 90+',
+      qualityBandCaption:
+        'Na skali cuppingu 80–100 poprzeczka jest w górnej części. Typowe wyniki dla tego segmentu: 90+.',
+    },
+    'micro-lot': {
+      title: 'Mikrolot',
+      desc: 'Limitowane kawy z wybranych mikrodziałek.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'Pasek odzwierciedla górną część środka skali 80–100. Typowy zakres mikrolotów: 84–89.',
+    },
+    specialty: {
+      title: 'Specialty',
+      desc: 'Wyselekcjonowane linie premium Arabica.',
+      scoreLine: 'Cupping 84–86',
+      qualityBandCaption:
+        'Pasek odzwierciedla stabilny segment specialty na skali 80–100. Typowy zakres cuppingu partii na tej stronie: 84–86.',
+    },
+    'specialty-blend': {
+      title: 'Mieszanka specialty',
+      desc: 'Eksperckie mieszanki pod zrównoważone profile.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'Nasze mieszanki zwykle cuppingują w paśmie mikrolotów. Na skali 80–100 typowy zakres: 84–89.',
+    },
+    'commercial-lot': {
+      title: 'Partia komercyjna',
+      desc: 'Linia komercyjna na wolumen i stałą jakość.',
+      scoreLine: 'Cupping 80–82',
+      qualityBandCaption:
+        'Pasek reprezentuje podstawowy segment zielonej kawy komercyjnej na skali 80–100. Typowy zakres cuppingu: 80–82.',
+    },
+    'roasted-coffee': {
+      title: 'Kawa palona',
+      desc: 'Gotowe produkty z profesjonalnym profilem palenia.',
+      scoreLine: null,
+      qualityBandCaption: null,
+    },
+  },
+  portfolioDetail: portfolioDetailByLocale.pl,
+  portfolioEmpty: 'Żadne produkty nie są jeszcze przypisane do tej kategorii. Lista zostanie wkrótce zaktualizowana.',
+  missionTitle: 'Nasza misja',
+  missionBody:
+    'Naszą misją jest przenoszenie dziedzictwa kawowego Ameryki Południowej do kupujących profesjonalnych poprzez przejrzyste pozyskiwanie i mierzalną jakość. Budujemy długoterminowe partnerstwa z producentami i stawiamy zaufanie, zrównoważony rozwój oraz szacunek na pierwszym miejscu.',
+  missionPillars: ['Pasja', 'Jakość', 'Zaufanie', 'Zrównoważony rozwój'],
+};
+const cs: HomeExtendedShape = {
+  storyEyebrow: 'Více než 20 let',
+  storySectionTitle: 'Náš příběh',
+  storyLead: 'Tradice, původ a kvalita — od zdroje do Evropy.',
+  storyParagraphs: [
+    'Los Andes Europe GmbH spojuje původ a trh díky přímým vztahům s producenty, transparentnímu sourcingu a nekompromisní kvalitě. Naše kořeny jsou v Jižní Americe — naše dodávková kapacita je v Evropě.',
+    'Dnes dodáváme předvídatelné, konzistentní šarže pro profesionály se sourcingem ve Venezuele, regionálními obchodními operacemi a logistikou v celé Evropě.',
+  ],
+  storyHighlights: [
+    'Přímá zkušenost v celém řetězci dodávek',
+    'Silné kořeny v Jižní Americe',
+    'Spolehlivá obchodní a logistická struktura v Evropě',
+  ],
+  storyNote: {
+    title: 'Poznámka značky',
+    body: 'Pro nás není káva jen produkt — je to dědictví, vášeň a životní styl.',
+  },
+  storyImageAlt: 'Kávová plantáž a sklizeň',
+  storyAboutCtaLabel: 'Přečtěte si celý příběh původu z Venezuely',
+  storyWhoWeAreCtaLabel: 'Kdo jsme',
+  stats: [
+    { value: '20+', label: 'Let zkušeností' },
+    { value: '3', label: 'Klíčové regiony' },
+    { value: '50+', label: 'Partnerských producentů' },
+    { value: 'EU', label: 'Logistická síť' },
+  ],
+  regionsTitle: 'Naše regiony',
+  regionsSubtitle: 'Globální přítomnost, lokální expertiza',
+  regions: [
+    {
+      title: 'Venezuela — výroba a sourcing',
+      body: 'Geografie a klima ve Venezuele umožňují výjimečnou kávu. Pracujeme přímo s rodinami producentů.',
+      bullets: [
+        'Přímé obchodní vztahy',
+        'Udržitelné postupy',
+        'Podpora komunit',
+        'Sledovatelnost mikrolotů',
+      ],
+    },
+    {
+      title: 'Evropa — logistika a servis',
+      body: 'Naše evropské centrum a distribuční síť zajišťují spolehlivé dodávky na celém kontinentu.',
+      bullets: ['Centrální logistika', 'Distribuce po celé Evropě', 'Profesionální podpora', 'Záruka kvality'],
+    },
+    {
+      title: 'Turecko, Střední východ a Perský záliv — obchod',
+      body: 'Naše kanceláře v této strategické oblasti nabízejí řešení na míru a rychlou reakci na potřeby zákazníků.',
+      bullets: [
+        'Regionální tržní expertíza',
+        'Přizpůsobená řešení',
+        'Rychlá logistika',
+        'Lokální zákaznický servis',
+      ],
+    },
+  ],
+  qualityProcessTitle: 'Náš kvalitní proces',
+  qualityProcessSubtitle: 'Excelence v každém kroku',
+  processSteps: [
+    {
+      title: 'Výběr parcel',
+      desc: 'Před sklizní náš tým navštěvuje farmy a vybírá nejlepší parcely — hodnotí mikroklima, půdu a historii.',
+    },
+    {
+      title: 'Fermentace',
+      desc: 'Fermentace utváří charakter kávy. Sledujeme každou šarži pro optimální chuťové profily.',
+    },
+    {
+      title: 'Sušení',
+      desc: 'Kontrolované sušení tradičními metodami pomáhá dosáhnout ideální vlhkosti a vyhnout se off-flavorům.',
+    },
+    {
+      title: 'Třídění',
+      desc: 'V závěru se zrna pečlivě třídí ručně, aby do šálku šla jen nejvyšší úroveň.',
+    },
+  ],
+  portfolioSectionTitle: 'Naše produktové portfolio',
+  portfolioSectionSubtitle: 'Řešení pro každou potřebu',
+  portfolioQualityFallbackNote:
+    'Tento segment nemá na domovské kartě pevné cuppingové pásmo; nabídka závisí na projektu nebo kategorii.',
+  portfolioExploreCta: 'Objevit →',
+  portfolioQualityTierName: {
+    'competition-lot': 'Premium',
+    'micro-lot': 'Premium',
+    specialty: 'Vysoká',
+    'specialty-blend': 'Vysoká',
+    'commercial-lot': 'Standard',
+    'roasted-coffee': 'Připraveno do regálu',
+  },
+  portfolioTopSegmentRibbon: 'Top segment',
+  portfolioCategories: {
+    'competition-lot': {
+      title: 'Soutěžní šarže',
+      desc: 'Top šarže s vysokým cup skóre a sběratelskou hodnotou.',
+      scoreLine: 'Cupping 90+',
+      qualityBandCaption:
+        'Na škále cuppingu 80–100 je laťka nahoře. Typické skóre pro tento segment: 90+.',
+    },
+    'micro-lot': {
+      title: 'Mikrolot',
+      desc: 'Limitované kávy z vybraných mikroparcel.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'Pruh odráží horní střed škály 80–100. Typické pásmo mikrolotů: 84–89.',
+    },
+    specialty: {
+      title: 'Specialty',
+      desc: 'Vybrané prémiové linie Arabicy.',
+      scoreLine: 'Cupping 84–86',
+      qualityBandCaption:
+        'Pruh odráží stabilní specialty segment na škále 80–100. Typické cuppingové pásmo šarží na této stránce: 84–86.',
+    },
+    'specialty-blend': {
+      title: 'Specialty blend',
+      desc: 'Expertní blendy pro vyvážené profily.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'Naše blendy obvykle cuppingují v pásmu mikrolotů. Na škále 80–100 typické pásmo: 84–89.',
+    },
+    'commercial-lot': {
+      title: 'Komerční šarže',
+      desc: 'Komerční linka pro objem a stálou kvalitu.',
+      scoreLine: 'Cupping 80–82',
+      qualityBandCaption:
+        'Pruh představuje vstupní komerční segment zelené kávy na škále 80–100. Typické cuppingové pásmo: 80–82.',
+    },
+    'roasted-coffee': {
+      title: 'Pražená káva',
+      desc: 'Hotové produkty s profesionálními profily pražení.',
+      scoreLine: null,
+      qualityBandCaption: null,
+    },
+  },
+  portfolioDetail: portfolioDetailByLocale.cs,
+  portfolioEmpty: 'K této kategorii zatím nejsou přiřazeny žádné produkty. Seznam bude brzy aktualizován.',
+  missionTitle: 'Naše mise',
+  missionBody:
+    'Naší misí je přinášet kávové dědictví Jižní Ameriky profesionálním kupcům prostřednictvím transparentního sourcingu a měřitelné kvality. Budujeme dlouhodobá partnerství s producenty a klademe důraz na důvěru, udržitelnost a respekt.',
+  missionPillars: ['Vášeň', 'Kvalita', 'Důvěra', 'Udržitelnost'],
+};
+const it: HomeExtendedShape = {
+  storyEyebrow: 'Oltre 20 anni',
+  storySectionTitle: 'La nostra storia',
+  storyLead: 'Tradizione, origine e qualità — dalla fonte all’Europa.',
+  storyParagraphs: [
+    'Los Andes Europe GmbH collega origine e mercato con relazioni dirette con i produttori, sourcing trasparente e qualità senza compromessi. Le nostre radici sono in Sudamerica — la nostra capacità di consegna è in Europa.',
+    'Oggi forniamo partite prevedibili e coerenti per professionisti con sourcing in Venezuela, operazioni commerciali regionali e logistica in tutta Europa.',
+  ],
+  storyHighlights: [
+    'Esperienza diretta su tutta la filiera',
+    'Radici solide in Sudamerica',
+    'Struttura commerciale e logistica affidabile in Europa',
+  ],
+  storyNote: {
+    title: 'Nota del brand',
+    body: 'Per noi il caffè non è solo un prodotto — è eredità, passione e stile di vita.',
+  },
+  storyImageAlt: 'Piantagione di caffè e raccolta',
+  storyAboutCtaLabel: 'Leggi la storia completa dell’origine in Venezuela',
+  storyWhoWeAreCtaLabel: 'Chi siamo',
+  stats: [
+    { value: '20+', label: 'Anni di esperienza' },
+    { value: '3', label: 'Regioni chiave' },
+    { value: '50+', label: 'Partner produttori' },
+    { value: 'UE', label: 'Rete logistica' },
+  ],
+  regionsTitle: 'Le nostre regioni',
+  regionsSubtitle: 'Presenza globale, competenza locale',
+  regions: [
+    {
+      title: 'Venezuela — produzione & sourcing',
+      body: 'Geografia e clima del Venezuela consentono un caffè eccezionale. Lavoriamo direttamente con famiglie di produttori.',
+      bullets: [
+        'Relazioni commerciali dirette',
+        'Pratiche sostenibili',
+        'Sostegno alle comunità',
+        'Tracciabilità dei microlot',
+      ],
+    },
+    {
+      title: 'Europa — logistica & servizio',
+      body: 'Il nostro hub europeo e la rete di distribuzione garantiscono forniture affidabili su tutto il continente.',
+      bullets: ['Logistica centrale', 'Distribuzione paneuropea', 'Supporto professionale', 'Garanzia di qualità'],
+    },
+    {
+      title: 'Turchia, Medio Oriente e Golfo — commerciale',
+      body: 'I nostri uffici in questa regione strategica offrono soluzioni su misura e risposta rapida alle esigenze dei clienti.',
+      bullets: [
+        'Competenza di mercato regionale',
+        'Soluzioni personalizzate',
+        'Logistica rapida',
+        'Assistenza clienti locale',
+      ],
+    },
+  ],
+  qualityProcessTitle: 'Il nostro processo di qualità',
+  qualityProcessSubtitle: 'Eccellenza in ogni fase',
+  processSteps: [
+    {
+      title: 'Selezione delle parcelle',
+      desc: 'Prima del raccolto il nostro team visita le aziende per selezionare le migliori parcelle — valuta microclima, suolo e storia.',
+    },
+    {
+      title: 'Fermentazione',
+      desc: 'La fermentazione plasma il carattere del caffè. Monitoriamo ogni lotto per profili aromatici ottimali.',
+    },
+    {
+      title: 'Essiccazione',
+      desc: 'Essiccazione controllata con metodi tradizionali per raggiungere l’umidità ideale ed evitare difetti.',
+    },
+    {
+      title: 'Selezione',
+      desc: 'Nella fase finale i chicchi sono accuratamente selezionati a mano perché solo il massimo standard arrivi alla tazza.',
+    },
+  ],
+  portfolioSectionTitle: 'Il nostro portfolio prodotti',
+  portfolioSectionSubtitle: 'Soluzioni per ogni esigenza',
+  portfolioQualityFallbackNote:
+    'Questo segmento non ha una fascia cup fissa sulla card home; l’offerta dipende dal progetto o dalla categoria.',
+  portfolioExploreCta: 'Scopri →',
+  portfolioQualityTierName: {
+    'competition-lot': 'Premium',
+    'micro-lot': 'Premium',
+    specialty: 'Alta',
+    'specialty-blend': 'Alta',
+    'commercial-lot': 'Standard',
+    'roasted-coffee': 'Pronto per lo scaffale',
+  },
+  portfolioTopSegmentRibbon: 'Segmento top',
+  portfolioCategories: {
+    'competition-lot': {
+      title: 'Lotto da competizione',
+      desc: 'Lotti top con punteggi cup elevati e valore da collezione.',
+      scoreLine: 'Cupping 90+',
+      qualityBandCaption:
+        'Sulla scala cup 80–100 la soglia è in alto. Punteggi tipici per questo segmento: 90+.',
+    },
+    'micro-lot': {
+      title: 'Microlot',
+      desc: 'Caffè limitati da micro-parcelle selezionate.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'La barra riflette la fascia medio-alta della scala 80–100. Intervallo tipico microlot: 84–89.',
+    },
+    specialty: {
+      title: 'Specialty',
+      desc: 'Linee Arabica premium selezionate.',
+      scoreLine: 'Cupping 84–86',
+      qualityBandCaption:
+        'La barra riflette il segmento specialty stabile sulla scala 80–100. Intervallo cup tipico dei lotti in questa pagina: 84–86.',
+    },
+    'specialty-blend': {
+      title: 'Blend specialty',
+      desc: 'Blend esperti per profili equilibrati.',
+      scoreLine: 'Cupping 84–89',
+      qualityBandCaption:
+        'I nostri blend di solito cupano nella fascia microlot. Sulla scala 80–100 intervallo tipico: 84–89.',
+    },
+    'commercial-lot': {
+      title: 'Lotto commerciale',
+      desc: 'Linea commerciale per volume e qualità costante.',
+      scoreLine: 'Cupping 80–82',
+      qualityBandCaption:
+        'La barra rappresenta il segmento commerciale verde di ingresso sulla scala 80–100. Fascia cup tipica: 80–82.',
+    },
+    'roasted-coffee': {
+      title: 'Caffè tostato',
+      desc: 'Prodotti pronti con profili di tostatura professionali.',
+      scoreLine: null,
+      qualityBandCaption: null,
+    },
+  },
+  portfolioDetail: portfolioDetailByLocale.it,
+  portfolioEmpty: 'Nessun prodotto è ancora associato a questa categoria. L’elenco sarà aggiornato a breve.',
+  missionTitle: 'La nostra missione',
+  missionBody:
+    'La nostra missione è portare l’eredità del caffè sudamericano ai buyer professionali attraverso sourcing trasparente e qualità misurabile. Costruiamo partnership a lungo termine con i produttori e mettiamo al centro fiducia, sostenibilità e rispetto.',
+  missionPillars: ['Passione', 'Qualità', 'Fiducia', 'Sostenibilità'],
 };
 
 const fr: HomeExtendedShape = {
@@ -527,9 +1084,9 @@ const fr: HomeExtendedShape = {
     specialty: {
       title: 'Specialty',
       desc: 'Séries Arabica premium sélectionnées.',
-      scoreLine: 'Cupping 80–83',
+      scoreLine: 'Cupping 84–86',
       qualityBandCaption:
-        'La barre indique le bandeau specialty coffee sur l’échelle 80–100. Plage typique : 80–83.',
+        'La barre reflète la ligne specialty stabil premium sur l’échelle 80–100. Plage cupping typique des lots de cette page : 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
@@ -541,9 +1098,9 @@ const fr: HomeExtendedShape = {
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Ligne commerciale pour volume et constance.',
-      scoreLine: 'Cupping 70–79',
+      scoreLine: 'Cupping 80–82',
       qualityBandCaption:
-        'La barre représente le segment commercial sur l’échelle 80–100. Bande cupping typique : 70–79.',
+        'La barre représente le segment commercial vert de base sur l’échelle 80–100. Bande cupping typique : 80–82.',
     },
     'roasted-coffee': {
       title: 'Roasted coffee',
@@ -657,9 +1214,9 @@ const es: HomeExtendedShape = {
     specialty: {
       title: 'Specialty',
       desc: 'Líneas Arabica premium seleccionadas.',
-      scoreLine: 'Cupping 80–83',
+      scoreLine: 'Cupping 84–86',
       qualityBandCaption:
-        'La barra muestra la banda de specialty coffee en la escala 80–100. Rango típico: 80–83.',
+        'La barra refleja la línea specialty stabil premium en la escala 80–100. Banda cupping típica de los lotes de esta página: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
@@ -671,9 +1228,9 @@ const es: HomeExtendedShape = {
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Línea comercial para volumen y constancia.',
-      scoreLine: 'Cupping 70–79',
+      scoreLine: 'Cupping 80–82',
       qualityBandCaption:
-        'La barra representa el segmento comercial en la escala 80–100. Banda cupping típica: 70–79.',
+        'La barra representa el segmento comercial de café verde de entrada en la escala 80–100. Banda cupping típica: 80–82.',
     },
     'roasted-coffee': {
       title: 'Roasted coffee',
@@ -696,4 +1253,8 @@ export const homeExtendedByLocale: Record<Locale, HomeExtendedShape> = {
   en,
   fr,
   es,
+  nl,
+  pl,
+  cs,
+  it,
 };

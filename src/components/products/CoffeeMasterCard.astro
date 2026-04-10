@@ -11,7 +11,6 @@ interface Props {
   item: VenezuelaCoffeeMasterItem;
   locale: Locale;
   slug: string;
-  /** Verilirse kart rozetinde `item.cupping_score` yerine bu metin (ör. portföy kategori bandı). */
   cuppingBadge?: string | null;
 }
 
@@ -24,6 +23,10 @@ const labelByLocale: Record<Locale, { producer: string; farm: string; imageAlt: 
   en: { producer: 'Producer', farm: 'Farm', imageAlt: 'premium coffee beans from Venezuela' },
   fr: { producer: 'Producteur', farm: 'Ferme', imageAlt: 'grains de cafe premium du Venezuela' },
   es: { producer: 'Productor', farm: 'Finca', imageAlt: 'granos de cafe premium de Venezuela' },
+  nl: { producer: 'Producent', farm: 'Plantage', imageAlt: 'premium koffiebonen uit Venezuela' },
+  pl: { producer: 'Producent', farm: 'Farma', imageAlt: 'premium ziarna kawy z Wenezueli' },
+  cs: { producer: 'Pěstitel', farm: 'Farma', imageAlt: 'prémiová kávová zrna z Venezuely' },
+  it: { producer: 'Produttore', farm: 'Fattoria', imageAlt: 'chicchi di caffè premium dal Venezuela' },
 };
 ---
 
