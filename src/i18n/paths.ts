@@ -14,7 +14,7 @@ export function homeSection(locale: string | undefined | null, hash: string): st
 }
 
 export function stripLocaleFromPath(pathname: string): string {
-  const m = pathname.match(/^\/(tr|de|en|fr|es)(\/.*)?$/);
+  const m = pathname.match(/^\/(tr|de|en|fr|es|nl|pl|cs|it)(\/.*)?$/);
   if (m) return m[2] && m[2].length > 0 ? m[2] : '/';
   return pathname || '/';
 }

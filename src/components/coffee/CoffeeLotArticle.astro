@@ -23,7 +23,18 @@ const { lot, relatedLots, locale } = Astro.props;
   <TechnicalGrid lot={lot} locale={locale} />
   {lot.slug === 'espresso-crema' && <RetailEspressoBrewingGuide locale={locale} />}
   <BuyerUseCases lot={lot} locale={locale} />
-  {lot.farmMapQuery && <FarmMap lot={lot} locale={locale} />}
+  {lot.farmMapQuery && (
+    <FarmMap
+      lot={{
+        farmMapQuery: lot.farmMapQuery,
+        farm: lot.farm,
+        region: lot.region,
+        country: lot.country,
+        farmCategory: lot.farmCategory,
+      }}
+      locale={locale}
+    />
+  )}
   <CoffeeCTA lotName={lot.name} locale={locale} />
   <RelatedLots relatedLots={relatedLots} locale={locale} />
 </article>

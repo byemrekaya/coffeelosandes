@@ -39,6 +39,12 @@ export interface CoffeeLot {
   tastingStructured?: TastingStructuredRow[];
 }
 
+/** Minimal fields passed to FarmMap.astro (from a coffee lot or master catalogue row). */
+export type FarmMapLotInput = Pick<CoffeeLot, 'farm' | 'region' | 'country'> & {
+  farmMapQuery: string;
+  farmCategory?: string;
+};
+
 const DEFAULT_ALT = '≥ 1.630 m';
 const DEFAULT_MOIST = '9,3–12,5 %';
 const DEFAULT_SCREEN = 'Malla 16–18';
@@ -561,6 +567,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmMapQuery: 'Venezuela coffee regions',
   },
   {
     slug: 'mixed-series-82-50',
@@ -594,6 +601,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: DEFAULT_BAG,
+    farmMapQuery: 'Venezuela coffee highlands',
   },
   {
     slug: 'espresso-crema',
@@ -603,7 +611,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     scoreDisplay: '82–84',
     segment: 'retail',
     producer: '',
-    farm: '',
+    farm: 'Los Andes — Mérida',
     variety: 'Colombia27 / Caturra',
     process: 'Washed / Natural',
     region: 'Mérida',
@@ -628,6 +636,7 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
     screenSize: DEFAULT_SCREEN,
     bagSizeKg: '0,5 kg (retail)',
     farmCategory: 'Retail pack',
+    farmMapQuery: 'Mérida, Venezuela',
   },
 ];
 

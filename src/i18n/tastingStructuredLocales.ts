@@ -3,8 +3,7 @@ import type { Locale } from './types';
 
 type NonTr = Exclude<Locale, 'tr'>;
 
-export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStructuredRow[]>> = {
-  en: {
+const tastingStructuredForEnFallback: Record<string, TastingStructuredRow[]> = {
     'geisha-91-54': [
       {
         labelKey: 'dominantNotes',
@@ -286,7 +285,14 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Balanced, fresh and lively, stable',
       },
     ],
-  },
+};
+
+export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStructuredRow[]>> = {
+  en: tastingStructuredForEnFallback,
+  nl: tastingStructuredForEnFallback,
+  pl: tastingStructuredForEnFallback,
+  cs: tastingStructuredForEnFallback,
+  it: tastingStructuredForEnFallback,
   de: {
     'geisha-91-54': [
       {

@@ -1,8 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FarmMap from '../../../components/coffee/FarmMap.astro';
 import CoffeeMasterCard from '../../../components/products/CoffeeMasterCard.astro';
 import MasterTastingSheet from '../../../components/products/MasterTastingSheet.astro';
+import { farmMapLotFromMasterItem } from '../../../data/farmMapFromMaster';
 import { resolveMasterTastingRows } from '../../../i18n/resolveMasterTastingRows';
 import { buildLangSlugStaticPaths } from '../../../i18n/staticPaths';
 import { resolveLocale } from '../../../i18n/config';
@@ -54,6 +56,7 @@ const keyRows = [
 
 const tastingRows = resolveMasterTastingRows(item.slug, locale);
 const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
+const farmMapLot = farmMapLotFromMasterItem(item);
 ---
 
 <BaseLayout locale={locale} title={title} description={description} ogImage={ogImage} ogImageAlt={ogImageAlt}>
@@ -219,6 +222,8 @@ const showDetailsBlock = keyRows.length > 0 || tastingRows.length > 0;
       </div>
     </section>
   )}
+
+  <FarmMap lot={farmMapLot} locale={locale} />
 
   {related.length > 0 && (
     <section class="section-band-a border-t border-line/60 py-16 md:py-20">

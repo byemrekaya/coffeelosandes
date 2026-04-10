@@ -17,6 +17,53 @@ export type RetailEspressoGuideCopy = {
   steps: RetailEspressoGuideStep[];
 };
 
+const retailEspressoGuideEnglish: RetailEspressoGuideCopy = {
+  eyebrow: 'Espresso',
+  title: 'Espresso brewing guide',
+  subtitle: 'Tips for a great espresso',
+  recipeIntro: 'Perfect espresso recipe',
+  imageAlt: 'Espresso preparation instructions',
+  imageSrc: '/espresso-brewing-guide.svg',
+  steps: [
+    {
+      icon: '⚖️',
+      title: 'Dose',
+      desc: 'Add 7.0 g ground coffee to the portafilter',
+      value: '7.0 g',
+    },
+    {
+      icon: '🔧',
+      title: 'Tamping pressure',
+      desc: 'Tamp evenly with 20 kg pressure',
+      value: '20 kg',
+    },
+    {
+      icon: '🌡️',
+      title: 'Water temperature',
+      desc: 'Optimal brewing temperature',
+      value: '90°/95°',
+    },
+    {
+      icon: '💨',
+      title: 'Pressure',
+      desc: 'Extract at 9 bar',
+      value: '9 bar',
+    },
+    {
+      icon: '⏱️',
+      title: 'Shot time',
+      desc: 'Extract for 25 seconds',
+      value: '25 s',
+    },
+    {
+      icon: '☕',
+      title: 'Espresso volume',
+      desc: 'Aim for 25–30 ml (0.85–1.18 oz)',
+      value: '25/30 ml',
+    },
+  ],
+};
+
 export const retailEspressoGuideByLocale: Record<Locale, RetailEspressoGuideCopy> = {
   tr: {
     eyebrow: 'Espresso',
@@ -110,52 +157,7 @@ export const retailEspressoGuideByLocale: Record<Locale, RetailEspressoGuideCopy
       },
     ],
   },
-  en: {
-    eyebrow: 'Espresso',
-    title: 'Espresso brewing guide',
-    subtitle: 'Tips for a great espresso',
-    recipeIntro: 'Perfect espresso recipe',
-    imageAlt: 'Espresso preparation instructions',
-    imageSrc: '/espresso-brewing-guide.svg',
-    steps: [
-      {
-        icon: '⚖️',
-        title: 'Dose',
-        desc: 'Add 7.0 g ground coffee to the portafilter',
-        value: '7.0 g',
-      },
-      {
-        icon: '🔧',
-        title: 'Tamping pressure',
-        desc: 'Tamp evenly with 20 kg pressure',
-        value: '20 kg',
-      },
-      {
-        icon: '🌡️',
-        title: 'Water temperature',
-        desc: 'Optimal brewing temperature',
-        value: '90°/95°',
-      },
-      {
-        icon: '💨',
-        title: 'Pressure',
-        desc: 'Extract at 9 bar',
-        value: '9 bar',
-      },
-      {
-        icon: '⏱️',
-        title: 'Shot time',
-        desc: 'Extract for 25 seconds',
-        value: '25 s',
-      },
-      {
-        icon: '☕',
-        title: 'Espresso volume',
-        desc: 'Aim for 25–30 ml (0.85–1.18 oz)',
-        value: '25/30 ml',
-      },
-    ],
-  },
+  en: retailEspressoGuideEnglish,
   fr: {
     eyebrow: 'Espresso',
     title: 'Guide de préparation espresso',
@@ -248,4 +250,8 @@ export const retailEspressoGuideByLocale: Record<Locale, RetailEspressoGuideCopy
       },
     ],
   },
+  nl: retailEspressoGuideEnglish,
+  pl: retailEspressoGuideEnglish,
+  cs: retailEspressoGuideEnglish,
+  it: retailEspressoGuideEnglish,
 };

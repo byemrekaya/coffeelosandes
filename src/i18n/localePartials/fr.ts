@@ -1,11 +1,12 @@
 import type { Dict } from './types';
+import { SITE_LOCALE_LABELS } from '../langLabels';
 import { homeExtendedByLocale } from '../homeExtended';
 import { frAbout } from './fr-about';
 import { frMasterTastingBySlug } from './fr-masterTasting';
 
 export const frPartial: Dict = {
   htmlLang: 'fr',
-  lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
+  lang: SITE_LOCALE_LABELS,
   homeExtended: homeExtendedByLocale.fr,
   nav: {
     home: 'Accueil',
@@ -45,7 +46,7 @@ export const frPartial: Dict = {
     flowStep3Title: 'Stockage en Europe',
     flowStep3Body: 'Dédouanement, entreposage et suivi qualité.',
     flowStep4Title: 'Vers votre torréfaction',
-    flowStep4Body: 'Livraison en sacs de 69 kg, manutention soignée.',
+    flowStep4Body: 'Livraison en bolses, manutention soignée.',
     bannerVideoAria: 'Vidéo de fond : ferme caféière et paysage Coffee Los Andes',
     heroLogoAlt: 'Logo Coffee Los Andes',
     lotDetail: 'Détails du lot',
@@ -413,7 +414,7 @@ export const frPartial: Dict = {
     heroTitle: 'Confidentialité & données personnelles',
     controllerTitle: 'Responsable du traitement',
     controllerBody:
-      'Responsable au sens du RGPD pour les traitements sur ce site : Proteam Handels GmbH. Demandes : info@losandeseurope.de.',
+      'Responsable au sens du RGPD pour les traitements sur ce site : Losandes Europe GmbH i.G. Demandes : info@losandeseurope.de.',
     hostingTitle: 'Hébergement & diffusion (Cloudflare Pages)',
     hostingBody:
       'Ce site est hébergé sur Cloudflare Pages et diffusé via CDN. Des données de connexion peuvent être traitées pour la mise à disposition, la sécurité et les performances (ex. IP, horodatage, URL, user-agent, référent).',
@@ -444,6 +445,7 @@ export const frPartial: Dict = {
     strategyDesignIntro: 'Conception et développement du site par :',
     developerName: 'Emre Kaya',
     strategyDesignLinkedInAria: 'Emre Kaya sur LinkedIn',
+    labelCompanyOwner: 'Titulaire :',
     labelSeat: 'Siège social :',
     labelHrb: 'Registre du commerce :',
     labelVatId: 'N° TVA (USt-IdNr.) :',

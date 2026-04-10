@@ -20,6 +20,5 @@ export function t(locale: Locale | string | undefined, key: string): string {
   const bundle = dictionary[loc] ?? dictionary[defaultLocale];
   const fromLocale = getDeep(bundle, key);
   if (fromLocale) return fromLocale;
-  const fallback = getDeep(dictionary[defaultLocale], key);
-  return fallback ?? key;
+  return getDeep(dictionary[defaultLocale], key) ?? key;
 }

@@ -1,9 +1,14 @@
 import { deepMergeDict } from './mergeDict';
+import { SITE_LOCALE_LABELS } from './langLabels';
 import { homeExtendedByLocale } from './homeExtended';
 import { deMasterTastingBySlug } from './localePartials/de-masterTasting';
 import { enPartial } from './localePartials/en';
 import { frPartial } from './localePartials/fr';
 import { esPartial } from './localePartials/es';
+import { plPartial } from './localePartials/pl';
+import { nlPartial } from './localePartials/nl';
+import { csPartial } from './localePartials/cs';
+import { itPartial } from './localePartials/it';
 
 type Dict = Record<string, unknown>;
 
@@ -30,7 +35,7 @@ const trDict: Dict = {
       drawerHeading: 'Menü',
     },
     homeExtended: homeExtendedByLocale.tr,
-    lang: { tr: 'TR', de: 'DE' },
+    lang: SITE_LOCALE_LABELS,
     home: {
       title: 'Coffee Los Andes – Andların yükseklerinden lezzet | Venezuela',
       description:
@@ -49,7 +54,7 @@ const trDict: Dict = {
       flowStep3Title: 'Avrupa depolama',
       flowStep3Body: 'Gümrük süreçleri tamamlanır, depolama ve kalite takibi yapılır.',
       flowStep4Title: 'Kavurma tesisinize',
-      flowStep4Body: '69 kg çuvallarla özenli ve planlı teslimat.',
+      flowStep4Body: 'çuvallarla özenli ve planlı teslimat.',
       lotDetail: 'Lot detayı',
       coffeesSectionTitle: 'Kahvelerimiz',
       coffeesSectionIntro:
@@ -571,7 +576,7 @@ const trDict: Dict = {
       heroTitle: 'Gizlilik ve kişisel veriler',
       controllerTitle: 'Veri sorumlusu',
       controllerBody:
-        'İşbu internet sitesinde gerçekleştirilen kişisel veri işleme faaliyetlerinden Proteam Handels GmbH, GDPR anlamında veri sorumlusu sıfatıyla sorumludur. Veri koruma kapsamındaki başvurularınızı info@losandeseurope.de adresine iletebilirsiniz.',
+        'İşbu internet sitesinde gerçekleştirilen kişisel veri işleme faaliyetlerinden Losandes Europe GmbH i.G., GDPR anlamında veri sorumlusu sıfatıyla sorumludur. Veri koruma kapsamındaki başvurularınızı info@losandeseurope.de adresine iletebilirsiniz.',
       hostingTitle: 'Hosting ve içerik dağıtımı (Cloudflare Pages)',
       hostingBody:
         'Web sitesi, Cloudflare Pages altyapısı üzerinden barındırılır ve içerik dağıtımı CDN aracılığıyla sağlanır. Hizmetin teknik olarak sunulması, sistem güvenliğinin temini ve performansın izlenmesi amacıyla bağlantı/erişim logları (ör. IP adresi, istek zamanı, URL, user-agent, referrer) işlenebilir.',
@@ -602,6 +607,7 @@ const trDict: Dict = {
       strategyDesignIntro: 'Web sitesinin konsepsiyonu ve geliştirilmesi:',
       developerName: 'Emre Kaya',
       strategyDesignLinkedInAria: 'Emre Kaya – LinkedIn profili',
+      labelCompanyOwner: 'Şirket sahibi:',
       labelSeat: 'Sitz:',
       labelHrb: 'Handelsregister:',
       labelVatId: 'USt-IdNr.:',
@@ -642,7 +648,7 @@ const deDict: Dict = {
       drawerHeading: 'Menü',
     },
     homeExtended: homeExtendedByLocale.de,
-    lang: { tr: 'TR', de: 'DE' },
+    lang: SITE_LOCALE_LABELS,
     home: {
       title: 'Coffee Los Andes – Geschmack aus den Höhen der Anden | Venezuela',
       description:
@@ -661,7 +667,7 @@ const deDict: Dict = {
       flowStep3Title: 'Storage in Europe',
       flowStep3Body: 'Customs cleared, warehoused and quality monitored.',
       flowStep4Title: 'To your roastery',
-      flowStep4Body: 'Delivered in 69 kg bags, handled with care.',
+      flowStep4Body: 'Delivered in a bags, handled with care.',
       lotDetail: 'Lot-Details',
       coffeesSectionTitle: 'Unsere Kaffees',
       coffeesSectionIntro:
@@ -1175,7 +1181,7 @@ const deDict: Dict = {
       heroTitle: 'Datenschutz & personenbezogene Daten',
       controllerTitle: 'Verantwortliche Stelle',
       controllerBody:
-        'Verantwortliche Stelle im Sinne der DSGVO für die auf dieser Website vorgenommenen Verarbeitungen personenbezogener Daten ist die Proteam Handels GmbH. Datenschutzanfragen können an info@losandeseurope.de gerichtet werden.',
+        'Verantwortliche Stelle im Sinne der DSGVO für die auf dieser Website vorgenommenen Verarbeitungen personenbezogener Daten ist die Losandes Europe GmbH i.G. Datenschutzanfragen können an info@losandeseurope.de gerichtet werden.',
       hostingTitle: 'Hosting & Content Delivery (Cloudflare Pages)',
       hostingBody:
         'Diese Website wird über Cloudflare Pages gehostet und über ein CDN ausgeliefert. Zur technischen Bereitstellung, Gewährleistung der Systemsicherheit und Leistungsüberwachung können Verbindungs- und Zugriffsdaten verarbeitet werden (z. B. IP-Adresse, Zeitpunkt, URL, User-Agent, Referrer).',
@@ -1206,6 +1212,7 @@ const deDict: Dict = {
       strategyDesignIntro: 'Konzeption und Entwicklung der Website durch:',
       developerName: 'Emre Kaya',
       strategyDesignLinkedInAria: 'Emre Kaya auf LinkedIn',
+      labelCompanyOwner: 'Inhaberin:',
       labelSeat: 'Sitz:',
       labelHrb: 'Handelsregister:',
       labelVatId: 'USt-IdNr.:',
@@ -1223,10 +1230,16 @@ const deDict: Dict = {
     },
 };
 
+const enBundle = deepMergeDict(deDict, enPartial);
+
 export const dictionary: Record<string, Dict> = {
   tr: trDict,
   de: deDict,
-  en: deepMergeDict(deDict, enPartial),
+  en: enBundle,
   fr: deepMergeDict(deDict, frPartial),
   es: deepMergeDict(deDict, esPartial),
+  nl: deepMergeDict(deDict, nlPartial),
+  pl: deepMergeDict(deDict, plPartial),
+  cs: deepMergeDict(deDict, csPartial),
+  it: deepMergeDict(deDict, itPartial),
 };

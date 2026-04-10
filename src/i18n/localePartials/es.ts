@@ -1,11 +1,12 @@
 import type { Dict } from './types';
+import { SITE_LOCALE_LABELS } from '../langLabels';
 import { homeExtendedByLocale } from '../homeExtended';
 import { esAbout } from './es-about';
 import { esMasterTastingBySlug } from './es-masterTasting';
 
 export const esPartial: Dict = {
   htmlLang: 'es',
-  lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
+  lang: SITE_LOCALE_LABELS,
   homeExtended: homeExtendedByLocale.es,
   nav: {
     home: 'Inicio',
@@ -45,25 +46,9 @@ export const esPartial: Dict = {
     flowStep3Title: 'Almacenaje en Europa',
     flowStep3Body: 'Desaduanado, almacenaje y seguimiento de calidad.',
     flowStep4Title: 'A su tostaduría',
-    flowStep4Body: 'Entrega en sacos de 69 kg, manipulación cuidadosa.',
+    flowStep4Body: 'Entrega en bolsas, manipulación cuidadosa.',
     bannerVideoAria: 'Vídeo de fondo: finca cafetera y paisaje Coffee Los Andes',
     heroLogoAlt: 'Logo Coffee Los Andes',
-    lotDetail: 'Detalle del lote',
-    coffeesSectionTitle: 'Nuestros cafés',
-    coffeesSectionIntro:
-      'Lotes de café verde: puntuación, proceso y origen en cada página bajo /coffees/…. Filtre todos los segmentos aquí.',
-    coffeesCtaAll: 'Ver todos los cafés',
-    awardedSectionTitle: 'Lotes premiados',
-    awardedSectionIntro:
-      'Nuestros lotes premiados y seleccionados: desde competition y micro lotes premium hasta especialidad y blends signature.',
-    awardedCtaAll: 'Ver todos los lotes premiados',
-    productsSectionTitle: 'Nuestros productos',
-    productsSectionIntro:
-      'Portafolio B2B Venezuela Coffee Master: fichas por segmento y posicionamiento mayorista — el listado completo en /products.',
-    productsCtaAll: 'Ver todos los productos',
-    qualitySectionTitle: 'Calidad y certificados',
-    qualitySectionIntro:
-      'Análisis de laboratorio SGS, evaluaciones Q Arabica Grader y certificados INSAI — detalles en la página de calidad.',
     b2bCtaEyebrow: 'B2B · Coffee Los Andes',
     b2bCtaTitle: 'Solicite presupuesto para lotes venezolanos',
     b2bCtaBody:
@@ -412,7 +397,7 @@ export const esPartial: Dict = {
     heroTitle: 'Privacidad y datos personales',
     controllerTitle: 'Responsable del tratamiento',
     controllerBody:
-      'Responsable según el RGPD para el tratamiento en este sitio: Proteam Handels GmbH. Consultas de privacidad: info@losandeseurope.de.',
+      'Responsable según el RGPD para el tratamiento en este sitio: Losandes Europe GmbH i.G. Consultas de privacidad: info@losandeseurope.de.',
     hostingTitle: 'Alojamiento y entrega (Cloudflare Pages)',
     hostingBody:
       'Este sitio está alojado en Cloudflare Pages y se entrega vía CDN. Pueden tratarse datos de conexión para prestación, seguridad y rendimiento (p. ej. IP, hora, URL, user-agent, referrer).',
@@ -443,6 +428,7 @@ export const esPartial: Dict = {
     strategyDesignIntro: 'Conceptualización y desarrollo del sitio web por:',
     developerName: 'Emre Kaya',
     strategyDesignLinkedInAria: 'Emre Kaya en LinkedIn',
+    labelCompanyOwner: 'Titular:',
     labelSeat: 'Sede social :',
     labelHrb: 'Registro mercantil :',
     labelVatId: 'NIF-IVA (USt-IdNr.) :',

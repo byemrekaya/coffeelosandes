@@ -1,11 +1,12 @@
 import type { Dict } from './types';
+import { SITE_LOCALE_LABELS } from '../langLabels';
 import { homeExtendedByLocale } from '../homeExtended';
 import { enAbout } from './en-about';
 import { enMasterTastingBySlug } from './en-masterTasting';
 
 export const enPartial: Dict = {
   htmlLang: 'en',
-  lang: { tr: 'TR', de: 'DE', en: 'EN', fr: 'FR', es: 'ES' },
+  lang: SITE_LOCALE_LABELS,
   homeExtended: homeExtendedByLocale.en,
   nav: {
     home: 'Home',
@@ -45,7 +46,7 @@ export const enPartial: Dict = {
     flowStep3Title: 'Storage in Europe',
     flowStep3Body: 'Customs cleared, warehoused and quality monitored.',
     flowStep4Title: 'To your roastery',
-    flowStep4Body: 'Delivered in 69 kg bags, handled with care.',
+    flowStep4Body: 'Delivered in a bags, handled with care.',
     bannerVideoAria: 'Background video: coffee farm and Coffee Los Andes landscape',
     heroLogoAlt: 'Coffee Los Andes logo',
     lotDetail: 'Lot details',
@@ -166,7 +167,7 @@ export const enPartial: Dict = {
     segmentBaristaTitle: 'Signature blends',
     segmentBaristaDesc: 'Balanced blend for stable espresso performance — barista blend.',
     segmentCommercialTitle: 'Commercial line',
-    segmentCommercialDesc: 'Price-optimised Arabica for high volume; cupping band 70–79.',
+    segmentCommercialDesc: 'Price-optimised Arabica for high volume; catalogue commercial band typically 80–82.',
     segmentRetailTitle: 'Retail coffee',
     segmentRetailDesc: 'Roasted packs — ground and whole bean to follow.',
     segmentRoastedTitle: 'Roasted coffee (packs)',
@@ -411,7 +412,7 @@ export const enPartial: Dict = {
     heroTitle: 'Privacy & personal data',
     controllerTitle: 'Controller',
     controllerBody:
-      'Controller under GDPR for processing on this website is Proteam Handels GmbH. Privacy requests: info@losandeseurope.de.',
+      'Controller under GDPR for processing on this website is Losandes Europe GmbH i.G. Privacy requests: info@losandeseurope.de.',
     hostingTitle: 'Hosting & content delivery (Cloudflare Pages)',
     hostingBody:
       'This site is hosted on Cloudflare Pages and delivered via CDN. Connection and access data may be processed for provision, security and performance (e.g. IP, time, URL, user-agent, referrer).',
@@ -442,6 +443,7 @@ export const enPartial: Dict = {
     strategyDesignIntro: 'Concept and development of this website by:',
     developerName: 'Emre Kaya',
     strategyDesignLinkedInAria: 'Emre Kaya on LinkedIn',
+    labelCompanyOwner: 'Company owner:',
     labelSeat: 'Registered seat:',
     labelHrb: 'Commercial register:',
     labelVatId: 'VAT ID (USt-IdNr.):',

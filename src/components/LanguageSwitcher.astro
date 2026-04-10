@@ -2,6 +2,8 @@
 import type { Locale } from '../i18n/types';
 import { locales } from '../i18n/types';
 import { switchLocalePath } from '../i18n/paths';
+import { SITE_LOCALE_LABELS } from '../i18n/langLabels';
+import LocaleFlag from './LocaleFlag.astro';
 
 interface Props {
   locale: Locale;
@@ -11,14 +13,6 @@ interface Props {
 
 const { locale, variant = 'default', dropdownAlign = 'right' } = Astro.props;
 const pathname = Astro.url.pathname;
-
-const localeMeta: Record<Locale, { flag: string; label: string }> = {
-  tr: { flag: '🇹🇷', label: 'TR' },
-  de: { flag: '🇩🇪', label: 'DE' },
-  en: { flag: '🇬🇧', label: 'EN' },
-  fr: { flag: '🇫🇷', label: 'FR' },
-  es: { flag: '🇪🇸', label: 'ES' },
-};
 
 const triggerClass =
   variant === 'dark'
@@ -44,8 +38,8 @@ const itemClass =
     ]}
     aria-label="Language switcher"
   >
-    <span class="text-sm leading-none">{localeMeta[locale].flag}</span>
-    <span>{localeMeta[locale].label}</span>
+    <LocaleFlag locale={locale} class="h-3.5 w-[1.15rem]" />
+    <span>{SITE_LOCALE_LABELS[locale]}</span>
   </summary>
 
   <div
@@ -69,8 +63,8 @@ const itemClass =
           ]}
           aria-current={active ? 'true' : undefined}
         >
-          <span class="text-base leading-none">{localeMeta[code].flag}</span>
-          <span>{localeMeta[code].label}</span>
+          <LocaleFlag locale={code} class="h-4 w-[1.25rem]" />
+          <span>{SITE_LOCALE_LABELS[code]}</span>
         </a>
       );
     })}

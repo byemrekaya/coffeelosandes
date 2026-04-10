@@ -37,21 +37,31 @@ const developerLinkedInUrl = 'https://www.linkedin.com/in/emre-kaya-/';
         <p>{officeAddress}</p>
         <div class="mt-5 space-y-2 border-t border-line/60 pt-5">
           <p>
+            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelCompanyOwner')}</span>{' '}
+            {site.companyOwner}
+          </p>
+          <p>
             <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelSeat')}</span>{' '}
             {site.legalSeat}
           </p>
-          <p>
-            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelHrb')}</span>{' '}
-            {site.commercialRegisterHrb}
-          </p>
-          <p>
-            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelVatId')}</span>{' '}
-            {site.vatId}
-          </p>
-          <p>
-            <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelEori')}</span>{' '}
-            {site.eoriNumber}
-          </p>
+          {site.commercialRegisterHrb ? (
+            <p>
+              <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelHrb')}</span>{' '}
+              {site.commercialRegisterHrb}
+            </p>
+          ) : null}
+          {site.vatId ? (
+            <p>
+              <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelVatId')}</span>{' '}
+              {site.vatId}
+            </p>
+          ) : null}
+          {site.eoriNumber ? (
+            <p>
+              <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelEori')}</span>{' '}
+              {site.eoriNumber}
+            </p>
+          ) : null}
         </div>
       </div>
 

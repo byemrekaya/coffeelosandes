@@ -9,7 +9,6 @@ interface Props {
 const { locale } = Astro.props;
 const copy = retailEspressoGuideByLocale[locale];
 
-/** Öğütme, basınç, süre — vurgulu adımlar; sıcaklık / basınç değer tonları */
 const STEP_LAYOUT = [
   { critical: true, valueTone: 'primary' as const },
   { critical: false, valueTone: 'primary' as const },
