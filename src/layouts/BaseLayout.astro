@@ -93,7 +93,7 @@ const websiteSchema = {
 ---
 
 <!doctype html>
-<html lang={htmlLang} dir={htmlLang === 'ar' ? 'rtl' : 'ltr'}>
+<html lang={htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -162,3 +162,25 @@ const websiteSchema = {
     </script>
   </body>
 </html>
+
+<style is:global>
+  /* Arabic: text flows right-to-left, layout stays left-to-right */
+  :lang(ar) p,
+  :lang(ar) h1,
+  :lang(ar) h2,
+  :lang(ar) h3,
+  :lang(ar) h4,
+  :lang(ar) h5,
+  :lang(ar) h6,
+  :lang(ar) li,
+  :lang(ar) dt,
+  :lang(ar) dd,
+  :lang(ar) blockquote,
+  :lang(ar) label,
+  :lang(ar) td,
+  :lang(ar) th {
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: right;
+  }
+</style>
