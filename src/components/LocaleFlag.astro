@@ -92,9 +92,18 @@ const { locale, class: className = '' } = Astro.props;
   )}
   {locale === 'ar' && (
     <>
+      {/* Saudi Arabia: green field, white shahada text lines + sword */}
       <rect width="36" height="24" fill="#006C35" />
-      <rect width="36" height="8" y="0" fill="#fff" />
-      <rect width="36" height="8" y="16" fill="#fff" />
+      {/* Stylised shahada text (two abstract white lines) */}
+      <rect x="5" y="5.5" width="26" height="1.8" rx="0.8" fill="#fff" />
+      <rect x="7" y="8.2" width="9"  height="1.1" rx="0.5" fill="#fff" />
+      <rect x="20" y="8.2" width="9" height="1.1" rx="0.5" fill="#fff" />
+      {/* Sword blade pointing left */}
+      <path d="M31 11.2 L10 11.2 L10 12.8 L31 12.8 L33.5 12 Z" fill="#fff" />
+      {/* Guard */}
+      <rect x="8.5" y="9.8" width="1.8" height="4.4" rx="0.6" fill="#fff" />
+      {/* Grip */}
+      <rect x="4"   y="11.2" width="4.5" height="1.6" rx="0.5" fill="#fff" />
     </>
   )}
 </svg>
