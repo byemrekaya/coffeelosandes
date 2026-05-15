@@ -287,12 +287,208 @@ const tastingStructuredForEnFallback: Record<string, TastingStructuredRow[]> = {
     ],
 };
 
+const tastingStructuredForRu: Record<string, TastingStructuredRow[]> = {
+  'geisha-91-54': [
+    { labelKey: 'dominantNotes', value: 'Тайский базилик (+), шампанское, амаретто, коньяк' },
+    { labelKey: 'supportingNotes', value: 'Вино, фруктовый коктейль, слива, персик, карамель, кондитерские изделия' },
+    { labelKey: 'bodyFinish', value: 'Какао, крупка какао, тёмный шоколад, миндаль, мятные зелёные пряности' },
+    { labelKey: 'character', value: 'Экзотический, цветочный, высокосложный и чистый' },
+  ],
+  'geisha-el-recreo-91-03': [
+    { labelKey: 'dominantNotes', value: 'Фруктовый чай (+), белые цветы, мёд, жёлтый персик' },
+    { labelKey: 'supportingNotes', value: 'Цветок лимона, мускатный виноград, лёгкая ваниль, лилия' },
+    { labelKey: 'bodyFinish', value: 'Лёгко-среднее тело, шёлковая текстура, долгое цветочное послевкусие, яркая кислотность' },
+    { labelKey: 'character', value: 'Деликатный, цветочный и фруктовый, элегантный' },
+  ],
+  'tabi-90-38': [
+    { labelKey: 'dominantNotes', value: 'Тропические фрукты, цветочные ароматы, мёд, банан' },
+    { labelKey: 'supportingNotes', value: 'Насыщенная сладость, ваниль, карамель, лёгкий шоколад' },
+    { labelKey: 'bodyFinish', value: 'Средне-полное тело, атласная текстура, долгое послевкусие, сбалансированная кислотность' },
+    { labelKey: 'character', value: 'Сложный, сладкий и цветочный, стабильный' },
+  ],
+  'geisha-90-30': [
+    { labelKey: 'dominantNotes', value: 'Абрикос (+), слива, персик, лесные ягоды' },
+    { labelKey: 'supportingNotes', value: 'Коричневый сахар, бренди, коньяк, крупка какао, карамелизованный сахар' },
+    { labelKey: 'bodyFinish', value: 'Кремовое, шёлковое тело, шоколад, какао, сладкое долгое послевкусие' },
+    { labelKey: 'character', value: 'Фруктовый, винный, коричневые пряности, экзотический и сложный' },
+  ],
+  'otra-89-83': [
+    { labelKey: 'dominantNotes', value: 'Бергамот, чёрный чай, персик' },
+    { labelKey: 'sweetness', value: 'Тростниковый сахар, карамель, дульсе де лече' },
+    { labelKey: 'character', value: 'Цитрус, цветок жасмина, миндаль' },
+    { labelKey: 'generalProfile', value: 'Сложный, элегантный, сладкий и деликатно пряный' },
+  ],
+  'villanueva-89-05': [
+    { labelKey: 'dominantNotes', value: 'Карамель, шоколад, фундук, яблоко' },
+    { labelKey: 'supportingNotes', value: 'Фруктовая кислотность, ваниль, миндаль, мёд' },
+    { labelKey: 'bodyFinish', value: 'Среднее тело, гладкая текстура, сладкое послевкусие, сбалансированная кислотность' },
+    { labelKey: 'character', value: 'Сбалансированный, мягкий и округлый, стабильный' },
+  ],
+  'castillo-naranjal-88-83': [
+    { labelKey: 'dominantNotes', value: 'Тёмный шоколад, карамель, фундук, апельсин' },
+    { labelKey: 'supportingNotes', value: 'Фруктовая кислотность, ваниль, патока, лёгкий апельсин' },
+    { labelKey: 'bodyFinish', value: 'Средне-полное тело, кремовая текстура, послевкусие какао, сбалансированная кислотность' },
+    { labelKey: 'character', value: 'Сбалансированный, сложный, стабильный' },
+  ],
+  'monteclaro-88-75': [
+    { labelKey: 'dominantNotes', value: 'Карамель (+), молочный шоколад, миндаль, сушёный инжир' },
+    { labelKey: 'supportingNotes', value: 'Яблоко, виноград, ваниль, лёгкий апельсин' },
+    { labelKey: 'bodyFinish', value: 'Среднее тело, кремовая текстура, послевкусие какао, сбалансированная кислотность' },
+    { labelKey: 'character', value: 'Классический, сбалансированный и округлый, гармония сладкого и горького' },
+  ],
+  'inia-01-88-73': [
+    { labelKey: 'dominantNotes', value: 'Карамель (+), молочный шоколад, миндаль, курага' },
+    { labelKey: 'supportingNotes', value: 'Яблоко, ваниль, лёгкий апельсин, мусковадо' },
+    { labelKey: 'bodyFinish', value: 'Среднее тело, кремовая текстура, послевкусие какао, сбалансированная кислотность' },
+    { labelKey: 'character', value: 'Сбалансированный, округлый и сладкий, стабильный' },
+  ],
+  'bourbon-88-52': [
+    { labelKey: 'dominantNotes', value: 'Ягоды, ферментированные вишни, цветочный' },
+    { labelKey: 'sweetness', value: 'Тростниковый сахар, карамель, тёмный шоколад' },
+    { labelKey: 'character', value: 'Крупка какао, элегантная и сложная структура' },
+    { labelKey: 'note', value: 'Этот кофе структурно сложен; по мере остывания чашки интенсивность меняется и раскрываются слои.' },
+  ],
+  'castillo-las-mesas-84-50': [
+    { labelKey: 'dominantNotes', value: 'Персик, карамель, инжир, изюм' },
+    { labelKey: 'character', value: 'Лёгкий цветочный, макадамия, сладкие ароматы' },
+    { labelKey: 'experience', value: 'Выразительное, хорошо сформированное тело' },
+  ],
+  'caturra-la-cuchilla-83-75': [
+    { labelKey: 'process', value: 'Мойка' },
+    { labelKey: 'dominantNotes', value: 'Кленовый сироп, шоколад, карамель' },
+    { labelKey: 'character', value: 'Пряные тона, персик' },
+    { labelKey: 'experience', value: 'Многослойная, структурированная чашка' },
+  ],
+  'catuai-los-cedros-84': [
+    { labelKey: 'dominantNotes', value: 'Косточковые фрукты, ваниль, слива' },
+    { labelKey: 'acidityBody', value: 'Шёлковое тело, освежающая цитрусовая кислотность' },
+    { labelKey: 'finish', value: 'Долгое послевкусие с глубокими нотами лемонграсса' },
+  ],
+  'dunamix-blend-83-50': [
+    { labelKey: 'dominantNotes', value: 'Карамель, шоколад, мёд, кислая вишня' },
+    { labelKey: 'supportingNotes', value: 'Фруктовая кислотность, ваниль, фундук, апельсин' },
+    { labelKey: 'bodyFinish', value: 'Средне-полное тело, кремовая текстура, сладкое послевкусие, сбалансированная кислотность' },
+    { labelKey: 'character', value: 'Сбалансированный, сложный, стабильный' },
+  ],
+  'mixed-series-82-50': [
+    { labelKey: 'dominantNotes', value: 'Шоколад, карамель, фундук, общий кофейный характер' },
+    { labelKey: 'supportingNotes', value: 'Лёгкие фрукты, ваниль, миндаль, мёд' },
+    { labelKey: 'bodyFinish', value: 'Лёгко-среднее тело, плоская текстура, короткое послевкусие, низкая кислотность' },
+    { labelKey: 'character', value: 'Простой, плоский, для повседневного потребления' },
+  ],
+  'espresso-crema': [
+    { labelKey: 'dominantNotes', value: 'Мёд, карамель, зелёное яблоко, цветочные ароматы' },
+    { labelKey: 'supportingNotes', value: 'Фруктовая кислотность, ваниль, миндаль, лёгкие пряности' },
+    { labelKey: 'bodyFinish', value: 'Среднее тело, гладкая текстура, сладкое послевкусие, живая кислотность' },
+    { labelKey: 'character', value: 'Сбалансированный, свежий и живой, стабильный' },
+  ],
+};
+
+const tastingStructuredForAr: Record<string, TastingStructuredRow[]> = {
+  'geisha-91-54': [
+    { labelKey: 'dominantNotes', value: 'ريحان تايلندي (+)، شمبانيا، أمارتو، كونياك' },
+    { labelKey: 'supportingNotes', value: 'نبيذي، كوكتيل فاكهة، برقوق، خوخ، كراميل، حلويات' },
+    { labelKey: 'bodyFinish', value: 'كاكاو، قطع الكاكاو، شوكولاتة داكنة، لوز، بهارات خضراء نعناعية' },
+    { labelKey: 'character', value: 'غريب، زهري، معقد للغاية ونظيف' },
+  ],
+  'geisha-el-recreo-91-03': [
+    { labelKey: 'dominantNotes', value: 'شاي الفاكهة (+)، زهور بيضاء، عسل، خوخ أصفر' },
+    { labelKey: 'supportingNotes', value: 'زهر الليمون، عنب مسكاتي، فانيليا خفيفة، زنبق' },
+    { labelKey: 'bodyFinish', value: 'جسم خفيف-متوسط، قوام حريري، نهاية زهرية طويلة، حموضة مشرقة' },
+    { labelKey: 'character', value: 'رقيق، زهري وفاكهي، أنيق' },
+  ],
+  'tabi-90-38': [
+    { labelKey: 'dominantNotes', value: 'فواكه استوائية، عطور زهرية، عسل، موز' },
+    { labelKey: 'supportingNotes', value: 'حلاوة مكثفة، فانيليا، كراميل، شوكولاتة خفيفة' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط-ممتلئ، قوام ساتان، نهاية طويلة، حموضة متوازنة' },
+    { labelKey: 'character', value: 'معقد، حلو وزهري، ثابت' },
+  ],
+  'geisha-90-30': [
+    { labelKey: 'dominantNotes', value: 'مشمش (+)، برقوق، خوخ، توت بري' },
+    { labelKey: 'supportingNotes', value: 'سكر بني، براندي، كونياك، قطع الكاكاو، سكر مكرمل' },
+    { labelKey: 'bodyFinish', value: 'جسم كريمي حريري، شوكولاتة، كاكاو، نهاية حلوة طويلة' },
+    { labelKey: 'character', value: 'فاكهي، نبيذي، بهارات بنية، غريب ومعقد' },
+  ],
+  'otra-89-83': [
+    { labelKey: 'dominantNotes', value: 'بيرغاموت، شاي أسود، خوخ' },
+    { labelKey: 'sweetness', value: 'سكر قصب، كراميل، دولسي دي ليتشي' },
+    { labelKey: 'character', value: 'حمضيات، زهر الياسمين، لوز' },
+    { labelKey: 'generalProfile', value: 'معقد، أنيق، حلو وبهاري بلطف' },
+  ],
+  'villanueva-89-05': [
+    { labelKey: 'dominantNotes', value: 'كراميل، شوكولاتة، بندق، تفاح' },
+    { labelKey: 'supportingNotes', value: 'حموضة فاكهية، فانيليا، لوز، عسل' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط، قوام ناعم، نهاية حلوة، حموضة متوازنة' },
+    { labelKey: 'character', value: 'متوازن، ناعم ومدور، ثابت' },
+  ],
+  'castillo-naranjal-88-83': [
+    { labelKey: 'dominantNotes', value: 'شوكولاتة داكنة، كراميل، بندق، برتقال' },
+    { labelKey: 'supportingNotes', value: 'حموضة فاكهية، فانيليا، دبس، برتقال خفيف' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط-ممتلئ، قوام كريمي، نهاية الكاكاو، حموضة متوازنة' },
+    { labelKey: 'character', value: 'متوازن، معقد، ثابت' },
+  ],
+  'monteclaro-88-75': [
+    { labelKey: 'dominantNotes', value: 'كراميل (+)، شوكولاتة الحليب، لوز، تين مجفف' },
+    { labelKey: 'supportingNotes', value: 'تفاح، عنب، فانيليا، برتقال خفيف' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط، قوام كريمي، نهاية الكاكاو، حموضة متوازنة' },
+    { labelKey: 'character', value: 'كلاسيكي، متوازن ومدور، انسجام الحلو والمر' },
+  ],
+  'inia-01-88-73': [
+    { labelKey: 'dominantNotes', value: 'كراميل (+)، شوكولاتة الحليب، لوز، مشمش مجفف' },
+    { labelKey: 'supportingNotes', value: 'تفاح، فانيليا، برتقال خفيف، موسكوفادو' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط، قوام كريمي، نهاية الكاكاو، حموضة متوازنة' },
+    { labelKey: 'character', value: 'متوازن، مدور وحلو، ثابت' },
+  ],
+  'bourbon-88-52': [
+    { labelKey: 'dominantNotes', value: 'توت، كرز مخمر، زهري' },
+    { labelKey: 'sweetness', value: 'سكر قصب، كراميل، شوكولاتة داكنة' },
+    { labelKey: 'character', value: 'قطع الكاكاو، بنية أنيقة ومعقدة' },
+    { labelKey: 'note', value: 'هذه القهوة معقدة هيكلياً؛ مع تبرد الكوب تتحول الشدة وتتكشف الطبقات.' },
+  ],
+  'castillo-las-mesas-84-50': [
+    { labelKey: 'dominantNotes', value: 'خوخ، كراميل، تين، زبيب' },
+    { labelKey: 'character', value: 'زهري خفيف، ماكاداميا، عطور حلوة' },
+    { labelKey: 'experience', value: 'جسم متميز وواضح التعريف' },
+  ],
+  'caturra-la-cuchilla-83-75': [
+    { labelKey: 'process', value: 'مغسول' },
+    { labelKey: 'dominantNotes', value: 'شراب القيقب، شوكولاتة، كراميل' },
+    { labelKey: 'character', value: 'نبرات بهارية، خوخ' },
+    { labelKey: 'experience', value: 'كوب متعدد الطبقات ومهيكل' },
+  ],
+  'catuai-los-cedros-84': [
+    { labelKey: 'dominantNotes', value: 'فاكهة ذات نواة، فانيليا، برقوق' },
+    { labelKey: 'acidityBody', value: 'جسم حريري، حموضة حمضية منعشة' },
+    { labelKey: 'finish', value: 'نهاية طويلة مع عمق حشيشة الليمون في النكهة الخلفية' },
+  ],
+  'dunamix-blend-83-50': [
+    { labelKey: 'dominantNotes', value: 'كراميل، شوكولاتة، عسل، كرز حامض' },
+    { labelKey: 'supportingNotes', value: 'حموضة فاكهية، فانيليا، بندق، برتقال' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط-ممتلئ، قوام كريمي، نهاية حلوة، حموضة متوازنة' },
+    { labelKey: 'character', value: 'متوازن، معقد، ثابت' },
+  ],
+  'mixed-series-82-50': [
+    { labelKey: 'dominantNotes', value: 'شوكولاتة، كراميل، بندق، طابع قهوة عام' },
+    { labelKey: 'supportingNotes', value: 'فاكهة خفيفة، فانيليا، لوز، عسل' },
+    { labelKey: 'bodyFinish', value: 'جسم خفيف-متوسط، قوام مسطح، نهاية قصيرة، حموضة منخفضة' },
+    { labelKey: 'character', value: 'بسيط، مسطح، للشرب اليومي' },
+  ],
+  'espresso-crema': [
+    { labelKey: 'dominantNotes', value: 'عسل، كراميل، تفاح أخضر، عطور زهرية' },
+    { labelKey: 'supportingNotes', value: 'حموضة فاكهية، فانيليا، لوز، بهارات خفيفة' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط، قوام ناعم، نهاية حلوة، حموضة حيوية' },
+    { labelKey: 'character', value: 'متوازن، طازج وحيوي، ثابت' },
+  ],
+};
+
 export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStructuredRow[]>> = {
   en: tastingStructuredForEnFallback,
   nl: tastingStructuredForEnFallback,
   pl: tastingStructuredForEnFallback,
   cs: tastingStructuredForEnFallback,
   it: tastingStructuredForEnFallback,
+  ru: tastingStructuredForRu,
+  ar: tastingStructuredForAr,
   de: {
     'geisha-91-54': [
       {

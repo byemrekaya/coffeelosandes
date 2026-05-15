@@ -773,4 +773,6 @@ export const venezuelaStoryByLocale: Record<Locale, VenezuelaStoryContent> = {
   pl: en,
   cs: en,
   it: en,
+  ru: en,
+  ar: en,
 };

@@ -9,6 +9,8 @@ import { plPartial } from './localePartials/pl';
 import { nlPartial } from './localePartials/nl';
 import { csPartial } from './localePartials/cs';
 import { itPartial } from './localePartials/it';
+import { ruPartial } from './localePartials/ru';
+import { arPartial } from './localePartials/ar';
 
 type Dict = Record<string, unknown>;
 
@@ -1242,4 +1244,6 @@ export const dictionary: Record<string, Dict> = {
   pl: deepMergeDict(deDict, plPartial),
   cs: deepMergeDict(deDict, csPartial),
   it: deepMergeDict(deDict, itPartial),
+  ru: deepMergeDict(deDict, ruPartial),
+  ar: deepMergeDict(deDict, arPartial),
 };

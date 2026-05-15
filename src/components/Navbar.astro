@@ -26,7 +26,7 @@ const navLinks: NavItem[] = [
 
 const navLeft = navLinks.slice(0, 3);
 const navRight = navLinks.slice(3);
-const isHomePath = /^\/(?:(tr|de|en|fr|es|nl|pl|cs|it)\/?)?$/.test(Astro.url.pathname);
+const isHomePath = /^\/(?:(tr|de|en|fr|es|nl|pl|cs|it|ru|ar)\/?)?$/.test(Astro.url.pathname);
 const homeAriaByLocale: Record<Locale, string> = {
   tr: 'Coffee Los Andes ana sayfa',
   de: 'Coffee Los Andes Startseite',
@@ -37,6 +37,8 @@ const homeAriaByLocale: Record<Locale, string> = {
   pl: 'Coffee Los Andes homepage',
   cs: 'Coffee Los Andes homepage',
   it: 'Homepage Coffee Los Andes',
+  ru: 'Главная страница Coffee Los Andes',
+  ar: 'الصفحة الرئيسية Coffee Los Andes',
 };
 
 const linkClass =

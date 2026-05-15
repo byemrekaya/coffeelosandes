@@ -12,6 +12,7 @@ import { venezuelaCoffeeMasterWithSlug } from '../../../data/venezuelaCoffeeMast
 import { getPortfolioCuppingBadgeForMasterSlug } from '../../../data/homePortfolioByCategory';
 import { withLang } from '../../../i18n/paths';
 import { t } from '../../../i18n/t';
+import { translateTicariSegment } from '../../../i18n/translateTicariSegment';
 
 export function getStaticPaths() {
   return buildLangSlugStaticPaths(
@@ -42,7 +43,8 @@ const ogImage = '/losandeseurope.webp';
 const ogImageAlt = `${item.cesit} · ${item.bolge} · Coffee Los Andes`;
 const heroLabel = `${item.segment} ${t(locale, 'products.masterDetailSelectionSuffix')}`;
 const heroSubtitle = [item.bolge, item.ciftlik].filter(Boolean).join(' • ');
-const heroBody = `${t(locale, 'products.masterDetailProducerLabel')}: ${item.uretici}${item.ticari_segment ? ` · ${t(locale, 'products.masterDetailCommercialLabel')}: ${item.ticari_segment}` : ''}`;
+const translatedTicariSegment = translateTicariSegment(item.ticari_segment, locale);
+const heroBody = `${t(locale, 'products.masterDetailProducerLabel')}: ${item.uretici}${item.ticari_segment ? ` · ${t(locale, 'products.masterDetailCommercialLabel')}: ${translatedTicariSegment}` : ''}`;
 const lightboxId = `master-lot-lightbox-${item.slug}`;
 const keyRows = [
   { key: 'score', label: t(locale, 'products.masterDetailCuppingScoreLabel'), value: displayCuppingScore },
@@ -51,7 +53,7 @@ const keyRows = [
   { key: 'farm', label: t(locale, 'products.masterDetailFarmLabel'), value: item.ciftlik },
   { key: 'producer', label: t(locale, 'products.masterDetailProducerLabel'), value: item.uretici },
   { key: 'variety', label: t(locale, 'products.masterDetailVarietyLabel'), value: item.cesit },
-  { key: 'commercial', label: t(locale, 'products.masterDetailCommercialLabel'), value: item.ticari_segment },
+  { key: 'commercial', label: t(locale, 'products.masterDetailCommercialLabel'), value: translatedTicariSegment },
 ].filter((row) => Boolean(row.value && row.value.trim()));
 
 const tastingRows = resolveMasterTastingRows(item.slug, locale);

@@ -19,6 +19,7 @@ import {
   type VenezuelaCoffeeMasterItemWithSlug,
 } from '../../../data/venezuelaCoffeeMaster';
 import { coffeeLots } from '../../../data/coffeeLots';
+import { localizeCoffeeLot } from '../../../i18n/localizeLot';
 import { t } from '../../../i18n/t';
 import { homeSection, withLang } from '../../../i18n/paths';
 import { site } from '../../../config/site';
@@ -102,12 +103,12 @@ const itemsSorted = [...items].sort((a, b) => {
 const COMPETITION_LOT_SLUGS = ['geisha-91-54', 'geisha-el-recreo-91-03', 'tabi-90-38', 'geisha-90-30'] as const;
 const competitionLots =
   categoryId === 'competition-lot'
-    ? COMPETITION_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null)
+    ? COMPETITION_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null).map((l) => localizeCoffeeLot(l, locale))
     : [];
 const ROASTED_COFFEE_LOT_SLUGS = ['espresso-crema'] as const;
 const roastedLots =
   categoryId === 'roasted-coffee'
-    ? ROASTED_COFFEE_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null)
+    ? ROASTED_COFFEE_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null).map((l) => localizeCoffeeLot(l, locale))
     : [];
 const detail = hx.portfolioDetail[categoryId];
 const catCopy = hx.portfolioCategories[categoryId];

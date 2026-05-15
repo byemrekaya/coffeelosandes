@@ -83,4 +83,18 @@ const { locale, class: className = '' } = Astro.props;
       <rect width="12" height="24" x="24" fill="#CE2B37" />
     </>
   )}
+  {locale === 'ru' && (
+    <>
+      <rect width="36" height="8" y="0" fill="#fff" />
+      <rect width="36" height="8" y="8" fill="#0039A6" />
+      <rect width="36" height="8" y="16" fill="#D52B1E" />
+    </>
+  )}
+  {locale === 'ar' && (
+    <>
+      <rect width="36" height="24" fill="#006C35" />
+      <rect width="36" height="8" y="0" fill="#fff" />
+      <rect width="36" height="8" y="16" fill="#fff" />
+    </>
+  )}
 </svg>

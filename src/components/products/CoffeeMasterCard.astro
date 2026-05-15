@@ -6,6 +6,7 @@ import { resolveMasterTastingRows } from '../../i18n/resolveMasterTastingRows';
 import { tastingLabelPath } from '../../i18n/tastingLabelPaths';
 import { withLang } from '../../i18n/paths';
 import { t } from '../../i18n/t';
+import { translateTicariSegment } from '../../i18n/translateTicariSegment';
 
 interface Props {
   item: VenezuelaCoffeeMasterItem;
@@ -27,6 +28,8 @@ const labelByLocale: Record<Locale, { producer: string; farm: string; imageAlt: 
   pl: { producer: 'Producent', farm: 'Farma', imageAlt: 'premium ziarna kawy z Wenezueli' },
   cs: { producer: 'Pěstitel', farm: 'Farma', imageAlt: 'prémiová kávová zrna z Venezuely' },
   it: { producer: 'Produttore', farm: 'Fattoria', imageAlt: 'chicchi di caffè premium dal Venezuela' },
+  ru: { producer: 'Производитель', farm: 'Ферма', imageAlt: 'премиальные кофейные зёрна из Венесуэлы' },
+  ar: { producer: 'المنتج', farm: 'المزرعة', imageAlt: 'حبوب بن ممتازة من فنزويلا' },
 };
 ---
 
@@ -78,7 +81,7 @@ const labelByLocale: Record<Locale, { producer: string; farm: string; imageAlt: 
   )}
 
   <p class="mt-4 inline-flex w-fit rounded-full bg-[#f3efe7] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-[#4f4a44]">
-    {item.ticari_segment}
+    {translateTicariSegment(item.ticari_segment, locale)}
   </p>
 
   <div class="mt-6 border-t border-[#e7dfd3] pt-5 text-center">

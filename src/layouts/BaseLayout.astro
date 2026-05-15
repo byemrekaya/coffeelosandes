@@ -58,6 +58,8 @@ const ogLocaleMap: Record<string, string> = {
   pl: 'pl_PL',
   cs: 'cs_CZ',
   it: 'it_IT',
+  ru: 'ru_RU',
+  ar: 'ar_AR',
 };
 const ogLocale = ogLocaleMap[htmlLang] ?? 'de_DE';
 const ogAlternateLocales = Object.values(ogLocaleMap).filter((loc) => loc !== ogLocale);
@@ -91,7 +93,7 @@ const websiteSchema = {
 ---
 
 <!doctype html>
-<html lang={htmlLang}>
+<html lang={htmlLang} dir={htmlLang === 'ar' ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />

@@ -11,4 +11,6 @@ export const SITE_LOCALE_LABELS: Record<Locale, string> = {
   pl: 'PL',
   cs: 'CS',
   it: 'IT',
+  ru: 'RU',
+  ar: 'AR',
 };

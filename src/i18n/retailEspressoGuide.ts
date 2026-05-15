@@ -254,4 +254,6 @@ export const retailEspressoGuideByLocale: Record<Locale, RetailEspressoGuideCopy
   pl: retailEspressoGuideEnglish,
   cs: retailEspressoGuideEnglish,
   it: retailEspressoGuideEnglish,
+  ru: retailEspressoGuideEnglish,
+  ar: retailEspressoGuideEnglish,
 };
