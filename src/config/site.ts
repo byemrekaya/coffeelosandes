@@ -2,7 +2,7 @@ export const site = {
   name: 'Coffee Los Andes',
   legalEntityName: 'Losandes Europe GmbH i.G.',
   companyOwner: 'Cigdem Kördikanlioglu',
-  officeAddressLine: 'Stallschreiberstr. 8-11, 10969 Berlin',
+  officeAddressLine: 'Neuenburger Str. 19, 10969 Berlin-Bezirk Friedrichshain-Kreuzberg',
   legalSeat: 'Berlin, AG Charlottenburg',
   commercialRegisterHrb: '',
   vatId: '',
