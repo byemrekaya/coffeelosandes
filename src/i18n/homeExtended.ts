@@ -130,28 +130,28 @@ const tr: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro Lot',
       desc: 'Seçilmiş mikro parsellerden, sınırlı üretim kahveler.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'Çubuk 80–100 ölçeğinde üst-orta bandı işaret eder. Micro lot tipik cupping aralığı 84–89’dur.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Özenle seçilmiş, yüksek kalite Arabica serileri.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Çubuk 80–100 ölçeğinde stabil premium specialty hattını yansıtır. Bu kategorideki lotların tipik cupping aralığı 84–86’dır.',
     },
     'specialty-blend': {
       title: 'Specialty Blend',
       desc: 'Dengeli profiller için uzman harmanlar.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Harmon lotlarımız genelde micro bandında cupping görür. Çubuk 80–100 ölçeğinde tipik aralık 84–89’dur.',
     },
     'commercial-lot': {
       title: 'Commercial Lot',
       desc: 'Yüksek hacim ve tutarlı kalite için ticari hat.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'Çubuk 80–100 ölçeğinde giriş seviyesi ticari yeşil çekirdek bandını gösterir. Tipik cupping aralığı 80–82’dir.',
     },
@@ -260,28 +260,28 @@ const de: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro Lot',
       desc: 'Kaffees aus ausgewählten Mikroparzellen in limitierten Mengen.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'Der Balken markiert das obere Mittelfeld der 80–100er Skala. Typische Cupping-Bandbreite für Micro Lots: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Sorgfältig ausgewählte Premium-Arabica-Serien.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Der Balken zeigt die Stabil-Premium-Specialty-Linie auf der 80–100er Skala. Typische Cupping-Bandbreite auf dieser Seite: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty Blend',
       desc: 'Experten-Blends für ausgewogene Profile.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Unsere Blends cuppen meist im Micro-Band. Auf der 80–100er Skala typischerweise 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial Lot',
       desc: 'Handelslinie für Volumen und konsistente Qualität.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'Der Balken steht für die Einstiegs-Commercial-Rohkaffee-Linie auf der 80–100er Skala. Typische Bandbreite: 80–82.',
     },
@@ -390,28 +390,28 @@ const en: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro lot',
       desc: 'Limited coffees from selected micro-parcels.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'The bar reflects the upper-mid band on the 80–100 scale. Typical micro-lot cupping range: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Curated premium Arabica lines.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'The bar reflects the stabil-premium specialty tier on the 80–100 scale. Typical cupping band for lots on this page: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Expert blends for balanced profiles.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Our blends usually cup in the micro band. On the 80–100 scale, typical range: 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Commercial line for volume and consistent quality.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'The bar represents the entry commercial green-coffee tier on the 80–100 scale. Typical cupping band: 80–82.',
     },
@@ -530,28 +530,28 @@ const nl: HomeExtendedShape = {
     'micro-lot': {
       title: 'Microlot',
       desc: 'Beperkte koffies van geselecteerde micropercelen.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'De balk weerspiegelt het boven-middenbereik van de schaal 80–100. Typisch microlot-bereik: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Geselecteerde premium Arabica-lijnen.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'De balk weerspiegelt het stabiele specialty-segment op de schaal 80–100. Typisch cupping-bereik op deze pagina: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty-blend',
       desc: 'Expertblends voor evenwichtige profielen.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Onze blends cuppen meestal in het microlot-bereik. Op de schaal 80–100 typisch bereik: 84–89.',
     },
     'commercial-lot': {
       title: 'Commerciële partij',
       desc: 'Commerciële lijn voor volume en consistente kwaliteit.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'De balk vertegenwoordigt het instap-commerciële groene-koffiesegment op de schaal 80–100. Typisch cupping-bereik: 80–82.',
     },
@@ -669,28 +669,28 @@ const pl: HomeExtendedShape = {
     'micro-lot': {
       title: 'Mikrolot',
       desc: 'Limitowane kawy z wybranych mikrodziałek.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'Pasek odzwierciedla górną część środka skali 80–100. Typowy zakres mikrolotów: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Wyselekcjonowane linie premium Arabica.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Pasek odzwierciedla stabilny segment specialty na skali 80–100. Typowy zakres cuppingu partii na tej stronie: 84–86.',
     },
     'specialty-blend': {
       title: 'Mieszanka specialty',
       desc: 'Eksperckie mieszanki pod zrównoważone profile.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Nasze mieszanki zwykle cuppingują w paśmie mikrolotów. Na skali 80–100 typowy zakres: 84–89.',
     },
     'commercial-lot': {
       title: 'Partia komercyjna',
       desc: 'Linia komercyjna na wolumen i stałą jakość.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'Pasek reprezentuje podstawowy segment zielonej kawy komercyjnej na skali 80–100. Typowy zakres cuppingu: 80–82.',
     },
@@ -808,28 +808,28 @@ const cs: HomeExtendedShape = {
     'micro-lot': {
       title: 'Mikrolot',
       desc: 'Limitované kávy z vybraných mikroparcel.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'Pruh odráží horní střed škály 80–100. Typické pásmo mikrolotů: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Vybrané prémiové linie Arabicy.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Pruh odráží stabilní specialty segment na škále 80–100. Typické cuppingové pásmo šarží na této stránce: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Expertní blendy pro vyvážené profily.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Naše blendy obvykle cuppingují v pásmu mikrolotů. Na škále 80–100 typické pásmo: 84–89.',
     },
     'commercial-lot': {
       title: 'Komerční šarže',
       desc: 'Komerční linka pro objem a stálou kvalitu.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'Pruh představuje vstupní komerční segment zelené kávy na škále 80–100. Typické cuppingové pásmo: 80–82.',
     },
@@ -947,28 +947,28 @@ const it: HomeExtendedShape = {
     'micro-lot': {
       title: 'Microlot',
       desc: 'Caffè limitati da micro-parcelle selezionate.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'La barra riflette la fascia medio-alta della scala 80–100. Intervallo tipico microlot: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Linee Arabica premium selezionate.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'La barra riflette il segmento specialty stabile sulla scala 80–100. Intervallo cup tipico dei lotti in questa pagina: 84–86.',
     },
     'specialty-blend': {
       title: 'Blend specialty',
       desc: 'Blend esperti per profili equilibrati.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'I nostri blend di solito cupano nella fascia microlot. Sulla scala 80–100 intervallo tipico: 84–89.',
     },
     'commercial-lot': {
       title: 'Lotto commerciale',
       desc: 'Linea commerciale per volume e qualità costante.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'La barra rappresenta il segmento commerciale verde di ingresso sulla scala 80–100. Fascia cup tipica: 80–82.',
     },
@@ -1077,28 +1077,28 @@ const fr: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro lot',
       desc: 'Cafés limités issus de micro-parcelles sélectionnées.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'La barre reflète la zone haute-médiane de l’échelle 80–100. Plage typique micro lot : 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Séries Arabica premium sélectionnées.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'La barre reflète la ligne specialty stabil premium sur l’échelle 80–100. Plage cupping typique des lots de cette page : 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Assemblages experts pour des profils équilibrés.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Nos blends cuppent en général dans le bandeau micro. Sur l’échelle 80–100, plage typique : 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Ligne commerciale pour volume et constance.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'La barre représente le segment commercial vert de base sur l’échelle 80–100. Bande cupping typique : 80–82.',
     },
@@ -1207,28 +1207,28 @@ const es: HomeExtendedShape = {
     'micro-lot': {
       title: 'Micro lot',
       desc: 'Cafés limitados de microlotes seleccionados.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 85–89',
       qualityBandCaption:
         'La barra refleja la zona alta-media de la escala 80–100. Rango típico de micro lote: 84–89.',
     },
     specialty: {
       title: 'Specialty',
       desc: 'Líneas Arabica premium seleccionadas.',
-      scoreLine: 'Cupping 84–86',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'La barra refleja la línea specialty stabil premium en la escala 80–100. Banda cupping típica de los lotes de esta página: 84–86.',
     },
     'specialty-blend': {
       title: 'Specialty blend',
       desc: 'Mezclas expertas para perfiles equilibrados.',
-      scoreLine: 'Cupping 84–89',
+      scoreLine: 'Cupping 80–84',
       qualityBandCaption:
         'Nuestras mezclas suelen cuppear en la banda micro. En la escala 80–100, rango típico: 84–89.',
     },
     'commercial-lot': {
       title: 'Commercial lot',
       desc: 'Línea comercial para volumen y constancia.',
-      scoreLine: 'Cupping 80–82',
+      scoreLine: 'Cupping 70–79',
       qualityBandCaption:
         'La barra representa el segmento comercial de café verde de entrada en la escala 80–100. Banda cupping típica: 80–82.',
     },

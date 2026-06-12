@@ -14,9 +14,9 @@ export type HomePortfolioCategoryId = (typeof HOME_PORTFOLIO_CATEGORY_ORDER)[num
 export const HOME_PORTFOLIO_CUPPING_BAR_PCT: Record<HomePortfolioCategoryId, number | null> = {
   'competition-lot': 92,
   'micro-lot': 87,
-  specialty: 85,
-  'specialty-blend': 86,
-  'commercial-lot': 81,
+  specialty: 82,
+  'specialty-blend': 82,
+  'commercial-lot': 75,
   'roasted-coffee': null,
 };
 
@@ -33,10 +33,10 @@ export const PORTFOLIO_CATEGORY_HERO_IMAGE = '/losandes-gardens.webp';
 
 export const PORTFOLIO_CARD_CUPPING_BADGE: Record<HomePortfolioCategoryId, string | null> = {
   'competition-lot': null,
-  'micro-lot': '84–89',
-  specialty: '84–86',
-  'specialty-blend': '84–89',
-  'commercial-lot': '80–82',
+  'micro-lot': '85–89',
+  specialty: '80–84',
+  'specialty-blend': '80–84',
+  'commercial-lot': '70–79',
   'roasted-coffee': null,
 };
 
