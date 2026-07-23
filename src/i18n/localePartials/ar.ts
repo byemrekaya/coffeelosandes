@@ -534,6 +534,9 @@ export const arPartial: Dict = {
     labelHrb: 'السجل التجاري:',
     labelVatId: 'الرقم الضريبي (USt-IdNr.):',
     labelEori: 'رقم EORI:',
+    labelTaxNumber: 'الرقم الضريبي:',
+    labelPhone: 'الهاتف:',
+    labelContactPerson: 'جهة الاتصال التجارية:',
   },
   cookieConsent: {
     title: 'استخدام ملفات تعريف الارتباط',

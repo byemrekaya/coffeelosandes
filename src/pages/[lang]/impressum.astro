@@ -62,17 +62,39 @@ const developerLinkedInUrl = 'https://www.linkedin.com/in/emre-kaya-/';
               {site.eoriNumber}
             </p>
           ) : null}
+          {site.taxNumber ? (
+            <p>
+              <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelTaxNumber')}</span>{' '}
+              {site.taxNumber}
+            </p>
+          ) : null}
         </div>
       </div>
 
       <div>
         <h2 class="text-[11px] font-semibold uppercase tracking-[0.2em] text-heading">{t(locale, 'impressum.contactTitle')}</h2>
-        <p class="mt-2">
-          E-Mail:
-          <a href={`mailto:${site.contactEmail}`} class="underline underline-offset-2 hover:text-ink">
-            {site.contactEmail}
-          </a>
-        </p>
+        <div class="mt-2 space-y-1.5">
+          <p>
+            E-Mail:{' '}
+            <a href={`mailto:${site.contactEmail}`} class="underline underline-offset-2 hover:text-ink">
+              {site.contactEmail}
+            </a>
+          </p>
+          {site.contactPhone ? (
+            <p>
+              <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelPhone')}</span>{' '}
+              <a href={`tel:${site.contactPhone.replace(/\s/g, '')}`} class="underline underline-offset-2 hover:text-ink">
+                {site.contactPhone}
+              </a>
+            </p>
+          ) : null}
+          {site.contactPerson ? (
+            <p>
+              <span class="font-semibold text-ink/90">{t(locale, 'impressum.labelContactPerson')}</span>{' '}
+              {site.contactPerson}
+            </p>
+          ) : null}
+        </div>
       </div>
 
       <div

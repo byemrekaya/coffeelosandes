@@ -535,6 +535,9 @@ export const ruPartial: Dict = {
     labelHrb: 'Торговый реестр:',
     labelVatId: 'ИНН (USt-IdNr.):',
     labelEori: 'Номер EORI:',
+    labelTaxNumber: 'ИНН:',
+    labelPhone: 'Телефон:',
+    labelContactPerson: 'Коммерческий контакт:',
   },
   cookieConsent: {
     title: 'Использование cookies',

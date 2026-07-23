@@ -448,6 +448,9 @@ export const enPartial: Dict = {
     labelHrb: 'Commercial register:',
     labelVatId: 'VAT ID (USt-IdNr.):',
     labelEori: 'EORI number:',
+    labelTaxNumber: 'Tax number:',
+    labelPhone: 'Phone:',
+    labelContactPerson: 'Sales contact:',
   },
   cookieConsent: {
     title: 'Cookie use',

@@ -433,6 +433,9 @@ export const esPartial: Dict = {
     labelHrb: 'Registro mercantil :',
     labelVatId: 'NIF-IVA (USt-IdNr.) :',
     labelEori: 'Número EORI :',
+    labelTaxNumber: 'Número fiscal :',
+    labelPhone: 'Teléfono :',
+    labelContactPerson: 'Contacto comercial :',
   },
   cookieConsent: {
     title: 'Uso de cookies',

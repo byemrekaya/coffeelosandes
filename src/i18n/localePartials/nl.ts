@@ -450,6 +450,9 @@ export const nlPartial: Dict = {
     labelHrb: 'Handelsregister:',
     labelVatId: 'Btw-id (USt-IdNr.):',
     labelEori: 'EORI-nummer:',
+    labelTaxNumber: 'Belastingnummer:',
+    labelPhone: 'Telefoon:',
+    labelContactPerson: 'Commercieel contact:',
   },
   cookieConsent: {
     title: 'Cookiegebruik',

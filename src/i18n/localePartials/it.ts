@@ -450,6 +450,9 @@ export const itPartial: Dict = {
     labelHrb: 'Registro delle imprese:',
     labelVatId: 'Partita IVA / USt-IdNr.:',
     labelEori: 'Numero EORI:',
+    labelTaxNumber: 'Codice fiscale:',
+    labelPhone: 'Telefono:',
+    labelContactPerson: 'Contatto commerciale:',
   },
   cookieConsent: {
     title: 'Uso dei cookie',

@@ -450,6 +450,9 @@ export const csPartial: Dict = {
     labelHrb: 'Obchodní rejstřík:',
     labelVatId: 'DIČ / USt-IdNr.:',
     labelEori: 'Číslo EORI:',
+    labelTaxNumber: 'Daňové číslo:',
+    labelPhone: 'Telefon:',
+    labelContactPerson: 'Obchodní kontakt:',
   },
   cookieConsent: {
     title: 'Používání cookies',

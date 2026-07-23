@@ -614,6 +614,9 @@ const trDict: Dict = {
       labelHrb: 'Handelsregister:',
       labelVatId: 'USt-IdNr.:',
       labelEori: 'EORI-Nummer:',
+      labelTaxNumber: 'Vergi No:',
+      labelPhone: 'Telefon:',
+      labelContactPerson: 'Satış Yetkilisi:',
     },
     cookieConsent: {
       title: 'Çerez kullanımı',
@@ -1219,6 +1222,9 @@ const deDict: Dict = {
       labelHrb: 'Handelsregister:',
       labelVatId: 'USt-IdNr.:',
       labelEori: 'EORI-Nummer:',
+      labelTaxNumber: 'Steuernummer:',
+      labelPhone: 'Telefon:',
+      labelContactPerson: 'Vertrieb Ansprechpartnerin:',
     },
     cookieConsent: {
       title: 'Cookie-Nutzung',
