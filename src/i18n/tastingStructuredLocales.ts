@@ -285,6 +285,24 @@ const tastingStructuredForEnFallback: Record<string, TastingStructuredRow[]> = {
         value: 'Balanced, fresh and lively, stable',
       },
     ],
+    'whole-bean-selection': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Cocoa, caramel, fruit-forward aromas',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Fruit acidity, vanilla, almond, light spice',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Medium body, clean finish, medium-low acidity',
+      },
+      {
+        labelKey: 'character',
+        value: 'Balanced, approachable, ideal for daily use',
+      },
+    ],
 };
 
 const tastingStructuredForRu: Record<string, TastingStructuredRow[]> = {
@@ -382,6 +400,12 @@ const tastingStructuredForRu: Record<string, TastingStructuredRow[]> = {
     { labelKey: 'bodyFinish', value: 'Среднее тело, гладкая текстура, сладкое послевкусие, живая кислотность' },
     { labelKey: 'character', value: 'Сбалансированный, свежий и живой, стабильный' },
   ],
+  'whole-bean-selection': [
+    { labelKey: 'dominantNotes', value: 'Какао, карамель, фруктовые ароматы' },
+    { labelKey: 'supportingNotes', value: 'Фруктовая кислотность, ваниль, миндаль, лёгкие пряности' },
+    { labelKey: 'bodyFinish', value: 'Среднее тело, чистое послевкусие, средне-низкая кислотность' },
+    { labelKey: 'character', value: 'Сбалансированный, доступный, идеален для ежедневного употребления' },
+  ],
 };
 
 const tastingStructuredForAr: Record<string, TastingStructuredRow[]> = {
@@ -478,6 +502,12 @@ const tastingStructuredForAr: Record<string, TastingStructuredRow[]> = {
     { labelKey: 'supportingNotes', value: 'حموضة فاكهية، فانيليا، لوز، بهارات خفيفة' },
     { labelKey: 'bodyFinish', value: 'جسم متوسط، قوام ناعم، نهاية حلوة، حموضة حيوية' },
     { labelKey: 'character', value: 'متوازن، طازج وحيوي، ثابت' },
+  ],
+  'whole-bean-selection': [
+    { labelKey: 'dominantNotes', value: 'كاكاو، كراميل، عطور فاكهية' },
+    { labelKey: 'supportingNotes', value: 'حموضة فاكهية، فانيليا، لوز، بهارات خفيفة' },
+    { labelKey: 'bodyFinish', value: 'جسم متوسط، نهاية نظيفة، حموضة متوسطة إلى منخفضة' },
+    { labelKey: 'character', value: 'متوازن، سهل الشرب، مثالي للاستخدام اليومي' },
   ],
 };
 
@@ -772,6 +802,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Ausgewogen, frisch und lebendig, stabil',
       },
     ],
+    'whole-bean-selection': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Kakao, Karamel, fruchtig-frische Aromen',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Fruchtsäure, Vanille, Mandel, leichte Würze',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Mittlerer Körper, sauberer Abgang, mittlere bis niedrige Säure',
+      },
+      {
+        labelKey: 'character',
+        value: 'Ausgewogen, zugänglich, ideal für den täglichen Genuss',
+      },
+    ],
   },
   fr: {
     'geisha-91-54': [
@@ -1056,6 +1104,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
         value: 'Équilibré, frais et vif, stable',
       },
     ],
+    'whole-bean-selection': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Cacao, caramel, arômes fruités en avant-plan',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: "Acidité fruitée, vanille, amande, épice légère",
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Corps moyen, finale nette, acidité moyenne à faible',
+      },
+      {
+        labelKey: 'character',
+        value: 'Équilibré, accessible, idéal pour la consommation quotidienne',
+      },
+    ],
   },
   es: {
     'geisha-91-54': [
@@ -1338,6 +1404,24 @@ export const tastingStructuredLocales: Record<NonTr, Record<string, TastingStruc
       {
         labelKey: 'character',
         value: 'Equilibrado, fresco y vivo, estable',
+      },
+    ],
+    'whole-bean-selection': [
+      {
+        labelKey: 'dominantNotes',
+        value: 'Cacao, caramelo, aromas afrutados',
+      },
+      {
+        labelKey: 'supportingNotes',
+        value: 'Acidez afrutada, vainilla, almendra, especia ligera',
+      },
+      {
+        labelKey: 'bodyFinish',
+        value: 'Cuerpo medio, final limpio, acidez media a baja',
+      },
+      {
+        labelKey: 'character',
+        value: 'Equilibrado, accesible, ideal para uso diario',
       },
     ],
   },

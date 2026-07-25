@@ -35,6 +35,11 @@ export type HomeExtendedShape = {
   missionTitle: string;
   missionBody: string;
   missionPillars: [string, string, string, string];
+  productShowcaseEyebrow: string;
+  productShowcaseTitle: string;
+  productShowcaseSubtitle: string;
+  productShowcasePills: [string, string, string];
+  productShowcaseCta: string;
 };
 
 type RegionCard = { title: string; body: string; bullets: [string, string, string, string] };
@@ -168,6 +173,11 @@ const tr: HomeExtendedShape = {
   missionBody:
     'Los Andes Europe olarak misyonumuz, Güney Amerika’nın kahve mirasını şeffaf tedarik ve ölçülebilir kalite ile profesyonel alıcılara taşımaktır. Üretici ortaklarımızla uzun vadeli ilişkiler kurar; her adımda güven, sürdürülebilirlik ve saygı ilkelerini önceleriz.',
   missionPillars: ['Tutku', 'Kalite', 'Güven', 'Sürdürülebilirlik'],
+  productShowcaseEyebrow: 'Paketli Ürünler',
+  productShowcaseTitle: 'Paketli Ürünlerimiz',
+  productShowcaseSubtitle: 'Venezuela kökenli, 100% Arabica. Filtre kahve ve çekirdek kahve olarak — özenle işlenmiş, profesyonelce paketlenmiş.',
+  productShowcasePills: ['Filtre Kahve', 'Çekirdek Kahve', 'Venezuela'],
+  productShowcaseCta: 'Ürünleri keşfet',
 };
 
 const de: HomeExtendedShape = {
@@ -298,6 +308,11 @@ const de: HomeExtendedShape = {
   missionBody:
     'Unsere Mission ist es, das südamerikanische Kaffeeerbe mit transparenter Beschaffung und messbarer Qualität zu professionellen Abnehmern zu bringen. Wir pflegen langfristige Partnerschaften mit Erzeugern und setzen auf Vertrauen, Nachhaltigkeit und Respekt in jedem Schritt.',
   missionPillars: ['Leidenschaft', 'Qualität', 'Vertrauen', 'Nachhaltigkeit'],
+  productShowcaseEyebrow: 'Verpackte Produkte',
+  productShowcaseTitle: 'Unsere Kaffeepakete',
+  productShowcaseSubtitle: 'Venezolanischer Ursprung, 100 % Arabica. Als Filterkaffee und als ganze Bohne — sorgfältig verarbeitet, professionell verpackt.',
+  productShowcasePills: ['Filterkaffee', 'Kaffeebohnen', 'Venezuela'],
+  productShowcaseCta: 'Produkte entdecken',
 };
 
 const en: HomeExtendedShape = {
@@ -428,6 +443,11 @@ const en: HomeExtendedShape = {
   missionBody:
     'Our mission is to bring South America’s coffee heritage to professional buyers through transparent sourcing and measurable quality. We build long-term partnerships with producers and uphold trust, sustainability and respect at every step.',
   missionPillars: ['Passion', 'Quality', 'Trust', 'Sustainability'],
+  productShowcaseEyebrow: 'Packaged Products',
+  productShowcaseTitle: 'Our Packaged Coffees',
+  productShowcaseSubtitle: 'Venezuelan origin, 100% Arabica. Available as filter coffee and whole bean — carefully processed, professionally packaged.',
+  productShowcasePills: ['Filter Coffee', 'Whole Bean', 'Venezuela'],
+  productShowcaseCta: 'Explore products',
 };
 
 const nl: HomeExtendedShape = {
@@ -568,6 +588,11 @@ const nl: HomeExtendedShape = {
   missionBody:
     'Onze missie is het Zuid-Amerikaanse koffie-erfenis naar professionele kopers te brengen via transparante sourcing en meetbare kwaliteit. We bouwen langetermijnpartnerschappen met producenten en plaatsen vertrouwen, duurzaamheid en respect voorop.',
   missionPillars: ['Passie', 'Kwaliteit', 'Vertrouwen', 'Duurzaamheid'],
+  productShowcaseEyebrow: 'Verpakte producten',
+  productShowcaseTitle: 'Onze koffiepakketten',
+  productShowcaseSubtitle: 'Venezolaanse herkomst, 100% Arabica. Als filterkoffie en als hele boon — zorgvuldig verwerkt, professioneel verpakt.',
+  productShowcasePills: ['Filterkoffie', 'Hele boon', 'Venezuela'],
+  productShowcaseCta: 'Producten ontdekken',
 };
 const pl: HomeExtendedShape = {
   storyEyebrow: 'Ponad 20 lat',
@@ -707,6 +732,11 @@ const pl: HomeExtendedShape = {
   missionBody:
     'Naszą misją jest przenoszenie dziedzictwa kawowego Ameryki Południowej do kupujących profesjonalnych poprzez przejrzyste pozyskiwanie i mierzalną jakość. Budujemy długoterminowe partnerstwa z producentami i stawiamy zaufanie, zrównoważony rozwój oraz szacunek na pierwszym miejscu.',
   missionPillars: ['Pasja', 'Jakość', 'Zaufanie', 'Zrównoważony rozwój'],
+  productShowcaseEyebrow: 'Produkty pakowane',
+  productShowcaseTitle: 'Nasza kawa w opakowaniach',
+  productShowcaseSubtitle: 'Wenezuelskie pochodzenie, 100% Arabica. Jako kawa filtrowana i ziarnista — starannie przetworzona, profesjonalnie zapakowana.',
+  productShowcasePills: ['Kawa filtrowana', 'Kawa ziarnista', 'Wenezuela'],
+  productShowcaseCta: 'Odkryj produkty',
 };
 const cs: HomeExtendedShape = {
   storyEyebrow: 'Více než 20 let',
@@ -846,6 +876,11 @@ const cs: HomeExtendedShape = {
   missionBody:
     'Naší misí je přinášet kávové dědictví Jižní Ameriky profesionálním kupcům prostřednictvím transparentního sourcingu a měřitelné kvality. Budujeme dlouhodobá partnerství s producenty a klademe důraz na důvěru, udržitelnost a respekt.',
   missionPillars: ['Vášeň', 'Kvalita', 'Důvěra', 'Udržitelnost'],
+  productShowcaseEyebrow: 'Balené produkty',
+  productShowcaseTitle: 'Naše balené kávy',
+  productShowcaseSubtitle: 'Venezuelský původ, 100% Arabica. Jako filtrovaná káva i celá zrna — pečlivě zpracována, profesionálně zabalena.',
+  productShowcasePills: ['Filtrovaná káva', 'Celá zrna', 'Venezuela'],
+  productShowcaseCta: 'Objevit produkty',
 };
 const it: HomeExtendedShape = {
   storyEyebrow: 'Oltre 20 anni',
@@ -985,6 +1020,11 @@ const it: HomeExtendedShape = {
   missionBody:
     'La nostra missione è portare l’eredità del caffè sudamericano ai buyer professionali attraverso sourcing trasparente e qualità misurabile. Costruiamo partnership a lungo termine con i produttori e mettiamo al centro fiducia, sostenibilità e rispetto.',
   missionPillars: ['Passione', 'Qualità', 'Fiducia', 'Sostenibilità'],
+  productShowcaseEyebrow: 'Prodotti confezionati',
+  productShowcaseTitle: 'I nostri caffè in confezione',
+  productShowcaseSubtitle: 'Origine venezuelana, 100% Arabica. Come caffè filtro e come chicchi interi — lavorato con cura, confezionato professionalmente.',
+  productShowcasePills: ['Caffè filtro', 'Chicchi interi', 'Venezuela'],
+  productShowcaseCta: 'Scopri i prodotti',
 };
 
 const fr: HomeExtendedShape = {
@@ -1115,6 +1155,11 @@ const fr: HomeExtendedShape = {
   missionBody:
     'Notre mission est de porter l’héritage caféier sud-américain vers les acheteurs professionnels grâce à un approvisionnement transparent et une qualité mesurable. Nous construisons des partenariats durables avec les producteurs et plaçons confiance, durabilité et respect au centre.',
   missionPillars: ['Passion', 'Qualité', 'Confiance', 'Durabilité'],
+  productShowcaseEyebrow: 'Produits conditionnés',
+  productShowcaseTitle: 'Nos cafés en sachet',
+  productShowcaseSubtitle: 'Origine vénézuélienne, 100 % Arabica. En café filtre et en grains entiers — traité avec soin, emballé professionnellement.',
+  productShowcasePills: ['Café filtre', 'Grains entiers', 'Venezuela'],
+  productShowcaseCta: 'Découvrir les produits',
 };
 
 const es: HomeExtendedShape = {
@@ -1245,6 +1290,11 @@ const es: HomeExtendedShape = {
   missionBody:
     'Nuestra misión es llevar el legado cafetero sudamericano a compradores profesionales con abastecimiento transparente y calidad medible. Construimos alianzas a largo plazo con productores y priorizamos confianza, sostenibilidad y respeto en cada paso.',
   missionPillars: ['Pasión', 'Calidad', 'Confianza', 'Sostenibilidad'],
+  productShowcaseEyebrow: 'Productos envasados',
+  productShowcaseTitle: 'Nuestros cafés envasados',
+  productShowcaseSubtitle: 'Origen venezolano, 100% Arabica. Como café de filtro y en grano entero — procesado con cuidado, envasado profesionalmente.',
+  productShowcasePills: ['Café de filtro', 'Grano entero', 'Venezuela'],
+  productShowcaseCta: 'Explorar productos',
 };
 
 const ru: HomeExtendedShape = {
@@ -1375,6 +1425,11 @@ const ru: HomeExtendedShape = {
   missionBody:
     'Наша миссия — донести кофейное наследие Южной Америки до профессиональных покупателей через прозрачные закупки и измеримое качество. Мы выстраиваем долгосрочные партнёрства с производителями и придерживаемся доверия, устойчивости и уважения на каждом шагу.',
   missionPillars: ['Страсть', 'Качество', 'Доверие', 'Устойчивость'],
+  productShowcaseEyebrow: 'Упакованные продукты',
+  productShowcaseTitle: 'Наш кофе в упаковке',
+  productShowcaseSubtitle: 'Венесуэльское происхождение, 100% Arabica. В молотом и зерновом формате — тщательно обработан, профессионально упакован.',
+  productShowcasePills: ['Молотый кофе', 'Зерновой кофе', 'Венесуэла'],
+  productShowcaseCta: 'Смотреть продукты',
 };
 
 const ar: HomeExtendedShape = {
@@ -1505,6 +1560,11 @@ const ar: HomeExtendedShape = {
   missionBody:
     'مهمتنا هي إيصال إرث القهوة في أمريكا الجنوبية إلى المشترين المحترفين من خلال مصادر شفافة وجودة قابلة للقياس. نبني شراكات طويلة الأمد مع المنتجين ونلتزم بالثقة والاستدامة والاحترام في كل خطوة.',
   missionPillars: ['شغف', 'جودة', 'ثقة', 'استدامة'],
+  productShowcaseEyebrow: 'منتجات معبّأة',
+  productShowcaseTitle: 'قهوتنا المعبّأة',
+  productShowcaseSubtitle: 'منشأ فنزويلي، 100% أرابيكا. كقهوة مفلترة وحبوب كاملة — تمت معالجتها بعناية، وتعبئتها باحترافية.',
+  productShowcasePills: ['قهوة مفلترة', 'حبوب كاملة', 'فنزويلا'],
+  productShowcaseCta: 'استكشف المنتجات',
 };
 
 export const homeExtendedByLocale: Record<Locale, HomeExtendedShape> = {

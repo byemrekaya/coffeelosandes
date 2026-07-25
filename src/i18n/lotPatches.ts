@@ -501,4 +501,90 @@ export const lotLocalePatches: Record<
       ],
     },
   },
+  'whole-bean-selection': {
+    de: {
+      collectionLabel: 'Whole Bean Selection',
+      story:
+        'Los Andes Whole Bean Selection ist ein Premium-Arabica-Blend aus sorgfältig ausgewählten Bohnen aus den Hochlagen Méridas in Venezuela. Reichhaltiger Kakao, ausgewogene Säure und ein langer Abgang — als ganze Bohne geliefert, damit jede Tasse nach Ihrem Mahlgrad frisch gemahlen werden kann.',
+      commercialSummary:
+        '500 g ganze Bohne Retail-Pack — für Regal, Büro und B2B mit klarer venezolanischer Herkunftsgeschichte. Mahlen auf Bestellung für maximale Frische.',
+      cupProfileSummary:
+        'Frucht, Kakao und Karamell im Gleichgewicht; mittlerer Körper, mittel-niedrige Säure — best frisch gemahlen.',
+      buyerUseCases: [
+        'Einzelhandel, Delis und Office-Kaffeeprogramme',
+        'Großhandel mit verpackter Venezuela-Linie (ganze Bohne)',
+        'Kunden, die zu Hause mahlen und auf maximale Frische setzen',
+      ],
+    },
+    tr: {
+      collectionLabel: 'Whole Bean Selection',
+      story:
+        'Los Andes Whole Bean Selection, Venezuela\'nın Mérida dağlık bölgelerinde yetişen özenle seçilmiş Arabica çekirdeklerinden oluşturulan premium bir harmandır. Yoğun kakao, dengeli asidite ve uzun bitiş — çekirdek formatta sunulduğundan her fincanı kendi öğütme tercihine göre taze hazırlayabilirsin.',
+      commercialSummary:
+        '500 g tam çekirdek perakende paket — mağaza, ofis ve toptan hatlar için Venezuela menşe hikâyesiyle hazır satış. Maksimum tazelik için sipariş üzerine öğüt.',
+      cupProfileSummary:
+        'Meyvemsi gövde, kakao ve karamel dengesi; orta gövde, orta-düşük asidite — taze öğütülmüş en iyi.',
+      buyerUseCases: [
+        'Perakende raflar ve ofis kahve programları',
+        'Tam çekirdek Venezuela hattı ekleyen toptan alımlar',
+        'Evde öğüterek maksimum tazelik isteyen müşteriler',
+      ],
+    },
+    fr: {
+      collectionLabel: 'Whole Bean Selection',
+      story:
+        'Los Andes Whole Bean Selection est un blend Arabica premium composé de grains soigneusement sélectionnés des hauts plateaux de Mérida, Venezuela. Cacao riche, acidité équilibrée et longue finale — livré en grains entiers pour moudre à la demande et conserver toute la fraîcheur.',
+      commercialSummary:
+        "Format retail grains entiers 500 g — rayons, bureaux et B2B avec récit d'origine vénézuélien. Moudre à la demande pour une fraîcheur maximale.",
+      cupProfileSummary:
+        'Fruits, cacao et caramel équilibrés ; corps moyen, acidité moyenne-faible — idéal moulu frais.',
+      buyerUseCases: [
+        'Rayons retail et programmes café bureau',
+        'Grossistes ajoutant une ligne emballée Venezuela (grains entiers)',
+        'Clients qui préfèrent moudre eux-mêmes pour une fraîcheur optimale',
+      ],
+    },
+    es: {
+      collectionLabel: 'Whole Bean Selection',
+      story:
+        'Los Andes Whole Bean Selection es un blend Arabica premium elaborado con granos cuidadosamente seleccionados de las tierras altas de Mérida, Venezuela. Cacao rico, acidez equilibrada y largo retrogusto — suministrado en grano entero para moler al momento y obtener la máxima frescura.',
+      commercialSummary:
+        'Pack retail grano entero 500 g — estanterías, oficinas y B2B con historia de origen venezolano. Molienda al momento para frescura máxima.',
+      cupProfileSummary:
+        'Fruta, cacao y caramelo equilibrados; cuerpo medio, acidez media-baja — ideal recién molido.',
+      buyerUseCases: [
+        'Retail, delicatessen y programas de café en oficina',
+        'Mayoristas que añaden línea Venezuela en grano entero',
+        'Clientes que prefieren moler en casa para máxima frescura',
+      ],
+    },
+    ru: {
+      collectionLabel: 'Whole Bean Selection',
+      story:
+        'Los Andes Whole Bean Selection — это премиальный купаж Arabica из тщательно отобранных зёрен высокогорья Мериды в Венесуэле. Насыщенное какао, сбалансированная кислотность и долгое послевкусие — поставляется в зёрнах для помола под каждую чашку.',
+      commercialSummary:
+        'Розничная упаковка (500 г в зёрнах) — полки, офисы и B2B с чёткой венесуэльской историей происхождения. Помол под заказ для максимальной свежести.',
+      cupProfileSummary:
+        'Сбалансированные фрукты, какао и карамель; среднее тело, средне-низкая кислотность — наилучший результат при свежем помоле.',
+      buyerUseCases: [
+        'Розничные полки, деликатесы и офисные кофейные программы',
+        'Оптовые покупатели, добавляющие венесуэльскую линейку в зёрнах',
+        'Клиенты, предпочитающие молоть дома для максимальной свежести',
+      ],
+    },
+    ar: {
+      collectionLabel: 'Whole Bean Selection',
+      story:
+        'Los Andes Whole Bean Selection هو مزيج أرابيكا فاخر مصنوع من حبوب مختارة بعناية من مرتفعات ميريدا بفنزويلا. كاكاو غني وحموضة متوازنة ونهاية طويلة — يُورَّد كحبوب كاملة لطحنها طازجة وفق تفضيلك.',
+      commercialSummary:
+        'عبوة تجزئة حبوب كاملة (500 غ) — للأرفف والمكاتب وبرامج B2B بقصة منشأ فنزويلية واضحة. اطحن عند الطلب للحصول على أقصى درجات النضارة.',
+      cupProfileSummary:
+        'فاكهة وكاكاو وكراميل متوازنة؛ جسم متوسط وحموضة متوسطة-منخفضة — الأفضل عند الطحن الطازج.',
+      buyerUseCases: [
+        'أرفف التجزئة والمحلات والبرامج الكافية في المكاتب',
+        'مشترو الجملة الذين يضيفون خط فنزويلا بالحبوب الكاملة',
+        'العملاء الذين يفضلون الطحن في المنزل للحصول على أقصى نضارة',
+      ],
+    },
+  },
 };

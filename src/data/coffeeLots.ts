@@ -65,7 +65,8 @@ const LOT_IMAGE_FILES: Record<string, string> = {
   'monteclaro-88-75': 'monteclaro-coffee-beans.webp',
   'inia-01-88-73': 'inia-coffee-beans.webp',
   'bourbon-88-52': 'bourbon-coffee-beans.webp',
-  'espresso-crema': 'losandes-coffee-package.webp',
+  'espresso-crema': 'coffee-package.jpeg',
+  'whole-bean-selection': 'coffeepackage-bean.jpeg',
 };
 
 const LOT_IMAGE_ALTS: Record<string, string> = {
@@ -80,6 +81,7 @@ const LOT_IMAGE_ALTS: Record<string, string> = {
   'inia-01-88-73': 'Inia coffee beans for professional roasting',
   'bourbon-88-52': 'Bourbon coffee beans from Venezuela',
   'espresso-crema': 'Blend Selection roasted coffee pack',
+  'whole-bean-selection': 'Whole Bean Selection coffee pack — whole bean 500 g',
 };
 
 export function getLotImageSrc(slug: string): string {
@@ -631,6 +633,41 @@ const coffeeLotsRaw: Array<Omit<CoffeeLot, 'tastingStructured'>> = [
       'Sampling Venezuelan specialty in a ready-to-sell pack format',
     ],
     collectionLabel: 'Blend Selection',
+    altitudeMeters: '1.600 m',
+    moisturePct: DEFAULT_MOIST,
+    screenSize: DEFAULT_SCREEN,
+    bagSizeKg: '0,5 kg (retail)',
+    farmCategory: 'Retail pack',
+    farmMapQuery: 'Mérida, Venezuela',
+  },
+  {
+    slug: 'whole-bean-selection',
+    name: 'Whole Bean Selection',
+    rank: 16,
+    score: 83,
+    scoreDisplay: '82–84',
+    segment: 'retail',
+    producer: '',
+    farm: 'Los Andes — Mérida',
+    variety: 'Colombia27 / Caturra',
+    process: 'Washed / Natural',
+    region: 'Mérida',
+    country: 'Venezuela',
+    flavorTags: ['Cocoa', 'Caramel', 'Fruit'],
+    longTastingNotes:
+      'Fruit-forward cup with cocoa and caramel depth; medium roast, medium-low acidity — whole bean retail format (500 g).',
+    story:
+      'Los Andes Whole Bean Selection is a premium Arabica blend crafted from carefully selected beans grown in the highlands of Mérida, Venezuela. Rich cocoa, balanced acidity and a lingering finish — supplied as whole beans so every cup is freshly ground to your preference.',
+    commercialSummary:
+      'Roasted retail pack (500 g whole bean) for shelves, offices and B2B programmes that need a ready-to-sell Venezuelan specialty with a clear origin story — grind to order for maximum freshness.',
+    cupProfileSummary:
+      'Balanced fruit, cocoa and caramel; medium body and medium-low acidity — approachable for daily service, best ground fresh.',
+    buyerUseCases: [
+      'Retail shelves, delis and office coffee programmes',
+      'Wholesale buyers adding a packaged Venezuelan whole-bean line',
+      'Customers who prefer to grind at home for peak freshness',
+    ],
+    collectionLabel: 'Whole Bean Selection',
     altitudeMeters: '1.600 m',
     moisturePct: DEFAULT_MOIST,
     screenSize: DEFAULT_SCREEN,

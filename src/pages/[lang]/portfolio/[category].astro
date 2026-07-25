@@ -105,7 +105,7 @@ const competitionLots =
   categoryId === 'competition-lot'
     ? COMPETITION_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null).map((l) => localizeCoffeeLot(l, locale))
     : [];
-const ROASTED_COFFEE_LOT_SLUGS = ['espresso-crema'] as const;
+const ROASTED_COFFEE_LOT_SLUGS = ['espresso-crema', 'whole-bean-selection'] as const;
 const roastedLots =
   categoryId === 'roasted-coffee'
     ? ROASTED_COFFEE_LOT_SLUGS.map((slug) => coffeeLots.find((l) => l.slug === slug)).filter((l): l is (typeof coffeeLots)[number] => l != null).map((l) => localizeCoffeeLot(l, locale))

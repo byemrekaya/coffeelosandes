@@ -308,4 +308,22 @@ export const tastingStructuredBySlug: Record<string, TastingStructuredRow[]> = {
       value: 'Dengeli, taze ve canlı, stabil',
     },
   ],
+  'whole-bean-selection': [
+    {
+      labelKey: 'dominantNotes',
+      value: 'Kakao, karamel, meyve öne çıkan aromalar',
+    },
+    {
+      labelKey: 'supportingNotes',
+      value: 'Meyvemsi asidite, vanilya, badem, hafif baharat',
+    },
+    {
+      labelKey: 'bodyFinish',
+      value: 'Orta gövde, temiz bitiş, orta-düşük asidite',
+    },
+    {
+      labelKey: 'character',
+      value: 'Dengeli, içimi kolay, günlük kullanıma uygun',
+    },
+  ],
 };
