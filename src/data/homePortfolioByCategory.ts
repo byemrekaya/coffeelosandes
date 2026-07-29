@@ -1,12 +1,12 @@
 import { venezuelaCoffeeMasterWithSlug } from './venezuelaCoffeeMaster';
 
 export const HOME_PORTFOLIO_CATEGORY_ORDER = [
+  'roasted-coffee',
   'competition-lot',
   'micro-lot',
   'specialty',
   'specialty-blend',
   'commercial-lot',
-  'roasted-coffee',
 ] as const;
 
 export type HomePortfolioCategoryId = (typeof HOME_PORTFOLIO_CATEGORY_ORDER)[number];

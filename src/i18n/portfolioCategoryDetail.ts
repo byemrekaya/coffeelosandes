@@ -21,6 +21,8 @@ export type PortfolioCategorySection = {
   cards?: { title: string; body: string }[];
   table?: { columns: [string, string, string]; rows: [string, string, string][] };
   microLayout?: 'comparison-table' | 'audience-cards' | 'brewing-cards';
+  layout?: 'paired-bullet-cards';
+  bulletCards?: { title: string; bullets: string[] }[];
   tableRowIcons?: PortfolioMicroTableRowIcon[];
   audienceCards?: { title: string; body: string }[];
   brewingCards?: { method: string; ratio: string; temp: string; grind: string }[];
@@ -795,16 +797,58 @@ const de: Record<HomePortfolioCategoryId, PortfolioCategoryDetail> = {
     ],
   },
   'roasted-coffee': {
-    lead: 'Fertig geröstet mit professionellem Profil',
+    lead: 'Premium-Arabica aus den Hochlagen Venezuelas — sorgfältig ausgewählt, schonend geröstet.',
     paragraphs: [
-      'Neben Rohkaffee bieten wir geröstete Kaffees mit definierten Röstkurven für Espresso, Filter oder Spezialrezepturen — mit Fokus auf gleichbleibende Extraktion.',
-      'Verpackung und Profil werden mit B2B-Partnern abgestimmt; langfristige Partienplanung möglich.',
+      'LOS ANDES BLEND SELECTION wird aus sorgfältig ausgewählten 100 % Arabica-Bohnen hergestellt, die in den Hochlagen des venezolanischen Bundesstaates Lara wachsen – einer der bedeutendsten Kaffeeanbauregionen des Landes. Die Kaffeepflanzen gedeihen in 1.400 bis über 1.680 Metern Höhe; das besondere Mikroklima, die mineralreichen Böden und die langsame Reifung sorgen für außergewöhnliche Qualität.',
+      'LOS ANDES arbeitet direkt mit ausgewählten Kaffeeproduzenten und Farmen in Venezuela zusammen — für höchste Qualität, Rückverfolgbarkeit, faire Partnerschaften und sorgfältige Auswahl jeder Ernte.',
+      'Unsere exklusive Blend Selection kombiniert Arabica-Varietäten wie Colombia 27 und Caturra. Natural- und Washed-Aufbereitung vereinen intensive Süße, feine Fruchtigkeit und elegante Klarheit zu einem ausgewogenen Espresso.',
+      'Alle Bohnen werden traditionell und schonend im Trommelröstverfahren geröstet — für optimale Aromaentwicklung und reduzierte Bitterstoffe.',
     ],
     highlights: [
-      { title: 'Professionelle Röstung', desc: 'Abgestimmt auf Qualitäts- und Sensorikprozesse.' },
-      { title: 'Extraktion', desc: 'Stabiler Geschmack über den Tag.' },
-      { title: 'B2B-Flex', desc: 'Eigenes Label, Losgröße und Lieferrhythmus.' },
-      { title: 'Einsatzbereit', desc: 'Schneller Start für Verkauf und Gastronomie.' },
+      { title: 'Hoher Ursprung', desc: '1.400–1.680 m, Bundesstaat Lara, Venezuela.' },
+      { title: 'Direkte Zusammenarbeit', desc: 'Einkauf am Ursprung, volle Rückverfolgbarkeit und faire Partnerschaft.' },
+      { title: 'Schonende Röstung', desc: 'Trommelröstverfahren für optimale Aromaentwicklung.' },
+      { title: 'Vielseitig einsetzbar', desc: 'Espresso, Cappuccino, Latte — Vollautomat und Siebträger.' },
+      { title: 'Komplexes Aromaprofil', desc: 'Dunkle Schokolade, Haselnuss und Karamell — vollmundig mit samtiger Crema.' },
+      { title: '100 % Arabica', desc: 'Reine Arabica-Varietäten Colombia 27 und Caturra aus venezolanischen Hochlagen.' },
+    ],
+    sections: [
+      {
+        anchor: 'profil-und-zubereitung',
+        title: '',
+        layout: 'paired-bullet-cards',
+        bulletCards: [
+          {
+            title: 'Geschmacksprofil',
+            bullets: [
+              'Dunkle Schokolade',
+              'Geröstete Haselnuss',
+              'Karamell',
+              'Vollmundiger Körper',
+              'Samtige Crema',
+              'Langer, harmonischer Nachgeschmack',
+            ],
+          },
+          {
+            title: 'Geeignet für',
+            bullets: [
+              'Espresso',
+              'Caffè Crema',
+              'Cappuccino',
+              'Latte Macchiato',
+              'Vollautomaten',
+              'Siebträgermaschinen',
+            ],
+          },
+        ],
+      },
+      {
+        anchor: 'philosophie',
+        title: 'Die Philosophie von LOS ANDES',
+        paragraphs: [
+          'LOS ANDES steht für authentischen venezolanischen Spitzenkaffee. Unser Ziel ist es, die außergewöhnliche Qualität venezolanischer Kaffeefarmen direkt nach Europa zu bringen und unseren Kunden ein nachhaltiges, transparentes und hochwertiges Kaffeeerlebnis zu bieten.',
+        ],
+      },
     ],
   },
 };

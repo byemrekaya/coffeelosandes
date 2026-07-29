@@ -260,48 +260,33 @@ const breadcrumbSchema = {
 
   <section class="section-band-a w-full py-16 md:py-24">
     <div class="section-shell">
-      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-20">
-        <div class="lg:col-span-5 xl:col-span-4">
-          {detail.paragraphs[0] ? (
-            <p class="font-display text-[clamp(1.15rem,2.2vw,1.35rem)] font-medium leading-[1.55] text-[#3d3a36]">
-              {detail.paragraphs[0]}
-            </p>
-          ) : null}
-          {detail.paragraphs.length > 1 ? (
-            <ul class="mt-8 space-y-3 border-t border-heading/10 pt-8">
-              {detail.paragraphs.slice(1).map((para) => (
-                <li class="flex gap-3 text-[15px] leading-[1.65] text-[#6b655c]">
-                  <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading/45" aria-hidden="true" />
-                  <span>{para}</span>
-                </li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-        <div class="lg:col-span-7 xl:col-span-8 lg:border-l lg:border-line/50 lg:pl-12 xl:pl-16">
-          {detail.quote ? (
-            <blockquote class="relative pl-6 before:absolute before:left-0 before:top-1 before:h-[calc(100%-0.25rem)] before:w-px before:bg-gradient-to-b before:from-heading/50 before:to-heading/10">
-              <p class="text-[17px] font-medium leading-[1.65] text-heading/95 md:text-lg md:leading-relaxed">
-                {detail.quote.text}
+      {categoryId === 'roasted-coffee' ? (
+        /* ── STACKED: metin üstte, highlights altta (roasted-coffee özel) ── */
+        <div class="space-y-14">
+          <div class="mx-auto max-w-4xl text-center">
+            {detail.paragraphs[0] ? (
+              <p class="font-display text-[clamp(1.15rem,2.2vw,1.4rem)] font-medium leading-[1.6] text-[#3d3a36]">
+                {detail.paragraphs[0]}
               </p>
-              {detail.quote.attribution ? (
-                <footer class="mt-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6f7f5f]">
-                  — {detail.quote.attribution}
-                </footer>
-              ) : null}
-            </blockquote>
-          ) : null}
-          <div class:list={['border-t border-line/60 pt-10', detail.quote ? 'mt-12' : 'mt-0']}>
-            <ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+            ) : null}
+            {detail.paragraphs.length > 1 ? (
+              <ul class="mx-auto mt-10 max-w-3xl space-y-3 border-t border-heading/10 pt-8 text-left">
+                {detail.paragraphs.slice(1).map((para) => (
+                  <li class="flex gap-3 text-[15px] leading-[1.7] text-[#6b655c]">
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading/45" aria-hidden="true" />
+                    <span>{para}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+          <div class="border-t border-line/60 pt-12">
+            <ul class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
               {detail.highlights.map((h) => (
-                <li class="flex gap-3.5">
-                  <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-heading/70" aria-hidden="true">
+                <li class="flex gap-4 rounded-xl bg-[#f7f5f1] p-5">
+                  <span class="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white shadow-sm text-heading/70" aria-hidden="true">
                     <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M4.5 12.75l6 6 9-13.5"
-                      />
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                   </span>
                   <div class="min-w-0">
@@ -313,7 +298,63 @@ const breadcrumbSchema = {
             </ul>
           </div>
         </div>
-      </div>
+      ) : (
+        /* ── SIDE BY SIDE: diğer kategoriler değişmez ── */
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-20">
+          <div class="lg:col-span-5 xl:col-span-4">
+            {detail.paragraphs[0] ? (
+              <p class="font-display text-[clamp(1.15rem,2.2vw,1.35rem)] font-medium leading-[1.55] text-[#3d3a36]">
+                {detail.paragraphs[0]}
+              </p>
+            ) : null}
+            {detail.paragraphs.length > 1 ? (
+              <ul class="mt-8 space-y-3 border-t border-heading/10 pt-8">
+                {detail.paragraphs.slice(1).map((para) => (
+                  <li class="flex gap-3 text-[15px] leading-[1.65] text-[#6b655c]">
+                    <span class="mt-2 h-1 w-1 shrink-0 rounded-full bg-heading/45" aria-hidden="true" />
+                    <span>{para}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+          <div class="lg:col-span-7 xl:col-span-8 lg:border-l lg:border-line/50 lg:pl-12 xl:pl-16">
+            {detail.quote ? (
+              <blockquote class="relative pl-6 before:absolute before:left-0 before:top-1 before:h-[calc(100%-0.25rem)] before:w-px before:bg-gradient-to-b before:from-heading/50 before:to-heading/10">
+                <p class="text-[17px] font-medium leading-[1.65] text-heading/95 md:text-lg md:leading-relaxed">
+                  {detail.quote.text}
+                </p>
+                {detail.quote.attribution ? (
+                  <footer class="mt-5 text-[12px] font-semibold uppercase tracking-[0.14em] text-[#6f7f5f]">
+                    — {detail.quote.attribution}
+                  </footer>
+                ) : null}
+              </blockquote>
+            ) : null}
+            <div class:list={['border-t border-line/60 pt-10', detail.quote ? 'mt-12' : 'mt-0']}>
+              <ul class="grid gap-x-10 gap-y-8 sm:grid-cols-2">
+                {detail.highlights.map((h) => (
+                  <li class="flex gap-3.5">
+                    <span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center text-heading/70" aria-hidden="true">
+                      <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M4.5 12.75l6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                    <div class="min-w-0">
+                      <h2 class="text-[14px] font-semibold leading-snug text-heading">{h.title}</h2>
+                      <p class="mt-1.5 text-[13px] leading-relaxed text-[#6b655c]">{h.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 
@@ -325,10 +366,12 @@ const breadcrumbSchema = {
             categoryId === 'micro-lot' && sec.microLayout === 'comparison-table' && sec.table != null;
           const isMicroAud = categoryId === 'micro-lot' && sec.microLayout === 'audience-cards';
           const isMicroBrew = categoryId === 'micro-lot' && sec.microLayout === 'brewing-cards';
+          const isPairedBullet = sec.layout === 'paired-bullet-cards' && (sec.bulletCards?.length ?? 0) > 0;
           const isCardGrid =
-            sec.cards && sec.cards.length > 0 && !isMicroComp && !isMicroAud && !isMicroBrew;
+            sec.cards && sec.cards.length > 0 && !isMicroComp && !isMicroAud && !isMicroBrew && !isPairedBullet;
           const isWhatIs =
             !isCardGrid &&
+            !isPairedBullet &&
             !isMicroComp &&
             !isMicroAud &&
             !isMicroBrew &&
@@ -336,7 +379,36 @@ const breadcrumbSchema = {
           const bandTop = portfolioBandTopClass(secIndex);
           return (
             <div id={sec.anchor} class="scroll-mt-28 anchor-target">
-              {isMicroComp ? (
+              {isPairedBullet ? (
+                <div
+                  class:list={[
+                    'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-14 sm:px-6 md:py-20 lg:px-8',
+                    'bg-paper',
+                    bandTop,
+                  ]}
+                >
+                  <div class="mx-auto max-w-5xl px-0" data-reveal>
+                    <div class="grid gap-8 sm:grid-cols-2">
+                      {(sec.bulletCards ?? []).map((card) => (
+                        <div class="rounded-2xl border border-[#e7dfd3] bg-[#fbfaf7] px-8 py-10 shadow-[0_8px_30px_rgba(40,96,63,0.07)] sm:px-12 sm:py-12">
+                          <h2 class="text-center font-display text-[1.2rem] font-semibold leading-snug text-heading md:text-[1.35rem]">
+                            {card.title}
+                          </h2>
+                          <div class="mx-auto mt-3 h-px w-12 bg-heading/20" aria-hidden="true" />
+                          <ul class="mt-6 space-y-3">
+                            {card.bullets.map((b) => (
+                              <li class="flex items-start gap-3">
+                                <span class="mt-[0.45rem] h-1.5 w-1.5 shrink-0 rounded-full bg-[#28603f]/60" aria-hidden="true" />
+                                <span class="text-[15px] leading-relaxed text-[#5f5b55]">{b}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : isMicroComp ? (
                 <div
                   class:list={[
                     'relative left-1/2 w-screen max-w-none -translate-x-1/2 px-4 py-12 sm:px-6 md:py-16 lg:px-8',

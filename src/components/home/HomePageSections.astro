@@ -107,9 +107,9 @@ const hx = dict.homeExtended as HomeExtendedShape;
   <canvas id="pkg-canvas" class="pointer-events-none absolute inset-0 z-[5]" aria-hidden="true" />
 
   {/* ── Arkaplan ── */}
-  <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,#0e2018_0%,#14301f_45%,#0c1c12_100%)]" aria-hidden="true" />
-  <div class="pointer-events-none absolute -left-32 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#2a6040]/20 blur-[120px]" aria-hidden="true" />
-  <div class="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-amber-900/10 blur-[100px]" aria-hidden="true" />
+  <div class="pointer-events-none absolute inset-0 bg-[linear-gradient(145deg,#0a1a10_0%,#0f2318_50%,#081409_100%)]" aria-hidden="true" />
+  <div class="pointer-events-none absolute -left-32 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-[#28603f]/18 blur-[120px]" aria-hidden="true" />
+  <div class="pointer-events-none absolute -right-24 bottom-0 h-[380px] w-[380px] rounded-full bg-[#28603f]/08 blur-[100px]" aria-hidden="true" />
 
   <div class="section-shell relative z-10">
     <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
@@ -151,68 +151,41 @@ const hx = dict.homeExtended as HomeExtendedShape;
         </a>
       </div>
 
-      {/* ── Sağ — ikili paket görseli ── */}
+      {/* ── Sağ — tek paket görseli ── */}
       <div class="pkg-visual flex items-center justify-center lg:justify-end">
-        <div class="pkg-stage relative flex items-end justify-center gap-5 sm:gap-7">
-          {/* Zemin gölgesi (elips) — genişletildi */}
+        <div class="pkg-stage relative flex items-center justify-center">
+          {/* Zemin gölgesi (elips) */}
           <div
-            class="pointer-events-none absolute bottom-[-28px] left-1/2 h-[40px] w-[360px] -translate-x-1/2 rounded-full bg-black/40 blur-[20px]"
+            class="pointer-events-none absolute bottom-[-28px] left-1/2 h-[40px] w-[280px] -translate-x-1/2 rounded-full bg-black/40 blur-[20px]"
             aria-hidden="true"
           />
           {/* Halka parıltısı */}
           <div
-            class="pointer-events-none absolute inset-[-24px] rounded-[40px] bg-[radial-gradient(ellipse_at_center,rgba(168,200,154,0.07)_0%,transparent_70%)]"
+            class="pointer-events-none absolute inset-[-24px] rounded-[40px] bg-[radial-gradient(ellipse_at_center,rgba(40,96,63,0.08)_0%,transparent_70%)]"
             aria-hidden="true"
           />
 
-          {/* ── Sol slot: Filtre Kahve ── */}
-          <div class="pkg-slot-filter relative flex flex-col items-center">
-            <div class="pkg-wrapper-filter relative">
-              <Image
-                src="/coffee-package.jpeg"
-                alt={hx.productShowcasePills[0]}
-                width="380"
-                height="500"
-                class="pkg-img-filter relative z-10 h-auto w-[148px] drop-shadow-[0_28px_56px_rgba(0,0,0,0.62)] sm:w-[170px] md:w-[190px] lg:w-[205px]"
-                loading="lazy"
-              />
-            </div>
-            <div class="pkg-label-filter mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-3 py-1.5 backdrop-blur-sm ring-1 ring-inset ring-white/10">
-              <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-[#a8c89a]" aria-hidden="true" />
-              <span class="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/80">{hx.productShowcasePills[0]}</span>
-            </div>
-          </div>
-
-          {/* ── Orta ince divider ── */}
-          <div class="mb-10 h-[120px] w-px self-center bg-gradient-to-b from-transparent via-white/18 to-transparent" aria-hidden="true" />
-
-          {/* ── Sağ slot: Çekirdek Kahve (hafif aşağı offset — derinlik hissi) ── */}
-          <div class="pkg-slot-bean relative flex translate-y-4 flex-col items-center">
-            <div class="pkg-wrapper-bean relative">
-              <Image
-                src="/coffeepackage-bean.jpeg"
-                alt={hx.productShowcasePills[1]}
-                width="380"
-                height="500"
-                class="pkg-img-bean relative z-10 h-auto w-[148px] drop-shadow-[0_28px_56px_rgba(0,0,0,0.62)] sm:w-[170px] md:w-[190px] lg:w-[205px]"
-                loading="lazy"
-              />
-            </div>
-            <div class="pkg-label-bean mt-3 inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/[0.08] px-3 py-1.5 backdrop-blur-sm ring-1 ring-inset ring-white/10">
-              <span class="h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400/70" aria-hidden="true" />
-              <span class="text-[9px] font-semibold uppercase tracking-[0.16em] text-white/80">{hx.productShowcasePills[1]}</span>
-            </div>
+          {/* ── Tek paket görseli ── */}
+          <div class="pkg-wrapper relative">
+            <Image
+              src="/losandes.coffee.package.jpeg"
+              alt={hx.productShowcaseTitle}
+              width="460"
+              height="600"
+              class="relative z-10 h-auto w-[260px] drop-shadow-[0_40px_80px_rgba(0,0,0,0.75)] sm:w-[320px] md:w-[380px] lg:w-[460px]"
+              loading="lazy"
+            />
           </div>
 
           {/* Badge — sağ üst */}
           <div class="pkg-badge absolute -right-4 top-4 z-30 flex flex-col items-center rounded-2xl border border-white/15 bg-white/[0.09] px-4 py-3 text-center backdrop-blur-md ring-1 ring-inset ring-white/10 sm:-right-8">
             <span class="font-display text-[1.4rem] font-semibold leading-none text-white">100%</span>
-            <span class="mt-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#a8c89a]">Arabica</span>
+            <span class="mt-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#c8a06a]">Arabica</span>
           </div>
 
           {/* Badge — sol alt */}
           <div class="pkg-badge-2 absolute -left-4 bottom-8 z-30 flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.09] px-4 py-2.5 backdrop-blur-md ring-1 ring-inset ring-white/10 sm:-left-8">
-            <span class="h-2 w-2 rounded-full bg-[#a8c89a]" aria-hidden="true" />
+            <span class="h-2 w-2 rounded-full bg-[#c8a06a]" aria-hidden="true" />
             <span class="text-[10px] font-semibold uppercase tracking-[0.14em] text-white/80">Venezuela</span>
           </div>
         </div>
@@ -223,15 +196,10 @@ const hx = dict.homeExtended as HomeExtendedShape;
 </section>
 
 <style is:global>
-  /* ── JS aktifken paketler + etiketler + badge'leri gizle ── */
-  .pkg-showcase.pkg-js-ready .pkg-wrapper-filter,
-  .pkg-showcase.pkg-js-ready .pkg-wrapper-bean {
+  /* ── JS aktifken paket + badge'leri gizle ── */
+  .pkg-showcase.pkg-js-ready .pkg-wrapper {
     opacity: 0;
     transform: scale(0.88);
-  }
-  .pkg-showcase.pkg-js-ready .pkg-label-filter,
-  .pkg-showcase.pkg-js-ready .pkg-label-bean {
-    opacity: 0;
   }
   .pkg-showcase.pkg-js-ready .pkg-badge,
   .pkg-showcase.pkg-js-ready .pkg-badge-2 {
@@ -244,11 +212,8 @@ const hx = dict.homeExtended as HomeExtendedShape;
     0%, 100% { transform: translateY(0px); }
     50%       { transform: translateY(-7px); }
   }
-  .pkg-wrapper-filter.pkg-floating {
+  .pkg-wrapper.pkg-floating {
     animation: pkg-float 4s ease-in-out infinite;
-  }
-  .pkg-wrapper-bean.pkg-floating-delayed {
-    animation: pkg-float 4.6s ease-in-out 0.7s infinite;
   }
 
   /* ── Text fade-in (tetikleyici: pkg-js-ready yokken data-reveal'dan bağımsız) ── */
@@ -274,15 +239,12 @@ const hx = dict.homeExtended as HomeExtendedShape;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const pkgStage         = section.querySelector<HTMLElement>('.pkg-stage');
-    const pkgWrapperFilter = section.querySelector<HTMLElement>('.pkg-wrapper-filter');
-    const pkgWrapperBean   = section.querySelector<HTMLElement>('.pkg-wrapper-bean');
-    const pkgLabelFilter   = section.querySelector<HTMLElement>('.pkg-label-filter');
-    const pkgLabelBean     = section.querySelector<HTMLElement>('.pkg-label-bean');
-    const pkgBadge         = section.querySelector<HTMLElement>('.pkg-badge');
-    const pkgBadge2        = section.querySelector<HTMLElement>('.pkg-badge-2');
+    const pkgStage   = section.querySelector<HTMLElement>('.pkg-stage');
+    const pkgWrapper = section.querySelector<HTMLElement>('.pkg-wrapper');
+    const pkgBadge   = section.querySelector<HTMLElement>('.pkg-badge');
+    const pkgBadge2  = section.querySelector<HTMLElement>('.pkg-badge-2');
 
-    if (!pkgStage || !pkgWrapperFilter || !pkgWrapperBean || !pkgBadge || !pkgBadge2) return;
+    if (!pkgStage || !pkgWrapper || !pkgBadge || !pkgBadge2) return;
 
     /* ── Reduced-motion fallback ── */
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -305,28 +267,24 @@ const hx = dict.homeExtended as HomeExtendedShape;
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    /* ── Bean data — group 0 = filtre, group 1 = çekirdek ── */
+    /* ── Bean data ── */
     interface Bean {
       x: number; y: number; rotation: number; scale: number; opacity: number;
       vx: number; vy: number; vrotation: number; size: number;
       convX: number; convY: number; convRot: number;
       scatterX: number; scatterY: number;
-      group: 0 | 1;
     }
     const beans: Bean[] = [];
 
     function createBeans(
-      filterRect: { left: number; top: number; width: number; height: number },
-      beanRect:   { left: number; top: number; width: number; height: number }
+      pkgRect: { left: number; top: number; width: number; height: number }
     ) {
       beans.length = 0;
-      const total = 28;
-      for (let i = 0; i < total; i++) {
-        const group = (i < total / 2 ? 0 : 1) as 0 | 1;
-        const target = group === 0 ? filterRect : beanRect;
-        const targetCX = target.left + target.width  / 2;
-        const targetCY = target.top  + target.height / 2;
+      const total = 24;
+      const targetCX = pkgRect.left + pkgRect.width  / 2;
+      const targetCY = pkgRect.top  + pkgRect.height / 2;
 
+      for (let i = 0; i < total; i++) {
         const sx  = cssW * 0.05 + Math.random() * cssW * 0.90;
         const sy  = cssH * 0.04 + Math.random() * cssH * 0.92;
         const rot = Math.random() * Math.PI * 2;
@@ -343,12 +301,11 @@ const hx = dict.homeExtended as HomeExtendedShape;
           vy:        (Math.random() - 0.5) * 0.55,
           vrotation: (Math.random() - 0.5) * 0.024,
           size:      13 + Math.random() * 13,
-          convX:    target.left + 0.1 * target.width  + Math.random() * 0.8 * target.width,
-          convY:    target.top  + 0.1 * target.height + Math.random() * 0.8 * target.height,
+          convX:    pkgRect.left + 0.1 * pkgRect.width  + Math.random() * 0.8 * pkgRect.width,
+          convY:    pkgRect.top  + 0.1 * pkgRect.height + Math.random() * 0.8 * pkgRect.height,
           convRot:  rot + dir * (Math.PI * (4 + Math.random() * 2.5)),
           scatterX: targetCX + Math.cos(sa) * sd,
           scatterY: targetCY + Math.sin(sa) * sd,
-          group,
         });
       }
     }
@@ -405,24 +362,15 @@ const hx = dict.homeExtended as HomeExtendedShape;
 
       /* Compute package bounds relative to section */
       const sr  = section!.getBoundingClientRect();
-      const frB = pkgWrapperFilter!.getBoundingClientRect();
-      const beB = pkgWrapperBean!.getBoundingClientRect();
+      const wrB = pkgWrapper!.getBoundingClientRect();
 
-      const filterRect = {
-        left: frB.left - sr.left, top: frB.top - sr.top,
-        width: frB.width, height: frB.height,
-      };
-      const beanRect = {
-        left: beB.left - sr.left, top: beB.top - sr.top,
-        width: beB.width, height: beB.height,
+      const pkgRect = {
+        left: wrB.left - sr.left, top: wrB.top - sr.top,
+        width: wrB.width, height: wrB.height,
       };
 
-      createBeans(filterRect, beanRect);
+      createBeans(pkgRect);
       rafLoop();
-
-      /* Pre-split groups (stable refs for staggered scatter) */
-      const filterGroup = beans.filter(b => b.group === 0);
-      const beanGroup   = beans.filter(b => b.group === 1);
 
       /* Drift ticker (Phase 1) */
       let drifting = true;
@@ -452,7 +400,7 @@ const hx = dict.homeExtended as HomeExtendedShape;
       /* Stop drift */
       tl.call(() => { drifting = false; gsap.ticker.remove(driftFn); }, null, 1.3);
 
-      /* Phase 2 (1.3 – 2.65s): beans converge — each group to its own package */
+      /* Phase 2 (1.3 – 2.65s): beans converge to the single package */
       tl.to(beans, {
         x:        (i: number) => beans[i].convX,
         y:        (i: number) => beans[i].convY,
@@ -464,77 +412,39 @@ const hx = dict.homeExtended as HomeExtendedShape;
         ease: 'power3.in',
       }, 1.3);
 
-      /* Phase 3a (2.45s): filtre kahve paketi belirir */
-      tl.fromTo(pkgWrapperFilter,
+      /* Phase 3 (2.45s): paket belirir */
+      tl.fromTo(pkgWrapper,
         { opacity: 0, scale: 0.90, y: 10 },
-        { opacity: 1, scale: 1,    y: 0,  duration: 1.05, ease: 'power2.out' },
+        { opacity: 1, scale: 1,    y: 0,  duration: 1.10, ease: 'power2.out' },
         2.45
       );
 
-      /* Phase 3b (2.63s): çekirdek kahve paketi belirir (hafif gecikme — derinlik) */
-      tl.fromTo(pkgWrapperBean,
-        { opacity: 0, scale: 0.90, y: 10 },
-        { opacity: 1, scale: 1,    y: 0,  duration: 1.05, ease: 'power2.out' },
-        2.63
-      );
-
-      /* Phase 4a (2.68s): filtre grubu fasulyeler saçılıyor */
-      tl.to(filterGroup, {
-        x:       (i: number) => filterGroup[i].scatterX,
-        y:       (i: number) => filterGroup[i].scatterY,
+      /* Phase 4 (2.68s): fasulyeler saçılıyor */
+      tl.to(beans, {
+        x:       (i: number) => beans[i].scatterX,
+        y:       (i: number) => beans[i].scatterY,
         opacity: 0,
         scale:   0.07,
-        duration: 0.60,
-        stagger: { amount: 0.38, from: 'random' },
+        duration: 0.65,
+        stagger: { amount: 0.42, from: 'random' },
         ease: 'power2.in',
       }, 2.68);
 
-      /* Phase 4b (2.82s): çekirdek grubu fasulyeler saçılıyor */
-      tl.to(beanGroup, {
-        x:       (i: number) => beanGroup[i].scatterX,
-        y:       (i: number) => beanGroup[i].scatterY,
-        opacity: 0,
-        scale:   0.07,
-        duration: 0.60,
-        stagger: { amount: 0.38, from: 'random' },
-        ease: 'power2.in',
-      }, 2.82);
-
-      /* Ürün etiketleri yukarıdan kayarak gelir */
-      if (pkgLabelFilter) {
-        tl.fromTo(pkgLabelFilter,
-          { opacity: 0, y: 6 },
-          { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
-          3.10
-        );
-      }
-      if (pkgLabelBean) {
-        tl.fromTo(pkgLabelBean,
-          { opacity: 0, y: 6 },
-          { opacity: 1, y: 0, duration: 0.45, ease: 'power2.out' },
-          3.22
-        );
-      }
-
       /* Badge'ler patlıyor */
-      tl.to(pkgBadge,  { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(2.4)' }, 3.40);
-      tl.to(pkgBadge2, { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(2.4)' }, 3.55);
+      tl.to(pkgBadge,  { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(2.4)' }, 3.20);
+      tl.to(pkgBadge2, { opacity: 1, scale: 1, duration: 0.65, ease: 'back.out(2.4)' }, 3.35);
 
-      /* Cleanup (3.92s): canvas durdur, GSAP inline style'ları temizle, float başlat */
+      /* Cleanup (3.70s): canvas durdur, GSAP inline style'ları temizle, float başlat */
       tl.call(() => {
         if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
         ctx!.clearRect(0, 0, canvas!.width, canvas!.height);
-        gsap.set(pkgWrapperFilter!, { clearProps: 'transform,scale,y' });
-        gsap.set(pkgWrapperBean!,   { clearProps: 'transform,scale,y' });
-        gsap.set(pkgBadge!,         { clearProps: 'transform,scale' });
-        gsap.set(pkgBadge2!,        { clearProps: 'transform,scale' });
-        if (pkgLabelFilter) gsap.set(pkgLabelFilter, { clearProps: 'opacity,transform,y' });
-        if (pkgLabelBean)   gsap.set(pkgLabelBean,   { clearProps: 'opacity,transform,y' });
+        gsap.set(pkgWrapper!, { clearProps: 'transform,scale,y' });
+        gsap.set(pkgBadge!,   { clearProps: 'transform,scale' });
+        gsap.set(pkgBadge2!,  { clearProps: 'transform,scale' });
         section!.classList.remove('pkg-js-ready');
-        /* Reveal sonrası nazik float hareketi */
-        pkgWrapperFilter!.classList.add('pkg-floating');
-        pkgWrapperBean!.classList.add('pkg-floating-delayed');
-      }, null, 3.92);
+        /* Reveal sonrası nazif float hareketi */
+        pkgWrapper!.classList.add('pkg-floating');
+      }, null, 3.70);
     }
 
     /* ── IntersectionObserver trigger ── */

@@ -30,9 +30,9 @@ const segmentLabelKey =
 
 <a
   href={withLang(`/coffees/${lot.slug}`, locale)}
-  class="group relative flex h-[34rem] flex-col overflow-hidden rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)] md:h-[36rem]"
+  class="group relative flex h-full min-h-[34rem] flex-col overflow-hidden rounded-[24px] border border-[#ddd4c7] bg-[#fcfbf7] shadow-[0_10px_30px_rgba(0,0,0,0.04)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
 >
-  <div class="relative h-60 overflow-hidden bg-[#e9e2d6] md:h-72">
+  <div class="relative aspect-[4/3] overflow-hidden bg-[#e9e2d6]">
     <img
       src={coverSrc}
       alt={coverAlt}
