@@ -8,8 +8,8 @@ export const site = {
   vatId: 'DE 463145028',
   eoriNumber: 'DE765125978298777',
   taxNumber: '37/425/50529',
-  contactPhone: '+49 155 661 27 389',
-  contactPerson: 'Gülnihal Şener',
+  contactPhone: '+49 178 9312217',
+  contactPerson: 'Fırat Kördikanlıoğlu',
   defaultTitle: 'Coffee Los Andes – Geschmack aus den Höhen der Anden · B2B',
   defaultDescription:
     'B2B-Kaffeeversorgung mit direkt angebundenen Ursprungslots aus Venezuela: transparent, planbar und auf professionelle Abnehmer ausgerichtet.',
